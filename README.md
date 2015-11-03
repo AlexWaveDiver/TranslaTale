@@ -15,8 +15,11 @@ https://www.visualstudio.com/en-us/products/visual-studio-express-vs
 TO-DO
 ====================
 * Search
-* Animation preview
+* Text animation
+* A Preview for in-battle texts
 * Improve the preview rendering time
+* Version Control and backup
+* A DIFF viewer for versioned files
 
 
 Known Issues
