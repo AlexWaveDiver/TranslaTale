@@ -26,6 +26,10 @@
         Process.Start("https://github.com/crumblingstatue/gmktool/")
     End Sub
 
+    Private Sub LinkLabel2_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
+        Process.Start("https://github.com/AlexWaveDiver/TranslaTale")
+    End Sub
+
     Private Sub LogoPictureBox_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LogoPictureBox.Click
         If PictureBox1.Visible = False Then
             PictureBox1.Image = CType(My.Resources.ResourceManager.GetObject("migosp"), Image)
@@ -33,9 +37,5 @@
             LogoPictureBox.Image = CType(My.Resources.ResourceManager.GetObject("about2"), Image)
             PictureBox1.Visible = True
         End If
-    End Sub
-
-    Private Sub LinkLabel2_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
-        Process.Start("https://github.com/AlexWaveDiver/TranslaTale")
     End Sub
 End Class
