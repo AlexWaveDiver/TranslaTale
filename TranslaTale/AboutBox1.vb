@@ -34,4 +34,8 @@
             PictureBox1.Visible = True
         End If
     End Sub
+
+    Private Sub LinkLabel2_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
+        Process.Start("https://github.com/AlexWaveDiver/TranslaTale")
+    End Sub
 End Class
