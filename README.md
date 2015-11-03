@@ -20,3 +20,9 @@ It's recommended to make a backup of your text file before overwriting it.
 If you have an unaddressed issue, feel free to submit it here:
 
 https://github.com/AlexWaveDiver/TranslaTale/issues
+
+
+====================
+Thanks to Mika Attila, for providing an incredible tool like GMKTool
+
+https://github.com/crumblingstatue/gmktool
