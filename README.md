@@ -12,6 +12,13 @@ You can get VB.NET Express 2010 from here:
 https://www.visualstudio.com/en-us/products/visual-studio-express-vs
 
 
+TO-DO
+====================
+* Search
+* Animation preview
+* Improve the preview rendering time
+
+
 Known Issues
 ====================
 Sometimes, when saving the file, the lines array have an overflow causing a NullPointerException.
