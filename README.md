@@ -24,8 +24,6 @@ TO-DO
 
 Known Issues
 ====================
-* Sometimes, when saving the file, the lines array have an overflow causing a NullPointerException. It's recommended to make a backup of your text file before overwriting it.
-
 * There is no word wrap for long sentences.
 
 If you have an unaddressed issue, feel free to submit it here:
