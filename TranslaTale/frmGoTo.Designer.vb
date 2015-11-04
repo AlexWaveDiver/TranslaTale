@@ -31,6 +31,7 @@ Partial Class frmGoTo
         '
         'btnJump
         '
+        Me.btnJump.Enabled = False
         Me.btnJump.Location = New System.Drawing.Point(119, 54)
         Me.btnJump.Name = "btnJump"
         Me.btnJump.Size = New System.Drawing.Size(75, 23)

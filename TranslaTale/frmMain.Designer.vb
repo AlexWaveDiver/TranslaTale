@@ -56,6 +56,10 @@ Partial Class frmMain
         Me.ttipUntranslated = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ttipTotal = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog2 = New System.Windows.Forms.SaveFileDialog()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
@@ -63,10 +67,6 @@ Partial Class frmMain
         Me.cf3 = New System.Windows.Forms.PictureBox()
         Me.cf2 = New System.Windows.Forms.PictureBox()
         Me.cf1 = New System.Windows.Forms.PictureBox()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.c3 = New System.Windows.Forms.PictureBox()
         Me.c2 = New System.Windows.Forms.PictureBox()
         Me.c1 = New System.Windows.Forms.PictureBox()
@@ -108,25 +108,25 @@ Partial Class frmMain
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.OpenToolStripMenuItem.Text = "&Open"
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Enabled = False
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SaveToolStripMenuItem.Text = "&Save"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(100, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "&Exit"
         '
         'BookmarksToolStripMenuItem
@@ -325,46 +325,6 @@ Partial Class frmMain
         Me.ToolStrip1.TabIndex = 49
         Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'cbFonts
-        '
-        Me.cbFonts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbFonts.FormattingEnabled = True
-        Me.cbFonts.Items.AddRange(New Object() {"Standard", "Sans", "Papyrus"})
-        Me.cbFonts.Location = New System.Drawing.Point(542, 402)
-        Me.cbFonts.Name = "cbFonts"
-        Me.cbFonts.Size = New System.Drawing.Size(121, 21)
-        Me.cbFonts.TabIndex = 53
-        '
-        'cf3
-        '
-        Me.cf3.BackColor = System.Drawing.Color.Black
-        Me.cf3.Location = New System.Drawing.Point(188, 526)
-        Me.cf3.Name = "cf3"
-        Me.cf3.Size = New System.Drawing.Size(420, 30)
-        Me.cf3.TabIndex = 52
-        Me.cf3.TabStop = False
-        Me.cf3.Visible = False
-        '
-        'cf2
-        '
-        Me.cf2.BackColor = System.Drawing.Color.Black
-        Me.cf2.Location = New System.Drawing.Point(188, 493)
-        Me.cf2.Name = "cf2"
-        Me.cf2.Size = New System.Drawing.Size(420, 30)
-        Me.cf2.TabIndex = 51
-        Me.cf2.TabStop = False
-        Me.cf2.Visible = False
-        '
-        'cf1
-        '
-        Me.cf1.BackColor = System.Drawing.Color.Black
-        Me.cf1.Location = New System.Drawing.Point(188, 461)
-        Me.cf1.Name = "cf1"
-        Me.cf1.Size = New System.Drawing.Size(420, 30)
-        Me.cf1.TabIndex = 50
-        Me.cf1.TabStop = False
-        Me.cf1.Visible = False
-        '
         'ToolStripButton1
         '
         Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -404,6 +364,46 @@ Partial Class frmMain
         Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton3.Text = "Search"
         Me.ToolStripButton3.Visible = False
+        '
+        'cbFonts
+        '
+        Me.cbFonts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbFonts.FormattingEnabled = True
+        Me.cbFonts.Items.AddRange(New Object() {"Standard", "Sans", "Papyrus"})
+        Me.cbFonts.Location = New System.Drawing.Point(542, 402)
+        Me.cbFonts.Name = "cbFonts"
+        Me.cbFonts.Size = New System.Drawing.Size(121, 21)
+        Me.cbFonts.TabIndex = 53
+        '
+        'cf3
+        '
+        Me.cf3.BackColor = System.Drawing.Color.Black
+        Me.cf3.Location = New System.Drawing.Point(188, 526)
+        Me.cf3.Name = "cf3"
+        Me.cf3.Size = New System.Drawing.Size(420, 30)
+        Me.cf3.TabIndex = 52
+        Me.cf3.TabStop = False
+        Me.cf3.Visible = False
+        '
+        'cf2
+        '
+        Me.cf2.BackColor = System.Drawing.Color.Black
+        Me.cf2.Location = New System.Drawing.Point(188, 493)
+        Me.cf2.Name = "cf2"
+        Me.cf2.Size = New System.Drawing.Size(420, 30)
+        Me.cf2.TabIndex = 51
+        Me.cf2.TabStop = False
+        Me.cf2.Visible = False
+        '
+        'cf1
+        '
+        Me.cf1.BackColor = System.Drawing.Color.Black
+        Me.cf1.Location = New System.Drawing.Point(188, 461)
+        Me.cf1.Name = "cf1"
+        Me.cf1.Size = New System.Drawing.Size(420, 30)
+        Me.cf1.TabIndex = 50
+        Me.cf1.TabStop = False
+        Me.cf1.Visible = False
         '
         'c3
         '

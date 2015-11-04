@@ -66,6 +66,18 @@ Public Class frmMain
         Else
             Exit Sub
         End If
+        ListView1.Enabled = False
+        TextBox1.Enabled = False
+        SaveToolStripMenuItem.Enabled = False
+        ttipUntranslated.Text = "0"
+        ttipTranslated.Text = "0"
+        ttipTotal.Text = "0"
+        AddToolStripMenuItem.Enabled = False
+        ToolStripButton2.Enabled = False
+        ToolStripButton3.Enabled = False
+        ToolStripButton4.Enabled = False
+        showText("")
+        TextBox1.Text = ""
         fileNameTitle = OpenFileDialog1.SafeFileName
         ListView1.Clear()
         ListView1.View = View.Details
@@ -102,7 +114,7 @@ Public Class frmMain
             Exit Sub
         End If
 
-        If numLines < 0 Or numLines2 < 0 Then
+        If numLines < 1 Or numLines2 < 1 Then
             MsgBox("The files must not be empty", vbExclamation)
             Exit Sub
         End If
@@ -131,25 +143,31 @@ Public Class frmMain
         ToolStripButton2.Enabled = True
         ToolStripButton3.Enabled = True
         ToolStripButton4.Enabled = True
+        If numLines < 1 Or numLines2 < 1 Then
+            ListView1.Items(0).Selected = True
+        End If
         ListView1.Focus()
+        ListView1.HideSelection = False
+        showText(ListView1.Items(0).SubItems(2).Text)
+        TextBox1.Text = ListView1.Items(0).SubItems(2).Text
         Me.Text = "TranslaTale - " + fileNameTitle
     End Sub
 
-    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
+    Private Sub TextBox1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyUp
         If ListView1.SelectedItems.Count > 0 Then
-            ListView1.FocusedItem.SubItems(2).Text = TextBox1.Text
+            ListView1.SelectedItems(0).SubItems(2).Text = TextBox1.Text
             showText(TextBox1.Text)
-            If ListView1.FocusedItem.SubItems(1).Text <> TextBox1.Text Then
-                ListView1.FocusedItem.BackColor = Color.LightGreen
+            If ListView1.SelectedItems(0).SubItems(1).Text <> TextBox1.Text Then
+                ListView1.SelectedItems(0).BackColor = Color.LightGreen
                 saved = False
                 Me.Text = "TranslaTale - " + fileNameTitle + " *"
                 SaveToolStripMenuItem.Enabled = True
             Else
-                ListView1.FocusedItem.BackColor = Color.LightSalmon
+                ListView1.SelectedItems(0).BackColor = Color.LightSalmon
             End If
-
             countTranslated()
         End If
+
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
@@ -645,10 +663,12 @@ Public Class frmMain
     End Sub
 
     Private Sub ListView1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
-        If ListView1.FocusedItem IsNot Nothing Then
-            Dim val As String = ListView1.FocusedItem.SubItems(2).Text
-            TextBox1.Text = val
-            showText(val)
+        If ListView1.SelectedItems.Count > 0 Then
+            If ListView1.SelectedItems(0) IsNot Nothing Then
+                Dim val As String = ListView1.SelectedItems(0).SubItems(2).Text
+                TextBox1.Text = val
+                showText(val)
+            End If
         End If
     End Sub
 
@@ -676,10 +696,12 @@ Public Class frmMain
     End Sub
 
     Private Sub cbFonts_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbFonts.SelectedIndexChanged
-        If ListView1.FocusedItem IsNot Nothing Then
-            Dim val As String = ListView1.FocusedItem.SubItems(2).Text
-            TextBox1.Text = val
-            showText(val)
+        If ListView1.SelectedItems.Count > 0 Then
+            If ListView1.SelectedItems(0) IsNot Nothing Then
+                Dim val As String = ListView1.SelectedItems(0).SubItems(2).Text
+                TextBox1.Text = val
+                showText(val)
+            End If
         End If
     End Sub
 
@@ -823,5 +845,9 @@ Public Class frmMain
             End If
         Next i
         MsgBox("Process finished", vbInformation)
+    End Sub
+
+    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
+
     End Sub
 End Class

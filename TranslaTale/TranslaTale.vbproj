@@ -99,6 +99,12 @@
     <Compile Include="AboutBox1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmWizard.Designer.vb">
+      <DependentUpon>frmWizard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWizard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmGoTo.Designer.vb">
       <DependentUpon>frmGoTo.vb</DependentUpon>
     </Compile>
@@ -144,6 +150,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWizard.resx">
+      <DependentUpon>frmWizard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGoTo.resx">
       <DependentUpon>frmGoTo.vb</DependentUpon>

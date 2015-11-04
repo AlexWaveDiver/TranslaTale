@@ -17,13 +17,20 @@
             If frmMain.ttipTotal.Text < line Then
                 MsgBox("Line " + line.ToString + " not found", vbInformation)
             Else
+                Dim lvItem As ListViewItem
+
+                For Each lvItem In frmMain.ListView1.Items
+                    lvItem.Checked = False
+                Next
+
                 frmMain.ListView1.SelectedItems().Clear()
                 frmMain.ListView1.Items(line - 1).Selected = True
                 frmMain.ListView1.EnsureVisible(line - 1)
                 frmMain.ListView1.Focus()
-                If frmMain.ListView1.FocusedItem IsNot Nothing Then
+                If frmMain.ListView1.SelectedItems(0) IsNot Nothing Then
                     Dim val As String = frmMain.ListView1.Items(line - 1).SubItems(2).Text
                     frmMain.showText(val)
+                    frmMain.TextBox1.Text = val
                 End If
                 Me.Close()
             End If
@@ -36,5 +43,13 @@
 
     Private Sub frmGoTo_Shown(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Shown
         txtLineNumber.Focus()
+    End Sub
+
+    Private Sub txtLineNumber_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtLineNumber.TextChanged
+        If txtLineNumber.Text.Length > 0 Then
+            btnJump.Enabled = True
+        Else
+            btnJump.Enabled = False
+        End If
     End Sub
 End Class
