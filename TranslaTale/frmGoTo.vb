@@ -17,12 +17,6 @@
             If frmMain.ttipTotal.Text < line Then
                 MsgBox("Line " + line.ToString + " not found", vbInformation)
             Else
-                Dim lvItem As ListViewItem
-
-                For Each lvItem In frmMain.ListView1.Items
-                    lvItem.Checked = False
-                Next
-
                 frmMain.ListView1.SelectedItems().Clear()
                 frmMain.ListView1.Items(line - 1).Selected = True
                 frmMain.ListView1.EnsureVisible(line - 1)
