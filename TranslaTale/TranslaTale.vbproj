@@ -195,6 +195,7 @@
     <None Include="Resources\3.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\libgcc_s_dw2-1.dll" />
     <None Include="Resources\ico-step.png" />
     <None Include="Resources\migosp.gif" />
     <None Include="Resources\ico-dwn.png" />
@@ -229,6 +230,8 @@
     <None Include="Resources\font3o.png" />
     <None Include="Resources\font3l.png" />
     <None Include="Resources\font3g.png" />
+    <None Include="bin\Debug\libgcc_s_dw2-1.dll" />
+    <None Include="bin\Debug\gmktool.exe" />
     <Content Include="Resources\gmktool.exe" />
     <Content Include="icon_8SA_icon.ico" />
   </ItemGroup>

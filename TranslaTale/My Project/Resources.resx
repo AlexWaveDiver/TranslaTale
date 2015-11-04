@@ -127,9 +127,6 @@
   <data name="font1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\font1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gmktool" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gmktool.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="img3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -231,5 +228,11 @@
   </data>
   <data name="font3y" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\font3y.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gmktool" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\gmktool.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="libgcc_s_dw2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\libgcc_s_dw2-1.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

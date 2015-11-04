@@ -296,12 +296,17 @@ Public Class frmMain
             Exit Sub
         End If
 
-        Dim filename As String = Application.StartupPath + "\gmktool.exe"
+        Dim filename As String = Application.StartupPath + "\libgcc_s_dw2-1.dll"
+        System.IO.File.WriteAllBytes(filename, My.Resources.libgcc_s_dw2_1)
+
+        filename = Application.StartupPath + "\gmktool.exe"
         System.IO.File.WriteAllBytes(filename, My.Resources.gmktool)
+
 
         Dim p As New ProcessStartInfo
         p.FileName = filename
-        p.Arguments = """" & winPath & """ strings dump """ & stringsPath & """"
+        p.Arguments = """" & winPath & """ strings unpack """ & stringsPath & """"
+
         unpackStringsProc = Process.Start(p)
         unpackStringsProc.WaitForExit()
         Dim i As Integer
@@ -726,7 +731,11 @@ Public Class frmMain
         Else
             Exit Sub
         End If
-        Dim filename As String = Application.StartupPath + "\gmktool.exe"
+
+        Dim filename As String = Application.StartupPath + "\libgcc_s_dw2-1.dll"
+        System.IO.File.WriteAllBytes(filename, My.Resources.libgcc_s_dw2_1)
+
+        filename = Application.StartupPath + "\gmktool.exe"
         System.IO.File.WriteAllBytes(filename, My.Resources.gmktool)
 
         Dim p As New ProcessStartInfo
@@ -769,15 +778,20 @@ Public Class frmMain
             Exit Sub
         End If
 
-        Dim filename As String = Application.StartupPath + "\gmktool.exe"
+
+        Dim filename As String = Application.StartupPath + "\libgcc_s_dw2-1.dll"
+        System.IO.File.WriteAllBytes(filename, My.Resources.libgcc_s_dw2_1)
+
+        filename = Application.StartupPath + "\gmktool.exe"
         System.IO.File.WriteAllBytes(filename, My.Resources.gmktool)
 
         Dim p As New ProcessStartInfo
         p.FileName = filename
-        p.Arguments = """" & winPath & """ textures dump"
+        p.Arguments = """" & winPath & """ textures unpack"
         unpackImagesProc = Process.Start(p)
         unpackImagesProc.WaitForExit()
 
+        Clipboard.SetText(p.FileName + " " + p.Arguments)
         Dim i As Integer
         For i = 0 To 4
             If Not unpackImagesProc.HasExited Then
@@ -827,8 +841,10 @@ Public Class frmMain
             End If
         Next
 
+        Dim filename As String = Application.StartupPath + "\libgcc_s_dw2-1.dll"
+        System.IO.File.WriteAllBytes(filename, My.Resources.libgcc_s_dw2_1)
 
-        Dim filename As String = Application.StartupPath + "\gmktool.exe"
+        filename = Application.StartupPath + "\gmktool.exe"
         System.IO.File.WriteAllBytes(filename, My.Resources.gmktool)
 
         Dim p As New ProcessStartInfo
