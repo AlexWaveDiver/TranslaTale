@@ -150,13 +150,14 @@ Public Class frmMain
         ListView1.HideSelection = False
         showText(ListView1.Items(0).SubItems(2).Text)
         TextBox1.Text = ListView1.Items(0).SubItems(2).Text
+        frmSearch.Close()
         Me.Text = "TranslaTale - " + fileNameTitle
     End Sub
 
     Private Sub TextBox1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyUp
+        Timer1.Enabled = False
         If ListView1.SelectedItems.Count > 0 Then
             ListView1.SelectedItems(0).SubItems(2).Text = TextBox1.Text
-            showText(TextBox1.Text)
             If ListView1.SelectedItems(0).SubItems(1).Text <> TextBox1.Text Then
                 ListView1.SelectedItems(0).BackColor = Color.LightGreen
                 saved = False
@@ -165,9 +166,8 @@ Public Class frmMain
             Else
                 ListView1.SelectedItems(0).BackColor = Color.LightSalmon
             End If
-            countTranslated()
         End If
-
+        Timer1.Enabled = True
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
@@ -678,9 +678,13 @@ Public Class frmMain
     End Sub
 
     Private Sub AddToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddToolStripMenuItem.Click
-        Dim tag As String = InputBox("Bookmark name")
-        If tag <> "" Then
-            saveBookmark(ListView1.SelectedItems(0).Index + 1, tag)
+        If ListView1.SelectedItems.Count > 0 Then
+            Dim tag As String = InputBox("Bookmark name")
+            If tag <> "" Then
+                saveBookmark(ListView1.SelectedItems(0).Index + 1, tag)
+            End If
+        Else
+            MsgBox("You must select the line you want to add to the bookmarks list", vbExclamation)
         End If
     End Sub
 
@@ -690,10 +694,6 @@ Public Class frmMain
 
     Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
         OpenToolStripMenuItem.PerformClick()
-    End Sub
-
-    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton3.Click
-        frmSearch.Show()
     End Sub
 
     Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton4.Click
@@ -863,7 +863,21 @@ Public Class frmMain
         MsgBox("Process finished", vbInformation)
     End Sub
 
-    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        showText(TextBox1.Text)
+        countTranslated()
+        Timer1.Enabled = False
+    End Sub
 
+    Private Sub tsSearchPrev_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        'For Each item As ListViewItem In Me.ListView1.Items
+        '    If item.SubItems(1).Text.Contains("demon") Then
+        '        MsgBox(item.Index.ToString())
+        '    End If
+        'Next
+    End Sub
+
+    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton3.Click
+        frmSearch.Show()
     End Sub
 End Class

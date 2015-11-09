@@ -22,6 +22,7 @@ Partial Class frmMain
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Dim ListViewGroup2 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Dim ListViewGroup3 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
@@ -41,6 +42,7 @@ Partial Class frmMain
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.DumpImagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RepackImagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.rbTextbox = New System.Windows.Forms.RadioButton()
@@ -64,6 +66,7 @@ Partial Class frmMain
         Me.SaveFileDialog2 = New System.Windows.Forms.SaveFileDialog()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.cbFonts = New System.Windows.Forms.ComboBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.cf3 = New System.Windows.Forms.PictureBox()
         Me.cf2 = New System.Windows.Forms.PictureBox()
         Me.cf1 = New System.Windows.Forms.PictureBox()
@@ -91,7 +94,7 @@ Partial Class frmMain
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.BookmarksToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.BookmarksToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.OptionsToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(679, 24)
@@ -177,13 +180,20 @@ Partial Class frmMain
         '
         Me.DumpImagesToolStripMenuItem.Name = "DumpImagesToolStripMenuItem"
         Me.DumpImagesToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
-        Me.DumpImagesToolStripMenuItem.Text = "Dump Images"
+        Me.DumpImagesToolStripMenuItem.Text = "Dump &Images"
         '
         'RepackImagesToolStripMenuItem
         '
         Me.RepackImagesToolStripMenuItem.Name = "RepackImagesToolStripMenuItem"
         Me.RepackImagesToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
-        Me.RepackImagesToolStripMenuItem.Text = "Repack Images"
+        Me.RepackImagesToolStripMenuItem.Text = "Repack I&mages"
+        '
+        'OptionsToolStripMenuItem
+        '
+        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.OptionsToolStripMenuItem.Text = "&Options"
+        Me.OptionsToolStripMenuItem.Visible = False
         '
         'HelpToolStripMenuItem
         '
@@ -363,7 +373,6 @@ Partial Class frmMain
         Me.ToolStripButton3.Name = "ToolStripButton3"
         Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton3.Text = "Search"
-        Me.ToolStripButton3.Visible = False
         '
         'cbFonts
         '
@@ -374,6 +383,10 @@ Partial Class frmMain
         Me.cbFonts.Name = "cbFonts"
         Me.cbFonts.Size = New System.Drawing.Size(121, 21)
         Me.cbFonts.TabIndex = 53
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 200
         '
         'cf3
         '
@@ -575,5 +588,7 @@ Partial Class frmMain
     Friend WithEvents SaveFileDialog2 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents cbFonts As System.Windows.Forms.ComboBox
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents OptionsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

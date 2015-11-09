@@ -99,6 +99,18 @@
     <Compile Include="AboutBox1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmSearch.Designer.vb">
+      <DependentUpon>frmSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptions.Designer.vb">
+      <DependentUpon>frmOptions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmOptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmWizard.Designer.vb">
       <DependentUpon>frmWizard.vb</DependentUpon>
     </Compile>
@@ -124,12 +136,6 @@
     <Compile Include="frmBookmarks.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSearch.Designer.vb">
-      <DependentUpon>frmSearch.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmSearch.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="funcs.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -151,6 +157,12 @@
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSearch.resx">
+      <DependentUpon>frmSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptions.resx">
+      <DependentUpon>frmOptions.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmWizard.resx">
       <DependentUpon>frmWizard.vb</DependentUpon>
     </EmbeddedResource>
@@ -162,9 +174,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBookmarks.resx">
       <DependentUpon>frmBookmarks.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSearch.resx">
-      <DependentUpon>frmSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -232,6 +241,7 @@
     <None Include="Resources\font3g.png" />
     <None Include="bin\Debug\libgcc_s_dw2-1.dll" />
     <None Include="bin\Debug\gmktool.exe" />
+    <None Include="Resources\font3es.png" />
     <Content Include="Resources\gmktool.exe" />
     <Content Include="icon_8SA_icon.ico" />
   </ItemGroup>
