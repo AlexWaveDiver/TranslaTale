@@ -14,7 +14,7 @@ https://www.visualstudio.com/en-us/products/visual-studio-express-vs
 
 TO-DO
 ====================
-* Search
+* ~~Search~~ Done!
 * Text animation
 * A Preview for in-battle texts
 * Improve the preview rendering time
