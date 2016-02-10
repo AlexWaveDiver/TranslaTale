@@ -39,8 +39,6 @@ Partial Class frmFontImporter
         Me.lblRebootTT = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -209,8 +207,6 @@ Partial Class frmFontImporter
         '
         Me.Panel3.BackColor = System.Drawing.Color.White
         Me.Panel3.Controls.Add(Me.Label9)
-        Me.Panel3.Controls.Add(Me.LinkLabel1)
-        Me.Panel3.Controls.Add(Me.Label6)
         Me.Panel3.Controls.Add(Me.LinkLabel3)
         Me.Panel3.Controls.Add(Me.Label5)
         Me.Panel3.Controls.Add(Me.Label7)
@@ -223,33 +219,11 @@ Partial Class frmFontImporter
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(20, 143)
+        Me.Label9.Location = New System.Drawing.Point(21, 96)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(114, 13)
         Me.Label9.TabIndex = 13
         Me.Label9.Text = "Click Next to continue."
-        '
-        'LinkLabel1
-        '
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.LinkLabel1.LinkColor = System.Drawing.Color.SteelBlue
-        Me.LinkLabel1.Location = New System.Drawing.Point(20, 95)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(30, 13)
-        Me.LinkLabel1.TabIndex = 12
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "Here"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(20, 95)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(243, 26)
-        Me.Label6.TabIndex = 11
-        Me.Label6.Text = "         is a video-tutorial about how to prepare your " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "project resources for im" & _
-    "porting."
         '
         'LinkLabel3
         '
@@ -448,8 +422,6 @@ Partial Class frmFontImporter
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents lblRebootTT As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents LinkLabel3 As System.Windows.Forms.LinkLabel
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
