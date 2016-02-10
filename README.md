@@ -34,3 +34,8 @@ https://github.com/fjay69/UndertaleTools
 Thanks to Mika Attila, for providing an incredible tool like GMKTool (previous version)
 
 https://github.com/crumblingstatue/gmktool
+
+====================
+Thanks to ChrisBlue, developer of the UTSpriteFontBox library!
+
+https://twitter.com/_Chrisblue
