@@ -6,42 +6,104 @@ Imports System.Drawing.Imaging
 Imports System.Xml
 Imports System.Text
 
-Public Class frmMain
+Public NotInheritable Class frmMain
+
+    Dim fontResource As String = Application.StartupPath + "\fonts.png"
+
+    Private Sub frmMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        End
+    End Sub
+
+    Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        If Not My.Settings.fontsheetPath = "" And Not File.Exists(My.Settings.fontsheetPath) Then
+            MsgBox("Custom fontsheet not found. Using default fontsheet instead.", vbInformation)
+            SpriteFontBox1.ImageLocation = fontResource
+        Else
+            SpriteFontBox1.ImageLocation = My.Settings.fontsheetPath
+        End If
+
+        MenuStrip1.BackColor = Color.Transparent
+        ToolStrip1.BackColor = Color.Transparent
+        If TypeOf ToolStrip1.Renderer Is ToolStripProfessionalRenderer Then
+            CType(ToolStrip1.Renderer, ToolStripProfessionalRenderer).RoundedEdges = False
+        End If
+        If Not File.Exists(fontResource) Then
+            My.Resources.fonts.Save(fontResource)
+        End If
+
+        SpriteFontBox1.FontPath = fontResource
+        SpriteFontBox1.LoadFont()
+
+        Dim ApplicationTitle As String
+        If My.Application.Info.Title <> "" Then
+            ApplicationTitle = My.Application.Info.Title
+        Else
+            ApplicationTitle = System.IO.Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
+        End If
+        Me.Text = String.Format("{0}", ApplicationTitle)
+    End Sub
+
+    Private Sub ListView1_ColumnWidthChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.ColumnWidthChangedEventArgs) Handles ListView1.ColumnWidthChanged
+        Static FireMe As Boolean = True
+        If FireMe = True Then
+            FireMe = False
+            Dim pnlWidth As Integer = pnlPreview.Width / 2
+            Dim pnfrmWidth As Integer = Me.Width / 2
+            Dim colFreeWidth = ((ListView1.Width - 60) / 2) - 20
+            If ListView1.Columns.Count > 2 Then
+                With ListView1
+                    .Columns(0).Width = 60
+                    .Columns(1).Width = colFreeWidth
+                    .Columns(2).Width = colFreeWidth
+                End With
+            End If
+            FireMe = True
+        End If
+    End Sub
+
+    Private Sub ListView1_ColumnWidthChanging(ByVal sender As Object, ByVal e As System.Windows.Forms.ColumnWidthChangingEventArgs) Handles ListView1.ColumnWidthChanging
+        e.Cancel = True
+    End Sub
+
+    Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Me.Close()
+    End Sub
+
+    Private Sub frmMain_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        ListView1.Size = New Size(TableLayoutPanel.Width, TableLayoutPanel.Height)
+        Dim pnlWidth As Integer = pnlPreview.Width / 2
+        Dim pnfrmWidth As Integer = Me.Width / 2
+        Dim colFreeWidth = ((ListView1.Width - 60) / 2) - 20
+        pnlPreview.Left = pnlWidth + pnfrmWidth
+        TextBox1.Width = Me.Width
+        If ListView1.Columns.Count > 0 Then
+            With ListView1
+                .Columns(0).Width = 60
+                .Columns(1).Width = colFreeWidth
+                .Columns(2).Width = colFreeWidth
+            End With
+        End If
+    End Sub
     Dim actualColor As String = "white"
     Dim lastClicked As Integer = 0
     Dim opened As Boolean = True
     Dim saved As Boolean = True
     Dim fileNameTitle As String = ""
     Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbTextbox.CheckedChanged
-        picTxtFlowey.Visible = False
+        SpriteFontBox1.Visible = True
         picTxtEnemy.Visible = False
-        picTxtBox.Visible = True
-
-        c1.Visible = True
-        c2.Visible = True
-        c3.Visible = True
-        cf1.Visible = False
-        cf2.Visible = False
-        cf3.Visible = False
+        SpriteFontBox1.ShowFaces = False
     End Sub
 
     Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbFacebox.CheckedChanged
-        picTxtFlowey.Visible = True
+        SpriteFontBox1.Visible = True
         picTxtEnemy.Visible = False
-        picTxtBox.Visible = False
-
-        c1.Visible = False
-        c2.Visible = False
-        c3.Visible = False
-        cf1.Visible = True
-        cf2.Visible = True
-        cf3.Visible = True
+        SpriteFontBox1.ShowFaces = True
     End Sub
 
     Private Sub RadioButton3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton3.CheckedChanged
-        picTxtFlowey.Visible = False
+        SpriteFontBox1.Visible = False
         picTxtEnemy.Visible = True
-        picTxtBox.Visible = False
     End Sub
 
     Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem.Click
@@ -93,11 +155,17 @@ Public Class frmMain
         ListView1.CheckBoxes = False
         ListView1.OwnerDraw = False
 
-        With ListView1
-            .Columns(0).Width = CInt(.Width * 0.1)
-            .Columns(1).Width = CInt(.Width * 0.4)
-            .Columns(2).Width = CInt(.Width * 0.4)
-        End With
+        Dim pnlWidth As Integer = pnlPreview.Width / 2
+        Dim pnfrmWidth As Integer = Me.Width / 2
+        Dim colFreeWidth = ((ListView1.Width - 60) / 2) - 20
+
+        If ListView1.Columns.Count > 0 Then
+            With ListView1
+                .Columns(0).Width = 60
+                .Columns(1).Width = colFreeWidth
+                .Columns(2).Width = colFreeWidth
+            End With
+        End If
 
         Dim sr As New System.IO.StreamReader(path1)
         Dim lines() As String = IO.File.ReadAllLines(path1)
@@ -155,7 +223,6 @@ Public Class frmMain
     End Sub
 
     Private Sub TextBox1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyUp
-        Timer1.Enabled = False
         If ListView1.SelectedItems.Count > 0 Then
             ListView1.SelectedItems(0).SubItems(2).Text = TextBox1.Text
             If ListView1.SelectedItems(0).SubItems(1).Text <> TextBox1.Text Then
@@ -167,7 +234,7 @@ Public Class frmMain
                 ListView1.SelectedItems(0).BackColor = Color.LightSalmon
             End If
         End If
-        Timer1.Enabled = True
+        SpriteFontBox1.Text = TextBox1.Text
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
@@ -204,11 +271,18 @@ Public Class frmMain
         ListView1.CheckBoxes = False
         ListView1.OwnerDraw = False
         cbFonts.SelectedIndex = 0
-        With ListView1
-            .Columns(0).Width = CInt(.Width * 0.1)
-            .Columns(1).Width = CInt(.Width * 0.4)
-            .Columns(2).Width = CInt(.Width * 0.4)
-        End With
+
+        Dim pnlWidth As Integer = pnlPreview.Width / 2
+        Dim pnfrmWidth As Integer = Me.Width / 2
+        Dim colFreeWidth = ((ListView1.Width - 60) / 2) - 20
+
+        If ListView1.Columns.Count > 0 Then
+            With ListView1
+                .Columns(0).Width = 60
+                .Columns(1).Width = colFreeWidth
+                .Columns(2).Width = colFreeWidth
+            End With
+        End If
     End Sub
 
     Private Sub Form1_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
@@ -280,7 +354,7 @@ Public Class frmMain
         Dim sPath As String
         Dim unpackStringsProc As Process
 
-        OpenFileDialog2.Filter = "data.win|data.win"
+        OpenFileDialog2.Filter = "data.win|*.win"
         OpenFileDialog2.Title = "Select data.win"
 
         If OpenFileDialog2.ShowDialog() = DialogResult.OK Then
@@ -296,17 +370,13 @@ Public Class frmMain
             Exit Sub
         End If
 
-        Dim filename As String = Application.StartupPath + "\libgcc_s_dw2-1.dll"
-        System.IO.File.WriteAllBytes(filename, My.Resources.libgcc_s_dw2_1)
+        Dim filename As String = Application.StartupPath + "\WinExtract.exe"
+        System.IO.File.WriteAllBytes(filename, My.Resources.WinExtract)
 
-        filename = Application.StartupPath + "\gmktool.exe"
-        System.IO.File.WriteAllBytes(filename, My.Resources.gmktool)
-
-
+        Dim tmpPath As String = GetTempFolder(True)
         Dim p As New ProcessStartInfo
         p.FileName = filename
-        p.Arguments = """" & winPath & """ strings unpack """ & stringsPath & """"
-
+        p.Arguments = """" & winPath & """ """ & tmpPath & """"
         unpackStringsProc = Process.Start(p)
         unpackStringsProc.WaitForExit()
         Dim i As Integer
@@ -318,6 +388,8 @@ Public Class frmMain
             End If
         Next i
 
+        File.Copy(tmpPath & "\STRG.txt", stringsPath, True)
+        System.IO.Directory.Delete(tmpPath, True)
         MsgBox("Process finished", vbInformation)
 
         sPath = StrReverse(SaveFileDialog2.FileName)
@@ -325,300 +397,6 @@ Public Class frmMain
         sPath = StrReverse(sPath)
         Process.Start(sPath)
     End Sub
-
-    Public Function drawTextLine(ByVal elem As PictureBox, ByVal text As String)
-        Dim output As New Bitmap(1547, 30)
-        Dim gfx As Graphics = Graphics.FromImage(output)
-        Dim line As Integer = 0
-        Dim baseFont As String = "font1"
-
-        If cbFonts.SelectedItem = "Standard" Then
-            baseFont = "font1"
-        ElseIf cbFonts.SelectedItem = "Sans" Then
-            baseFont = "font2"
-        ElseIf cbFonts.SelectedItem = "Papyrus" Then
-            baseFont = "font3"
-        End If
-
-        text = text.Replace("\W", "⁰").Replace("\X", "⁰").Replace("\L", "⁹").Replace("\Y", "⁴").Replace("\G", "⁵").Replace("\B", "⁶").Replace("\O", "⁷").Replace("\R", "⁸").Replace("\P", "ⁿ").Replace("^1", "").Replace("^2", "").Replace("^3", "").Replace("^4", "").Replace("^5", "").Replace("^6", "").Replace("^7", "").Replace("^8", "").Replace("^9", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\C", "").Replace("\X", "").Replace("\%%", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\F0", "").Replace("\F1", "").Replace("\F2", "").Replace("\F3", "").Replace("\F4", "").Replace("\F5", "").Replace("\F6", "").Replace("\F7", "").Replace("\F8", "").Replace("\F9", "").Replace("\TS", "").Replace("\Ts", "").Replace("\TP", "").Replace("\TU", "").Replace("\TA", "").Replace("\TT", "").Replace("\Ta", "").Replace("\C", "").Replace("\%%", "")
-
-        'With text
-
-
-
-        'End With
-        'Dim image As New Bitmap(CType(My.Resources.ResourceManager.GetObject("font1"), Image))
-        Dim chars As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?(){}-.:;,$[]@*'"" "
-        Dim charmap As Char() = chars.ToCharArray()
-        Dim left As Integer = 0
-        Dim fr_bm As New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont), Image))
-        Select Case actualColor
-            Case "white"
-                fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont), Image))
-            Case "yellow"
-                fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "y"), Image))
-            Case "green"
-                fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "g"), Image))
-            Case "blue"
-                fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "b"), Image))
-            Case "orange"
-                fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "o"), Image))
-            Case "red"
-                fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "r"), Image))
-            Case "purple"
-                fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "p"), Image))
-            Case "lightblue"
-                fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "l"), Image))
-        End Select
-        For Each c As Char In text
-            Dim partOfCharmap As String = Array.IndexOf(charmap, c)
-            If partOfCharmap <> -1 Then
-                Dim charPos As Integer = 0
-
-                Select Case baseFont
-                    Case "font1"
-                        Dim itemindex As Integer = Array.IndexOf(charmap, c)
-                        Dim charPosition = itemindex * 17
-
-                        Dim gr As Graphics = Graphics.FromImage(output)
-
-                        Dim fr_rect As New Rectangle(charPosition, 0, 16, 30)
-                        Dim to_rect As New Rectangle(left, 0, 17, 30)
-
-                        gr.DrawImage(fr_bm, to_rect, fr_rect, GraphicsUnit.Pixel)
-                        left = left + 16
-                    Case "font2"
-                        Dim itemindex As Integer = Array.IndexOf(charmap, c)
-                        Dim charPosition = itemindex * 17
-
-                        Dim gr As Graphics = Graphics.FromImage(output)
-
-                        Dim fr_rect As New Rectangle(charPosition, 0, 16, 30)
-                        Dim to_rect As New Rectangle(left, 0, 17, 30)
-
-                        gr.DrawImage(fr_bm, to_rect, fr_rect, GraphicsUnit.Pixel)
-                        If c = "i" Or c = "l" Then
-                            left = left + 11
-                        Else
-                            left = left + 16
-                        End If
-                    Case "font3"
-                        Dim itemindex As Integer = Array.IndexOf(charmap, c)
-                        Dim charPosition = itemindex * 28
-
-                        Dim gr As Graphics = Graphics.FromImage(output)
-
-                        Dim fr_rect As New Rectangle(charPosition, 0, 26, 30)
-                        Dim to_rect As New Rectangle(left, 0, 26, 30)
-
-                        gr.DrawImage(fr_bm, to_rect, fr_rect, GraphicsUnit.Pixel)
-                        Select Case c
-                            Case "A"
-                                left = left + 26
-                            Case "B"
-                                left = left + 24
-                            Case "C"
-                                left = left + 24
-                            Case "D"
-                                left = left + 24
-                            Case "E"
-                                left = left + 22
-                            Case "F"
-                                left = left + 22
-                            Case "G"
-                                left = left + 24
-                            Case "H"
-                                left = left + 25
-                            Case "I"
-                                left = left + 10
-                            Case "J"
-                                left = left + 22
-                            Case "K"
-                                left = left + 20
-                            Case "L"
-                                left = left + 20
-                            Case "M"
-                                left = left + 24
-                            Case "N"
-                                left = left + 22
-                            Case "O"
-                                left = left + 26
-                            Case "P"
-                                left = left + 18
-                            Case "Q"
-                                left = left + 28
-                            Case "R"
-                                left = left + 18
-                            Case "S"
-                                left = left + 24
-                            Case "T"
-                                left = left + 20
-                            Case "U"
-                                left = left + 22
-                            Case "V"
-                                left = left + 22
-                            Case "W"
-                                left = left + 26
-                            Case "X"
-                                left = left + 22
-                            Case "Y"
-                                left = left + 24
-                            Case "Z"
-                                left = left + 18
-                            Case "!"
-                                left = left + 18
-                            Case "a"
-                                left = left + 24
-                            Case "b"
-                                left = left + 22
-                            Case "c"
-                                left = left + 22
-                            Case "d"
-                                left = left + 22
-                            Case "e"
-                                left = left + 20
-                            Case "f"
-                                left = left + 22
-                            Case "g"
-                                left = left + 24
-                            Case "h"
-                                left = left + 26
-                            Case "i"
-                                left = left + 17
-                            Case "j"
-                                left = left + 28
-                            Case "k"
-                                left = left + 26
-                            Case "l"
-                                left = left + 22
-                            Case "m"
-                                left = left + 22
-                            Case "n"
-                                left = left + 22
-                            Case "o"
-                                left = left + 22
-                            Case "p"
-                                left = left + 22
-                            Case "q"
-                                left = left + 22
-                            Case "r"
-                                left = left + 22
-                            Case "s"
-                                left = left + 20
-                            Case "t"
-                                left = left + 24
-                            Case "u"
-                                left = left + 20
-                            Case "v"
-                                left = left + 22
-                            Case "w"
-                                left = left + 22
-                            Case "x"
-                                left = left + 26
-                            Case "y"
-                                left = left + 22
-                            Case "z"
-                                left = left + 22
-                            Case "0"
-                                left = left + 26
-                            Case "1"
-                                left = left + 20
-                            Case "2"
-                                left = left + 22
-                            Case "3"
-                                left = left + 20
-                            Case "4"
-                                left = left + 24
-                            Case "5"
-                                left = left + 22
-                            Case "6"
-                                left = left + 22
-                            Case "7"
-                                left = left + 22
-                            Case "8"
-                                left = left + 20
-                            Case "9"
-                                left = left + 26
-                            Case "!"
-                                left = left + 16
-                            Case "?"
-                                left = left + 18
-                            Case "("
-                                left = left + 20
-                            Case ")"
-                                left = left + 20
-                            Case "{"
-                                left = left + 20
-                            Case "}"
-                                left = left + 20
-                            Case "-"
-                                left = left + 20
-                            Case "_"
-                                left = left + 20
-                            Case ":"
-                                left = left + 20
-                            Case ";"
-                                left = left + 22
-                            Case "."
-                                left = left + 18
-                            Case ","
-                                left = left + 24
-                            Case "$"
-                                left = left + 22
-                            Case "["
-                                left = left + 22
-                            Case "]"
-                                left = left + 20
-                            Case "@"
-                                left = left + 22
-                            Case "`"
-                                left = left + 22
-                            Case "'"
-                                left = left + 12
-                            Case """"
-                                left = left + 14
-                            Case "*"
-                                left = left + 22
-                            Case " "
-                                left = left + 20
-                            Case Else
-                                left = left + 26
-                        End Select
-                End Select
-
-            Else
-                Select Case c
-                    Case "⁰"
-                        fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont), Image))
-                        actualColor = "white"
-                    Case "⁴"
-                        fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "y"), Image))
-                        actualColor = "yellow"
-                    Case "⁵"
-                        fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "g"), Image))
-                        actualColor = "green"
-                    Case "⁶"
-                        fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "b"), Image))
-                        actualColor = "blue"
-                    Case "⁷"
-                        fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "o"), Image))
-                        actualColor = "orange"
-                    Case "⁸"
-                        fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "r"), Image))
-                        actualColor = "red"
-                    Case "ⁿ"
-                        fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "p"), Image))
-                        actualColor = "purple"
-                    Case "⁹"
-                        fr_bm = New Bitmap(CType(My.Resources.ResourceManager.GetObject(baseFont + "l"), Image))
-                        actualColor = "lightblue"
-                End Select
-            End If
-        Next
-
-        elem.Image = output
-        Return True
-    End Function
 
     Public Function countTranslated()
         Dim stringsTranslated As Integer = 0
@@ -636,26 +414,7 @@ Public Class frmMain
     End Function
 
     Public Function showText(ByVal txt As String)
-        Dim textToPrint As String() = Split(txt, "&")
-        drawTextLine(c1, "")
-        drawTextLine(c2, "")
-        drawTextLine(c3, "")
-        drawTextLine(cf1, "")
-        drawTextLine(cf2, "")
-        drawTextLine(cf3, "")
-        If textToPrint.Count > 0 Then
-            drawTextLine(c1, textToPrint(0))
-            drawTextLine(cf1, textToPrint(0))
-        End If
-        If textToPrint.Count > 1 Then
-            drawTextLine(c2, textToPrint(1))
-            drawTextLine(cf2, textToPrint(1))
-        End If
-        If textToPrint.Count > 2 Then
-            drawTextLine(c3, textToPrint(2))
-            drawTextLine(cf3, textToPrint(2))
-        End If
-        actualColor = "white"
+        SpriteFontBox1.Text = txt
         Return True
     End Function
 
@@ -701,60 +460,15 @@ Public Class frmMain
     End Sub
 
     Private Sub cbFonts_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbFonts.SelectedIndexChanged
-        If ListView1.SelectedItems.Count > 0 Then
-            If ListView1.SelectedItems(0) IsNot Nothing Then
-                Dim val As String = ListView1.SelectedItems(0).SubItems(2).Text
-                TextBox1.Text = val
-                showText(val)
-            End If
+        If cbFonts.SelectedIndex = 0 Then
+            SpriteFontBox1.CurrentSpriteFont = UTSpriteFontBox.SpriteFontBox.SpriteFonts.BitOperator
         End If
-    End Sub
-
-    Private Sub RepackStringstxtToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RepackStringstxtToolStripMenuItem.Click
-        Dim winPath As String
-        Dim stringsPath As String
-        Dim repackStringsProc As Process
-
-        OpenFileDialog2.Filter = "Text files|*.txt"
-        OpenFileDialog2.Title = "Select your Strings.txt file"
-
-        If OpenFileDialog2.ShowDialog() = DialogResult.OK Then
-            stringsPath = OpenFileDialog2.FileName
-        Else
-            Exit Sub
+        If cbFonts.SelectedIndex = 1 Then
+            SpriteFontBox1.CurrentSpriteFont = UTSpriteFontBox.SpriteFontBox.SpriteFonts.ComicSans
         End If
-        OpenFileDialog2.Filter = "data.win|*.win"
-        OpenFileDialog2.Title = "Select data.win"
-
-        If OpenFileDialog2.ShowDialog() = DialogResult.OK Then
-            winPath = OpenFileDialog2.FileName
-        Else
-            Exit Sub
+        If cbFonts.SelectedIndex = 2 Then
+            SpriteFontBox1.CurrentSpriteFont = UTSpriteFontBox.SpriteFontBox.SpriteFonts.Papyrus
         End If
-
-        Dim filename As String = Application.StartupPath + "\libgcc_s_dw2-1.dll"
-        System.IO.File.WriteAllBytes(filename, My.Resources.libgcc_s_dw2_1)
-
-        filename = Application.StartupPath + "\gmktool.exe"
-        System.IO.File.WriteAllBytes(filename, My.Resources.gmktool)
-
-        Dim p As New ProcessStartInfo
-        p.FileName = filename
-        p.Arguments = """" & winPath & """ strings repack """ & stringsPath & """"
-
-        repackStringsProc = Process.Start(p)
-        repackStringsProc.WaitForExit()
-
-        Dim i As Integer
-        For i = 0 To 4
-            If Not repackStringsProc.HasExited Then
-                repackStringsProc.Refresh()
-            Else
-                Exit For
-            End If
-        Next i
-
-        MsgBox("Process finished", vbInformation)
     End Sub
 
     Private Sub DumpImagesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DumpImagesToolStripMenuItem.Click
@@ -762,7 +476,7 @@ Public Class frmMain
         Dim imgPath As String
         Dim unpackImagesProc As Process
 
-        OpenFileDialog2.Filter = "data.win|data.win"
+        OpenFileDialog2.Filter = "data.win|*.win"
         OpenFileDialog2.Title = "Select data.win"
 
         If OpenFileDialog2.ShowDialog() = DialogResult.OK Then
@@ -778,20 +492,16 @@ Public Class frmMain
             Exit Sub
         End If
 
-
-        Dim filename As String = Application.StartupPath + "\libgcc_s_dw2-1.dll"
-        System.IO.File.WriteAllBytes(filename, My.Resources.libgcc_s_dw2_1)
-
-        filename = Application.StartupPath + "\gmktool.exe"
-        System.IO.File.WriteAllBytes(filename, My.Resources.gmktool)
+        Dim filename As String = Application.StartupPath + "\WinExtract.exe"
+        System.IO.File.WriteAllBytes(filename, My.Resources.WinExtract)
 
         Dim p As New ProcessStartInfo
+        Dim tmpPath As String = GetTempFolder(True)
         p.FileName = filename
-        p.Arguments = """" & winPath & """ textures unpack"
+        p.Arguments = """" & winPath & """ """ & tmpPath & """ -tt"
         unpackImagesProc = Process.Start(p)
         unpackImagesProc.WaitForExit()
 
-        Clipboard.SetText(p.FileName + " " + p.Arguments)
         Dim i As Integer
         For i = 0 To 4
             If Not unpackImagesProc.HasExited Then
@@ -801,7 +511,7 @@ Public Class frmMain
             End If
         Next i
 
-        For Each f In Directory.GetFiles(Application.StartupPath, "*.png")
+        For Each f In Directory.GetFiles(tmpPath & "\TXTR\", "*.png")
             If File.Exists(f) Then
                 If File.Exists(Path.Combine(imgPath, Path.GetFileName(f))) Then
                     File.Delete(Path.Combine(imgPath, Path.GetFileName(f)))
@@ -809,10 +519,11 @@ Public Class frmMain
                 File.Move(f, Path.Combine(imgPath, Path.GetFileName(f)))
             End If
         Next
+        System.IO.Directory.Delete(tmpPath, True)
         MsgBox("Process finished", vbInformation)
     End Sub
 
-    Private Sub RepackImagesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RepackImagesToolStripMenuItem.Click
+    Private Sub RepackImagesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim winPath As String
         Dim imgPath As String
         Dim repackImagesProc As Process
@@ -832,26 +543,16 @@ Public Class frmMain
             Exit Sub
         End If
 
-        For Each f In Directory.GetFiles(imgPath, "*.png")
-            If File.Exists(f) Then
-                If File.Exists(Path.Combine(Application.StartupPath, Path.GetFileName(f))) Then
-                    File.Delete(Path.Combine(Application.StartupPath, Path.GetFileName(f)))
-                End If
-                File.Copy(f, Path.Combine(Application.StartupPath, Path.GetFileName(f)), True)
-            End If
-        Next
-
-        Dim filename As String = Application.StartupPath + "\libgcc_s_dw2-1.dll"
-        System.IO.File.WriteAllBytes(filename, My.Resources.libgcc_s_dw2_1)
-
-        filename = Application.StartupPath + "\gmktool.exe"
-        System.IO.File.WriteAllBytes(filename, My.Resources.gmktool)
+        Dim filename As String = Application.StartupPath + "\WinExtract.exe"
+        System.IO.File.WriteAllBytes(filename, My.Resources.WinExtract)
 
         Dim p As New ProcessStartInfo
+        Dim tmpPath As String = GetTempFolder(True)
         p.FileName = filename
-        p.Arguments = """" & winPath & """ textures repack"
+        p.Arguments = """" & winPath & """ """ & tmpPath & """ -tt"
         repackImagesProc = Process.Start(p)
         repackImagesProc.WaitForExit()
+
         Dim i As Integer
         For i = 0 To 4
             If Not repackImagesProc.HasExited Then
@@ -860,6 +561,36 @@ Public Class frmMain
                 Exit For
             End If
         Next i
+
+        For Each f In Directory.GetFiles(imgPath, "*.png")
+            If File.Exists(f) Then
+                If File.Exists(Path.Combine(tmpPath & "\TXTR\", Path.GetFileName(f))) Then
+                    File.Delete(Path.Combine(tmpPath & "\TXTR\", Path.GetFileName(f)))
+                End If
+                File.Copy(f, Path.Combine(tmpPath & "\TXTR\", Path.GetFileName(f)))
+            End If
+        Next
+
+        'My.Computer.FileSystem.DeleteFile(tmpPath & "\translate.txt")
+
+        filename = Application.StartupPath + "\WinPack.exe"
+        System.IO.File.WriteAllBytes(filename, My.Resources.WinPack)
+
+        p = New ProcessStartInfo
+        p.FileName = filename
+        p.Arguments = """" & tmpPath & """ """ & winPath & """ -tt"
+        repackImagesProc = Process.Start(p)
+        repackImagesProc.WaitForExit()
+
+        i = 0
+        For i = 0 To 4
+            If Not repackImagesProc.HasExited Then
+                repackImagesProc.Refresh()
+            Else
+                Exit For
+            End If
+        Next i
+        'System.IO.Directory.Delete(tmpPath, True)
         MsgBox("Process finished", vbInformation)
     End Sub
 
@@ -879,5 +610,19 @@ Public Class frmMain
 
     Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton3.Click
         frmSearch.Show()
+    End Sub
+
+    Private Sub SpriteFontBox1_GotFocus(sender As Object, e As EventArgs) Handles SpriteFontBox1.GotFocus
+        TextBox1.Select()
+    End Sub
+
+    Private Sub FontImporterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FontImporterToolStripMenuItem.Click
+        MsgBox("This is an EXPERIMENTAL feature." & vbCr & "Please make backups of your files before proceeding!", vbExclamation)
+        frmFontImporter.ShowDialog()
+    End Sub
+
+    Private Sub StringsMigrationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StringsMigrationToolStripMenuItem.Click
+        MsgBox("This is an EXPERIMENTAL feature." & vbCr & "Please make backups of your files before proceeding!", vbExclamation)
+        frmStringsConverter.ShowDialog()
     End Sub
 End Class

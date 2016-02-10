@@ -14,7 +14,8 @@
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -74,11 +75,15 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="UTSpriteFontBox">
+      <HintPath>..\..\..\..\..\Downloads\UTSpriteFontBox (1)\UTSpriteFontBox.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -99,6 +104,18 @@
     <Compile Include="AboutBox1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmFontImporter.Designer.vb">
+      <DependentUpon>frmFontImporter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFontImporter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmSearch.Designer.vb">
       <DependentUpon>frmSearch.vb</DependentUpon>
     </Compile>
@@ -111,6 +128,18 @@
     <Compile Include="frmOptions.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmSplash.Designer.vb">
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStringsConverter.Designer.vb">
+      <DependentUpon>frmStringsConverter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmStringsConverter.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmWizard.Designer.vb">
       <DependentUpon>frmWizard.vb</DependentUpon>
     </Compile>
@@ -121,13 +150,6 @@
       <DependentUpon>frmGoTo.vb</DependentUpon>
     </Compile>
     <Compile Include="frmGoTo.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMain.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMain.Designer.vb">
-      <DependentUpon>frmMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmBookmarks.Designer.vb">
@@ -157,20 +179,29 @@
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmFontImporter.resx">
+      <DependentUpon>frmFontImporter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSearch.resx">
       <DependentUpon>frmSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOptions.resx">
       <DependentUpon>frmOptions.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSplash.resx">
+      <DependentUpon>frmSplash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStringsConverter.resx">
+      <DependentUpon>frmStringsConverter.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmWizard.resx">
       <DependentUpon>frmWizard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGoTo.resx">
       <DependentUpon>frmGoTo.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBookmarks.resx">
       <DependentUpon>frmBookmarks.vb</DependentUpon>
@@ -198,13 +229,13 @@
     <None Include="Resources\1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\libgcc_s_dw2-1.dll" />
+    <None Include="Resources\gmpath.jpg" />
+    <None Include="Resources\play-gm.jpg" />
+    <None Include="Resources\splash.jpg" />
+    <None Include="Resources\WinPack.exe" />
+    <None Include="Resources\WinExtract.exe" />
+    <None Include="Resources\ico-filter-red.png" />
+    <None Include="Resources\ico-filter-green.png" />
     <None Include="Resources\ico-step.png" />
     <None Include="Resources\migosp.gif" />
     <None Include="Resources\ico-dwn.png" />
@@ -212,37 +243,12 @@
     <None Include="Resources\ico-open.png" />
     <None Include="Resources\ico_save.gif" />
     <None Include="Resources\play_green.png" />
-    <None Include="Resources\font1.png" />
     <None Include="Resources\about.png" />
-    <None Include="Resources\font1b.png" />
-    <None Include="Resources\font1g.png" />
-    <None Include="Resources\font1l.png" />
-    <None Include="Resources\font1o.png" />
-    <None Include="Resources\font1r.png" />
-    <None Include="Resources\font1y.png" />
-    <None Include="Resources\font1p.png" />
     <None Include="Resources\5-search-icon.png" />
     <None Include="Resources\about2.png" />
-    <None Include="Resources\font2.png" />
-    <None Include="Resources\font2r.png" />
-    <None Include="Resources\font2o.png" />
-    <None Include="Resources\font2l.png" />
-    <None Include="Resources\font2g.png" />
-    <None Include="Resources\font2b.png" />
-    <None Include="Resources\font2y.png" />
-    <None Include="Resources\font2p.png" />
-    <None Include="Resources\font3.png" />
-    <None Include="Resources\font3b.png" />
-    <None Include="Resources\font3y.png" />
-    <None Include="Resources\font3r.png" />
-    <None Include="Resources\font3p.png" />
-    <None Include="Resources\font3o.png" />
-    <None Include="Resources\font3l.png" />
-    <None Include="Resources\font3g.png" />
     <None Include="bin\Debug\libgcc_s_dw2-1.dll" />
     <None Include="bin\Debug\gmktool.exe" />
-    <None Include="Resources\font3es.png" />
-    <Content Include="Resources\gmktool.exe" />
+    <None Include="Resources\fonts.png" />
     <Content Include="icon_8SA_icon.ico" />
   </ItemGroup>
   <ItemGroup>

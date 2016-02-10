@@ -74,4 +74,16 @@ Public Class frmBookmarks
             btnRemove.Enabled = False
         End If
     End Sub
+
+    Private Sub ExportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportToolStripMenuItem.Click
+        sfdExport.Title = "Bookmarks exporting"
+
+        If sfdExport.ShowDialog() = DialogResult.OK Then
+            Dim W As IO.StreamWriter
+            W = New IO.StreamWriter(sfdExport.FileName)
+
+            W.Write(My.Settings.Bookmarks.ToString)
+            W.Close()
+        End If
+    End Sub
 End Class

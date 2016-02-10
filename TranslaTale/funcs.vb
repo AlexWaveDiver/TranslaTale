@@ -1,4 +1,5 @@
 ﻿Imports System.Xml
+Imports System.IO
 
 Module funcs
     Function getBookmarks()
@@ -62,5 +63,23 @@ Module funcs
             End If
         End If
         Return True
+    End Function
+
+    Function GetTempFolder(Optional ByVal customFolder As Boolean = False, Optional ByVal subfolder As String = "") As String
+        Dim folder As String = Path.Combine(Path.GetTempPath, Path.GetRandomFileName)
+        Do While Directory.Exists(folder) Or File.Exists(folder)
+            folder = Path.Combine(Path.GetTempPath, Path.GetRandomFileName)
+        Loop
+
+        System.IO.Directory.CreateDirectory(folder)
+        If customFolder = True Then
+            If Not subfolder = "" Then
+                System.IO.Directory.CreateDirectory(folder & "\" & subfolder)
+            End If
+        Else
+            System.IO.Directory.CreateDirectory(folder & "\UTFONTS")
+            System.IO.Directory.CreateDirectory(folder & "\DATAWIN")
+        End If
+        Return folder
     End Function
 End Module
