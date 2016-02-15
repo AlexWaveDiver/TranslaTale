@@ -38,6 +38,7 @@ Partial Class frmStringsConverter
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnReport = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -61,7 +62,7 @@ Partial Class frmStringsConverter
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(272, 98)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "You will need three strings files:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " · A fresh v1.0 strings file" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " · A fresh v1" & _
+        Me.Label1.Text = "You will need three strings files:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " · A fresh v1.0 strings file" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " · A fresh v1" &
     ".01 strings file" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " · Your translation (v1.0)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click Next to continue."
         '
         'lblUTFonts
@@ -71,8 +72,8 @@ Partial Class frmStringsConverter
         Me.lblUTFonts.Name = "lblUTFonts"
         Me.lblUTFonts.Size = New System.Drawing.Size(272, 75)
         Me.lblUTFonts.TabIndex = 1
-        Me.lblUTFonts.Text = "This wizard will help you converting your existing strings file to the Undertale " & _
-    "v1.01 strings format." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Take into account that some lines could not be converte" & _
+        Me.lblUTFonts.Text = "This wizard will help you converting your existing strings file to the Undertale " &
+    "v1.01 strings format." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Take into account that some lines could not be converte" &
     "d."
         '
         'Label13
@@ -92,7 +93,7 @@ Partial Class frmStringsConverter
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 17
-        Me.btnCancel.Text = "&Close"
+        Me.btnCancel.Text = "&Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'btnNext
@@ -169,7 +170,7 @@ Partial Class frmStringsConverter
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(272, 33)
         Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Cross-comparing files and applying changes." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Grab a pint. This may take some time" & _
+        Me.Label3.Text = "Cross-comparing files and applying changes." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Grab a pint. This may take some time" &
     "."
         '
         'Label4
@@ -193,6 +194,15 @@ Partial Class frmStringsConverter
         Me.btnReport.UseVisualStyleBackColor = True
         Me.btnReport.Visible = False
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(15, 263)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 21
+        Me.Button1.Text = "&Exit"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmStringsConverter
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -203,8 +213,9 @@ Partial Class frmStringsConverter
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnNext)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnCancel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -235,4 +246,5 @@ Partial Class frmStringsConverter
     Friend WithEvents lblProcessed As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents btnReport As System.Windows.Forms.Button
+    Friend WithEvents Button1 As Button
 End Class

@@ -9,6 +9,14 @@ Imports System.Text
 Public NotInheritable Class frmMain
 
     Dim fontResource As String = Application.StartupPath + "\fonts.png"
+    Dim actualColor As String = "white"
+    Dim lastClicked As Integer = 0
+    Dim opened As Boolean = True
+    Dim saved As Boolean = True
+
+    Dim fileNameTitle As String = ""
+    Dim path1 As String
+    Dim path2 As String
 
     Private Sub frmMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         End
@@ -84,50 +92,144 @@ Public NotInheritable Class frmMain
             End With
         End If
     End Sub
-    Dim actualColor As String = "white"
-    Dim lastClicked As Integer = 0
-    Dim opened As Boolean = True
-    Dim saved As Boolean = True
-    Dim fileNameTitle As String = ""
-    Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbTextbox.CheckedChanged
-        SpriteFontBox1.Visible = True
-        picTxtEnemy.Visible = False
-        SpriteFontBox1.ShowFaces = False
+
+    Private Sub repackProject()
+        Dim inDataFile As String
+        Dim stringsFile As String
+        Dim imagesPath As String
+        Dim fontsFile As String
+        Dim outDataFile As String
+
+        ProjectManager.Read(stringsFile, imagesPath, fontsFile, inDataFile, outDataFile)
+        inDataFile &= "\data.win"
+        outDataFile &= "\data.win"
+
+        Dim tempFolder As String = GetTempFolder()
+        Dim unpackProcess As Process
+        Dim repackProcess As Process
+
+
+        Dim filename As String = Application.StartupPath + "\Resources\WinExtract.exe"
+        System.IO.File.WriteAllBytes(filename, My.Resources.WinExtract)
+
+        Dim filenamePack As String = Application.StartupPath + "\Resources\WinPack.exe"
+        System.IO.File.WriteAllBytes(filenamePack, My.Resources.WinPack)
+
+        Dim p As New ProcessStartInfo
+        p.FileName = filename
+        p.Arguments = """" & fontsFile & """ """ & tempFolder & "\UTFONTS"" -tt"
+
+        unpackProcess = Process.Start(p)
+        unpackProcess.WaitForExit()
+
+        Dim i As Integer
+        For i = 0 To 4
+            If Not unpackProcess.HasExited Then
+                unpackProcess.Refresh()
+            Else
+                Exit For
+            End If
+        Next i
+
+        p.FileName = filename
+        p.Arguments = """" & inDataFile & """ """ & tempFolder & "\DATAWIN"" -tt"
+
+        unpackProcess = Process.Start(p)
+        unpackProcess.WaitForExit()
+        i = 0
+
+        For i = 0 To 4
+            If Not unpackProcess.HasExited Then
+                unpackProcess.Refresh()
+            Else
+                Exit For
+            End If
+        Next i
+
+        My.Computer.FileSystem.DeleteFile(tempFolder & "\DATAWIN\translate.txt")
+
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_8bit.font.gmx", tempFolder & "\DATAWIN\FONT_new\0_UT_8bit (8bitoperator JVE).font.gmx")
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_8bit.png", tempFolder & "\DATAWIN\FONT_new\UT_8bit.png")
+
+        Dim patchFile As System.IO.StreamWriter
+        patchFile = My.Computer.FileSystem.OpenTextFileWriter(tempFolder & "\DATAWIN\FONT_new\patch.txt", True)
+        patchFile.WriteLine("2;0_UT_8bit (8bitoperator JVE).font.gmx")
+
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_8bitLarge.font.gmx", tempFolder & "\DATAWIN\FONT_new\1_UT_8bitLarge (8bitoperator JVE).font.gmx")
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_8bitLarge.png", tempFolder & "\DATAWIN\FONT_new\UT_8bitLarge.png")
+        patchFile.WriteLine("1;1_UT_8bitLarge (8bitoperator JVE).font.gmx")
+
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_Papyrus.font.gmx", tempFolder & "\DATAWIN\FONT_new\2_UT_Papyrus (Papyrus).font.gmx")
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_Papyrus.png", tempFolder & "\DATAWIN\FONT_new\UT_Papyrus.png")
+        patchFile.WriteLine("9;2_UT_Papyrus (Papyrus).font.gmx")
+
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_sans.font.gmx", tempFolder & "\DATAWIN\FONT_new\3_UT_sans (Comic Sans MS).font.gmx")
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_sans.png", tempFolder & "\DATAWIN\FONT_new\UT_sans.png")
+        patchFile.WriteLine("8;3_UT_sans (Comic Sans MS).font.gmx")
+
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_Hachicro.font.gmx", tempFolder & "\DATAWIN\FONT_new\4_UT_Hachicro (Hachicro).font.gmx")
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_Hachicro.png", tempFolder & "\DATAWIN\FONT_new\UT_Hachicro.png")
+        patchFile.WriteLine("6;4_UT_Hachicro (Hachicro).font.gmx")
+
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_DotumChe.font.gmx", tempFolder & "\DATAWIN\FONT_new\5_UT_DotumChe (DotumChe).font.gmx", True)
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_DotumChe.png", tempFolder & "\DATAWIN\FONT_new\UT_DotumChe.png", True)
+        patchFile.WriteLine("5;5_UT_DotumChe (DotumChe).font.gmx")
+
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_DotumCheSmall.font.gmx", tempFolder & "\DATAWIN\FONT_new\6_UT_DotumCheSmall (DotumChe).font.gmx", True)
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_DotumCheSmall.png", tempFolder & "\DATAWIN\FONT_new\UT_DotumCheSmall.png", True)
+        patchFile.WriteLine("4;6_UT_DotumCheSmall (DotumChe).font.gmx")
+
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_CryptOfTomorrow.font.gmx", tempFolder & "\DATAWIN\FONT_new\7_UT_CryptOfTomorrow (Crypt of Tomorrow).font.gmx", True)
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_CryptOfTomorrow.png", tempFolder & "\DATAWIN\FONT_new\UT_CryptOfTomorrow.png", True)
+        patchFile.WriteLine("3;7_UT_CryptOfTomorrow (Crypt of Tomorrow).font.gmx")
+
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_MarsNeedsCunninlingus.font.gmx", tempFolder & "\DATAWIN\FONT_new\8_UT_MarsNeedsCunninlingus (Mars Needs Cunnilingus).font.gmx", True)
+        System.IO.File.Copy(tempFolder & "\UTFONTS\FONT\UT_MarsNeedsCunninlingus.png", tempFolder & "\DATAWIN\FONT_new\UT_MarsNeedsCunninlingus.png", True)
+        patchFile.WriteLine("7;8_UT_MarsNeedsCunninlingus (Mars Needs Cunnilingus).font.gmx")
+
+        patchFile.Close()
+
+        For Each f In Directory.GetFiles(imagesPath, "*.png")
+            If File.Exists(f) Then
+                If File.Exists(Path.Combine(tempFolder & "\DATAWIN\TXTR\", Path.GetFileName(f))) Then
+                    File.Delete(Path.Combine(tempFolder & "\DATAWIN\TXTR\", Path.GetFileName(f)))
+                End If
+                File.Copy(f, Path.Combine(tempFolder & "\DATAWIN\TXTR\", Path.GetFileName(f)))
+            End If
+        Next
+
+        System.IO.File.Copy(stringsFile, tempFolder & "\DATAWIN\translate.txt")
+
+        p.FileName = filenamePack
+        p.Arguments = """" & tempFolder & "\DATAWIN "" """ & tempFolder & "\packed.win"" -tt"
+
+        repackProcess = Process.Start(p)
+        repackProcess.WaitForExit()
+        i = 0
+
+        For i = 0 To 4
+            If Not repackProcess.HasExited Then
+                repackProcess.Refresh()
+            Else
+                Exit For
+            End If
+        Next i
+
+        If File.Exists(outDataFile) Then
+            My.Computer.FileSystem.DeleteFile(outDataFile)
+        End If
+
+        System.IO.File.Copy(tempFolder & "\packed.win", outDataFile)
+        System.IO.Directory.Delete(tempFolder, True)
     End Sub
 
-    Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbFacebox.CheckedChanged
-        SpriteFontBox1.Visible = True
-        picTxtEnemy.Visible = False
-        SpriteFontBox1.ShowFaces = True
-    End Sub
-
-    Private Sub RadioButton3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton3.CheckedChanged
-        SpriteFontBox1.Visible = False
-        picTxtEnemy.Visible = True
-    End Sub
-
-    Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem.Click
-        Dim path1 As String
-        Dim path2 As String
+    Public Sub OpenFile(ByVal projectFilePath As String)
         Dim numLines As Integer
         Dim numLines2 As Integer
 
-        SaveFileDialog1.Filter = "Text file|*.txt"
-        OpenFileDialog1.Title = "Open base file"
+        ProjectManager.CurrentProject = projectFilePath
+        ProjectManager.Read(fileNameTitle, path1, path2)
 
-        If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
-            path1 = OpenFileDialog1.FileName
-        Else
-            Exit Sub
-        End If
-
-        SaveFileDialog1.Filter = "Text file|*.txt"
-        OpenFileDialog1.Title = "Open translation file"
-        If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
-            path2 = OpenFileDialog1.FileName
-        Else
-            Exit Sub
-        End If
         ListView1.Enabled = False
         TextBox1.Enabled = False
         SaveToolStripMenuItem.Enabled = False
@@ -140,7 +242,6 @@ Public NotInheritable Class frmMain
         ToolStripButton4.Enabled = False
         showText("")
         TextBox1.Text = ""
-        fileNameTitle = OpenFileDialog1.SafeFileName
         ListView1.Clear()
         ListView1.View = View.Details
         ListView1.Clear()
@@ -222,6 +323,31 @@ Public NotInheritable Class frmMain
         Me.Text = "TranslaTale - " + fileNameTitle
     End Sub
 
+    Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbTextbox.CheckedChanged
+        SpriteFontBox1.Visible = True
+        picTxtEnemy.Visible = False
+        SpriteFontBox1.ShowFaces = False
+    End Sub
+
+    Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbFacebox.CheckedChanged
+        SpriteFontBox1.Visible = True
+        picTxtEnemy.Visible = False
+        SpriteFontBox1.ShowFaces = True
+    End Sub
+
+    Private Sub RadioButton3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton3.CheckedChanged
+        SpriteFontBox1.Visible = False
+        picTxtEnemy.Visible = True
+    End Sub
+
+    Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem.Click
+        OpenFileDialog1.Title = "Open a Project file"
+        OpenFileDialog1.Filter = "TranslaTale Project files (*.ttp)|*.ttp"
+        If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
+            OpenFile(OpenFileDialog1.FileName)
+        End If
+    End Sub
+
     Private Sub TextBox1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyUp
         If ListView1.SelectedItems.Count > 0 Then
             ListView1.SelectedItems(0).SubItems(2).Text = TextBox1.Text
@@ -238,21 +364,15 @@ Public NotInheritable Class frmMain
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
-        SaveFileDialog1.Title = "Save translation file"
-        SaveFileDialog1.Filter = "Text file|*.txt"
-        If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
-            Dim W As IO.StreamWriter
-            Dim i As Integer
-            W = New IO.StreamWriter(SaveFileDialog1.FileName)
-            For i = 0 To ListView1.Items.Count - 1
-                If ListView1.Items.Count - 1 < ttipTotal.Text Or ListView1.Items.Count - 1 = ttipTotal.Text Then
-                    On Error Resume Next
-                    W.WriteLine(ListView1.Items.Item(i).SubItems(2).Text)
-                End If
-            Next
-            W.Close()
-            saved = True
-        End If
+        Dim W As IO.StreamWriter = New IO.StreamWriter(path2)
+        For i As Integer = 0 To ListView1.Items.Count - 1
+            If ListView1.Items.Count - 1 < ttipTotal.Text Or ListView1.Items.Count - 1 = ttipTotal.Text Then
+                On Error Resume Next
+                W.WriteLine(ListView1.Items.Item(i).SubItems(2).Text)
+            End If
+        Next
+        W.Close()
+        saved = True
         Me.Text = "TranslaTale - " + fileNameTitle
     End Sub
 
@@ -348,7 +468,7 @@ Public NotInheritable Class frmMain
         End If
     End Sub
 
-    Private Sub DumpStringstxtToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DumpStringstxtToolStripMenuItem.Click
+    Private Sub DumpStringstxtToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim winPath As String
         Dim stringsPath As String
         Dim sPath As String
@@ -471,7 +591,7 @@ Public NotInheritable Class frmMain
         End If
     End Sub
 
-    Private Sub DumpImagesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DumpImagesToolStripMenuItem.Click
+    Private Sub DumpImagesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim winPath As String
         Dim imgPath As String
         Dim unpackImagesProc As Process
@@ -616,13 +736,28 @@ Public NotInheritable Class frmMain
         TextBox1.Select()
     End Sub
 
-    Private Sub FontImporterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FontImporterToolStripMenuItem.Click
-        MsgBox("This is an EXPERIMENTAL feature." & vbCr & "Please make backups of your files before proceeding!", vbExclamation)
+    Private Sub FontImporterToolStripMenuItem_Click(sender As Object, e As EventArgs)
         frmFontImporter.ShowDialog()
     End Sub
 
     Private Sub StringsMigrationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StringsMigrationToolStripMenuItem.Click
-        MsgBox("This is an EXPERIMENTAL feature." & vbCr & "Please make backups of your files before proceeding!", vbExclamation)
         frmStringsConverter.ShowDialog()
+    End Sub
+
+    Private Sub ProjectSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProjectSettingsToolStripMenuItem.Click
+        frmProjOptions.ShowDialog()
+    End Sub
+
+    Private Sub CompileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompileToolStripMenuItem.Click
+        repackProject()
+    End Sub
+
+    Private Sub CompileAndRunToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompileAndRunToolStripMenuItem.Click
+        repackProject()
+        Process.Start(ProjectManager.GetOutputDirectory & "\UNDERTALE.exe")
+    End Sub
+
+    Private Sub ToolStripButton7_Click(sender As Object, e As EventArgs) Handles ToolStripButton7.Click
+        CompileAndRunToolStripMenuItem_Click(sender, e)
     End Sub
 End Class
