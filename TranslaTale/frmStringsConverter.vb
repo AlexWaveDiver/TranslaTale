@@ -7,6 +7,7 @@ Public Class frmStringsConverter
     Dim easterEggDelegated As New ThreadStart(AddressOf easterEgg)
     Dim easterEggRunning As Boolean = False
     Dim crossCompareCancelled As Boolean = False
+    Dim crossCompareDone = False
     Dim freshv1txt As String()
     Dim freshv1001txt As String()
     Dim translatetxt As String()
@@ -17,12 +18,12 @@ Public Class frmStringsConverter
     Dim easterEggTitle As String() = {"Sets of numbers...", "Lines of dialogue...", "I've seen them all."}
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        If Panel2.Visible = True Then
-            crossCompareCancelled = True
-            closeForm()
-        Else
-            Me.Close()
-        End If
+        crossCompareCancelled = True
+        closeForm()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
     End Sub
 
     Private Delegate Sub ListBoxInvoker(ByVal text As String, ByVal ListElement As ListBox)
@@ -95,7 +96,9 @@ Public Class frmStringsConverter
     End Sub
 
     Public Sub crossCompare()
-        setElementText("&Cancel", btnCancel)
+        setElementVisibility(False, Button1)
+        setElementEnabled(True, btnCancel)
+
         Try
             freshv1txt = File.ReadAllLines(freshv1Path)
             freshv1001txt = File.ReadAllLines(freshv1001Path)
@@ -135,10 +138,11 @@ Public Class frmStringsConverter
                 lineIndex += 1
             Next
             setElementText("Processed: " & totalLines.ToString & "/" & totalLines.ToString, lblProcessed)
-
+            crossCompareDone = True
             setElementVisibility(True, btnReport)
             setElementText("S&ave", btnNext)
-            setElementText("&Back", btnCancel)
+            setElementVisibility(True, Button1)
+            setElementEnabled(False, btnCancel)
             setElementEnabled(True, btnNext)
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -153,8 +157,8 @@ Public Class frmStringsConverter
         lblProcessed.Text = "Processed: 0 / 0"
         lblOK.Text = "Successfully: 0"
         lblKO.Text = "Unsuccessfully: 0"
-        btnCancel.Text = "&Exit"
-        btnCancel.Enabled = True
+        Button1.Visible = True
+        btnCancel.Enabled = False
         btnNext.Enabled = True
         btnReport.Visible = False
     End Function
@@ -184,7 +188,7 @@ Public Class frmStringsConverter
             freshv1Path = openFileDialog1.FileName()
             openFileDialog1 = New OpenFileDialog()
             openFileDialog1.Title = "Select your fresh v1.001 strings file"
-            openFileDialog1.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
+            openFileDialog1.InitialDirectory = freshv1Path
             openFileDialog1.Filter = "TXT files (*.txt)|*.txt"
             openFileDialog1.FilterIndex = 2
             openFileDialog1.RestoreDirectory = True
@@ -192,7 +196,7 @@ Public Class frmStringsConverter
                 freshv1001Path = openFileDialog1.FileName()
                 openFileDialog1 = New OpenFileDialog()
                 openFileDialog1.Title = "Select your translation file"
-                openFileDialog1.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
+                openFileDialog1.InitialDirectory = freshv1001Path
                 openFileDialog1.Filter = "TXT files (*.txt)|*.txt"
                 openFileDialog1.FilterIndex = 2
                 openFileDialog1.RestoreDirectory = True
@@ -288,10 +292,5 @@ Public Class frmStringsConverter
         End If
         closeForm()
         e.Cancel = False
-    End Sub
-
-    Private Sub frmStringsConverter_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        koLines = 0
-        Me.crossCompareCancelled = False
     End Sub
 End Class

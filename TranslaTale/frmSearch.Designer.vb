@@ -61,9 +61,9 @@ Partial Class frmSearch
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(11, 14)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(64, 13)
+        Me.Label2.Size = New System.Drawing.Size(67, 13)
         Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Search term"
+        Me.Label2.Text = "Search term:"
         '
         'rdBase
         '

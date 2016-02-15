@@ -74,6 +74,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Windows.Forms" />
@@ -81,8 +82,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="UTSpriteFontBox">
-      <HintPath>..\..\..\..\..\Downloads\UTSpriteFontBox (1)\UTSpriteFontBox.dll</HintPath>
+    <Reference Include="UTSpriteFontBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\TranslaTale-master\UTSpriteFontBox.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +118,18 @@
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmNewProject.Designer.vb">
+      <DependentUpon>frmNewProject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewProject.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProjOptions.Designer.vb">
+      <DependentUpon>frmProjOptions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProjOptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmSearch.Designer.vb">
       <DependentUpon>frmSearch.vb</DependentUpon>
     </Compile>
@@ -131,19 +145,17 @@
     <Compile Include="frmSplash.Designer.vb">
       <DependentUpon>frmSplash.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmSplash.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="frmSplash.vb" />
     <Compile Include="frmStringsConverter.Designer.vb">
       <DependentUpon>frmStringsConverter.vb</DependentUpon>
     </Compile>
     <Compile Include="frmStringsConverter.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmWizard.Designer.vb">
-      <DependentUpon>frmWizard.vb</DependentUpon>
+    <Compile Include="frmStartUp.Designer.vb">
+      <DependentUpon>frmStartUp.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmWizard.vb">
+    <Compile Include="frmStartUp.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmGoTo.Designer.vb">
@@ -174,6 +186,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ProjectManager.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutBox1.resx">
@@ -184,6 +197,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewProject.resx">
+      <DependentUpon>frmNewProject.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProjOptions.resx">
+      <DependentUpon>frmProjOptions.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSearch.resx">
       <DependentUpon>frmSearch.vb</DependentUpon>
@@ -197,8 +216,8 @@
     <EmbeddedResource Include="frmStringsConverter.resx">
       <DependentUpon>frmStringsConverter.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmWizard.resx">
-      <DependentUpon>frmWizard.vb</DependentUpon>
+    <EmbeddedResource Include="frmStartUp.resx">
+      <DependentUpon>frmStartUp.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGoTo.resx">
       <DependentUpon>frmGoTo.vb</DependentUpon>
@@ -214,7 +233,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -224,6 +242,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1.jpg" />
@@ -232,8 +251,12 @@
     <None Include="Resources\gmpath.jpg" />
     <None Include="Resources\play-gm.jpg" />
     <None Include="Resources\splash.jpg" />
-    <None Include="Resources\WinPack.exe" />
-    <None Include="Resources\WinExtract.exe" />
+    <None Include="Resources\WinPack.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\WinExtract.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\ico-filter-red.png" />
     <None Include="Resources\ico-filter-green.png" />
     <None Include="Resources\ico-step.png" />
