@@ -251,6 +251,9 @@
     <None Include="Resources\gmpath.jpg" />
     <None Include="Resources\play-gm.jpg" />
     <None Include="Resources\splash.jpg" />
+    <None Include="Resources\UTFonts.win">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\WinPack.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

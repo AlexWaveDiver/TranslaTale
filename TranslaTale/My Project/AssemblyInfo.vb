@@ -11,8 +11,8 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("TranslaTale")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("TranslaTale")> 
-<Assembly: AssemblyCopyright("Copyright ©  2015 Alex WaveDiver")> 
+<Assembly: AssemblyProduct("TranslaTale")>
+<Assembly: AssemblyCopyright("Copyright © 2016 Alex WaveDiver")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

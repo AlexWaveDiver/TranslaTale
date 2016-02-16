@@ -40,6 +40,8 @@ Partial Class AboutBox1
         Me.TableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
         Me.PictureMigosp = New System.Windows.Forms.PictureBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel.SuspendLayout()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,9 +50,11 @@ Partial Class AboutBox1
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.LinkLabel4)
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Controls.Add(Me.LinkLabel2)
         Me.Panel1.Controls.Add(Me.LinkLabel3)
         Me.Panel1.Controls.Add(Me.Label8)
-        Me.Panel1.Controls.Add(Me.LinkLabel2)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.LinkLabel1)
@@ -67,7 +71,7 @@ Partial Class AboutBox1
         Me.LinkLabel3.AutoSize = True
         Me.LinkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
         Me.LinkLabel3.LinkColor = System.Drawing.Color.SteelBlue
-        Me.LinkLabel3.Location = New System.Drawing.Point(7, 114)
+        Me.LinkLabel3.Location = New System.Drawing.Point(4, 131)
         Me.LinkLabel3.Name = "LinkLabel3"
         Me.LinkLabel3.Size = New System.Drawing.Size(108, 13)
         Me.LinkLabel3.TabIndex = 9
@@ -77,7 +81,7 @@ Partial Class AboutBox1
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 97)
+        Me.Label8.Location = New System.Drawing.Point(3, 114)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(174, 13)
         Me.Label8.TabIndex = 8
@@ -98,7 +102,7 @@ Partial Class AboutBox1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 17)
+        Me.Label4.Location = New System.Drawing.Point(3, 34)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(226, 13)
         Me.Label4.TabIndex = 7
@@ -118,7 +122,7 @@ Partial Class AboutBox1
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
         Me.LinkLabel1.LinkColor = System.Drawing.Color.SteelBlue
-        Me.LinkLabel1.Location = New System.Drawing.Point(139, 49)
+        Me.LinkLabel1.Location = New System.Drawing.Point(136, 66)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(35, 13)
         Me.LinkLabel1.TabIndex = 1
@@ -128,7 +132,7 @@ Partial Class AboutBox1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 64)
+        Me.Label3.Location = New System.Drawing.Point(3, 81)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(194, 13)
         Me.Label3.TabIndex = 3
@@ -137,7 +141,7 @@ Partial Class AboutBox1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(171, 49)
+        Me.Label2.Location = New System.Drawing.Point(168, 66)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 13)
         Me.Label2.TabIndex = 2
@@ -146,7 +150,7 @@ Partial Class AboutBox1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 48)
+        Me.Label1.Location = New System.Drawing.Point(3, 65)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(135, 13)
         Me.Label1.TabIndex = 0
@@ -235,6 +239,27 @@ Partial Class AboutBox1
         Me.PictureMigosp.TabStop = False
         Me.PictureMigosp.Visible = False
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(5, 17)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(72, 13)
+        Me.Label5.TabIndex = 10
+        Me.Label5.Text = "with help from"
+        '
+        'LinkLabel4
+        '
+        Me.LinkLabel4.AutoSize = True
+        Me.LinkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.LinkLabel4.LinkColor = System.Drawing.Color.SteelBlue
+        Me.LinkLabel4.Location = New System.Drawing.Point(75, 17)
+        Me.LinkLabel4.Name = "LinkLabel4"
+        Me.LinkLabel4.Size = New System.Drawing.Size(45, 13)
+        Me.LinkLabel4.TabIndex = 11
+        Me.LinkLabel4.TabStop = True
+        Me.LinkLabel4.Text = "CRefice"
+        '
         'AboutBox1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -275,5 +300,6 @@ Partial Class AboutBox1
     Friend WithEvents PictureMigosp As System.Windows.Forms.PictureBox
     Friend WithEvents LinkLabel3 As System.Windows.Forms.LinkLabel
     Friend WithEvents Label8 As System.Windows.Forms.Label
-
+    Friend WithEvents LinkLabel4 As LinkLabel
+    Friend WithEvents Label5 As Label
 End Class

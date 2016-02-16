@@ -26,29 +26,35 @@ Partial Class frmNewProject
         Me.tabModeSelect = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnFolder3 = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtFolder3 = New System.Windows.Forms.TextBox()
         Me.btnFolder2 = New System.Windows.Forms.Button()
         Me.btnFolder1 = New System.Windows.Forms.Button()
-        Me.lblFolder2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.txtFolder2 = New System.Windows.Forms.TextBox()
-        Me.lblFolder1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.txtFolder1 = New System.Windows.Forms.TextBox()
-        Me.lblName = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.grpFiles = New System.Windows.Forms.GroupBox()
+        Me.btnFolder4 = New System.Windows.Forms.Button()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtFile5 = New System.Windows.Forms.TextBox()
         Me.btnFile4 = New System.Windows.Forms.Button()
-        Me.lblFile4 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.txtFile4 = New System.Windows.Forms.TextBox()
         Me.btnFile3 = New System.Windows.Forms.Button()
-        Me.lblFile3 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.txtFile3 = New System.Windows.Forms.TextBox()
         Me.btnFile2 = New System.Windows.Forms.Button()
         Me.btnFile1 = New System.Windows.Forms.Button()
-        Me.lblFile2 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.txtFile2 = New System.Windows.Forms.TextBox()
-        Me.lblFile1 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.txtFile1 = New System.Windows.Forms.TextBox()
-        Me.lblName2 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.txtName2 = New System.Windows.Forms.TextBox()
         Me.btnDone = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
@@ -71,40 +77,68 @@ Partial Class frmNewProject
         Me.tabModeSelect.Location = New System.Drawing.Point(118, 12)
         Me.tabModeSelect.Name = "tabModeSelect"
         Me.tabModeSelect.SelectedIndex = 0
-        Me.tabModeSelect.Size = New System.Drawing.Size(334, 237)
+        Me.tabModeSelect.Size = New System.Drawing.Size(334, 251)
         Me.tabModeSelect.TabIndex = 0
         '
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.GroupBox1)
-        Me.TabPage1.Controls.Add(Me.lblName)
+        Me.TabPage1.Controls.Add(Me.Label1)
         Me.TabPage1.Controls.Add(Me.txtName)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(326, 211)
+        Me.TabPage1.Size = New System.Drawing.Size(326, 225)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Decompile"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnFolder3)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.txtFolder3)
         Me.GroupBox1.Controls.Add(Me.btnFolder2)
         Me.GroupBox1.Controls.Add(Me.btnFolder1)
-        Me.GroupBox1.Controls.Add(Me.lblFolder2)
+        Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtFolder2)
-        Me.GroupBox1.Controls.Add(Me.lblFolder1)
+        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtFolder1)
         Me.GroupBox1.Location = New System.Drawing.Point(17, 78)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(293, 95)
+        Me.GroupBox1.Size = New System.Drawing.Size(293, 110)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Directories"
         '
+        'btnFolder3
+        '
+        Me.btnFolder3.Location = New System.Drawing.Point(256, 75)
+        Me.btnFolder3.Name = "btnFolder3"
+        Me.btnFolder3.Size = New System.Drawing.Size(24, 20)
+        Me.btnFolder3.TabIndex = 12
+        Me.btnFolder3.Text = "..."
+        Me.btnFolder3.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(21, 78)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(79, 13)
+        Me.Label4.TabIndex = 11
+        Me.Label4.Text = "Compile Folder:"
+        '
+        'txtFolder3
+        '
+        Me.txtFolder3.Location = New System.Drawing.Point(106, 75)
+        Me.txtFolder3.Name = "txtFolder3"
+        Me.txtFolder3.Size = New System.Drawing.Size(144, 20)
+        Me.txtFolder3.TabIndex = 10
+        '
         'btnFolder2
         '
-        Me.btnFolder2.Location = New System.Drawing.Point(258, 54)
+        Me.btnFolder2.Location = New System.Drawing.Point(256, 49)
         Me.btnFolder2.Name = "btnFolder2"
         Me.btnFolder2.Size = New System.Drawing.Size(24, 20)
         Me.btnFolder2.TabIndex = 9
@@ -113,53 +147,53 @@ Partial Class frmNewProject
         '
         'btnFolder1
         '
-        Me.btnFolder1.Location = New System.Drawing.Point(258, 28)
+        Me.btnFolder1.Location = New System.Drawing.Point(256, 23)
         Me.btnFolder1.Name = "btnFolder1"
         Me.btnFolder1.Size = New System.Drawing.Size(24, 20)
         Me.btnFolder1.TabIndex = 8
         Me.btnFolder1.Text = "..."
         Me.btnFolder1.UseVisualStyleBackColor = True
         '
-        'lblFolder2
+        'Label3
         '
-        Me.lblFolder2.AutoSize = True
-        Me.lblFolder2.Location = New System.Drawing.Point(27, 57)
-        Me.lblFolder2.Name = "lblFolder2"
-        Me.lblFolder2.Size = New System.Drawing.Size(75, 13)
-        Me.lblFolder2.TabIndex = 6
-        Me.lblFolder2.Text = "Project Folder:"
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(25, 52)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(75, 13)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Project Folder:"
         '
         'txtFolder2
         '
-        Me.txtFolder2.Location = New System.Drawing.Point(108, 54)
+        Me.txtFolder2.Location = New System.Drawing.Point(106, 49)
         Me.txtFolder2.Name = "txtFolder2"
         Me.txtFolder2.Size = New System.Drawing.Size(144, 20)
         Me.txtFolder2.TabIndex = 5
         '
-        'lblFolder1
+        'Label2
         '
-        Me.lblFolder1.AutoSize = True
-        Me.lblFolder1.Location = New System.Drawing.Point(13, 32)
-        Me.lblFolder1.Name = "lblFolder1"
-        Me.lblFolder1.Size = New System.Drawing.Size(88, 13)
-        Me.lblFolder1.TabIndex = 4
-        Me.lblFolder1.Text = "Undertale Folder:"
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(11, 27)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(88, 13)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "Undertale Folder:"
         '
         'txtFolder1
         '
-        Me.txtFolder1.Location = New System.Drawing.Point(108, 28)
+        Me.txtFolder1.Location = New System.Drawing.Point(106, 23)
         Me.txtFolder1.Name = "txtFolder1"
         Me.txtFolder1.Size = New System.Drawing.Size(144, 20)
         Me.txtFolder1.TabIndex = 3
         '
-        'lblName
+        'Label1
         '
-        Me.lblName.AutoSize = True
-        Me.lblName.Location = New System.Drawing.Point(15, 19)
-        Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(72, 13)
-        Me.lblName.TabIndex = 1
-        Me.lblName.Text = "Project name:"
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(15, 19)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(72, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Project name:"
         '
         'txtName
         '
@@ -171,90 +205,118 @@ Partial Class frmNewProject
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.grpFiles)
-        Me.TabPage2.Controls.Add(Me.lblName2)
+        Me.TabPage2.Controls.Add(Me.Label5)
         Me.TabPage2.Controls.Add(Me.txtName2)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(326, 211)
+        Me.TabPage2.Size = New System.Drawing.Size(326, 225)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Create from existing files"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'grpFiles
         '
+        Me.grpFiles.Controls.Add(Me.btnFolder4)
+        Me.grpFiles.Controls.Add(Me.Label10)
+        Me.grpFiles.Controls.Add(Me.txtFile5)
         Me.grpFiles.Controls.Add(Me.btnFile4)
-        Me.grpFiles.Controls.Add(Me.lblFile4)
+        Me.grpFiles.Controls.Add(Me.Label9)
         Me.grpFiles.Controls.Add(Me.txtFile4)
         Me.grpFiles.Controls.Add(Me.btnFile3)
-        Me.grpFiles.Controls.Add(Me.lblFile3)
+        Me.grpFiles.Controls.Add(Me.Label8)
         Me.grpFiles.Controls.Add(Me.txtFile3)
         Me.grpFiles.Controls.Add(Me.btnFile2)
         Me.grpFiles.Controls.Add(Me.btnFile1)
-        Me.grpFiles.Controls.Add(Me.lblFile2)
+        Me.grpFiles.Controls.Add(Me.Label7)
         Me.grpFiles.Controls.Add(Me.txtFile2)
-        Me.grpFiles.Controls.Add(Me.lblFile1)
+        Me.grpFiles.Controls.Add(Me.Label6)
         Me.grpFiles.Controls.Add(Me.txtFile1)
         Me.grpFiles.Location = New System.Drawing.Point(17, 61)
         Me.grpFiles.Name = "grpFiles"
-        Me.grpFiles.Size = New System.Drawing.Size(293, 133)
+        Me.grpFiles.Size = New System.Drawing.Size(293, 158)
         Me.grpFiles.TabIndex = 4
         Me.grpFiles.TabStop = False
         Me.grpFiles.Text = "Data files"
         '
+        'btnFolder4
+        '
+        Me.btnFolder4.Location = New System.Drawing.Point(254, 124)
+        Me.btnFolder4.Name = "btnFolder4"
+        Me.btnFolder4.Size = New System.Drawing.Size(24, 20)
+        Me.btnFolder4.TabIndex = 18
+        Me.btnFolder4.Text = "..."
+        Me.btnFolder4.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(19, 127)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(79, 13)
+        Me.Label10.TabIndex = 17
+        Me.Label10.Text = "Compile Folder:"
+        '
+        'txtFile5
+        '
+        Me.txtFile5.Location = New System.Drawing.Point(104, 124)
+        Me.txtFile5.Name = "txtFile5"
+        Me.txtFile5.Size = New System.Drawing.Size(144, 20)
+        Me.txtFile5.TabIndex = 16
+        '
         'btnFile4
         '
-        Me.btnFile4.Location = New System.Drawing.Point(255, 101)
+        Me.btnFile4.Location = New System.Drawing.Point(254, 98)
         Me.btnFile4.Name = "btnFile4"
         Me.btnFile4.Size = New System.Drawing.Size(24, 20)
         Me.btnFile4.TabIndex = 15
         Me.btnFile4.Text = "..."
         Me.btnFile4.UseVisualStyleBackColor = True
         '
-        'lblFile4
+        'Label9
         '
-        Me.lblFile4.AutoSize = True
-        Me.lblFile4.Location = New System.Drawing.Point(26, 104)
-        Me.lblFile4.Name = "lblFile4"
-        Me.lblFile4.Size = New System.Drawing.Size(73, 13)
-        Me.lblFile4.TabIndex = 14
-        Me.lblFile4.Text = "Images folder:"
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(25, 101)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(73, 13)
+        Me.Label9.TabIndex = 14
+        Me.Label9.Text = "Images folder:"
         '
         'txtFile4
         '
-        Me.txtFile4.Location = New System.Drawing.Point(105, 101)
+        Me.txtFile4.Location = New System.Drawing.Point(104, 98)
         Me.txtFile4.Name = "txtFile4"
         Me.txtFile4.Size = New System.Drawing.Size(144, 20)
         Me.txtFile4.TabIndex = 13
         '
         'btnFile3
         '
-        Me.btnFile3.Location = New System.Drawing.Point(255, 75)
+        Me.btnFile3.Location = New System.Drawing.Point(254, 72)
         Me.btnFile3.Name = "btnFile3"
         Me.btnFile3.Size = New System.Drawing.Size(24, 20)
         Me.btnFile3.TabIndex = 12
         Me.btnFile3.Text = "..."
         Me.btnFile3.UseVisualStyleBackColor = True
         '
-        'lblFile3
+        'Label8
         '
-        Me.lblFile3.AutoSize = True
-        Me.lblFile3.Location = New System.Drawing.Point(11, 78)
-        Me.lblFile3.Name = "lblFile3"
-        Me.lblFile3.Size = New System.Drawing.Size(88, 13)
-        Me.lblFile3.TabIndex = 11
-        Me.lblFile3.Text = "Translated script:"
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(10, 75)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(88, 13)
+        Me.Label8.TabIndex = 11
+        Me.Label8.Text = "Translated script:"
         '
         'txtFile3
         '
-        Me.txtFile3.Location = New System.Drawing.Point(105, 75)
+        Me.txtFile3.Location = New System.Drawing.Point(104, 72)
         Me.txtFile3.Name = "txtFile3"
         Me.txtFile3.Size = New System.Drawing.Size(144, 20)
         Me.txtFile3.TabIndex = 10
         '
         'btnFile2
         '
-        Me.btnFile2.Location = New System.Drawing.Point(255, 49)
+        Me.btnFile2.Location = New System.Drawing.Point(254, 46)
         Me.btnFile2.Name = "btnFile2"
         Me.btnFile2.Size = New System.Drawing.Size(24, 20)
         Me.btnFile2.TabIndex = 9
@@ -263,53 +325,53 @@ Partial Class frmNewProject
         '
         'btnFile1
         '
-        Me.btnFile1.Location = New System.Drawing.Point(255, 22)
+        Me.btnFile1.Location = New System.Drawing.Point(254, 19)
         Me.btnFile1.Name = "btnFile1"
         Me.btnFile1.Size = New System.Drawing.Size(24, 20)
         Me.btnFile1.TabIndex = 8
         Me.btnFile1.Text = "..."
         Me.btnFile1.UseVisualStyleBackColor = True
         '
-        'lblFile2
+        'Label7
         '
-        Me.lblFile2.AutoSize = True
-        Me.lblFile2.Location = New System.Drawing.Point(34, 52)
-        Me.lblFile2.Name = "lblFile2"
-        Me.lblFile2.Size = New System.Drawing.Size(65, 13)
-        Me.lblFile2.TabIndex = 6
-        Me.lblFile2.Text = "Clean script:"
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(33, 49)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(65, 13)
+        Me.Label7.TabIndex = 6
+        Me.Label7.Text = "Clean script:"
         '
         'txtFile2
         '
-        Me.txtFile2.Location = New System.Drawing.Point(105, 49)
+        Me.txtFile2.Location = New System.Drawing.Point(104, 46)
         Me.txtFile2.Name = "txtFile2"
         Me.txtFile2.Size = New System.Drawing.Size(144, 20)
         Me.txtFile2.TabIndex = 5
         '
-        'lblFile1
+        'Label6
         '
-        Me.lblFile1.AutoSize = True
-        Me.lblFile1.Location = New System.Drawing.Point(11, 26)
-        Me.lblFile1.Name = "lblFile1"
-        Me.lblFile1.Size = New System.Drawing.Size(88, 13)
-        Me.lblFile1.TabIndex = 4
-        Me.lblFile1.Text = "Undertale Folder:"
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(10, 23)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(88, 13)
+        Me.Label6.TabIndex = 4
+        Me.Label6.Text = "Undertale Folder:"
         '
         'txtFile1
         '
-        Me.txtFile1.Location = New System.Drawing.Point(105, 22)
+        Me.txtFile1.Location = New System.Drawing.Point(104, 19)
         Me.txtFile1.Name = "txtFile1"
         Me.txtFile1.Size = New System.Drawing.Size(144, 20)
         Me.txtFile1.TabIndex = 3
         '
-        'lblName2
+        'Label5
         '
-        Me.lblName2.AutoSize = True
-        Me.lblName2.Location = New System.Drawing.Point(14, 13)
-        Me.lblName2.Name = "lblName2"
-        Me.lblName2.Size = New System.Drawing.Size(72, 13)
-        Me.lblName2.TabIndex = 3
-        Me.lblName2.Text = "Project name:"
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(14, 13)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(72, 13)
+        Me.Label5.TabIndex = 3
+        Me.Label5.Text = "Project name:"
         '
         'txtName2
         '
@@ -320,7 +382,7 @@ Partial Class frmNewProject
         '
         'btnDone
         '
-        Me.btnDone.Location = New System.Drawing.Point(356, 255)
+        Me.btnDone.Location = New System.Drawing.Point(356, 269)
         Me.btnDone.Name = "btnDone"
         Me.btnDone.Size = New System.Drawing.Size(82, 23)
         Me.btnDone.TabIndex = 1
@@ -329,7 +391,7 @@ Partial Class frmNewProject
         '
         'btnExit
         '
-        Me.btnExit.Location = New System.Drawing.Point(12, 255)
+        Me.btnExit.Location = New System.Drawing.Point(12, 269)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)
         Me.btnExit.TabIndex = 2
@@ -338,10 +400,12 @@ Partial Class frmNewProject
         '
         'imgAbout
         '
+        Me.imgAbout.BackgroundImage = Global.TranslaTale.My.Resources.Resources.about2
+        Me.imgAbout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.imgAbout.Image = Global.TranslaTale.My.Resources.Resources.about2
-        Me.imgAbout.Location = New System.Drawing.Point(-2, 0)
+        Me.imgAbout.Location = New System.Drawing.Point(0, 0)
         Me.imgAbout.Name = "imgAbout"
-        Me.imgAbout.Size = New System.Drawing.Size(123, 248)
+        Me.imgAbout.Size = New System.Drawing.Size(123, 260)
         Me.imgAbout.TabIndex = 5
         Me.imgAbout.TabStop = False
         '
@@ -354,7 +418,7 @@ Partial Class frmNewProject
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.Disable
-        Me.ClientSize = New System.Drawing.Size(450, 288)
+        Me.ClientSize = New System.Drawing.Size(450, 304)
         Me.Controls.Add(Me.imgAbout)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnDone)
@@ -380,15 +444,15 @@ Partial Class frmNewProject
 
     Friend WithEvents tabModeSelect As TabControl
     Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents lblName As Label
+    Friend WithEvents Label1 As Label
     Friend WithEvents txtName As TextBox
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents lblFolder1 As Label
+    Friend WithEvents Label2 As Label
     Friend WithEvents txtFolder1 As TextBox
     Friend WithEvents btnFolder2 As Button
     Friend WithEvents btnFolder1 As Button
-    Friend WithEvents lblFolder2 As Label
+    Friend WithEvents Label3 As Label
     Friend WithEvents txtFolder2 As TextBox
     Friend WithEvents btnDone As Button
     Friend WithEvents btnExit As Button
@@ -396,19 +460,25 @@ Partial Class frmNewProject
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents grpFiles As GroupBox
     Friend WithEvents btnFile3 As Button
-    Friend WithEvents lblFile3 As Label
+    Friend WithEvents Label8 As Label
     Friend WithEvents txtFile3 As TextBox
     Friend WithEvents btnFile2 As Button
-    Friend WithEvents lblFile2 As Label
+    Friend WithEvents Label7 As Label
     Friend WithEvents txtFile2 As TextBox
-    Friend WithEvents lblFile1 As Label
+    Friend WithEvents Label6 As Label
     Friend WithEvents txtFile1 As TextBox
-    Friend WithEvents lblName2 As Label
+    Friend WithEvents Label5 As Label
     Friend WithEvents txtName2 As TextBox
     Friend WithEvents btnFile4 As Button
     Friend WithEvents txtFile4 As TextBox
-    Friend WithEvents lblFile4 As Label
+    Friend WithEvents Label9 As Label
     Friend WithEvents btnFile1 As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents btnFolder3 As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtFolder3 As TextBox
+    Friend WithEvents btnFolder4 As Button
+    Friend WithEvents Label10 As Label
+    Friend WithEvents txtFile5 As TextBox
 End Class

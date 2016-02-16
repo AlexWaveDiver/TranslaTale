@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmProjOptions
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmProjOptions
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProjOptions))
@@ -28,6 +28,7 @@ Partial Class frmProjOptions
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grpPaths = New System.Windows.Forms.GroupBox()
+        Me.txtFolder3 = New System.Windows.Forms.TextBox()
         Me.btnFolder3 = New System.Windows.Forms.Button()
         Me.btnFolder2 = New System.Windows.Forms.Button()
         Me.btnFolder1 = New System.Windows.Forms.Button()
@@ -38,7 +39,6 @@ Partial Class frmProjOptions
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtFolder3 = New System.Windows.Forms.TextBox()
         Me.txtFolder2 = New System.Windows.Forms.TextBox()
         Me.txtFolder1 = New System.Windows.Forms.TextBox()
         Me.txtFile2 = New System.Windows.Forms.TextBox()
@@ -48,10 +48,8 @@ Partial Class frmProjOptions
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.txtFile3 = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.btnFile3 = New System.Windows.Forms.Button()
         Me.grpPaths.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtName
@@ -79,8 +77,6 @@ Partial Class frmProjOptions
         'grpPaths
         '
         Me.grpPaths.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.grpPaths.Controls.Add(Me.btnFile3)
-        Me.grpPaths.Controls.Add(Me.Label7)
         Me.grpPaths.Controls.Add(Me.txtFolder3)
         Me.grpPaths.Controls.Add(Me.btnFolder3)
         Me.grpPaths.Controls.Add(Me.btnFolder2)
@@ -96,17 +92,23 @@ Partial Class frmProjOptions
         Me.grpPaths.Controls.Add(Me.txtFolder1)
         Me.grpPaths.Controls.Add(Me.txtFile2)
         Me.grpPaths.Controls.Add(Me.txtFile1)
-        Me.grpPaths.Controls.Add(Me.txtFile3)
-        Me.grpPaths.Location = New System.Drawing.Point(13, 75)
+        Me.grpPaths.Location = New System.Drawing.Point(12, 81)
         Me.grpPaths.Name = "grpPaths"
-        Me.grpPaths.Size = New System.Drawing.Size(335, 181)
+        Me.grpPaths.Size = New System.Drawing.Size(335, 159)
         Me.grpPaths.TabIndex = 8
         Me.grpPaths.TabStop = False
         Me.grpPaths.Text = "File Directories"
         '
+        'txtFolder3
+        '
+        Me.txtFolder3.Location = New System.Drawing.Point(104, 123)
+        Me.txtFolder3.Name = "txtFolder3"
+        Me.txtFolder3.Size = New System.Drawing.Size(184, 20)
+        Me.txtFolder3.TabIndex = 11
+        '
         'btnFolder3
         '
-        Me.btnFolder3.Location = New System.Drawing.Point(294, 149)
+        Me.btnFolder3.Location = New System.Drawing.Point(294, 123)
         Me.btnFolder3.Name = "btnFolder3"
         Me.btnFolder3.Size = New System.Drawing.Size(24, 20)
         Me.btnFolder3.TabIndex = 19
@@ -115,7 +117,7 @@ Partial Class frmProjOptions
         '
         'btnFolder2
         '
-        Me.btnFolder2.Location = New System.Drawing.Point(294, 123)
+        Me.btnFolder2.Location = New System.Drawing.Point(294, 97)
         Me.btnFolder2.Name = "btnFolder2"
         Me.btnFolder2.Size = New System.Drawing.Size(24, 20)
         Me.btnFolder2.TabIndex = 18
@@ -124,7 +126,7 @@ Partial Class frmProjOptions
         '
         'btnFolder1
         '
-        Me.btnFolder1.Location = New System.Drawing.Point(294, 97)
+        Me.btnFolder1.Location = New System.Drawing.Point(294, 71)
         Me.btnFolder1.Name = "btnFolder1"
         Me.btnFolder1.Size = New System.Drawing.Size(24, 20)
         Me.btnFolder1.TabIndex = 17
@@ -152,7 +154,7 @@ Partial Class frmProjOptions
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(7, 152)
+        Me.Label6.Location = New System.Drawing.Point(7, 126)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(91, 13)
         Me.Label6.TabIndex = 15
@@ -161,7 +163,7 @@ Partial Class frmProjOptions
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(22, 126)
+        Me.Label5.Location = New System.Drawing.Point(22, 100)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(76, 13)
         Me.Label5.TabIndex = 14
@@ -170,7 +172,7 @@ Partial Class frmProjOptions
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(31, 100)
+        Me.Label4.Location = New System.Drawing.Point(31, 74)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(63, 13)
         Me.Label4.TabIndex = 13
@@ -194,23 +196,16 @@ Partial Class frmProjOptions
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "Clean Script:"
         '
-        'txtFolder3
-        '
-        Me.txtFolder3.Location = New System.Drawing.Point(104, 149)
-        Me.txtFolder3.Name = "txtFolder3"
-        Me.txtFolder3.Size = New System.Drawing.Size(184, 20)
-        Me.txtFolder3.TabIndex = 11
-        '
         'txtFolder2
         '
-        Me.txtFolder2.Location = New System.Drawing.Point(104, 123)
+        Me.txtFolder2.Location = New System.Drawing.Point(104, 97)
         Me.txtFolder2.Name = "txtFolder2"
         Me.txtFolder2.Size = New System.Drawing.Size(184, 20)
         Me.txtFolder2.TabIndex = 10
         '
         'txtFolder1
         '
-        Me.txtFolder1.Location = New System.Drawing.Point(104, 97)
+        Me.txtFolder1.Location = New System.Drawing.Point(104, 71)
         Me.txtFolder1.Name = "txtFolder1"
         Me.txtFolder1.Size = New System.Drawing.Size(184, 20)
         Me.txtFolder1.TabIndex = 9
@@ -232,14 +227,15 @@ Partial Class frmProjOptions
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Panel1.Controls.Add(Me.grpPaths)
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(359, 270)
+        Me.Panel1.Size = New System.Drawing.Size(359, 257)
         Me.Panel1.TabIndex = 9
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(272, 276)
+        Me.btnSave.Location = New System.Drawing.Point(272, 263)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 23)
         Me.btnSave.TabIndex = 10
@@ -248,7 +244,7 @@ Partial Class frmProjOptions
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(12, 276)
+        Me.btnCancel.Location = New System.Drawing.Point(12, 263)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 11
@@ -259,48 +255,23 @@ Partial Class frmProjOptions
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'txtFile3
-        '
-        Me.txtFile3.Location = New System.Drawing.Point(104, 71)
-        Me.txtFile3.Name = "txtFile3"
-        Me.txtFile3.Size = New System.Drawing.Size(184, 20)
-        Me.txtFile3.TabIndex = 20
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(28, 74)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(70, 13)
-        Me.Label7.TabIndex = 21
-        Me.Label7.Text = "UTFonts File:"
-        '
-        'btnFile3
-        '
-        Me.btnFile3.Location = New System.Drawing.Point(294, 71)
-        Me.btnFile3.Name = "btnFile3"
-        Me.btnFile3.Size = New System.Drawing.Size(24, 20)
-        Me.btnFile3.TabIndex = 22
-        Me.btnFile3.Text = "..."
-        Me.btnFile3.UseVisualStyleBackColor = True
-        '
         'frmProjOptions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(359, 306)
+        Me.ClientSize = New System.Drawing.Size(359, 292)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtName)
-        Me.Controls.Add(Me.grpPaths)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmProjOptions"
         Me.Text = "frmProjOptions"
         Me.grpPaths.ResumeLayout(False)
         Me.grpPaths.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -330,7 +301,4 @@ Partial Class frmProjOptions
     Friend WithEvents btnCancel As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
-    Friend WithEvents btnFile3 As Button
-    Friend WithEvents Label7 As Label
-    Friend WithEvents txtFile3 As TextBox
 End Class

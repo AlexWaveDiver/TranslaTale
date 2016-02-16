@@ -1,6 +1,11 @@
 ﻿Public Class frmProjOptions
     Private Sub frmProjOptions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ProjectManager.Read(txtName.Text, txtFile1.Text, txtFile2.Text, txtFolder1.Text, txtFile3.Text, txtFolder2.Text, txtFolder3.Text)
+        txtName.Text = ProjectManager.GetName
+        txtFile1.Text = ProjectManager.GetCleanScript
+        txtFile2.Text = ProjectManager.GetTranslatedScript
+        txtFolder1.Text = ProjectManager.GetImagesDirectory
+        txtFolder2.Text = ProjectManager.GetInputDirectory
+        txtFolder3.Text = ProjectManager.GetOutputDirectory
     End Sub
 
     Private Sub btnFile1_Click(sender As Object, e As EventArgs) Handles btnFile1.Click
@@ -16,14 +21,6 @@
         OpenFileDialog1.Filter = "Text files (*.txt)|*.txt"
         If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
             txtFile2.Text = OpenFileDialog1.FileName
-        End If
-    End Sub
-
-    Private Sub btnFile3_Click(sender As Object, e As EventArgs) Handles btnFile3.Click
-        OpenFileDialog1.Title = "Select your UTFonts.win file"
-        OpenFileDialog1.Filter = ".WIN files (*.win)|*.win"
-        If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
-            txtFile3.Text = OpenFileDialog1.FileName
         End If
     End Sub
 
@@ -50,7 +47,7 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        ProjectManager.Write(ProjectManager.CurrentProject, txtName.Text, txtFile1.Text, txtFile2.Text, txtFolder1.Text, txtFile3.Text, txtFolder2.Text, txtFolder3.Text)
+        ProjectManager.Write(ProjectManager.CurrentProject, txtName.Text, txtFile1.Text, txtFile2.Text, txtFolder1.Text, txtFolder2.Text, txtFolder3.Text)
         Me.Close()
     End Sub
 End Class

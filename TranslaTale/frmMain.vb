@@ -14,9 +14,9 @@ Public NotInheritable Class frmMain
     Dim opened As Boolean = True
     Dim saved As Boolean = True
 
-    Dim fileNameTitle As String = ""
-    Dim path1 As String
-    Dim path2 As String
+    Dim ProjectName As String = ""
+    Dim CleanScript As String
+    Dim TransScript As String
 
     Private Sub frmMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         End
@@ -94,30 +94,39 @@ Public NotInheritable Class frmMain
     End Sub
 
     Private Sub repackProject()
-        Dim inDataFile As String
-        Dim stringsFile As String
-        Dim imagesPath As String
-        Dim fontsFile As String
-        Dim outDataFile As String
-
-        ProjectManager.Read(stringsFile, imagesPath, fontsFile, inDataFile, outDataFile)
-        inDataFile &= "\data.win"
-        outDataFile &= "\data.win"
-
         Dim tempFolder As String = GetTempFolder()
         Dim unpackProcess As Process
         Dim repackProcess As Process
 
+        Dim winExtract As String = Application.StartupPath & "\Resources\WinExtract.exe"
+        Dim winPack As String = Application.StartupPath & "\Resources\WinPack.exe"
+        Dim fontsPath As String = Application.StartupPath & "\Resources\UTFonts.win"
+        Dim inData As String = ProjectManager.GetInputDirectory & "\data.win"
+        Dim outData As String = ProjectManager.GetOutputDirectory & "\data.win"
 
-        Dim filename As String = Application.StartupPath + "\Resources\WinExtract.exe"
-        System.IO.File.WriteAllBytes(filename, My.Resources.WinExtract)
+        If Not My.Computer.FileSystem.FileExists(winExtract) Then
+            MsgBox("Error: couldn't find WinExtract.exe!", MsgBoxStyle.Exclamation, "File Not found!")
+            Exit Sub
+        End If
 
-        Dim filenamePack As String = Application.StartupPath + "\Resources\WinPack.exe"
-        System.IO.File.WriteAllBytes(filenamePack, My.Resources.WinPack)
+        If Not My.Computer.FileSystem.FileExists(winPack) Then
+            MsgBox("Error: couldn't find WinPack.exe!", MsgBoxStyle.Exclamation, "File Not found!")
+            Exit Sub
+        End If
+
+        If Not My.Computer.FileSystem.FileExists(fontsPath) Then
+            MsgBox("Error: couldn't find UTFonts.win!", MsgBoxStyle.Exclamation, "File Not found!")
+            Exit Sub
+        End If
+
+        If Not My.Computer.FileSystem.FileExists(inData) Then
+            MsgBox("Error: couldn't find Data.win!", MsgBoxStyle.Exclamation, "File Not found!")
+            Exit Sub
+        End If
 
         Dim p As New ProcessStartInfo
-        p.FileName = filename
-        p.Arguments = """" & fontsFile & """ """ & tempFolder & "\UTFONTS"" -tt"
+        p.FileName = winExtract
+        p.Arguments = """" & fontsPath & """ """ & tempFolder & "\UTFONTS"" -tt"
 
         unpackProcess = Process.Start(p)
         unpackProcess.WaitForExit()
@@ -131,8 +140,8 @@ Public NotInheritable Class frmMain
             End If
         Next i
 
-        p.FileName = filename
-        p.Arguments = """" & inDataFile & """ """ & tempFolder & "\DATAWIN"" -tt"
+        p.FileName = winExtract
+        p.Arguments = """" & inData & """ """ & tempFolder & "\DATAWIN"" -tt"
 
         unpackProcess = Process.Start(p)
         unpackProcess.WaitForExit()
@@ -189,7 +198,7 @@ Public NotInheritable Class frmMain
 
         patchFile.Close()
 
-        For Each f In Directory.GetFiles(imagesPath, "*.png")
+        For Each f In Directory.GetFiles(ProjectManager.GetImagesDirectory, "*.png")
             If File.Exists(f) Then
                 If File.Exists(Path.Combine(tempFolder & "\DATAWIN\TXTR\", Path.GetFileName(f))) Then
                     File.Delete(Path.Combine(tempFolder & "\DATAWIN\TXTR\", Path.GetFileName(f)))
@@ -198,9 +207,9 @@ Public NotInheritable Class frmMain
             End If
         Next
 
-        System.IO.File.Copy(stringsFile, tempFolder & "\DATAWIN\translate.txt")
+        System.IO.File.Copy(ProjectManager.GetTranslatedScript, tempFolder & "\DATAWIN\translate.txt")
 
-        p.FileName = filenamePack
+        p.FileName = winPack
         p.Arguments = """" & tempFolder & "\DATAWIN "" """ & tempFolder & "\packed.win"" -tt"
 
         repackProcess = Process.Start(p)
@@ -215,11 +224,12 @@ Public NotInheritable Class frmMain
             End If
         Next i
 
-        If File.Exists(outDataFile) Then
-            My.Computer.FileSystem.DeleteFile(outDataFile)
+        If File.Exists(outData) Then
+            My.Computer.FileSystem.DeleteFile(outData)
         End If
 
-        System.IO.File.Copy(tempFolder & "\packed.win", outDataFile)
+
+        System.IO.File.Copy(tempFolder & "\packed.win", outData)
         System.IO.Directory.Delete(tempFolder, True)
     End Sub
 
@@ -228,7 +238,9 @@ Public NotInheritable Class frmMain
         Dim numLines2 As Integer
 
         ProjectManager.CurrentProject = projectFilePath
-        ProjectManager.Read(fileNameTitle, path1, path2)
+        ProjectName = ProjectManager.GetName
+        CleanScript = ProjectManager.GetCleanScript
+        TransScript = ProjectManager.GetTranslatedScript
 
         ListView1.Enabled = False
         TextBox1.Enabled = False
@@ -268,13 +280,13 @@ Public NotInheritable Class frmMain
             End With
         End If
 
-        Dim sr As New System.IO.StreamReader(path1)
-        Dim lines() As String = IO.File.ReadAllLines(path1)
+        Dim sr As New System.IO.StreamReader(CleanScript)
+        Dim lines() As String = IO.File.ReadAllLines(CleanScript)
         numLines = lines.Count()
         sr.Close()
 
-        Dim sr2 As New System.IO.StreamReader(path2)
-        Dim lines2() As String = IO.File.ReadAllLines(path2)
+        Dim sr2 As New System.IO.StreamReader(TransScript)
+        Dim lines2() As String = IO.File.ReadAllLines(TransScript)
         numLines2 = lines2.Count()
         sr2.Close()
 
@@ -317,10 +329,13 @@ Public NotInheritable Class frmMain
         End If
         ListView1.Focus()
         ListView1.HideSelection = False
+
         showText(ListView1.Items(0).SubItems(2).Text)
         TextBox1.Text = ListView1.Items(0).SubItems(2).Text
         frmSearch.Close()
-        Me.Text = "TranslaTale - " + fileNameTitle
+        Me.Text = "TranslaTale - " + ProjectName
+
+        ProjectManager.CurrentProject = projectFilePath
     End Sub
 
     Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbTextbox.CheckedChanged
@@ -354,7 +369,7 @@ Public NotInheritable Class frmMain
             If ListView1.SelectedItems(0).SubItems(1).Text <> TextBox1.Text Then
                 ListView1.SelectedItems(0).BackColor = Color.LightGreen
                 saved = False
-                Me.Text = "TranslaTale - " + fileNameTitle + " *"
+                Me.Text = "TranslaTale - " + ProjectName + " *"
                 SaveToolStripMenuItem.Enabled = True
             Else
                 ListView1.SelectedItems(0).BackColor = Color.LightSalmon
@@ -364,7 +379,7 @@ Public NotInheritable Class frmMain
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
-        Dim W As IO.StreamWriter = New IO.StreamWriter(path2)
+        Dim W As IO.StreamWriter = New IO.StreamWriter(TransScript)
         For i As Integer = 0 To ListView1.Items.Count - 1
             If ListView1.Items.Count - 1 < ttipTotal.Text Or ListView1.Items.Count - 1 = ttipTotal.Text Then
                 On Error Resume Next
@@ -373,7 +388,7 @@ Public NotInheritable Class frmMain
         Next
         W.Close()
         saved = True
-        Me.Text = "TranslaTale - " + fileNameTitle
+        Me.Text = "TranslaTale - " + ProjectName
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load

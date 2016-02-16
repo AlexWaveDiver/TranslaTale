@@ -16,38 +16,43 @@ Public Class frmNewProject
                 My.Computer.FileSystem.CreateDirectory(txtFolder2.Text)
             End If
 
-            If Not txtFolder1.Text = "" AndAlso Not txtFolder2.Text = "" AndAlso Not txtName.Text = "" Then
-                If My.Computer.FileSystem.FileExists(dataPath) Then
-                    Dim projFilePath As String = txtFolder2.Text & "\" & txtName.Text & ".ttp"
-                    dumpText(dataPath, txtFolder2.Text)
-                    File.Copy(txtFolder2.Text & "\CleanStrings.txt", txtFolder2.Text & "\TranslatedStrings.txt", True)
-                    My.Computer.FileSystem.CreateDirectory(txtFolder2.Text & "\Images")
-                    dumpImages(dataPath, txtFolder2.Text & "\Images")
-                    ProjectManager.Write(projFilePath, txtName.Text, txtFolder2.Text & "\CleanStrings.txt",
-                                         txtFolder2.Text & "\TranslatedStrings.txt", txtFolder2.Text & "\Images",
-                                         "", txtFolder1.Text, "")
-                    Me.Hide()
-                    frmMain.Show()
-                    frmMain.OpenFile(projFilePath)
-                Else
-                    MsgBox("Error: Couldn't find Data.win!", MsgBoxStyle.Exclamation, "File Not found!")
-                End If
+            If txtFolder1.Text = "" Or txtFolder2.Text = "" Or txtName.Text = "" Then
+                Exit Sub
             End If
+
+            If Not My.Computer.FileSystem.FileExists(dataPath) Then
+                MsgBox("Error: Couldn't find Data.win!", MsgBoxStyle.Exclamation, "File Not found!")
+                Exit Sub
+            End If
+
+            Dim projFilePath As String = txtFolder2.Text & "\" & txtName.Text & ".ttp"
+            dumpText(dataPath, txtFolder2.Text)
+            File.Copy(txtFolder2.Text & "\CleanStrings.txt", txtFolder2.Text & "\TranslatedStrings.txt", True)
+            My.Computer.FileSystem.CreateDirectory(txtFolder2.Text & "\Images")
+            dumpImages(dataPath, txtFolder2.Text & "\Images")
+            ProjectManager.Write(projFilePath, txtName.Text, txtFolder2.Text & "\CleanStrings.txt",
+                                         txtFolder2.Text & "\TranslatedStrings.txt", txtFolder2.Text & "\Images",
+                                         txtFolder1.Text, txtFolder3.Text)
+            Me.Hide()
+            frmMain.Show()
+            frmMain.OpenFile(projFilePath)
         Else
-            If Not txtFile1.Text = "" AndAlso Not txtFile2.Text = "" AndAlso Not txtFile3.Text = "" AndAlso Not txtFile4.Text = "" AndAlso Not txtName2.Text = "" Then
-                If My.Computer.FileSystem.FileExists(txtFile1.Text) AndAlso My.Computer.FileSystem.FileExists(txtFile2.Text) AndAlso My.Computer.FileSystem.FileExists(txtFile3.Text) AndAlso My.Computer.FileSystem.DirectoryExists(txtFile4.Text) Then
-                    SaveFileDialog1.Title = "Save Project file as..."
-                    SaveFileDialog1.Filter = "TranslaTale Project files (*.ttp)|*.ttp"
-                    If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
-                        ProjectManager.Write(SaveFileDialog1.FileName, txtName2.Text, txtFile2.Text,
-                                             txtFile3.Text, txtFile4.Text, "", txtFile1.Text & "\data.win", "")
-                        Me.Hide()
-                        frmMain.Show()
-                        frmMain.OpenFile(SaveFileDialog1.FileName)
-                    End If
-                Else
-                    MsgBox("Error: Couldn't find one or more files!", MsgBoxStyle.Exclamation, "File Not found!")
-                End If
+            If txtFile1.Text = "" Or txtFile2.Text = "" Or txtFile3.Text = "" Or txtFile4.Text = "" Or txtName2.Text = "" Or txtFile5.Text = "" Then
+                Exit Sub
+            End If
+
+            If Not My.Computer.FileSystem.DirectoryExists(txtFile1.Text) Or Not My.Computer.FileSystem.FileExists(txtFile2.Text) Or Not My.Computer.FileSystem.FileExists(txtFile3.Text) Or Not My.Computer.FileSystem.DirectoryExists(txtFile4.Text) Or Not My.Computer.FileSystem.DirectoryExists(txtFile5.Text) Then
+                MsgBox("Error: Couldn't find one or more files!", MsgBoxStyle.Exclamation, "File Not found!")
+                Exit Sub
+            End If
+            SaveFileDialog1.Title = "Save Project file as..."
+            SaveFileDialog1.Filter = "TranslaTale Project files (*.ttp)|*.ttp"
+            If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
+                ProjectManager.Write(SaveFileDialog1.FileName, txtName2.Text, txtFile2.Text,
+                                             txtFile3.Text, txtFile4.Text, txtFile1.Text, txtFile5.Text)
+                Me.Hide()
+                frmMain.Show()
+                frmMain.OpenFile(SaveFileDialog1.FileName)
             End If
         End If
     End Sub
@@ -129,6 +134,18 @@ Public Class frmNewProject
     Private Sub btnFolder2_Click(sender As Object, e As EventArgs) Handles btnFolder2.Click
         If FolderBrowserDialog1.ShowDialog() = DialogResult.OK Then
             txtFolder2.Text = FolderBrowserDialog1.SelectedPath
+        End If
+    End Sub
+
+    Private Sub btnFolder3_Click(sender As Object, e As EventArgs) Handles btnFolder3.Click
+        If FolderBrowserDialog1.ShowDialog() = DialogResult.OK Then
+            txtFolder3.Text = FolderBrowserDialog1.SelectedPath
+        End If
+    End Sub
+
+    Private Sub btnFolder4_Click(sender As Object, e As EventArgs) Handles btnFolder4.Click
+        If FolderBrowserDialog1.ShowDialog() = DialogResult.OK Then
+            txtFile5.Text = FolderBrowserDialog1.SelectedPath
         End If
     End Sub
 
