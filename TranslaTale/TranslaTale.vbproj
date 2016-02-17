@@ -106,6 +106,12 @@
     <Compile Include="AboutBox1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmFontImporter.Designer.vb">
       <DependentUpon>frmFontImporter.vb</DependentUpon>
     </Compile>
@@ -142,10 +148,6 @@
     <Compile Include="frmOptions.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSplash.Designer.vb">
-      <DependentUpon>frmSplash.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmSplash.vb" />
     <Compile Include="frmStringsConverter.Designer.vb">
       <DependentUpon>frmStringsConverter.vb</DependentUpon>
     </Compile>
@@ -192,6 +194,9 @@
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFontImporter.resx">
       <DependentUpon>frmFontImporter.vb</DependentUpon>
     </EmbeddedResource>
@@ -209,9 +214,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmOptions.resx">
       <DependentUpon>frmOptions.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSplash.resx">
-      <DependentUpon>frmSplash.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStringsConverter.resx">
       <DependentUpon>frmStringsConverter.vb</DependentUpon>
@@ -269,8 +271,6 @@
     <None Include="Resources\about.png" />
     <None Include="Resources\5-search-icon.png" />
     <None Include="Resources\about2.png" />
-    <None Include="bin\Debug\libgcc_s_dw2-1.dll" />
-    <None Include="bin\Debug\gmktool.exe" />
     <None Include="Resources\fonts.png" />
     <Content Include="icon_8SA_icon.ico" />
   </ItemGroup>
@@ -295,6 +295,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

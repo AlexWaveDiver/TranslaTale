@@ -5,16 +5,38 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TranslaTale", "TranslaTale\TranslaTale.vbproj", "{93ACB8ED-B285-432B-BF75-D78091D88D07}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TTgroupControl", "TTgroupControl\TTgroupControl.vbproj", "{1A02A6EB-A1D7-41FD-838D-A168DB53D818}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93ACB8ED-B285-432B-BF75-D78091D88D07}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{93ACB8ED-B285-432B-BF75-D78091D88D07}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{93ACB8ED-B285-432B-BF75-D78091D88D07}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{93ACB8ED-B285-432B-BF75-D78091D88D07}.Debug|x86.ActiveCfg = Debug|x86
 		{93ACB8ED-B285-432B-BF75-D78091D88D07}.Debug|x86.Build.0 = Debug|x86
+		{93ACB8ED-B285-432B-BF75-D78091D88D07}.Release|Any CPU.ActiveCfg = Release|x86
+		{93ACB8ED-B285-432B-BF75-D78091D88D07}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{93ACB8ED-B285-432B-BF75-D78091D88D07}.Release|Mixed Platforms.Build.0 = Release|x86
 		{93ACB8ED-B285-432B-BF75-D78091D88D07}.Release|x86.ActiveCfg = Release|x86
 		{93ACB8ED-B285-432B-BF75-D78091D88D07}.Release|x86.Build.0 = Release|x86
+		{1A02A6EB-A1D7-41FD-838D-A168DB53D818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A02A6EB-A1D7-41FD-838D-A168DB53D818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A02A6EB-A1D7-41FD-838D-A168DB53D818}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1A02A6EB-A1D7-41FD-838D-A168DB53D818}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1A02A6EB-A1D7-41FD-838D-A168DB53D818}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1A02A6EB-A1D7-41FD-838D-A168DB53D818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A02A6EB-A1D7-41FD-838D-A168DB53D818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A02A6EB-A1D7-41FD-838D-A168DB53D818}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1A02A6EB-A1D7-41FD-838D-A168DB53D818}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1A02A6EB-A1D7-41FD-838D-A168DB53D818}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
