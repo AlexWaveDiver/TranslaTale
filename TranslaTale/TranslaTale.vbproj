@@ -100,16 +100,10 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox1.Designer.vb">
-      <DependentUpon>AboutBox1.vb</DependentUpon>
+    <Compile Include="frmAbout.Designer.vb">
+      <DependentUpon>frmAbout.vb</DependentUpon>
     </Compile>
-    <Compile Include="AboutBox1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmFontImporter.Designer.vb">
-      <DependentUpon>frmFontImporter.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmFontImporter.vb">
+    <Compile Include="frmAbout.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.vb">
@@ -170,7 +164,7 @@
     <Compile Include="frmBookmarks.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="funcs.vb" />
+    <Compile Include="SettingsManager.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -189,11 +183,8 @@
     <Compile Include="ProjectManager.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AboutBox1.resx">
-      <DependentUpon>AboutBox1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmFontImporter.resx">
-      <DependentUpon>frmFontImporter.vb</DependentUpon>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>

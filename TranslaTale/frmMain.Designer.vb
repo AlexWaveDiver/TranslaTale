@@ -30,7 +30,7 @@ Partial Class frmMain
         Dim ListViewGroup3 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.TableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.lstStrings = New System.Windows.Forms.ListView()
         Me.pnlPreview = New System.Windows.Forms.Panel()
         Me.SpriteFontBox1 = New UTSpriteFontBox.SpriteFontBox()
         Me.cbFonts = New System.Windows.Forms.ComboBox()
@@ -95,7 +95,7 @@ Partial Class frmMain
         Me.TableLayoutPanel.BackColor = System.Drawing.SystemColors.Control
         Me.TableLayoutPanel.ColumnCount = 1
         Me.TableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel.Controls.Add(Me.ListView1, 0, 1)
+        Me.TableLayoutPanel.Controls.Add(Me.lstStrings, 0, 1)
         Me.TableLayoutPanel.Controls.Add(Me.pnlPreview, 0, 3)
         Me.TableLayoutPanel.Controls.Add(Me.TextBox1, 0, 2)
         Me.TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
@@ -112,22 +112,22 @@ Partial Class frmMain
         '
         'ListView1
         '
-        Me.ListView1.Enabled = False
-        Me.ListView1.FullRowSelect = True
-        Me.ListView1.GridLines = True
+        Me.lstStrings.Enabled = False
+        Me.lstStrings.FullRowSelect = True
+        Me.lstStrings.GridLines = True
         ListViewGroup1.Header = "ListViewGroup"
         ListViewGroup1.Name = "ListViewGroup1"
         ListViewGroup2.Header = "ListViewGroup"
         ListViewGroup2.Name = "ListViewGroup2"
         ListViewGroup3.Header = "ListViewGroup"
         ListViewGroup3.Name = "ListViewGroup3"
-        Me.ListView1.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1, ListViewGroup2, ListViewGroup3})
-        Me.ListView1.Location = New System.Drawing.Point(3, 58)
-        Me.ListView1.MultiSelect = False
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(660, 347)
-        Me.ListView1.TabIndex = 12
-        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.lstStrings.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1, ListViewGroup2, ListViewGroup3})
+        Me.lstStrings.Location = New System.Drawing.Point(3, 58)
+        Me.lstStrings.MultiSelect = False
+        Me.lstStrings.Name = "ListView1"
+        Me.lstStrings.Size = New System.Drawing.Size(660, 347)
+        Me.lstStrings.TabIndex = 12
+        Me.lstStrings.UseCompatibleStateImageBehavior = False
         '
         'pnlPreview
         '
@@ -543,7 +543,7 @@ Partial Class frmMain
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ListView1 As System.Windows.Forms.ListView
+    Friend WithEvents lstStrings As System.Windows.Forms.ListView
     Friend WithEvents pnlPreview As System.Windows.Forms.Panel
     Friend WithEvents cbFonts As System.Windows.Forms.ComboBox
     Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton

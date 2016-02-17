@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class AboutBox1
+Partial Class frmAbout
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -23,11 +23,13 @@ Partial Class AboutBox1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AboutBox1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAbout))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
@@ -40,8 +42,6 @@ Partial Class AboutBox1
         Me.TableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
         Me.PictureMigosp = New System.Windows.Forms.PictureBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel.SuspendLayout()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,6 +66,39 @@ Partial Class AboutBox1
         Me.Panel1.Size = New System.Drawing.Size(260, 160)
         Me.Panel1.TabIndex = 1
         '
+        'LinkLabel4
+        '
+        Me.LinkLabel4.AutoSize = True
+        Me.LinkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.LinkLabel4.LinkColor = System.Drawing.Color.SteelBlue
+        Me.LinkLabel4.Location = New System.Drawing.Point(75, 17)
+        Me.LinkLabel4.Name = "LinkLabel4"
+        Me.LinkLabel4.Size = New System.Drawing.Size(45, 13)
+        Me.LinkLabel4.TabIndex = 11
+        Me.LinkLabel4.TabStop = True
+        Me.LinkLabel4.Text = "CRefice"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(5, 17)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(72, 13)
+        Me.Label5.TabIndex = 10
+        Me.Label5.Text = "with help from"
+        '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.LinkLabel2.LinkColor = System.Drawing.Color.SteelBlue
+        Me.LinkLabel2.Location = New System.Drawing.Point(122, 2)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(84, 13)
+        Me.LinkLabel2.TabIndex = 5
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "Alex WaveDiver"
+        '
         'LinkLabel3
         '
         Me.LinkLabel3.AutoSize = True
@@ -86,18 +119,6 @@ Partial Class AboutBox1
         Me.Label8.Size = New System.Drawing.Size(174, 13)
         Me.Label8.TabIndex = 8
         Me.Label8.Text = "UTSpriteFontBox library, © 2015 by"
-        '
-        'LinkLabel2
-        '
-        Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.LinkLabel2.LinkColor = System.Drawing.Color.SteelBlue
-        Me.LinkLabel2.Location = New System.Drawing.Point(122, 2)
-        Me.LinkLabel2.Name = "LinkLabel2"
-        Me.LinkLabel2.Size = New System.Drawing.Size(84, 13)
-        Me.LinkLabel2.TabIndex = 5
-        Me.LinkLabel2.TabStop = True
-        Me.LinkLabel2.Text = "Alex WaveDiver"
         '
         'Label4
         '
@@ -239,28 +260,7 @@ Partial Class AboutBox1
         Me.PictureMigosp.TabStop = False
         Me.PictureMigosp.Visible = False
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(5, 17)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(72, 13)
-        Me.Label5.TabIndex = 10
-        Me.Label5.Text = "with help from"
-        '
-        'LinkLabel4
-        '
-        Me.LinkLabel4.AutoSize = True
-        Me.LinkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.LinkLabel4.LinkColor = System.Drawing.Color.SteelBlue
-        Me.LinkLabel4.Location = New System.Drawing.Point(75, 17)
-        Me.LinkLabel4.Name = "LinkLabel4"
-        Me.LinkLabel4.Size = New System.Drawing.Size(45, 13)
-        Me.LinkLabel4.TabIndex = 11
-        Me.LinkLabel4.TabStop = True
-        Me.LinkLabel4.Text = "CRefice"
-        '
-        'AboutBox1
+        'frmAbout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -271,7 +271,7 @@ Partial Class AboutBox1
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "AboutBox1"
+        Me.Name = "frmAbout"
         Me.Padding = New System.Windows.Forms.Padding(9)
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent

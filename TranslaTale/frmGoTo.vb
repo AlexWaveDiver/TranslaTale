@@ -1,6 +1,6 @@
 ﻿Public Class frmGoTo
 
-    Private Sub TextBox1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtLineNumber.KeyPress
+    Private Sub txtLineNumber_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtLineNumber.KeyPress
         If Asc(e.KeyChar) <> 8 Then
             If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
@@ -17,13 +17,13 @@
             If frmMain.ttipTotal.Text < line Then
                 MsgBox("Line " + line.ToString + " not found", vbInformation)
             Else
-                frmMain.ListView1.SelectedItems().Clear()
-                frmMain.ListView1.Items(line - 1).Selected = True
-                frmMain.ListView1.EnsureVisible(line - 1)
-                frmMain.ListView1.Focus()
-                If frmMain.ListView1.SelectedItems(0) IsNot Nothing Then
-                    Dim val As String = frmMain.ListView1.Items(line - 1).SubItems(2).Text
-                    frmMain.showText(val)
+                frmMain.lstStrings.SelectedItems().Clear()
+                frmMain.lstStrings.Items(line - 1).Selected = True
+                frmMain.lstStrings.EnsureVisible(line - 1)
+                frmMain.lstStrings.Focus()
+                If frmMain.lstStrings.SelectedItems(0) IsNot Nothing Then
+                    Dim val As String = frmMain.lstStrings.Items(line - 1).SubItems(2).Text
+                    frmMain.ShowText(val)
                     frmMain.TextBox1.Text = val
                 End If
                 Me.Close()

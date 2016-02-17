@@ -16,21 +16,21 @@ Public Class frmBookmarks
         If frmMain.ttipTotal.Text < Convert.ToInt16(lstBookmarks.SelectedItems(0).SubItems(0).Text) Then
             MsgBox("Line " + line.ToString + " not found", vbInformation)
         Else
-            frmMain.ListView1.SelectedItems().Clear()
-            frmMain.ListView1.Items(line - 1).Selected = True
-            frmMain.ListView1.EnsureVisible(line - 1)
-            frmMain.ListView1.Focus()
-            If frmMain.ListView1.SelectedItems(0) IsNot Nothing Then
-                Dim val As String = frmMain.ListView1.Items(line - 1).SubItems(2).Text
+            frmMain.lstStrings.SelectedItems().Clear()
+            frmMain.lstStrings.Items(line - 1).Selected = True
+            frmMain.lstStrings.EnsureVisible(line - 1)
+            frmMain.lstStrings.Focus()
+            If frmMain.lstStrings.SelectedItems(0) IsNot Nothing Then
+                Dim val As String = frmMain.lstStrings.Items(line - 1).SubItems(2).Text
                 frmMain.TextBox1.Text = val
-                frmMain.showText(val)
+                frmMain.ShowText(val)
             End If
             Me.Close()
         End If
     End Sub
 
     Private Sub frmBookmarks_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim bookmarks As System.Xml.XmlNodeList = getBookmarks()
+        Dim bookmarks As System.Xml.XmlNodeList = GetBookmarks()
         lstBookmarks.View = View.Details
         lstBookmarks.Clear()
         lstBookmarks.ShowGroups = False
@@ -58,17 +58,17 @@ Public Class frmBookmarks
         End If
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRemove.Click
+    Private Sub btnRemove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRemove.Click
         If lstBookmarks.SelectedItems.Count > 0 Then
             Dim selected As Integer = lstBookmarks.SelectedItems(0).Index
             Dim label As String = lstBookmarks.SelectedItems(0).SubItems(1).Text
             Dim stat As Integer = MsgBox("Do you want to delete """ + label + """?", vbYesNo + vbInformation)
             If stat = 6 Then
                 lstBookmarks.Items.Remove(lstBookmarks.Items(selected))
-                deleteBookmark(selected + 1)
+                DeleteBookmark(selected + 1)
             End If
         End If
-        Dim bookmarks As System.Xml.XmlNodeList = getBookmarks()
+        Dim bookmarks As System.Xml.XmlNodeList = GetBookmarks()
         If bookmarks.Count < 1 Then
             btnOk.Enabled = False
             btnRemove.Enabled = False

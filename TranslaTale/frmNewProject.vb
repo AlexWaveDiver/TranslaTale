@@ -12,10 +12,6 @@ Public Class frmNewProject
         If tabModeSelect.SelectedIndex = 0 Then
             Dim dataPath As String = txtFolder1.Text & "\data.win"
 
-            If Not My.Computer.FileSystem.DirectoryExists(txtFolder2.Text) Then
-                My.Computer.FileSystem.CreateDirectory(txtFolder2.Text)
-            End If
-
             If txtFolder1.Text = "" Or txtFolder2.Text = "" Or txtName.Text = "" Then
                 Exit Sub
             End If
@@ -25,14 +21,21 @@ Public Class frmNewProject
                 Exit Sub
             End If
 
+            If Not My.Computer.FileSystem.DirectoryExists(txtFolder2.Text) Then
+                My.Computer.FileSystem.CreateDirectory(txtFolder2.Text)
+            End If
+
             Dim projFilePath As String = txtFolder2.Text & "\" & txtName.Text & ".ttp"
-            dumpText(dataPath, txtFolder2.Text)
+
+            DumpText(dataPath, txtFolder2.Text)
             File.Copy(txtFolder2.Text & "\CleanStrings.txt", txtFolder2.Text & "\TranslatedStrings.txt", True)
             My.Computer.FileSystem.CreateDirectory(txtFolder2.Text & "\Images")
-            dumpImages(dataPath, txtFolder2.Text & "\Images")
+            DumpImages(dataPath, txtFolder2.Text & "\Images")
             ProjectManager.Write(projFilePath, txtName.Text, txtFolder2.Text & "\CleanStrings.txt",
                                          txtFolder2.Text & "\TranslatedStrings.txt", txtFolder2.Text & "\Images",
                                          txtFolder1.Text, txtFolder3.Text)
+
+            SaveRecentProject(txtName.Text, projFilePath)
             Me.Hide()
             frmMain.Show()
             frmMain.OpenFile(projFilePath)
@@ -50,6 +53,7 @@ Public Class frmNewProject
             If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
                 ProjectManager.Write(SaveFileDialog1.FileName, txtName2.Text, txtFile2.Text,
                                              txtFile3.Text, txtFile4.Text, txtFile1.Text, txtFile5.Text)
+                SaveRecentProject(txtName2.Text, SaveFileDialog1.FileName)
                 Me.Hide()
                 frmMain.Show()
                 frmMain.OpenFile(SaveFileDialog1.FileName)
@@ -69,7 +73,7 @@ Public Class frmNewProject
         frmStartUp.Show()
     End Sub
 
-    Private Sub dumpText(ByVal inDirectory As String, ByVal outDirectory As String)
+    Private Sub DumpText(ByVal inDirectory As String, ByVal outDirectory As String)
         Dim tmpPath As String = GetTempFolder(True)
 
         Dim extractProcess As Process
@@ -93,7 +97,7 @@ Public Class frmNewProject
         System.IO.Directory.Delete(tmpPath, True)
     End Sub
 
-    Private Sub dumpImages(ByVal inDirectory As String, ByVal outDirectory As String)
+    Private Sub DumpImages(ByVal inDirectory As String, ByVal outDirectory As String)
         Dim tmpPath As String = GetTempFolder(True)
 
         Dim extractProcess As Process

@@ -1,10 +1,4 @@
-﻿Imports System.Drawing
-Imports System.Resources
-Imports System.Reflection
-Imports System.IO
-Imports System.Drawing.Imaging
-Imports System.Xml
-Imports System.Text
+﻿Imports System.IO
 
 Public NotInheritable Class frmMain
 
@@ -51,15 +45,15 @@ Public NotInheritable Class frmMain
         Me.Text = String.Format("{0}", ApplicationTitle)
     End Sub
 
-    Private Sub ListView1_ColumnWidthChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.ColumnWidthChangedEventArgs) Handles ListView1.ColumnWidthChanged
+    Private Sub ListView1_ColumnWidthChanged(ByVal sender As Object, ByVal e As ColumnWidthChangedEventArgs) Handles lstStrings.ColumnWidthChanged
         Static FireMe As Boolean = True
         If FireMe = True Then
             FireMe = False
             Dim pnlWidth As Integer = pnlPreview.Width / 2
             Dim pnfrmWidth As Integer = Me.Width / 2
-            Dim colFreeWidth = ((ListView1.Width - 60) / 2) - 20
-            If ListView1.Columns.Count > 2 Then
-                With ListView1
+            Dim colFreeWidth = ((lstStrings.Width - 60) / 2) - 20
+            If lstStrings.Columns.Count > 2 Then
+                With lstStrings
                     .Columns(0).Width = 60
                     .Columns(1).Width = colFreeWidth
                     .Columns(2).Width = colFreeWidth
@@ -69,7 +63,7 @@ Public NotInheritable Class frmMain
         End If
     End Sub
 
-    Private Sub ListView1_ColumnWidthChanging(ByVal sender As Object, ByVal e As System.Windows.Forms.ColumnWidthChangingEventArgs) Handles ListView1.ColumnWidthChanging
+    Private Sub ListView1_ColumnWidthChanging(ByVal sender As Object, ByVal e As ColumnWidthChangingEventArgs) Handles lstStrings.ColumnWidthChanging
         e.Cancel = True
     End Sub
 
@@ -78,14 +72,14 @@ Public NotInheritable Class frmMain
     End Sub
 
     Private Sub frmMain_Resize(sender As Object, e As EventArgs) Handles Me.Resize
-        ListView1.Size = New Size(TableLayoutPanel.Width, TableLayoutPanel.Height)
+        lstStrings.Size = New Size(TableLayoutPanel.Width, TableLayoutPanel.Height)
         Dim pnlWidth As Integer = pnlPreview.Width / 2
         Dim pnfrmWidth As Integer = Me.Width / 2
-        Dim colFreeWidth = ((ListView1.Width - 60) / 2) - 20
+        Dim colFreeWidth = ((lstStrings.Width - 60) / 2) - 20
         pnlPreview.Left = pnlWidth + pnfrmWidth
         TextBox1.Width = Me.Width
-        If ListView1.Columns.Count > 0 Then
-            With ListView1
+        If lstStrings.Columns.Count > 0 Then
+            With lstStrings
                 .Columns(0).Width = 60
                 .Columns(1).Width = colFreeWidth
                 .Columns(2).Width = colFreeWidth
@@ -93,7 +87,7 @@ Public NotInheritable Class frmMain
         End If
     End Sub
 
-    Private Sub repackProject()
+    Private Sub RepackProject()
         Dim tempFolder As String = GetTempFolder()
         Dim unpackProcess As Process
         Dim repackProcess As Process
@@ -242,7 +236,7 @@ Public NotInheritable Class frmMain
         CleanScript = ProjectManager.GetCleanScript
         TransScript = ProjectManager.GetTranslatedScript
 
-        ListView1.Enabled = False
+        lstStrings.Enabled = False
         TextBox1.Enabled = False
         SaveToolStripMenuItem.Enabled = False
         ttipUntranslated.Text = "0"
@@ -252,28 +246,28 @@ Public NotInheritable Class frmMain
         ToolStripButton2.Enabled = False
         ToolStripButton3.Enabled = False
         ToolStripButton4.Enabled = False
-        showText("")
+        ShowText("")
         TextBox1.Text = ""
-        ListView1.Clear()
-        ListView1.View = View.Details
-        ListView1.Clear()
-        ListView1.ShowGroups = False
-        ListView1.Columns.Clear()
-        ListView1.Columns.Add("Line", 100, HorizontalAlignment.Left)
-        ListView1.Columns.Add("Base text", 100, HorizontalAlignment.Left)
-        ListView1.Columns.Add("Translated text", 150, HorizontalAlignment.Left)
+        lstStrings.Clear()
+        lstStrings.View = View.Details
+        lstStrings.Clear()
+        lstStrings.ShowGroups = False
+        lstStrings.Columns.Clear()
+        lstStrings.Columns.Add("Line", 100, HorizontalAlignment.Left)
+        lstStrings.Columns.Add("Base text", 100, HorizontalAlignment.Left)
+        lstStrings.Columns.Add("Translated text", 150, HorizontalAlignment.Left)
 
-        ListView1.HideSelection = True
-        ListView1.FullRowSelect = True
-        ListView1.CheckBoxes = False
-        ListView1.OwnerDraw = False
+        lstStrings.HideSelection = True
+        lstStrings.FullRowSelect = True
+        lstStrings.CheckBoxes = False
+        lstStrings.OwnerDraw = False
 
         Dim pnlWidth As Integer = pnlPreview.Width / 2
         Dim pnfrmWidth As Integer = Me.Width / 2
-        Dim colFreeWidth = ((ListView1.Width - 60) / 2) - 20
+        Dim colFreeWidth = ((lstStrings.Width - 60) / 2) - 20
 
-        If ListView1.Columns.Count > 0 Then
-            With ListView1
+        If lstStrings.Columns.Count > 0 Then
+            With lstStrings
                 .Columns(0).Width = 60
                 .Columns(1).Width = colFreeWidth
                 .Columns(2).Width = colFreeWidth
@@ -312,9 +306,9 @@ Public NotInheritable Class frmMain
                 itemToAdd.BackColor = Color.LightSalmon
                 untransLines = untransLines + 1
             End If
-            ListView1.Items.Add(itemToAdd)
+            lstStrings.Items.Add(itemToAdd)
         Next i
-        ListView1.Enabled = True
+        lstStrings.Enabled = True
         TextBox1.Enabled = True
         SaveToolStripMenuItem.Enabled = True
         ttipUntranslated.Text = untransLines
@@ -325,13 +319,13 @@ Public NotInheritable Class frmMain
         ToolStripButton3.Enabled = True
         ToolStripButton4.Enabled = True
         If numLines < 1 Or numLines2 < 1 Then
-            ListView1.Items(0).Selected = True
+            lstStrings.Items(0).Selected = True
         End If
-        ListView1.Focus()
-        ListView1.HideSelection = False
+        lstStrings.Focus()
+        lstStrings.HideSelection = False
 
-        showText(ListView1.Items(0).SubItems(2).Text)
-        TextBox1.Text = ListView1.Items(0).SubItems(2).Text
+        ShowText(lstStrings.Items(0).SubItems(2).Text)
+        TextBox1.Text = lstStrings.Items(0).SubItems(2).Text
         frmSearch.Close()
         Me.Text = "TranslaTale - " + ProjectName
 
@@ -364,15 +358,15 @@ Public NotInheritable Class frmMain
     End Sub
 
     Private Sub TextBox1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyUp
-        If ListView1.SelectedItems.Count > 0 Then
-            ListView1.SelectedItems(0).SubItems(2).Text = TextBox1.Text
-            If ListView1.SelectedItems(0).SubItems(1).Text <> TextBox1.Text Then
-                ListView1.SelectedItems(0).BackColor = Color.LightGreen
+        If lstStrings.SelectedItems.Count > 0 Then
+            lstStrings.SelectedItems(0).SubItems(2).Text = TextBox1.Text
+            If lstStrings.SelectedItems(0).SubItems(1).Text <> TextBox1.Text Then
+                lstStrings.SelectedItems(0).BackColor = Color.LightGreen
                 saved = False
                 Me.Text = "TranslaTale - " + ProjectName + " *"
                 SaveToolStripMenuItem.Enabled = True
             Else
-                ListView1.SelectedItems(0).BackColor = Color.LightSalmon
+                lstStrings.SelectedItems(0).BackColor = Color.LightSalmon
             End If
         End If
         SpriteFontBox1.Text = TextBox1.Text
@@ -380,10 +374,10 @@ Public NotInheritable Class frmMain
 
     Private Sub SaveToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
         Dim W As IO.StreamWriter = New IO.StreamWriter(TransScript)
-        For i As Integer = 0 To ListView1.Items.Count - 1
-            If ListView1.Items.Count - 1 < ttipTotal.Text Or ListView1.Items.Count - 1 = ttipTotal.Text Then
+        For i As Integer = 0 To lstStrings.Items.Count - 1
+            If lstStrings.Items.Count - 1 < ttipTotal.Text Or lstStrings.Items.Count - 1 = ttipTotal.Text Then
                 On Error Resume Next
-                W.WriteLine(ListView1.Items.Item(i).SubItems(2).Text)
+                W.WriteLine(lstStrings.Items.Item(i).SubItems(2).Text)
             End If
         Next
         W.Close()
@@ -391,28 +385,28 @@ Public NotInheritable Class frmMain
         Me.Text = "TranslaTale - " + ProjectName
     End Sub
 
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         'My.Settings.Reset()
-        ListView1.View = View.Details
-        ListView1.Clear()
-        ListView1.ShowGroups = False
-        ListView1.Columns.Clear()
-        ListView1.Columns.Add("Line", 100, HorizontalAlignment.Left)
-        ListView1.Columns.Add("Base text", 100, HorizontalAlignment.Left)
-        ListView1.Columns.Add("Translated text", 150, HorizontalAlignment.Left)
+        lstStrings.View = View.Details
+        lstStrings.Clear()
+        lstStrings.ShowGroups = False
+        lstStrings.Columns.Clear()
+        lstStrings.Columns.Add("Line", 100, HorizontalAlignment.Left)
+        lstStrings.Columns.Add("Base text", 100, HorizontalAlignment.Left)
+        lstStrings.Columns.Add("Translated text", 150, HorizontalAlignment.Left)
 
-        ListView1.HideSelection = True
-        ListView1.FullRowSelect = True
-        ListView1.CheckBoxes = False
-        ListView1.OwnerDraw = False
+        lstStrings.HideSelection = True
+        lstStrings.FullRowSelect = True
+        lstStrings.CheckBoxes = False
+        lstStrings.OwnerDraw = False
         cbFonts.SelectedIndex = 0
 
         Dim pnlWidth As Integer = pnlPreview.Width / 2
         Dim pnfrmWidth As Integer = Me.Width / 2
-        Dim colFreeWidth = ((ListView1.Width - 60) / 2) - 20
+        Dim colFreeWidth = ((lstStrings.Width - 60) / 2) - 20
 
-        If ListView1.Columns.Count > 0 Then
-            With ListView1
+        If lstStrings.Columns.Count > 0 Then
+            With lstStrings
                 .Columns(0).Width = 60
                 .Columns(1).Width = colFreeWidth
                 .Columns(2).Width = colFreeWidth
@@ -420,7 +414,7 @@ Public NotInheritable Class frmMain
         End If
     End Sub
 
-    Private Sub Form1_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
+    Private Sub frmMain_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
         Dim stat As Integer
         If saved = False Then
             stat = MsgBox("Do you want to save your changes?", vbYesNoCancel + vbInformation)
@@ -433,10 +427,10 @@ Public NotInheritable Class frmMain
                     Dim W As IO.StreamWriter
                     Dim i As Integer
                     W = New IO.StreamWriter(SaveFileDialog1.FileName)
-                    For i = 0 To ListView1.Items.Count
-                        If ListView1.Items.Count - 1 < ttipTotal.Text Or ListView1.Items.Count - 1 = ttipTotal.Text Then
+                    For i = 0 To lstStrings.Items.Count
+                        If lstStrings.Items.Count - 1 < ttipTotal.Text Or lstStrings.Items.Count - 1 = ttipTotal.Text Then
                             On Error Resume Next
-                            W.WriteLine(ListView1.Items.Item(i).SubItems(2).Text)
+                            W.WriteLine(lstStrings.Items.Item(i).SubItems(2).Text)
                         End If
                     Next
                     W.Close()
@@ -465,10 +459,10 @@ Public NotInheritable Class frmMain
                     Dim W As IO.StreamWriter
                     Dim i As Integer
                     W = New IO.StreamWriter(SaveFileDialog1.FileName)
-                    For i = 0 To ListView1.Items.Count
-                        If ListView1.Items.Count - 1 < ttipTotal.Text Or ListView1.Items.Count - 1 = ttipTotal.Text Then
+                    For i = 0 To lstStrings.Items.Count
+                        If lstStrings.Items.Count - 1 < ttipTotal.Text Or lstStrings.Items.Count - 1 = ttipTotal.Text Then
                             On Error Resume Next
-                            W.WriteLine(ListView1.Items.Item(i).SubItems(2).Text)
+                            W.WriteLine(lstStrings.Items.Item(i).SubItems(2).Text)
                         End If
                     Next
                     W.Close()
@@ -533,10 +527,10 @@ Public NotInheritable Class frmMain
         Process.Start(sPath)
     End Sub
 
-    Public Function countTranslated()
+    Public Function CountTranslated()
         Dim stringsTranslated As Integer = 0
         Dim stringsUntranslated As Integer = 0
-        For Each item As ListViewItem In Me.ListView1.Items
+        For Each item As ListViewItem In Me.lstStrings.Items
             If item.BackColor = Color.LightGreen Then
                 stringsTranslated = stringsTranslated + 1
             Else
@@ -548,34 +542,34 @@ Public NotInheritable Class frmMain
         Return True
     End Function
 
-    Public Function showText(ByVal txt As String)
+    Public Function ShowText(ByVal txt As String)
         SpriteFontBox1.Text = txt
         Return True
     End Function
 
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
-        AboutBox1.ShowDialog()
+        frmAbout.ShowDialog()
     End Sub
 
     Private Sub ListBookmarksToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListBookmarksToolStripMenuItem.Click
         frmBookmarks.ShowDialog()
     End Sub
 
-    Private Sub ListView1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
-        If ListView1.SelectedItems.Count > 0 Then
-            If ListView1.SelectedItems(0) IsNot Nothing Then
-                Dim val As String = ListView1.SelectedItems(0).SubItems(2).Text
+    Private Sub ListView1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles lstStrings.SelectedIndexChanged
+        If lstStrings.SelectedItems.Count > 0 Then
+            If lstStrings.SelectedItems(0) IsNot Nothing Then
+                Dim val As String = lstStrings.SelectedItems(0).SubItems(2).Text
                 TextBox1.Text = val
-                showText(val)
+                ShowText(val)
             End If
         End If
     End Sub
 
     Private Sub AddToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddToolStripMenuItem.Click
-        If ListView1.SelectedItems.Count > 0 Then
+        If lstStrings.SelectedItems.Count > 0 Then
             Dim tag As String = InputBox("Bookmark name")
             If tag <> "" Then
-                saveBookmark(ListView1.SelectedItems(0).Index + 1, tag)
+                SaveBookmark(lstStrings.SelectedItems(0).Index + 1, tag)
             End If
         Else
             MsgBox("You must select the line you want to add to the bookmarks list", vbExclamation)
@@ -730,8 +724,8 @@ Public NotInheritable Class frmMain
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        showText(TextBox1.Text)
-        countTranslated()
+        ShowText(TextBox1.Text)
+        CountTranslated()
         Timer1.Enabled = False
     End Sub
 
@@ -751,10 +745,6 @@ Public NotInheritable Class frmMain
         TextBox1.Select()
     End Sub
 
-    Private Sub FontImporterToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        frmFontImporter.ShowDialog()
-    End Sub
-
     Private Sub StringsMigrationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StringsMigrationToolStripMenuItem.Click
         frmStringsConverter.ShowDialog()
     End Sub
@@ -764,11 +754,11 @@ Public NotInheritable Class frmMain
     End Sub
 
     Private Sub CompileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompileToolStripMenuItem.Click
-        repackProject()
+        RepackProject()
     End Sub
 
     Private Sub CompileAndRunToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompileAndRunToolStripMenuItem.Click
-        repackProject()
+        RepackProject()
         Process.Start(ProjectManager.GetOutputDirectory & "\UNDERTALE.exe")
     End Sub
 

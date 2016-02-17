@@ -1,18 +1,18 @@
 ﻿Public Class frmSearch
     Private Sub frmSearch_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        ListView1.View = View.Details
-        ListView1.Clear()
-        ListView1.ShowGroups = False
-        ListView1.Columns.Clear()
-        ListView1.Columns.Add("Line", 100, HorizontalAlignment.Left)
-        ListView1.Columns.Add("Base text", 100, HorizontalAlignment.Left)
-        ListView1.Columns.Add("Translated text", 150, HorizontalAlignment.Left)
+        lstSearchResults.View = View.Details
+        lstSearchResults.Clear()
+        lstSearchResults.ShowGroups = False
+        lstSearchResults.Columns.Clear()
+        lstSearchResults.Columns.Add("Line", 100, HorizontalAlignment.Left)
+        lstSearchResults.Columns.Add("Base text", 100, HorizontalAlignment.Left)
+        lstSearchResults.Columns.Add("Translated text", 150, HorizontalAlignment.Left)
 
-        ListView1.HideSelection = True
-        ListView1.FullRowSelect = True
-        ListView1.CheckBoxes = False
-        ListView1.OwnerDraw = False
-        With ListView1
+        lstSearchResults.HideSelection = True
+        lstSearchResults.FullRowSelect = True
+        lstSearchResults.CheckBoxes = False
+        lstSearchResults.OwnerDraw = False
+        With lstSearchResults
             .Columns(0).Width = CInt(.Width * 0.1)
             .Columns(1).Width = CInt(.Width * 0.45)
             .Columns(2).Width = CInt(.Width * 0.45)
@@ -24,19 +24,19 @@
     End Sub
 
     Private Sub btnSearch_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSearch.Click
-        ListView1.View = View.Details
-        ListView1.Clear()
-        ListView1.ShowGroups = False
-        ListView1.Columns.Clear()
-        ListView1.Columns.Add("Line", 100, HorizontalAlignment.Left)
-        ListView1.Columns.Add("Base text", 100, HorizontalAlignment.Left)
-        ListView1.Columns.Add("Translated text", 150, HorizontalAlignment.Left)
+        lstSearchResults.View = View.Details
+        lstSearchResults.Clear()
+        lstSearchResults.ShowGroups = False
+        lstSearchResults.Columns.Clear()
+        lstSearchResults.Columns.Add("Line", 100, HorizontalAlignment.Left)
+        lstSearchResults.Columns.Add("Base text", 100, HorizontalAlignment.Left)
+        lstSearchResults.Columns.Add("Translated text", 150, HorizontalAlignment.Left)
 
-        ListView1.HideSelection = True
-        ListView1.FullRowSelect = True
-        ListView1.CheckBoxes = False
-        ListView1.OwnerDraw = False
-        With ListView1
+        lstSearchResults.HideSelection = True
+        lstSearchResults.FullRowSelect = True
+        lstSearchResults.CheckBoxes = False
+        lstSearchResults.OwnerDraw = False
+        With lstSearchResults
             .Columns(0).Width = CInt(.Width * 0.1)
             .Columns(1).Width = CInt(.Width * 0.45)
             .Columns(2).Width = CInt(.Width * 0.45)
@@ -44,24 +44,24 @@
 
         Dim searchIn As String = "base"
         Dim searchTerm As String = txtSearch.Text
-        If rdBase.Checked = True Then
+        If rbBase.Checked = True Then
             searchIn = "base"
         End If
-        If rdTranslation.Checked = True Then
+        If rbTranslation.Checked = True Then
             searchIn = "translation"
         End If
-        If rdBoth.Checked = True Then
+        If rbBoth.Checked = True Then
             searchIn = "both"
         End If
 
-        For Each item As ListViewItem In frmMain.ListView1.Items
+        For Each item As ListViewItem In frmMain.lstStrings.Items
             Dim sub1 As String = item.SubItems(1).Text
             Dim sub2 As String = item.SubItems(2).Text
 
-            Dim strLineNumber = frmMain.ListView1.Items(item.Index).SubItems(0).Text
-            Dim strBase = frmMain.ListView1.Items(item.Index).SubItems(1).Text
-            Dim strTranslation = frmMain.ListView1.Items(item.Index).SubItems(2).Text
-            
+            Dim strLineNumber = frmMain.lstStrings.Items(item.Index).SubItems(0).Text
+            Dim strBase = frmMain.lstStrings.Items(item.Index).SubItems(1).Text
+            Dim strTranslation = frmMain.lstStrings.Items(item.Index).SubItems(2).Text
+
             If chkIgnoreCase.Checked = False Then
                 sub1 = sub1.ToLower
                 sub2 = sub2.ToLower
@@ -78,23 +78,23 @@
                 Case "base"
                     If sub1.Contains(searchTerm) Then
                         Dim itemToAdd As New ListViewItem({strLineNumber, strBase, strTranslation})
-                        ListView1.Items.Add(itemToAdd)
+                        lstSearchResults.Items.Add(itemToAdd)
                     End If
                 Case "translation"
                     If sub2.Contains(searchTerm) Then
                         Dim itemToAdd As New ListViewItem({strLineNumber, strBase, strTranslation})
-                        ListView1.Items.Add(itemToAdd)
+                        lstSearchResults.Items.Add(itemToAdd)
                     End If
                 Case "both"
                     If sub1.Contains(searchTerm) Or sub2.Contains(searchTerm) Then
                         Dim itemToAdd As New ListViewItem({strLineNumber, strBase, strTranslation})
-                        ListView1.Items.Add(itemToAdd)
+                        lstSearchResults.Items.Add(itemToAdd)
                     End If
             End Select
-            If ListView1.Items.Count > 0 Then
-                ListView1.Enabled = True
+            If lstSearchResults.Items.Count > 0 Then
+                lstSearchResults.Enabled = True
             Else
-                ListView1.Enabled = False
+                lstSearchResults.Enabled = False
             End If
         Next
     End Sub
@@ -103,19 +103,19 @@
         txtSearch.Focus()
     End Sub
 
-    Private Sub ListView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.Click
-        If ListView1.Items.Count > 0 Then
-            Dim line As Integer = Convert.ToInt16(ListView1.SelectedItems(0).SubItems(0).Text)
+    Private Sub lstSearchResults_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles lstSearchResults.Click
+        If lstSearchResults.Items.Count > 0 Then
+            Dim line As Integer = Convert.ToInt16(lstSearchResults.SelectedItems(0).SubItems(0).Text)
             If frmMain.ttipTotal.Text < line Then
                 MsgBox("Line " + line.ToString + " not found", vbInformation)
             Else
-                frmMain.ListView1.SelectedItems().Clear()
-                frmMain.ListView1.Items(line - 1).Selected = True
-                frmMain.ListView1.EnsureVisible(line - 1)
-                frmMain.ListView1.Focus()
-                If frmMain.ListView1.SelectedItems(0) IsNot Nothing Then
-                    Dim val As String = frmMain.ListView1.Items(line - 1).SubItems(2).Text
-                    frmMain.showText(val)
+                frmMain.lstStrings.SelectedItems().Clear()
+                frmMain.lstStrings.Items(line - 1).Selected = True
+                frmMain.lstStrings.EnsureVisible(line - 1)
+                frmMain.lstStrings.Focus()
+                If frmMain.lstStrings.SelectedItems(0) IsNot Nothing Then
+                    Dim val As String = frmMain.lstStrings.Items(line - 1).SubItems(2).Text
+                    frmMain.ShowText(val)
                     frmMain.TextBox1.Text = val
                 End If
             End If

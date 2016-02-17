@@ -23,7 +23,7 @@ Partial Class frmStartUp
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStartUp))
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.lstProjects = New System.Windows.Forms.ListBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -35,13 +35,13 @@ Partial Class frmStartUp
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ListBox1
+        'lstProjects
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(139, 165)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(206, 69)
-        Me.ListBox1.TabIndex = 0
+        Me.lstProjects.FormattingEnabled = True
+        Me.lstProjects.Location = New System.Drawing.Point(139, 165)
+        Me.lstProjects.Name = "lstProjects"
+        Me.lstProjects.Size = New System.Drawing.Size(206, 69)
+        Me.lstProjects.TabIndex = 0
         '
         'Button1
         '
@@ -106,7 +106,7 @@ Partial Class frmStartUp
         Me.ClientSize = New System.Drawing.Size(357, 253)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.ListBox1)
+        Me.Controls.Add(Me.lstProjects)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -122,7 +122,7 @@ Partial Class frmStartUp
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
+    Friend WithEvents lstProjects As System.Windows.Forms.ListBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As PictureBox

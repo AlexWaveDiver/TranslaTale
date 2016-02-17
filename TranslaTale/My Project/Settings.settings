@@ -20,5 +20,8 @@
     <Setting Name="fontsheetPath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="RecentProjects" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;RecentProjects&gt;&lt;/RecentProjects&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

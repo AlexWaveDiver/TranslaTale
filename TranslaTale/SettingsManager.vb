@@ -1,8 +1,9 @@
 ﻿Imports System.Xml
 Imports System.IO
 
-Module funcs
-    Function getBookmarks()
+Module SettingsManager
+
+    Function GetBookmarks()
         Dim xmlBookmarks As String = My.Settings.Bookmarks
         Dim xml As New XmlDocument()
         xml.LoadXml(xmlBookmarks)
@@ -10,7 +11,15 @@ Module funcs
         Return nodelist
     End Function
 
-    Function saveBookmark(ByVal page As Integer, ByVal tag As String)
+    Function GetRecentProjects()
+        Dim xmlProjects As String = My.Settings.RecentProjects
+        Dim xml As New XmlDocument()
+        xml.LoadXml(xmlProjects)
+        Dim nodelist As XmlNodeList = xml.SelectNodes("//RecentProjects/Project")
+        Return nodelist
+    End Function
+
+    Function SaveBookmark(ByVal page As Integer, ByVal tag As String)
         Dim xmlBookmarks As String = My.Settings.Bookmarks
         Dim xml As XmlDocument = New XmlDocument()
         xml.LoadXml(xmlBookmarks)
@@ -27,7 +36,24 @@ Module funcs
         Return True
     End Function
 
-    Function getSingleBookmark(ByVal index As String)
+    Function SaveRecentProject(ByVal name As String, ByVal path As String)
+        Dim xmlProjects As String = My.Settings.RecentProjects
+        Dim xml As XmlDocument = New XmlDocument()
+        xml.LoadXml(xmlProjects)
+
+        With xml.SelectSingleNode("//RecentProjects").CreateNavigator().AppendChild()
+            .WriteStartElement("Project")
+            .WriteElementString("Name", name)
+            .WriteElementString("Path", path)
+            .WriteEndElement()
+            .Close()
+        End With
+        My.Settings.RecentProjects = xml.OuterXml
+        My.Settings.Save()
+        Return True
+    End Function
+
+    Function GetSingleBookmark(ByVal index As String)
         Dim xmlBookmarks As String = My.Settings.Bookmarks
         Dim xml As XmlDocument = New XmlDocument()
         xml.LoadXml(xmlBookmarks)
@@ -41,7 +67,7 @@ Module funcs
         End If
     End Function
 
-    Function deleteBookmark(ByVal index As String)
+    Function DeleteBookmark(ByVal index As String)
         Dim xmlBookmarks As String = My.Settings.Bookmarks
         Dim xml As XmlDocument = New XmlDocument()
         xml.LoadXml(xmlBookmarks)

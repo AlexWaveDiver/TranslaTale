@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmSearch
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmSearch
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Dim ListViewGroup2 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
@@ -29,12 +29,12 @@ Partial Class frmSearch
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.rdBase = New System.Windows.Forms.RadioButton()
-        Me.rdTranslation = New System.Windows.Forms.RadioButton()
-        Me.rdBoth = New System.Windows.Forms.RadioButton()
+        Me.rbBase = New System.Windows.Forms.RadioButton()
+        Me.rbTranslation = New System.Windows.Forms.RadioButton()
+        Me.rbBoth = New System.Windows.Forms.RadioButton()
         Me.chkIgnoreCase = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.lstSearchResults = New System.Windows.Forms.ListView()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.cbIgnoreFormat = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
@@ -65,37 +65,37 @@ Partial Class frmSearch
         Me.Label2.TabIndex = 18
         Me.Label2.Text = "Search term:"
         '
-        'rdBase
+        'rbBase
         '
-        Me.rdBase.AutoSize = True
-        Me.rdBase.Checked = True
-        Me.rdBase.Location = New System.Drawing.Point(14, 59)
-        Me.rdBase.Name = "rdBase"
-        Me.rdBase.Size = New System.Drawing.Size(69, 17)
-        Me.rdBase.TabIndex = 19
-        Me.rdBase.TabStop = True
-        Me.rdBase.Text = "&Base text"
-        Me.rdBase.UseVisualStyleBackColor = True
+        Me.rbBase.AutoSize = True
+        Me.rbBase.Checked = True
+        Me.rbBase.Location = New System.Drawing.Point(14, 59)
+        Me.rbBase.Name = "rbBase"
+        Me.rbBase.Size = New System.Drawing.Size(69, 17)
+        Me.rbBase.TabIndex = 19
+        Me.rbBase.TabStop = True
+        Me.rbBase.Text = "&Base text"
+        Me.rbBase.UseVisualStyleBackColor = True
         '
         'rdTranslation
         '
-        Me.rdTranslation.AutoSize = True
-        Me.rdTranslation.Location = New System.Drawing.Point(89, 58)
-        Me.rdTranslation.Name = "rdTranslation"
-        Me.rdTranslation.Size = New System.Drawing.Size(77, 17)
-        Me.rdTranslation.TabIndex = 20
-        Me.rdTranslation.Text = "&Translation"
-        Me.rdTranslation.UseVisualStyleBackColor = True
+        Me.rbTranslation.AutoSize = True
+        Me.rbTranslation.Location = New System.Drawing.Point(89, 58)
+        Me.rbTranslation.Name = "rdTranslation"
+        Me.rbTranslation.Size = New System.Drawing.Size(77, 17)
+        Me.rbTranslation.TabIndex = 20
+        Me.rbTranslation.Text = "&Translation"
+        Me.rbTranslation.UseVisualStyleBackColor = True
         '
         'rdBoth
         '
-        Me.rdBoth.AutoSize = True
-        Me.rdBoth.Location = New System.Drawing.Point(172, 58)
-        Me.rdBoth.Name = "rdBoth"
-        Me.rdBoth.Size = New System.Drawing.Size(47, 17)
-        Me.rdBoth.TabIndex = 21
-        Me.rdBoth.Text = "B&oth"
-        Me.rdBoth.UseVisualStyleBackColor = True
+        Me.rbBoth.AutoSize = True
+        Me.rbBoth.Location = New System.Drawing.Point(172, 58)
+        Me.rbBoth.Name = "rdBoth"
+        Me.rbBoth.Size = New System.Drawing.Size(47, 17)
+        Me.rbBoth.TabIndex = 21
+        Me.rbBoth.Text = "B&oth"
+        Me.rbBoth.UseVisualStyleBackColor = True
         '
         'chkIgnoreCase
         '
@@ -109,7 +109,7 @@ Partial Class frmSearch
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.ListView1)
+        Me.GroupBox1.Controls.Add(Me.lstSearchResults)
         Me.GroupBox1.Location = New System.Drawing.Point(14, 115)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(434, 191)
@@ -117,23 +117,23 @@ Partial Class frmSearch
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Search results"
         '
-        'ListView1
+        'lstSearchResults
         '
-        Me.ListView1.Enabled = False
-        Me.ListView1.FullRowSelect = True
-        Me.ListView1.GridLines = True
+        Me.lstSearchResults.Enabled = False
+        Me.lstSearchResults.FullRowSelect = True
+        Me.lstSearchResults.GridLines = True
         ListViewGroup1.Header = "ListViewGroup"
         ListViewGroup1.Name = "ListViewGroup1"
         ListViewGroup2.Header = "ListViewGroup"
         ListViewGroup2.Name = "ListViewGroup2"
         ListViewGroup3.Header = "ListViewGroup"
         ListViewGroup3.Name = "ListViewGroup3"
-        Me.ListView1.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1, ListViewGroup2, ListViewGroup3})
-        Me.ListView1.Location = New System.Drawing.Point(6, 19)
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(422, 167)
-        Me.ListView1.TabIndex = 14
-        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.lstSearchResults.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1, ListViewGroup2, ListViewGroup3})
+        Me.lstSearchResults.Location = New System.Drawing.Point(6, 19)
+        Me.lstSearchResults.Name = "lstSearchResults"
+        Me.lstSearchResults.Size = New System.Drawing.Size(422, 167)
+        Me.lstSearchResults.TabIndex = 14
+        Me.lstSearchResults.UseCompatibleStateImageBehavior = False
         '
         'btnCancel
         '
@@ -163,9 +163,9 @@ Partial Class frmSearch
         Me.Controls.Add(Me.cbIgnoreFormat)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.chkIgnoreCase)
-        Me.Controls.Add(Me.rdBoth)
-        Me.Controls.Add(Me.rdTranslation)
-        Me.Controls.Add(Me.rdBase)
+        Me.Controls.Add(Me.rbBoth)
+        Me.Controls.Add(Me.rbTranslation)
+        Me.Controls.Add(Me.rbBase)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.txtSearch)
@@ -184,12 +184,12 @@ Partial Class frmSearch
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents btnSearch As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents rdBase As System.Windows.Forms.RadioButton
-    Friend WithEvents rdTranslation As System.Windows.Forms.RadioButton
-    Friend WithEvents rdBoth As System.Windows.Forms.RadioButton
+    Friend WithEvents rbBase As System.Windows.Forms.RadioButton
+    Friend WithEvents rbTranslation As System.Windows.Forms.RadioButton
+    Friend WithEvents rbBoth As System.Windows.Forms.RadioButton
     Friend WithEvents chkIgnoreCase As System.Windows.Forms.CheckBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents ListView1 As System.Windows.Forms.ListView
+    Friend WithEvents lstSearchResults As System.Windows.Forms.ListView
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents cbIgnoreFormat As System.Windows.Forms.CheckBox
 End Class
