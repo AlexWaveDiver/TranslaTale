@@ -82,9 +82,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="UTSpriteFontBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Downloads\TranslaTale-master\UTSpriteFontBox.dll</HintPath>
+    <Reference Include="UTSpriteFontBox">
+      <HintPath>..\UTSpriteFontBox.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

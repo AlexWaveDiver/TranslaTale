@@ -34,7 +34,6 @@ Public NotInheritable Class frmMain
         End If
 
         SpriteFontBox1.FontPath = fontResource
-        SpriteFontBox1.LoadFont()
 
         Dim ApplicationTitle As String
         If My.Application.Info.Title <> "" Then
