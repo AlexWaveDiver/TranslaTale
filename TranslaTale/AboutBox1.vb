@@ -11,15 +11,19 @@
         Me.LabelProductName.Text = My.Application.Info.ProductName
         Me.LabelVersion.Text = String.Format("Version {0}", My.Application.Info.Version.ToString)
         LogoPictureBox.Image = CType(My.Resources.ResourceManager.GetObject("about"), Image)
-        PictureMigosp.Visible = False
+        PictureBox1.Visible = False
     End Sub
 
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click
         Me.Close()
     End Sub
 
+    Private Sub TableLayoutPanel_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles TableLayoutPanel.Paint
+
+    End Sub
+
     Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        Process.Start("https://github.com/fjay69/UndertaleTools")
+        Process.Start("https://github.com/crumblingstatue/gmktool/")
     End Sub
 
     Private Sub LinkLabel2_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
@@ -27,19 +31,15 @@
     End Sub
 
     Private Sub LogoPictureBox_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LogoPictureBox.Click
-        If PictureMigosp.Visible = False Then
+        If PictureBox1.Visible = False Then
+            PictureBox1.Image = CType(My.Resources.ResourceManager.GetObject("migosp"), Image)
+            PictureBox1.BackColor = Color.Transparent
             LogoPictureBox.Image = CType(My.Resources.ResourceManager.GetObject("about2"), Image)
-            PictureMigosp.BackColor = Color.Transparent
-            PictureMigosp.Image = CType(My.Resources.ResourceManager.GetObject("migosp"), Image)
-            PictureMigosp.Visible = True
+            PictureBox1.Visible = True
         End If
     End Sub
 
     Private Sub LinkLabel3_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel3.LinkClicked
-        Process.Start("https://twitter.com/_Chrisblue")
-    End Sub
-
-    Private Sub LinkLabel4_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel4.LinkClicked
-        Process.Start("https://github.com/CRefice/TranslaTale")
+        Process.Start("http://gatecraft.ovh")
     End Sub
 End Class

@@ -38,7 +38,7 @@ Partial Class frmStringsConverter
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnReport = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -93,7 +93,7 @@ Partial Class frmStringsConverter
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 17
-        Me.btnCancel.Text = "&Cancel"
+        Me.btnCancel.Text = "&Close"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'btnNext
@@ -194,28 +194,29 @@ Partial Class frmStringsConverter
         Me.btnReport.UseVisualStyleBackColor = True
         Me.btnReport.Visible = False
         '
-        'Button1
+        'CheckBox1
         '
-        Me.Button1.Location = New System.Drawing.Point(15, 263)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 21
-        Me.Button1.Text = "&Exit"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.CheckBox1.Location = New System.Drawing.Point(96, 263)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.CheckBox1.Size = New System.Drawing.Size(155, 24)
+        Me.CheckBox1.TabIndex = 21
+        Me.CheckBox1.Text = "Correct italian accents"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'frmStringsConverter
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(430, 300)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.btnReport)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.btnNext)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnCancel)
+        Me.Controls.Add(Me.btnNext)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -246,5 +247,5 @@ Partial Class frmStringsConverter
     Friend WithEvents lblProcessed As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents btnReport As System.Windows.Forms.Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

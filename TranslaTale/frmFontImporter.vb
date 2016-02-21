@@ -7,6 +7,12 @@ Public Class frmFontImporter
     Dim dataWinPath As String = ""
     Dim translationPath As String = ""
     Dim imgPath As String = ""
+    Dim advanced As Boolean = False
+
+    Public Overloads Sub ShowDialog(advanced As Boolean)
+        Me.advanced = advanced
+        Me.ShowDialog()
+    End Sub
 
     Private Sub frmFontImporter_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         closeForm()
@@ -45,6 +51,7 @@ Public Class frmFontImporter
             lstFontsNotFound.Visible = False
             lblRebootTT.Visible = False
         End If
+        Return True
     End Function
 
     Function closeForm()
@@ -57,7 +64,6 @@ Public Class frmFontImporter
         ofdPaths.FileName = ""
         lblDataWin.Text = "UT Data.win: None selected"
         lblUTFonts.Text = "UTFonts: None selected"
-        lblStrings.Text = "Strings.txt: None selected"
         lblImages.Text = "Images: None selected"
         utFontsPath = ""
         dataWinPath = ""
@@ -70,6 +76,7 @@ Public Class frmFontImporter
         btnNext.Visible = True
         btnCancel.Visible = True
         Me.Close()
+        Return True
     End Function
 
     Private Sub btnCheckConfig_Click(sender As Object, e As EventArgs)
@@ -92,7 +99,10 @@ Public Class frmFontImporter
                 wizardStep = 4
                 Panel3.Visible = False
                 Panel4.Visible = True
-                btnNext.Text = "&Import"
+
+                updateStrings()
+
+                btnNext.Text = "&Export"
                 If utFontsPath = "" Or dataWinPath = "" Or translationPath = "" Or Not imgPath = "" Then
                     btnNext.Enabled = False
                 Else
@@ -115,6 +125,19 @@ Public Class frmFontImporter
                     wizardStep = 4
                 End If
         End Select
+    End Sub
+
+    Private Sub updateStrings()
+        Dim stringspath As String = GetTempFolder(True, "fontimporter") & "\tmp_strings.txt"
+        If SaveTTX(stringspath) = True Then
+            translationPath = stringspath
+        End If
+
+        If Not dataWinPath = "" And Not utFontsPath = "" And Not translationPath = "" And Not imgPath = "" Then
+            btnNext.Enabled = True
+        Else
+            btnNext.Enabled = False
+        End If
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
@@ -327,42 +350,71 @@ Public Class frmFontImporter
         System.IO.Directory.Delete(tempFolder, True)
         MsgBox("Process finished", vbInformation)
         Me.Close()
+        Return True
     End Function
-
-    Private Sub btnStrings_Click(sender As Object, e As EventArgs) Handles btnStrings.Click
-        ofdPaths.Filter = "Strings.txt file|*.txt"
-        If ofdPaths.ShowDialog = Windows.Forms.DialogResult.OK Then
-            translationPath = ofdPaths.FileName
-            lblStrings.Text = "Strings.txt: " & ofdPaths.FileName
-        Else
-            translationPath = ""
-            lblStrings.Text = "Strings.txt: None selected"
-        End If
-
-        If Not dataWinPath = "" And Not utFontsPath = "" And Not translationPath = "" And Not imgPath = "" Then
-            btnNext.Enabled = True
-        Else
-            btnNext.Enabled = False
-        End If
-    End Sub
 
     Private Sub frmFontImporter_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 
     Private Sub btnImages_Click(sender As Object, e As EventArgs) Handles btnImages.Click
-        If fldPaths.ShowDialog = Windows.Forms.DialogResult.OK Then
-            imgPath = fldPaths.SelectedPath
-            lblImages.Text = "Images: " & fldPaths.SelectedPath
-        Else
+
+        Dim options As Integer = &H40 + &H20
+        options += &H10   '' Adds edit box
+        Dim shellAppType As Type = Type.GetTypeFromProgID("Shell.Application")
+        Dim shell As Object = Activator.CreateInstance(shellAppType)
+        Dim root = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+        Dim folder = CType(shell.BrowseForFolder(Nothing, "Choose images' folder", options, root), Shell32.Folder2)
+        If folder Is Nothing Then
             imgPath = ""
             lblImages.Text = "Images: None selected"
+            Exit Sub
+        Else
+            imgPath = folder.Self.Path
+            If Not Directory.Exists(imgPath) Then
+                imgPath = ""
+                lblImages.Text = "Images: None selected"
+                MsgBox("Directory doesn't exists!", MsgBoxStyle.Exclamation, "TranslaTale")
+                Exit Sub
+            Else
+                lblImages.Text = "Images: " & imgPath
+            End If
         End If
 
         If Not dataWinPath = "" And Not utFontsPath = "" And Not translationPath = "" And Not imgPath = "" Then
             btnNext.Enabled = True
         Else
             btnNext.Enabled = False
+        End If
+    End Sub
+
+    Private Sub frmFontImporter_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        If advanced Then
+            wizardStep = 1
+            Panel1.Visible = True
+            Panel2.Visible = False
+            Panel3.Visible = False
+            Panel4.Visible = False
+            btnOpenUTFonts.Visible = True
+            lblUTFonts.Visible = True
+        Else
+            wizardStep = 4
+            Panel1.Visible = False
+            Panel2.Visible = False
+            Panel3.Visible = False
+            Panel4.Visible = True
+            btnOpenUTFonts.Visible = False
+            lblUTFonts.Visible = False
+            btnBack.Enabled = False
+            btnNext.Text = "&Export"
+            utFontsPath = GetTempFolder() & "\UTFontsASCII.win"
+            File.WriteAllBytes(utFontsPath, My.Resources.UTFontsASCII)
+            updateStrings()
+            If utFontsPath = "" Or dataWinPath = "" Or translationPath = "" Or Not imgPath = "" Then
+                btnNext.Enabled = False
+            Else
+                btnNext.Enabled = True
+            End If
         End If
     End Sub
 End Class

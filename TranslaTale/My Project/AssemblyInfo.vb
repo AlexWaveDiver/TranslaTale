@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Revisar los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("TranslaTale")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyTitle("TranslaTale")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("AlexWaveDiver and Undertale Spaghetti Project")>
 <Assembly: AssemblyProduct("TranslaTale")>
-<Assembly: AssemblyCopyright("Copyright © 2016 Alex WaveDiver")>
+<Assembly: AssemblyCopyright("")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
 
 'El siguiente GUID sirve como identificador de typelib si este proyecto se expone a COM
-<Assembly: Guid("c6619607-cf6a-4450-8252-b2a28ad605b8")> 
+<Assembly: Guid("c6619607-cf6a-4450-8252-b2a28ad605b8")>
 
 ' La información de versión de un ensamblado consta de los cuatro valores siguientes:
 '
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' mediante el asterisco ('*'), como se muestra a continuación:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("0.8.0.0")> 
-<Assembly: AssemblyFileVersion("0.8.0.0")> 
+<Assembly: AssemblyVersion("2.0.1.4")>
+<Assembly: AssemblyFileVersion("2.0.1.4")>

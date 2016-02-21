@@ -17,6 +17,7 @@
             .Columns(1).Width = CInt(.Width * 0.45)
             .Columns(2).Width = CInt(.Width * 0.45)
         End With
+        cbIgnoreFormat.Checked = My.Settings.dofiltertext
     End Sub
 
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
@@ -54,26 +55,27 @@
             searchIn = "both"
         End If
 
-        For Each item As ListViewItem In frmMain.ListView1.Items
-            Dim sub1 As String = item.SubItems(1).Text
-            Dim sub2 As String = item.SubItems(2).Text
+        For Each item As KeyValuePair(Of Integer, LineDouble) In CurrentSession.lines
+            Dim sub1 As String = item.Value.originalText
+            Dim sub2 As String = item.Value.translatedText
 
-            Dim strLineNumber = frmMain.ListView1.Items(item.Index).SubItems(0).Text
-            Dim strBase = frmMain.ListView1.Items(item.Index).SubItems(1).Text
-            Dim strTranslation = frmMain.ListView1.Items(item.Index).SubItems(2).Text
-            
+            Dim strLineNumber = item.Key + 1
+            Dim strBase = item.Value.originalText
+            Dim strTranslation = item.Value.translatedText
+
             If chkIgnoreCase.Checked = False Then
                 sub1 = sub1.ToLower
                 sub2 = sub2.ToLower
                 searchTerm = searchTerm.ToLower
             End If
 
-            'If cbIgnoreFormat.Checked = True Then
-            '    sub1 = sub1.Replace("\W", "").Replace("\X", "").Replace("&", " ").Replace("\L", "").Replace("\Y", "").Replace("\G", "").Replace("\B", "").Replace("\O", "").Replace("\R", "").Replace("\P", "").Replace("^1", "").Replace("^2", "").Replace("^3", "").Replace("^4", "").Replace("^5", "").Replace("^6", "").Replace("^7", "").Replace("^8", "").Replace("^9", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\C", "").Replace("\X", "").Replace("\%%", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\F0", "").Replace("\F1", "").Replace("\F2", "").Replace("\F3", "").Replace("\F4", "").Replace("\F5", "").Replace("\F6", "").Replace("\F7", "").Replace("\F8", "").Replace("\F9", "").Replace("\TS", "").Replace("\Ts", "").Replace("\TP", "").Replace("\TU", "").Replace("\TA", "").Replace("\TT", "").Replace("\Ta", "").Replace("\C", "").Replace("\%%", "")
-            '    sub2 = sub2.Replace("\W", "").Replace("\X", "").Replace("&", " ").Replace("\L", "").Replace("\Y", "").Replace("\G", "").Replace("\B", "").Replace("\O", "").Replace("\R", "").Replace("\P", "").Replace("^1", "").Replace("^2", "").Replace("^3", "").Replace("^4", "").Replace("^5", "").Replace("^6", "").Replace("^7", "").Replace("^8", "").Replace("^9", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\C", "").Replace("\X", "").Replace("\%%", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\F0", "").Replace("\F1", "").Replace("\F2", "").Replace("\F3", "").Replace("\F4", "").Replace("\F5", "").Replace("\F6", "").Replace("\F7", "").Replace("\F8", "").Replace("\F9", "").Replace("\TS", "").Replace("\Ts", "").Replace("\TP", "").Replace("\TU", "").Replace("\TA", "").Replace("\TT", "").Replace("\Ta", "").Replace("\C", "").Replace("\%%", "")
-            '    searchTerm = searchTerm.Replace("\W", "").Replace("\X", "").Replace("&", " ").Replace("\L", "").Replace("\Y", "").Replace("\G", "").Replace("\B", "").Replace("\O", "").Replace("\R", "").Replace("\P", "").Replace("^1", "").Replace("^2", "").Replace("^3", "").Replace("^4", "").Replace("^5", "").Replace("^6", "").Replace("^7", "").Replace("^8", "").Replace("^9", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\C", "").Replace("\X", "").Replace("\%%", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\F0", "").Replace("\F1", "").Replace("\F2", "").Replace("\F3", "").Replace("\F4", "").Replace("\F5", "").Replace("\F6", "").Replace("\F7", "").Replace("\F8", "").Replace("\F9", "").Replace("\TS", "").Replace("\Ts", "").Replace("\TP", "").Replace("\TU", "").Replace("\TA", "").Replace("\TT", "").Replace("\Ta", "").Replace("\C", "").Replace("\%%", "")
-            'End If
-
+            If cbIgnoreFormat.Checked = True Then
+                sub1 = sub1.Replace("\W", "").Replace("\X", "").Replace("&", " ").Replace("\L", "").Replace("\Y", "").Replace("\G", "").Replace("\B", "").Replace("\O", "").Replace("\R", "").Replace("\P", "").Replace("^1", "").Replace("^2", "").Replace("^3", "").Replace("^4", "").Replace("^5", "").Replace("^6", "").Replace("^7", "").Replace("^8", "").Replace("^9", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\C", "").Replace("\X", "").Replace("\%%", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\F0", "").Replace("\F1", "").Replace("\F2", "").Replace("\F3", "").Replace("\F4", "").Replace("\F5", "").Replace("\F6", "").Replace("\F7", "").Replace("\F8", "").Replace("\F9", "").Replace("\TS", "").Replace("\Ts", "").Replace("\TP", "").Replace("\TU", "").Replace("\TA", "").Replace("\TT", "").Replace("\Ta", "").Replace("\C", "").Replace("\%%", "")
+                sub2 = sub2.Replace("\W", "").Replace("\X", "").Replace("&", " ").Replace("\L", "").Replace("\Y", "").Replace("\G", "").Replace("\B", "").Replace("\O", "").Replace("\R", "").Replace("\P", "").Replace("^1", "").Replace("^2", "").Replace("^3", "").Replace("^4", "").Replace("^5", "").Replace("^6", "").Replace("^7", "").Replace("^8", "").Replace("^9", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\C", "").Replace("\X", "").Replace("\%%", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\F0", "").Replace("\F1", "").Replace("\F2", "").Replace("\F3", "").Replace("\F4", "").Replace("\F5", "").Replace("\F6", "").Replace("\F7", "").Replace("\F8", "").Replace("\F9", "").Replace("\TS", "").Replace("\Ts", "").Replace("\TP", "").Replace("\TU", "").Replace("\TA", "").Replace("\TT", "").Replace("\Ta", "").Replace("\C", "").Replace("\%%", "")
+                searchTerm = searchTerm.Replace("\W", "").Replace("\X", "").Replace("&", " ").Replace("\L", "").Replace("\Y", "").Replace("\G", "").Replace("\B", "").Replace("\O", "").Replace("\R", "").Replace("\P", "").Replace("^1", "").Replace("^2", "").Replace("^3", "").Replace("^4", "").Replace("^5", "").Replace("^6", "").Replace("^7", "").Replace("^8", "").Replace("^9", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\C", "").Replace("\X", "").Replace("\%%", "").Replace("\E0", "").Replace("\E1", "").Replace("\E2", "").Replace("\E3", "").Replace("\E4", "").Replace("\E5", "").Replace("\E6", "").Replace("\E7", "").Replace("\E8", "").Replace("\E9", "").Replace("\F0", "").Replace("\F1", "").Replace("\F2", "").Replace("\F3", "").Replace("\F4", "").Replace("\F5", "").Replace("\F6", "").Replace("\F7", "").Replace("\F8", "").Replace("\F9", "").Replace("\TS", "").Replace("\Ts", "").Replace("\TP", "").Replace("\TU", "").Replace("\TA", "").Replace("\TT", "").Replace("\Ta", "").Replace("\C", "").Replace("\%%", "")
+            End If
+            strBase = frmMain.FilterText(strBase, False, cbIgnoreFormat.Checked)
+            strTranslation = frmMain.FilterText(strTranslation, False, cbIgnoreFormat.Checked)
             Select Case searchIn
                 Case "base"
                     If sub1.Contains(searchTerm) Then
@@ -104,25 +106,26 @@
     End Sub
 
     Private Sub ListView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.Click
-        If ListView1.Items.Count > 0 Then
-            Dim line As Integer = Convert.ToInt16(ListView1.SelectedItems(0).SubItems(0).Text)
-            If frmMain.ttipTotal.Text < line Then
-                MsgBox("Line " + line.ToString + " not found", vbInformation)
-            Else
-                frmMain.ListView1.SelectedItems().Clear()
-                frmMain.ListView1.Items(line - 1).Selected = True
-                frmMain.ListView1.EnsureVisible(line - 1)
-                frmMain.ListView1.Focus()
-                If frmMain.ListView1.SelectedItems(0) IsNot Nothing Then
-                    Dim val As String = frmMain.ListView1.Items(line - 1).SubItems(2).Text
+        If (frmMain.filtro <> frmMain.Efiltro.Default_mode) Then
+            frmMain.filtro = frmMain.Efiltro.Default_mode
+            frmMain.filtroGruppo = 0
+            frmMain.Ricalcola()
+        End If
+        Dim line As Integer = ListView1.SelectedItems(0).Text
+        For Each item As ListViewItem In frmMain.stringsPnl.Items
+            If item.Text = line.ToString Then
+                frmMain.stringsPnl.SelectedItems().Clear()
+                item.Selected = True
+                item.EnsureVisible()
+                frmMain.stringsPnl.Focus()
+                If frmMain.stringsPnl.SelectedItems(0) IsNot Nothing Then
+                    Dim val As String = frmMain.stringsPnl.Items(line - 1).SubItems(2).Text
                     frmMain.showText(val)
                     frmMain.TextBox1.Text = val
                 End If
+                Exit Sub
             End If
-        End If
-    End Sub
-
-    Private Sub cbIgnoreFormat_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbIgnoreFormat.CheckedChanged
+        Next
 
     End Sub
 End Class

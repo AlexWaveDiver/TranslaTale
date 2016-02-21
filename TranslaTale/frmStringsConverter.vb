@@ -7,10 +7,10 @@ Public Class frmStringsConverter
     Dim easterEggDelegated As New ThreadStart(AddressOf easterEgg)
     Dim easterEggRunning As Boolean = False
     Dim crossCompareCancelled As Boolean = False
-    Dim crossCompareDone = False
-    Dim freshv1txt As String()
-    Dim freshv1001txt As String()
-    Dim translatetxt As String()
+    Dim freshv1txt As TranslataleStringFile
+    Dim freshv1001txt As TranslataleStringFile
+    Dim outputtxt As TranslataleFile
+    Dim translationv1txt As TranslataleStringFile
     Dim freshv1Path As String = ""
     Dim freshv1001Path As String = ""
     Dim translationPath As String = ""
@@ -18,12 +18,12 @@ Public Class frmStringsConverter
     Dim easterEggTitle As String() = {"Sets of numbers...", "Lines of dialogue...", "I've seen them all."}
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        crossCompareCancelled = True
-        closeForm()
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Me.Close()
+        If Panel2.Visible = True Then
+            crossCompareCancelled = True
+            closeForm()
+        Else
+            Me.Close()
+        End If
     End Sub
 
     Private Delegate Sub ListBoxInvoker(ByVal text As String, ByVal ListElement As ListBox)
@@ -96,17 +96,18 @@ Public Class frmStringsConverter
     End Sub
 
     Public Sub crossCompare()
-        setElementVisibility(False, Button1)
-        setElementEnabled(True, btnCancel)
-
+        Dim correctItAccents = CheckBox1.Checked
+        setElementText("&Cancel", btnCancel)
         Try
-            freshv1txt = File.ReadAllLines(freshv1Path)
-            freshv1001txt = File.ReadAllLines(freshv1001Path)
-            translatetxt = File.ReadAllLines(translationPath)
-            Dim totalLines As Integer = freshv1txt.Count
+            freshv1txt = TranslataleStringFile.Load(freshv1Path)
+            translationv1txt = TranslataleStringFile.Load(translationPath)
+            freshv1001txt = TranslataleStringFile.Load(freshv1001Path)
+            outputtxt = New TranslataleFile()
+            outputtxt.SetLines(freshv1001txt.lineeString, freshv1001txt.lineeString)
+            Dim totalLines As Integer = translationv1txt.NumeroRighe
             Dim okLines As Integer = 0
             Dim lineIndex As Integer = 0
-            For Each freshv1txtLine As String In freshv1txt
+            For Each freshv1txtLine As KeyValuePair(Of Integer, LineSingle) In freshv1txt.lines
                 If Me.crossCompareCancelled = True Then
                     Exit Sub
                 End If
@@ -114,35 +115,44 @@ Public Class frmStringsConverter
                 ' gml_ mus_ spr_ obj_
 
                 setElementText("Processed: " & lineIndex.ToString & "/" & totalLines.ToString, lblProcessed)
-                Dim newLinePos As String = Array.FindIndex(freshv1001txt, Function(x) (x.StartsWith(freshv1txtLine)))
-                If freshv1txt(lineIndex).StartsWith("gml_") Or freshv1txt(lineIndex).StartsWith("obj_") Or freshv1txt(lineIndex).StartsWith("mus_") Or freshv1txt(lineIndex).StartsWith("spr_") Then
+                Dim TTXNewLinePos As Integer = FindKey(freshv1001txt.lineeStringDictionary, freshv1txtLine.Value.text)
+                If freshv1txt.lines(lineIndex).text.StartsWith("gml_") Or freshv1txt.lines(lineIndex).text.StartsWith("obj_") Or freshv1txt.lines(lineIndex).text.StartsWith("mus_") Or freshv1txt.lines(lineIndex).text.StartsWith("spr_") Then
                     okLines += 1
+                    'SKIP
                     setElementText("Successfully: " & okLines.ToString, lblOK)
                 Else
-                    If newLinePos > -1 Then
-                        If freshv1txt(lineIndex) = freshv1001txt(newLinePos) Then
+                    If TTXNewLinePos <> Nothing Then
+                        If freshv1txt.lines(lineIndex).text = freshv1001txt.lines(TTXNewLinePos).text Then
                             okLines += 1
                             setElementText("Successfully: " & okLines.ToString, lblOK)
-                            freshv1001txt(newLinePos) = translatetxt(lineIndex)
+                            Dim linenewSingle = translationv1txt.lines(lineIndex)
+                            Dim linenew As LineDouble = New LineDouble(freshv1001txt.lines(TTXNewLinePos).text, linenewSingle.text, linenewSingle.group)
+                            If correctItAccents Then
+                                linenew.translatedText = linenew.translatedText.Replace("$", "à").Replace("@", "è").Replace("}", "ì")
+                            End If
+                            If outputtxt.lines.ContainsKey(TTXNewLinePos) Then
+                                outputtxt.lines(TTXNewLinePos) = linenew
+                            Else
+                                outputtxt.lines.Add(TTXNewLinePos, linenew)
+                            End If
                         Else
-                            koLines += 1
+                                koLines += 1
                             setElementText("Unsuccessfully: " & koLines.ToString, lblKO)
-                            setListItem((lineIndex + 1).ToString & "|||" & freshv1txt(lineIndex), ListBox1)
+                            setListItem((lineIndex + 1).ToString & "|||" & freshv1txt.lines(lineIndex).text, ListBox1)
                         End If
                     Else
                         koLines += 1
                         setElementText("Unsuccessfully: " & koLines.ToString, lblKO)
-                        setListItem((lineIndex + 1).ToString & "|||" & freshv1txt(lineIndex), ListBox1)
+                        setListItem((lineIndex + 1).ToString & "|||" & freshv1txt.lines(lineIndex).text, ListBox1)
                     End If
                 End If
                 lineIndex += 1
             Next
             setElementText("Processed: " & totalLines.ToString & "/" & totalLines.ToString, lblProcessed)
-            crossCompareDone = True
+
             setElementVisibility(True, btnReport)
             setElementText("S&ave", btnNext)
-            setElementVisibility(True, Button1)
-            setElementEnabled(False, btnCancel)
+            setElementText("&Back", btnCancel)
             setElementEnabled(True, btnNext)
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -157,10 +167,11 @@ Public Class frmStringsConverter
         lblProcessed.Text = "Processed: 0 / 0"
         lblOK.Text = "Successfully: 0"
         lblKO.Text = "Unsuccessfully: 0"
-        Button1.Visible = True
-        btnCancel.Enabled = False
+        btnCancel.Text = "&Exit"
+        btnCancel.Enabled = True
         btnNext.Enabled = True
         btnReport.Visible = False
+        Return True
     End Function
 
     Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
@@ -168,37 +179,40 @@ Public Class frmStringsConverter
             Dim saveFileDialog1 As New SaveFileDialog()
             saveFileDialog1.Title = "Save as..."
             saveFileDialog1.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
-            saveFileDialog1.Filter = "TXT files (*.txt)|*.txt"
-            saveFileDialog1.FilterIndex = 2
+            saveFileDialog1.Filter = "TTX files (*.ttx)|*.ttx|Strings.txt files (*.txt)|*.txt"
+            saveFileDialog1.FilterIndex = 0
             saveFileDialog1.RestoreDirectory = True
 
             If saveFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
-                System.IO.File.WriteAllLines(saveFileDialog1.FileName, freshv1001txt)
+                outputtxt.Save(saveFileDialog1.FileName)
             End If
+            closeForm()
+            Me.Close()
             Exit Sub
         End If
 
+        CheckBox1.Enabled = False
         Dim openFileDialog1 As New OpenFileDialog()
         openFileDialog1.Title = "Select your fresh v1.0 strings file"
         openFileDialog1.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
-        openFileDialog1.Filter = "TXT files (*.txt)|*.txt"
-        openFileDialog1.FilterIndex = 2
+        openFileDialog1.Filter = "Strings.txt files (*.txt)|*.txt|TTX files (*.ttx)|*.ttx"
+        openFileDialog1.FilterIndex = 0
         openFileDialog1.RestoreDirectory = True
         If openFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
             freshv1Path = openFileDialog1.FileName()
             openFileDialog1 = New OpenFileDialog()
             openFileDialog1.Title = "Select your fresh v1.001 strings file"
-            openFileDialog1.InitialDirectory = freshv1Path
-            openFileDialog1.Filter = "TXT files (*.txt)|*.txt"
-            openFileDialog1.FilterIndex = 2
+            openFileDialog1.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
+            openFileDialog1.Filter = "Strings.txt files (*.txt)|*.txt|TTX files (*.ttx)|*.ttx"
+            openFileDialog1.FilterIndex = 0
             openFileDialog1.RestoreDirectory = True
             If openFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
                 freshv1001Path = openFileDialog1.FileName()
                 openFileDialog1 = New OpenFileDialog()
                 openFileDialog1.Title = "Select your translation file"
-                openFileDialog1.InitialDirectory = freshv1001Path
-                openFileDialog1.Filter = "TXT files (*.txt)|*.txt"
-                openFileDialog1.FilterIndex = 2
+                openFileDialog1.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
+                openFileDialog1.Filter = "Strings.txt files (*.txt)|*.txt|TTX files (*.ttx)|*.ttx"
+                openFileDialog1.FilterIndex = 0
                 openFileDialog1.RestoreDirectory = True
                 If openFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
                     translationPath = openFileDialog1.FileName()
@@ -292,5 +306,10 @@ Public Class frmStringsConverter
         End If
         closeForm()
         e.Cancel = False
+    End Sub
+
+    Private Sub frmStringsConverter_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        koLines = 0
+        Me.crossCompareCancelled = False
     End Sub
 End Class

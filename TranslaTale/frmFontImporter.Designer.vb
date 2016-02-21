@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmFontImporter
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmFontImporter
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFontImporter))
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -46,15 +46,13 @@ Partial Class frmFontImporter
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.lblImages = New System.Windows.Forms.Label()
         Me.btnImages = New System.Windows.Forms.Button()
-        Me.lblStrings = New System.Windows.Forms.Label()
-        Me.btnStrings = New System.Windows.Forms.Button()
         Me.lblDataWin = New System.Windows.Forms.Label()
         Me.btnOpenDataWin = New System.Windows.Forms.Button()
         Me.btnOpenUTFonts = New System.Windows.Forms.Button()
         Me.lblUTFonts = New System.Windows.Forms.Label()
         Me.ofdPaths = New System.Windows.Forms.OpenFileDialog()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.fldPaths = New System.Windows.Forms.FolderBrowserDialog()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -82,7 +80,7 @@ Partial Class frmFontImporter
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(232, 26)
         Me.Label4.TabIndex = 4
-        Me.Label4.Text = "When you're finished installing GM:S (or if you" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "have installed it already), clic" & _
+        Me.Label4.Text = "When you're finished installing GM:S (or if you" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "have installed it already), clic" &
     "k Next to continue."
         '
         'Button3
@@ -109,8 +107,8 @@ Partial Class frmFontImporter
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(277, 60)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "This wizard will help you importing custom fontsheets from" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "a GameMaker Studio pr" & _
-    "oject into Undertale, as well as packaging your strings and graphics assets into" & _
+        Me.Label2.Text = "This wizard will help you importing custom fontsheets from" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "a GameMaker Studio pr" &
+    "oject into Undertale, as well as packaging your strings and graphics assets into" &
     " a .WIN file."
         '
         'Label1
@@ -273,8 +271,6 @@ Partial Class frmFontImporter
         Me.Panel4.BackColor = System.Drawing.Color.White
         Me.Panel4.Controls.Add(Me.lblImages)
         Me.Panel4.Controls.Add(Me.btnImages)
-        Me.Panel4.Controls.Add(Me.lblStrings)
-        Me.Panel4.Controls.Add(Me.btnStrings)
         Me.Panel4.Controls.Add(Me.lblDataWin)
         Me.Panel4.Controls.Add(Me.btnOpenDataWin)
         Me.Panel4.Controls.Add(Me.btnOpenUTFonts)
@@ -289,7 +285,7 @@ Partial Class frmFontImporter
         'lblImages
         '
         Me.lblImages.AutoEllipsis = True
-        Me.lblImages.Location = New System.Drawing.Point(19, 281)
+        Me.lblImages.Location = New System.Drawing.Point(19, 160)
         Me.lblImages.Name = "lblImages"
         Me.lblImages.Size = New System.Drawing.Size(274, 24)
         Me.lblImages.TabIndex = 9
@@ -297,35 +293,17 @@ Partial Class frmFontImporter
         '
         'btnImages
         '
-        Me.btnImages.Location = New System.Drawing.Point(20, 251)
+        Me.btnImages.Location = New System.Drawing.Point(20, 130)
         Me.btnImages.Name = "btnImages"
-        Me.btnImages.Size = New System.Drawing.Size(142, 23)
+        Me.btnImages.Size = New System.Drawing.Size(115, 23)
         Me.btnImages.TabIndex = 8
         Me.btnImages.Text = "Selec&t Images path"
         Me.btnImages.UseVisualStyleBackColor = True
         '
-        'lblStrings
-        '
-        Me.lblStrings.AutoEllipsis = True
-        Me.lblStrings.Location = New System.Drawing.Point(19, 217)
-        Me.lblStrings.Name = "lblStrings"
-        Me.lblStrings.Size = New System.Drawing.Size(274, 24)
-        Me.lblStrings.TabIndex = 7
-        Me.lblStrings.Text = "Strings.txt: None selected"
-        '
-        'btnStrings
-        '
-        Me.btnStrings.Location = New System.Drawing.Point(20, 173)
-        Me.btnStrings.Name = "btnStrings"
-        Me.btnStrings.Size = New System.Drawing.Size(142, 38)
-        Me.btnStrings.TabIndex = 6
-        Me.btnStrings.Text = "Se&lect Strings.txt (translation)"
-        Me.btnStrings.UseVisualStyleBackColor = True
-        '
         'lblDataWin
         '
         Me.lblDataWin.AutoEllipsis = True
-        Me.lblDataWin.Location = New System.Drawing.Point(19, 145)
+        Me.lblDataWin.Location = New System.Drawing.Point(19, 104)
         Me.lblDataWin.Name = "lblDataWin"
         Me.lblDataWin.Size = New System.Drawing.Size(274, 23)
         Me.lblDataWin.TabIndex = 5
@@ -333,26 +311,26 @@ Partial Class frmFontImporter
         '
         'btnOpenDataWin
         '
-        Me.btnOpenDataWin.Location = New System.Drawing.Point(20, 114)
+        Me.btnOpenDataWin.Location = New System.Drawing.Point(20, 73)
         Me.btnOpenDataWin.Name = "btnOpenDataWin"
-        Me.btnOpenDataWin.Size = New System.Drawing.Size(142, 23)
+        Me.btnOpenDataWin.Size = New System.Drawing.Size(185, 23)
         Me.btnOpenDataWin.TabIndex = 4
-        Me.btnOpenDataWin.Text = "S&elect Undertale data.win"
+        Me.btnOpenDataWin.Text = "S&elect original Undertale data.win"
         Me.btnOpenDataWin.UseVisualStyleBackColor = True
         '
         'btnOpenUTFonts
         '
-        Me.btnOpenUTFonts.Location = New System.Drawing.Point(20, 55)
+        Me.btnOpenUTFonts.Location = New System.Drawing.Point(20, 187)
         Me.btnOpenUTFonts.Name = "btnOpenUTFonts"
-        Me.btnOpenUTFonts.Size = New System.Drawing.Size(142, 23)
+        Me.btnOpenUTFonts.Size = New System.Drawing.Size(153, 23)
         Me.btnOpenUTFonts.TabIndex = 2
-        Me.btnOpenUTFonts.Text = "&Select UTFonts"
+        Me.btnOpenUTFonts.Text = "&Select UTFonts data.win"
         Me.btnOpenUTFonts.UseVisualStyleBackColor = True
         '
         'lblUTFonts
         '
         Me.lblUTFonts.AutoEllipsis = True
-        Me.lblUTFonts.Location = New System.Drawing.Point(19, 85)
+        Me.lblUTFonts.Location = New System.Drawing.Point(19, 217)
         Me.lblUTFonts.Name = "lblUTFonts"
         Me.lblUTFonts.Size = New System.Drawing.Size(272, 23)
         Me.lblUTFonts.TabIndex = 1
@@ -380,10 +358,10 @@ Partial Class frmFontImporter
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(429, 362)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnNext)
+        Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -433,8 +411,6 @@ Partial Class frmFontImporter
     Friend WithEvents lblUTFonts As System.Windows.Forms.Label
     Friend WithEvents lblDataWin As System.Windows.Forms.Label
     Friend WithEvents ofdPaths As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents lblStrings As System.Windows.Forms.Label
-    Friend WithEvents btnStrings As System.Windows.Forms.Button
     Friend WithEvents lblImages As System.Windows.Forms.Label
     Friend WithEvents btnImages As System.Windows.Forms.Button
     Friend WithEvents fldPaths As System.Windows.Forms.FolderBrowserDialog

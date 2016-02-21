@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmSearch
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmSearch
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Dim ListViewGroup2 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
@@ -61,9 +61,9 @@ Partial Class frmSearch
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(11, 14)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(67, 13)
+        Me.Label2.Size = New System.Drawing.Size(64, 13)
         Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Search term:"
+        Me.Label2.Text = "Search term"
         '
         'rdBase
         '
@@ -153,7 +153,6 @@ Partial Class frmSearch
         Me.cbIgnoreFormat.TabIndex = 24
         Me.cbIgnoreFormat.Text = "&Ignore format tags"
         Me.cbIgnoreFormat.UseVisualStyleBackColor = True
-        Me.cbIgnoreFormat.Visible = False
         '
         'frmSearch
         '

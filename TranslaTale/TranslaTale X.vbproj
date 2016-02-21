@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{93ACB8ED-B285-432B-BF75-D78091D88D07}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>TranslaTale.My.MyApplication</StartupObject>
+    <RootNamespace>TranslaTale</RootNamespace>
+    <AssemblyName>TranslaTale</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>TranslaTale.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>TranslaTale.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon_8SA_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NBT-edit, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\NBT-edit.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="UTSpriteFontBox">
+      <HintPath>Resources\UTSpriteFontBox.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox1.Designer.vb">
+      <DependentUpon>AboutBox1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AboutBox1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompare.Designer.vb">
+      <DependentUpon>frmCompare.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCompare.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCreateGroup.Designer.vb">
+      <DependentUpon>frmCreateGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCreateGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFontImporter.designer.vb">
+      <DependentUpon>frmFontImporter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFontImporter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearch.Designer.vb">
+      <DependentUpon>frmSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptions.Designer.vb">
+      <DependentUpon>frmOptions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmOptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectGroup.Designer.vb">
+      <DependentUpon>frmSelectGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStringsConverter.Designer.vb">
+      <DependentUpon>frmStringsConverter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmStringsConverter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGoTo.Designer.vb">
+      <DependentUpon>frmGoTo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGoTo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="funcs.vb" />
+    <Compile Include="Group.vb" />
+    <Compile Include="LineCompare.vb" />
+    <Compile Include="LineDouble.vb" />
+    <Compile Include="LineSingle.vb" />
+    <Compile Include="LinesLoaded.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="TranslataleStringFile.vb" />
+    <Compile Include="TranslationPercentageBox.Designer.vb">
+      <DependentUpon>TranslationPercentageBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TranslationPercentageBox.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.vb">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TranslationFile.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCompare.resx">
+      <DependentUpon>frmCompare.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCreateGroup.resx">
+      <DependentUpon>frmCreateGroup.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFontImporter.resx">
+      <DependentUpon>frmFontImporter.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearch.resx">
+      <DependentUpon>frmSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptions.resx">
+      <DependentUpon>frmOptions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectGroup.resx">
+      <DependentUpon>frmSelectGroup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStringsConverter.resx">
+      <DependentUpon>frmStringsConverter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGoTo.resx">
+      <DependentUpon>frmGoTo.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TranslationPercentageBox.resx">
+      <DependentUpon>TranslationPercentageBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new.png" />
+    <None Include="Resources\text_add.png" />
+    <None Include="Resources\compare1.png" />
+    <None Include="Resources\edit_button1.png" />
+    <None Include="Resources\house.png" />
+    <None Include="Resources\edit_button.png" />
+    <None Include="Resources\folder_page_white2.png" />
+    <None Include="Resources\icon_8SA_icon1.png" />
+    <None Include="Resources\icon_8SA_icon.png" />
+    <None Include="Resources\new_comment.png" />
+    <None Include="Resources\next_comment.png" />
+    <None Include="Resources\layout_edit.png" />
+    <None Include="Resources\cross3.png" />
+    <None Include="Resources\tablebg.bmp" />
+    <None Include="Resources\6.png" />
+    <None Include="Resources\translation_tool_tip.png" />
+    <None Include="Resources\box_open.png" />
+    <None Include="Resources\text_allcaps.png" />
+    <None Include="Resources\text_language.png" />
+    <None Include="Resources\font_colors.png" />
+    <None Include="Resources\UTFontsASCII.win" />
+    <None Include="Resources\winpack.exe" />
+    <None Include="Resources\winextract.exe" />
+    <None Include="Resources\1-2.jpg" />
+    <None Include="Resources\font4.bmp" />
+    <None Include="Resources\font3.bmp" />
+    <None Include="Resources\font2.bmp" />
+    <None Include="Resources\font1.bmp" />
+    <None Include="Resources\UndertalePatchTool.exe" />
+    <None Include="Resources\ttxbgcol.bmp" />
+    <None Include="Resources\ttxbgfooter.png" />
+    <None Include="Resources\ttxbgbar1.png" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\check_box_uncheck.png" />
+    <None Include="Resources\check_box1.png" />
+    <None Include="Resources\page_go.png" />
+    <None Include="Resources\ttx24.png" />
+    <None Include="Resources\filter_clear1.png" />
+    <None Include="Resources\tag_orange.png" />
+    <None Include="Resources\filter.png" />
+    <None Include="Resources\tag_green.png" />
+    <None Include="Resources\tag_blue_edit.png" />
+    <None Include="Resources\tag_blue_delete.png" />
+    <None Include="Resources\tag_blue_add1.png" />
+    <None Include="Resources\add1.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\tag_blue.png" />
+    <None Include="Resources\tag_blue_add.png" />
+    <None Include="Resources\table_select_row.png" />
+    <None Include="Resources\compile.png" />
+    <None Include="Resources\compare.png" />
+    <None Include="Resources\report_wizard.png" />
+    <None Include="Resources\gear_in.png" />
+    <None Include="Resources\external.png" />
+    <None Include="Resources\grouping.png" />
+    <None Include="Resources\NBT-edit.dll" />
+    <None Include="Resources\originalDRMdata.win" />
+    <None Include="Resources\xdelta.exe" />
+    <None Include="Resources\check_box.png" />
+    <None Include="Resources\page_green1.png" />
+    <None Include="Resources\arrow_right1.png" />
+    <None Include="Resources\arrow_left1.png" />
+    <None Include="Resources\text_list_numbers1.png" />
+    <None Include="Resources\information.png" />
+    <None Include="Resources\page_menu.png" />
+    <None Include="Resources\application_xp_terminal.png" />
+    <None Include="Resources\page_lightning.png" />
+    <None Include="Resources\page_red1.png" />
+    <None Include="Resources\box_closed.png" />
+    <None Include="Resources\star1.png" />
+    <None Include="Resources\find2.png" />
+    <None Include="Resources\page_go1.png" />
+    <None Include="Resources\save_as1.png" />
+    <None Include="Resources\folder_page_white1.png" />
+    <None Include="Resources\info_rhombus.png" />
+    <None Include="Resources\setting_tools.png" />
+    <None Include="Resources\bricks.png" />
+    <None Include="Resources\star.png" />
+    <None Include="Resources\cross2.png" />
+    <None Include="Resources\cross1.png" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\7z.exe" />
+    <None Include="Resources\7z.dll" />
+    <None Include="Resources\UNDERTALEico" />
+    <None Include="Resources\UndertalePatchTool.bat" />
+    <None Include="Resources\Crypt.au3" />
+    <None Include="Resources\FileConstants.au3" />
+    <None Include="Resources\UNDERTALE.ico" />
+    <None Include="Resources\Aut2exe.exe" />
+    <None Include="Resources\UDTRebuildSFXCAB.exe" />
+    <None Include="Resources\UDTSFXCAB_Template.au3" />
+    <None Include="Resources\Undertale Patch Tool.bat" />
+    <None Include="Resources\libgcc_s_dw2-1.dll" />
+    <None Include="Resources\Interop.Shell32.dll" />
+    <None Include="Resources\page_green.png" />
+    <None Include="Resources\page_red.png" />
+    <None Include="Resources\text_list_numbers.png" />
+    <None Include="Resources\save_as.png" />
+    <None Include="Resources\ico-step.png" />
+    <None Include="Resources\migosp.gif" />
+    <None Include="Resources\ico-dwn.png" />
+    <None Include="Resources\ico-up.png" />
+    <None Include="Resources\ico-open.png" />
+    <None Include="Resources\ico_save.gif" />
+    <None Include="Resources\play_green.png" />
+    <None Include="Resources\about.png" />
+    <None Include="Resources\5-search-icon.png" />
+    <None Include="Resources\about2.png" />
+    <None Include="bin\Debug\libgcc_s_dw2-1.dll" />
+    <None Include="bin\Debug\gmktool.exe" />
+    <None Include="Resources\folder_page_white.png" />
+    <None Include="Resources\find.png" />
+    <None Include="Resources\find1.png" />
+    <None Include="Resources\accept_button.png" />
+    <None Include="Resources\cross_shield.png" />
+    <None Include="Resources\filter_clear.png" />
+    <None Include="Resources\arrow_left.png" />
+    <None Include="Resources\arrow_right.png" />
+    <None Include="Resources\arrow_out.png" />
+    <None Include="Resources\1-1.jpg" />
+    <None Include="Resources\application_osx_terminal.png" />
+    <None Include="Resources\7za.exe" />
+    <Content Include="icon_8SA_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

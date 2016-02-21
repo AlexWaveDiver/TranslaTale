@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class AboutBox1
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -21,12 +21,12 @@ Partial Class AboutBox1
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AboutBox1))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -39,22 +39,18 @@ Partial Class AboutBox1
         Me.LabelProductName = New System.Windows.Forms.Label()
         Me.TableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
-        Me.PictureMigosp = New System.Windows.Forms.PictureBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel.SuspendLayout()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureMigosp, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.LinkLabel4)
+        Me.Panel1.Controls.Add(Me.LinkLabel3)
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.LinkLabel2)
-        Me.Panel1.Controls.Add(Me.LinkLabel3)
-        Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.LinkLabel1)
@@ -71,28 +67,28 @@ Partial Class AboutBox1
         Me.LinkLabel3.AutoSize = True
         Me.LinkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
         Me.LinkLabel3.LinkColor = System.Drawing.Color.SteelBlue
-        Me.LinkLabel3.Location = New System.Drawing.Point(4, 131)
+        Me.LinkLabel3.Location = New System.Drawing.Point(123, 48)
         Me.LinkLabel3.Name = "LinkLabel3"
-        Me.LinkLabel3.Size = New System.Drawing.Size(108, 13)
+        Me.LinkLabel3.Size = New System.Drawing.Size(132, 13)
         Me.LinkLabel3.TabIndex = 9
         Me.LinkLabel3.TabStop = True
-        Me.LinkLabel3.Text = "Christian Rosenbauer"
+        Me.LinkLabel3.Text = "Andrea Cavalli (XDrake99)"
         '
-        'Label8
+        'Label5
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(3, 114)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(174, 13)
-        Me.Label8.TabIndex = 8
-        Me.Label8.Text = "UTSpriteFontBox library, © 2015 by"
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(3, 48)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(119, 13)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "TranslaTale X, made by"
         '
         'LinkLabel2
         '
         Me.LinkLabel2.AutoSize = True
         Me.LinkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
         Me.LinkLabel2.LinkColor = System.Drawing.Color.SteelBlue
-        Me.LinkLabel2.Location = New System.Drawing.Point(122, 2)
+        Me.LinkLabel2.Location = New System.Drawing.Point(122, 10)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Size = New System.Drawing.Size(84, 13)
         Me.LinkLabel2.TabIndex = 5
@@ -102,7 +98,7 @@ Partial Class AboutBox1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(3, 34)
+        Me.Label4.Location = New System.Drawing.Point(6, 25)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(226, 13)
         Me.Label4.TabIndex = 7
@@ -111,37 +107,37 @@ Partial Class AboutBox1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(5, 1)
+        Me.Label6.Location = New System.Drawing.Point(5, 9)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(119, 13)
         Me.Label6.TabIndex = 4
-        Me.Label6.Text = "TranslaTale, © 2016 by"
+        Me.Label6.Text = "TranslaTale, © 2015 by"
         '
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
         Me.LinkLabel1.LinkColor = System.Drawing.Color.SteelBlue
-        Me.LinkLabel1.Location = New System.Drawing.Point(136, 66)
+        Me.LinkLabel1.Location = New System.Drawing.Point(97, 70)
         Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(35, 13)
+        Me.LinkLabel1.Size = New System.Drawing.Size(41, 13)
         Me.LinkLabel1.TabIndex = 1
         Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "fjay69"
+        Me.LinkLabel1.Text = "FJay69"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(3, 81)
+        Me.Label3.Location = New System.Drawing.Point(3, 86)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(194, 13)
+        Me.Label3.Size = New System.Drawing.Size(183, 13)
         Me.Label3.TabIndex = 3
-        Me.Label3.Text = "under the GNU General Public License."
+        Me.Label3.Text = "under the MIT Open Source License."
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(168, 66)
+        Me.Label2.Location = New System.Drawing.Point(135, 70)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 13)
         Me.Label2.TabIndex = 2
@@ -150,11 +146,11 @@ Partial Class AboutBox1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(3, 65)
+        Me.Label1.Location = New System.Drawing.Point(3, 70)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(135, 13)
+        Me.Label1.Size = New System.Drawing.Size(96, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "UndertaleTools, © 2016 by"
+        Me.Label1.Text = "UndertaleTools, by"
         '
         'OKButton
         '
@@ -175,7 +171,7 @@ Partial Class AboutBox1
         Me.LabelVersion.Name = "LabelVersion"
         Me.LabelVersion.Size = New System.Drawing.Size(257, 17)
         Me.LabelVersion.TabIndex = 0
-        Me.LabelVersion.Text = "Versión"
+        Me.LabelVersion.Text = "Version"
         Me.LabelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LabelProductName
@@ -187,7 +183,7 @@ Partial Class AboutBox1
         Me.LabelProductName.Name = "LabelProductName"
         Me.LabelProductName.Size = New System.Drawing.Size(257, 17)
         Me.LabelProductName.TabIndex = 0
-        Me.LabelProductName.Text = "Nombre de producto"
+        Me.LabelProductName.Text = "Product name"
         Me.LabelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TableLayoutPanel
@@ -229,36 +225,15 @@ Partial Class AboutBox1
         Me.LogoPictureBox.TabIndex = 0
         Me.LogoPictureBox.TabStop = False
         '
-        'PictureMigosp
+        'PictureBox1
         '
-        Me.PictureMigosp.ErrorImage = CType(resources.GetObject("PictureMigosp.ErrorImage"), System.Drawing.Image)
-        Me.PictureMigosp.Location = New System.Drawing.Point(54, 176)
-        Me.PictureMigosp.Name = "PictureMigosp"
-        Me.PictureMigosp.Size = New System.Drawing.Size(44, 64)
-        Me.PictureMigosp.TabIndex = 1
-        Me.PictureMigosp.TabStop = False
-        Me.PictureMigosp.Visible = False
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(5, 17)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(72, 13)
-        Me.Label5.TabIndex = 10
-        Me.Label5.Text = "with help from"
-        '
-        'LinkLabel4
-        '
-        Me.LinkLabel4.AutoSize = True
-        Me.LinkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.LinkLabel4.LinkColor = System.Drawing.Color.SteelBlue
-        Me.LinkLabel4.Location = New System.Drawing.Point(75, 17)
-        Me.LinkLabel4.Name = "LinkLabel4"
-        Me.LinkLabel4.Size = New System.Drawing.Size(45, 13)
-        Me.LinkLabel4.TabIndex = 11
-        Me.LinkLabel4.TabStop = True
-        Me.LinkLabel4.Text = "CRefice"
+        Me.PictureBox1.ErrorImage = CType(resources.GetObject("PictureBox1.ErrorImage"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(54, 176)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(44, 64)
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        Me.PictureBox1.Visible = False
         '
         'AboutBox1
         '
@@ -266,7 +241,7 @@ Partial Class AboutBox1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.OKButton
         Me.ClientSize = New System.Drawing.Size(414, 276)
-        Me.Controls.Add(Me.PictureMigosp)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.TableLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -280,7 +255,7 @@ Partial Class AboutBox1
         Me.Panel1.PerformLayout()
         Me.TableLayoutPanel.ResumeLayout(False)
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureMigosp, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -297,9 +272,7 @@ Partial Class AboutBox1
     Friend WithEvents LabelProductName As System.Windows.Forms.Label
     Friend WithEvents TableLayoutPanel As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents LogoPictureBox As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureMigosp As System.Windows.Forms.PictureBox
-    Friend WithEvents LinkLabel3 As System.Windows.Forms.LinkLabel
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents LinkLabel4 As LinkLabel
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents LinkLabel3 As LinkLabel
     Friend WithEvents Label5 As Label
 End Class

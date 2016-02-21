@@ -26,12 +26,12 @@ Partial Class frmGoTo
         Me.btnJump = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtLineNumber = New System.Windows.Forms.TextBox()
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnJump
         '
-        Me.btnJump.Enabled = False
         Me.btnJump.Location = New System.Drawing.Point(119, 54)
         Me.btnJump.Name = "btnJump"
         Me.btnJump.Size = New System.Drawing.Size(75, 23)
@@ -57,19 +57,22 @@ Partial Class frmGoTo
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Line number"
         '
-        'txtLineNumber
+        'NumericUpDown1
         '
-        Me.txtLineNumber.Location = New System.Drawing.Point(13, 27)
-        Me.txtLineNumber.Name = "txtLineNumber"
-        Me.txtLineNumber.Size = New System.Drawing.Size(181, 20)
-        Me.txtLineNumber.TabIndex = 3
+        Me.NumericUpDown1.Location = New System.Drawing.Point(15, 28)
+        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {276447232, 23283, 0, 0})
+        Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(179, 20)
+        Me.NumericUpDown1.TabIndex = 4
+        Me.NumericUpDown1.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'frmGoTo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(206, 89)
-        Me.Controls.Add(Me.txtLineNumber)
+        Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnJump)
@@ -80,6 +83,7 @@ Partial Class frmGoTo
         Me.Name = "frmGoTo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Jump to..."
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -87,5 +91,5 @@ Partial Class frmGoTo
     Friend WithEvents btnJump As System.Windows.Forms.Button
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents txtLineNumber As System.Windows.Forms.TextBox
+    Friend WithEvents NumericUpDown1 As NumericUpDown
 End Class

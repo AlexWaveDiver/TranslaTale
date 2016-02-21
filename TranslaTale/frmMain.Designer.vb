@@ -2,7 +2,7 @@
 Partial Class frmMain
     Inherits System.Windows.Forms.Form
 
-    'Form overrides dispose to clean up the component list.
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
     <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
@@ -14,583 +14,1431 @@ Partial Class frmMain
         End Try
     End Sub
 
-    Friend WithEvents TableLayoutPanel As System.Windows.Forms.TableLayoutPanel
-
-    'Required by the Windows Form Designer
+    'Requerido por el Diseñador de Windows Forms
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Dim ListViewGroup2 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Dim ListViewGroup3 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
-        Me.TableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.pnlPreview = New System.Windows.Forms.Panel()
-        Me.SpriteFontBox1 = New UTSpriteFontBox.SpriteFontBox()
-        Me.cbFonts = New System.Windows.Forms.ComboBox()
-        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.rbFacebox = New System.Windows.Forms.RadioButton()
-        Me.rbTextbox = New System.Windows.Forms.RadioButton()
-        Me.picTxtEnemy = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.ttipTranslated = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ttipUntranslated = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ttipTotal = New System.Windows.Forms.ToolStripStatusLabel()
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog2 = New System.Windows.Forms.SaveFileDialog()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.SpriteFontBox1 = New UTSpriteFontBox.SpriteFontBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.newProjectToolStripBtn = New System.Windows.Forms.ToolStripButton()
+        Me.openProjectBtn2 = New System.Windows.Forms.ToolStripButton()
+        Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.projectManagerToolBtn = New System.Windows.Forms.ToolStripButton()
+        Me.stringsEditorToolBtn = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.UDTPatchToolStripMenuItem = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.DumpStringstxtToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DumpOriginalImagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+        Me.RepackGameASCIICharactersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RepackGamecustomFontsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.MigrationToolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.UndertalePatchToolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CompareTranslationFilesToolStripMenuItem = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.filtermenubtn = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.filterByGroupBtn = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CompileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CompileAndRunToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ProjectSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BookmarksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListBookmarksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StringsMigrationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TableLayoutPanel.SuspendLayout()
-        Me.pnlPreview.SuspendLayout()
+        Me.TranslatedStringsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UntranslatedStringsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ClearFilterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.ShowSymbolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripButton()
+        Me.ttipMenu = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.tblEditor = New System.Windows.Forms.TableLayoutPanel()
+        Me.MainViewPanel = New System.Windows.Forms.Panel()
+        Me.welcomePnl = New System.Windows.Forms.Panel()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
+        Me.infoBtn = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.migrationToolBtn = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.compareMainBtn = New System.Windows.Forms.LinkLabel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.openProjectBtn = New System.Windows.Forms.LinkLabel()
+        Me.newProjectBtn = New System.Windows.Forms.LinkLabel()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.projectmanagerPnl = New System.Windows.Forms.Panel()
+        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
+        Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.stringsPnl = New System.Windows.Forms.ListView()
+        Me.ResetBtn = New System.Windows.Forms.PictureBox()
+        Me.splitMain = New System.Windows.Forms.SplitContainer()
+        Me.splitRight = New System.Windows.Forms.SplitContainer()
+        Me.pnlGroups = New System.Windows.Forms.Panel()
+        Me.btnEditGroup = New System.Windows.Forms.Button()
+        Me.btnDeleteGroup = New System.Windows.Forms.Button()
+        Me.btnCreateGroup = New System.Windows.Forms.Button()
+        Me.btnSetGroup = New System.Windows.Forms.Button()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.topPnl = New System.Windows.Forms.Panel()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.FlowLayoutPanel5 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.FlowLayoutPanel7 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.FlowLayoutPanel9 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.FlowLayoutPanel8 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.bottomPnl = New System.Windows.Forms.Panel()
+        Me.cbFonts = New System.Windows.Forms.ComboBox()
+        Me.rbFacebox = New System.Windows.Forms.RadioButton()
+        Me.rbTextbox = New System.Windows.Forms.RadioButton()
+        Me.TranslationPercentageBox1 = New TranslaTale.TranslationPercentageBox()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         CType(Me.SpriteFontBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picTxtEnemy, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.StatusStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
+        Me.tblEditor.SuspendLayout()
+        Me.MainViewPanel.SuspendLayout()
+        Me.welcomePnl.SuspendLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.projectmanagerPnl.SuspendLayout()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ResetBtn, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.splitMain, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.splitMain.Panel1.SuspendLayout()
+        Me.splitMain.Panel2.SuspendLayout()
+        Me.splitMain.SuspendLayout()
+        CType(Me.splitRight, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.splitRight.Panel1.SuspendLayout()
+        Me.splitRight.Panel2.SuspendLayout()
+        Me.splitRight.SuspendLayout()
+        Me.pnlGroups.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.topPnl.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
+        Me.FlowLayoutPanel2.SuspendLayout()
+        Me.FlowLayoutPanel3.SuspendLayout()
+        Me.FlowLayoutPanel5.SuspendLayout()
+        Me.FlowLayoutPanel4.SuspendLayout()
+        Me.FlowLayoutPanel7.SuspendLayout()
+        Me.FlowLayoutPanel9.SuspendLayout()
+        Me.FlowLayoutPanel8.SuspendLayout()
+        Me.bottomPnl.SuspendLayout()
         Me.SuspendLayout()
         '
-        'TableLayoutPanel
+        'TextBox1
         '
-        Me.TableLayoutPanel.BackColor = System.Drawing.SystemColors.Control
-        Me.TableLayoutPanel.ColumnCount = 1
-        Me.TableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel.Controls.Add(Me.ListView1, 0, 1)
-        Me.TableLayoutPanel.Controls.Add(Me.pnlPreview, 0, 3)
-        Me.TableLayoutPanel.Controls.Add(Me.TextBox1, 0, 2)
-        Me.TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel.Location = New System.Drawing.Point(9, 9)
-        Me.TableLayoutPanel.Name = "TableLayoutPanel"
-        Me.TableLayoutPanel.RowCount = 5
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
-        Me.TableLayoutPanel.Size = New System.Drawing.Size(666, 643)
-        Me.TableLayoutPanel.TabIndex = 0
+        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox1.BackColor = System.Drawing.Color.Gainsboro
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBox1.Enabled = False
+        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.ForeColor = System.Drawing.Color.Black
+        Me.TextBox1.Location = New System.Drawing.Point(0, 327)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(0)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(547, 26)
+        Me.TextBox1.TabIndex = 10
         '
-        'ListView1
+        'Timer1
         '
-        Me.ListView1.Enabled = False
-        Me.ListView1.FullRowSelect = True
-        Me.ListView1.GridLines = True
-        ListViewGroup1.Header = "ListViewGroup"
-        ListViewGroup1.Name = "ListViewGroup1"
-        ListViewGroup2.Header = "ListViewGroup"
-        ListViewGroup2.Name = "ListViewGroup2"
-        ListViewGroup3.Header = "ListViewGroup"
-        ListViewGroup3.Name = "ListViewGroup3"
-        Me.ListView1.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1, ListViewGroup2, ListViewGroup3})
-        Me.ListView1.Location = New System.Drawing.Point(3, 58)
-        Me.ListView1.MultiSelect = False
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(660, 347)
-        Me.ListView1.TabIndex = 12
-        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.Timer1.Interval = 200
         '
-        'pnlPreview
+        'TableLayoutPanel1
         '
-        Me.pnlPreview.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.pnlPreview.Controls.Add(Me.SpriteFontBox1)
-        Me.pnlPreview.Controls.Add(Me.cbFonts)
-        Me.pnlPreview.Controls.Add(Me.RadioButton4)
-        Me.pnlPreview.Controls.Add(Me.RadioButton3)
-        Me.pnlPreview.Controls.Add(Me.rbFacebox)
-        Me.pnlPreview.Controls.Add(Me.rbTextbox)
-        Me.pnlPreview.Controls.Add(Me.picTxtEnemy)
-        Me.pnlPreview.Controls.Add(Me.PictureBox4)
-        Me.pnlPreview.Location = New System.Drawing.Point(4, 431)
-        Me.pnlPreview.Name = "pnlPreview"
-        Me.pnlPreview.Size = New System.Drawing.Size(658, 184)
-        Me.pnlPreview.TabIndex = 13
+        Me.TableLayoutPanel1.ColumnCount = 1
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 0, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 25)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(761, 170)
+        Me.TableLayoutPanel1.TabIndex = 54
+        '
+        'Panel1
+        '
+        Me.Panel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Panel1.Controls.Add(Me.SpriteFontBox1)
+        Me.Panel1.Controls.Add(Me.PictureBox4)
+        Me.Panel1.Location = New System.Drawing.Point(48, 3)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(664, 164)
+        Me.Panel1.TabIndex = 0
         '
         'SpriteFontBox1
         '
         Me.SpriteFontBox1.CurrentSpriteFont = UTSpriteFontBox.SpriteFontBox.SpriteFonts.BitOperator
-        Me.SpriteFontBox1.ErrorImage = CType(resources.GetObject("SpriteFontBox1.ErrorImage"), System.Drawing.Image)
-        Me.SpriteFontBox1.FontPath = Nothing
+        Me.SpriteFontBox1.ErrorImage = Nothing
+        Me.SpriteFontBox1.FontPath = ""
         Me.SpriteFontBox1.Image = CType(resources.GetObject("SpriteFontBox1.Image"), System.Drawing.Image)
-        Me.SpriteFontBox1.InitialImage = CType(resources.GetObject("SpriteFontBox1.InitialImage"), System.Drawing.Image)
-        Me.SpriteFontBox1.Location = New System.Drawing.Point(36, 31)
+        Me.SpriteFontBox1.InitialImage = Nothing
+        Me.SpriteFontBox1.Location = New System.Drawing.Point(41, 6)
         Me.SpriteFontBox1.MinimumSize = New System.Drawing.Size(578, 152)
         Me.SpriteFontBox1.Name = "SpriteFontBox1"
         Me.SpriteFontBox1.ShowCommands = False
         Me.SpriteFontBox1.ShowFaces = False
         Me.SpriteFontBox1.Size = New System.Drawing.Size(578, 152)
         Me.SpriteFontBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.SpriteFontBox1.TabIndex = 70
-        '
-        'cbFonts
-        '
-        Me.cbFonts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbFonts.FormattingEnabled = True
-        Me.cbFonts.Items.AddRange(New Object() {"Standard", "Sans", "Papyrus"})
-        Me.cbFonts.Location = New System.Drawing.Point(533, 3)
-        Me.cbFonts.Name = "cbFonts"
-        Me.cbFonts.Size = New System.Drawing.Size(121, 21)
-        Me.cbFonts.TabIndex = 69
-        '
-        'RadioButton4
-        '
-        Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Location = New System.Drawing.Point(288, 6)
-        Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(86, 17)
-        Me.RadioButton4.TabIndex = 61
-        Me.RadioButton4.Text = "Enemy (long)"
-        Me.RadioButton4.UseVisualStyleBackColor = True
-        Me.RadioButton4.Visible = False
-        '
-        'RadioButton3
-        '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(193, 6)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(89, 17)
-        Me.RadioButton3.TabIndex = 60
-        Me.RadioButton3.Text = "Enemy (short)"
-        Me.RadioButton3.UseVisualStyleBackColor = True
-        Me.RadioButton3.Visible = False
-        '
-        'rbFacebox
-        '
-        Me.rbFacebox.AutoSize = True
-        Me.rbFacebox.Location = New System.Drawing.Point(75, 6)
-        Me.rbFacebox.Name = "rbFacebox"
-        Me.rbFacebox.Size = New System.Drawing.Size(112, 17)
-        Me.rbFacebox.TabIndex = 59
-        Me.rbFacebox.Text = "Text box with face"
-        Me.rbFacebox.UseVisualStyleBackColor = True
-        '
-        'rbTextbox
-        '
-        Me.rbTextbox.AutoSize = True
-        Me.rbTextbox.Checked = True
-        Me.rbTextbox.Location = New System.Drawing.Point(3, 6)
-        Me.rbTextbox.Name = "rbTextbox"
-        Me.rbTextbox.Size = New System.Drawing.Size(66, 17)
-        Me.rbTextbox.TabIndex = 58
-        Me.rbTextbox.TabStop = True
-        Me.rbTextbox.Text = "Text box"
-        Me.rbTextbox.UseVisualStyleBackColor = True
-        '
-        'picTxtEnemy
-        '
-        Me.picTxtEnemy.Image = Global.TranslaTale.My.Resources.Resources.img1
-        Me.picTxtEnemy.Location = New System.Drawing.Point(220, 40)
-        Me.picTxtEnemy.Name = "picTxtEnemy"
-        Me.picTxtEnemy.Size = New System.Drawing.Size(234, 135)
-        Me.picTxtEnemy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.picTxtEnemy.TabIndex = 54
-        Me.picTxtEnemy.TabStop = False
-        Me.picTxtEnemy.Visible = False
+        Me.SpriteFontBox1.TabIndex = 60
+        Me.SpriteFontBox1.Text = "SpriteFontBox1"
         '
         'PictureBox4
         '
-        Me.PictureBox4.BackColor = System.Drawing.Color.Black
-        Me.PictureBox4.Location = New System.Drawing.Point(3, 29)
+        Me.PictureBox4.BackColor = System.Drawing.Color.DimGray
+        Me.PictureBox4.BackgroundImage = Global.TranslaTale.My.Resources.Resources.tablebg
+        Me.PictureBox4.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(0)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(652, 158)
-        Me.PictureBox4.TabIndex = 57
+        Me.PictureBox4.TabIndex = 5
         Me.PictureBox4.TabStop = False
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Location = New System.Drawing.Point(3, 411)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(660, 20)
-        Me.TextBox1.TabIndex = 14
-        '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ttipTranslated, Me.ttipUntranslated, Me.ttipTotal})
-        Me.StatusStrip1.Location = New System.Drawing.Point(9, 630)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(666, 22)
-        Me.StatusStrip1.SizingGrip = False
-        Me.StatusStrip1.TabIndex = 51
-        Me.StatusStrip1.Text = "StatusStrip1"
-        '
-        'ttipTranslated
-        '
-        Me.ttipTranslated.AutoSize = False
-        Me.ttipTranslated.BackColor = System.Drawing.Color.LightGreen
-        Me.ttipTranslated.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
-            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
-            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
-        Me.ttipTranslated.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter
-        Me.ttipTranslated.Name = "ttipTranslated"
-        Me.ttipTranslated.Size = New System.Drawing.Size(50, 17)
-        Me.ttipTranslated.Text = "0"
-        '
-        'ttipUntranslated
-        '
-        Me.ttipUntranslated.AutoSize = False
-        Me.ttipUntranslated.BackColor = System.Drawing.Color.LightSalmon
-        Me.ttipUntranslated.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
-            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
-            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
-        Me.ttipUntranslated.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter
-        Me.ttipUntranslated.Name = "ttipUntranslated"
-        Me.ttipUntranslated.Size = New System.Drawing.Size(50, 17)
-        Me.ttipUntranslated.Text = "0"
-        '
-        'ttipTotal
-        '
-        Me.ttipTotal.AutoSize = False
-        Me.ttipTotal.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
-            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
-            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
-        Me.ttipTotal.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter
-        Me.ttipTotal.Name = "ttipTotal"
-        Me.ttipTotal.Size = New System.Drawing.Size(50, 17)
-        Me.ttipTotal.Text = "0"
-        '
-        'Timer1
-        '
-        Me.Timer1.Interval = 200
         '
         'ToolStrip1
         '
         Me.ToolStrip1.AllowMerge = False
-        Me.ToolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.ToolStrip1.AutoSize = False
+        Me.ToolStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(223, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.ToolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ToolStrip1.CanOverflow = False
+        Me.ToolStrip1.GripMargin = New System.Windows.Forms.Padding(0)
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripSeparator3, Me.ToolStripButton7, Me.ToolStripSeparator2, Me.ToolStripButton4, Me.ToolStripButton3, Me.ToolStripButton6, Me.ToolStripButton5})
-        Me.ToolStrip1.Location = New System.Drawing.Point(9, 33)
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(32, 32)
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.newProjectToolStripBtn, Me.openProjectBtn2, Me.SaveToolStripMenuItem, Me.ToolStripSeparator1, Me.projectManagerToolBtn, Me.stringsEditorToolBtn, Me.ToolStripSeparator5, Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripSeparator6, Me.UDTPatchToolStripMenuItem, Me.CompareTranslationFilesToolStripMenuItem, Me.ToolStripSeparator2, Me.filtermenubtn, Me.ToolStripSeparator10, Me.OptionsToolStripMenuItem, Me.ToolStripSeparator12, Me.AboutToolStripMenuItem})
+        Me.ToolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Padding = New System.Windows.Forms.Padding(10, 0, 10, 0)
-        Me.ToolStrip1.Size = New System.Drawing.Size(666, 25)
-        Me.ToolStrip1.TabIndex = 53
+        Me.ToolStrip1.Padding = New System.Windows.Forms.Padding(10, 20, 10, 17)
+        Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.ToolStrip1.Size = New System.Drawing.Size(761, 76)
+        Me.ToolStrip1.TabIndex = 49
         Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'ToolStripButton1
+        'newProjectToolStripBtn
         '
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton1.Image = Global.TranslaTale.My.Resources.Resources.ico_open
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton1.Text = "Open"
+        Me.newProjectToolStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.newProjectToolStripBtn.Image = Global.TranslaTale.My.Resources.Resources._new
+        Me.newProjectToolStripBtn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.newProjectToolStripBtn.Name = "newProjectToolStripBtn"
+        Me.newProjectToolStripBtn.Size = New System.Drawing.Size(36, 36)
+        Me.newProjectToolStripBtn.Text = "New Project"
         '
-        'ToolStripButton2
+        'openProjectBtn2
         '
-        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton2.Enabled = False
-        Me.ToolStripButton2.Image = Global.TranslaTale.My.Resources.Resources.ico_save
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton2.Text = "Save"
+        Me.openProjectBtn2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.openProjectBtn2.Image = Global.TranslaTale.My.Resources.Resources.folder_page_white1
+        Me.openProjectBtn2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.openProjectBtn2.Name = "openProjectBtn2"
+        Me.openProjectBtn2.Size = New System.Drawing.Size(36, 36)
+        Me.openProjectBtn2.Text = "Open"
         '
-        'ToolStripSeparator3
+        'SaveToolStripMenuItem
         '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
+        Me.SaveToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.SaveToolStripMenuItem.Enabled = False
+        Me.SaveToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.save_as1
+        Me.SaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(36, 36)
+        Me.SaveToolStripMenuItem.Text = "Save"
         '
-        'ToolStripButton7
+        'ToolStripSeparator1
         '
-        Me.ToolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton7.Image = Global.TranslaTale.My.Resources.Resources.ico_play
-        Me.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton7.Name = "ToolStripButton7"
-        Me.ToolStripButton7.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton7.Text = "Compile and Play"
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 39)
         '
         'ToolStripButton4
         '
         Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton4.Enabled = False
-        Me.ToolStripButton4.Image = Global.TranslaTale.My.Resources.Resources.ico_step
+        Me.ToolStripButton4.Image = Global.TranslaTale.My.Resources.Resources.table_select_row
         Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton4.Size = New System.Drawing.Size(36, 36)
         Me.ToolStripButton4.Text = "Jump to line"
         '
         'ToolStripButton3
         '
         Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton3.Enabled = False
-        Me.ToolStripButton3.Image = Global.TranslaTale.My.Resources.Resources.ico_search
+        Me.ToolStripButton3.Image = Global.TranslaTale.My.Resources.Resources.find2
         Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton3.Size = New System.Drawing.Size(36, 36)
         Me.ToolStripButton3.Text = "Search"
         '
-        'ToolStripButton6
+        'ToolStripSeparator5
         '
-        Me.ToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton6.Image = Global.TranslaTale.My.Resources.Resources.ico_filter_green
-        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton6.Name = "ToolStripButton6"
-        Me.ToolStripButton6.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton6.Text = "ToolStripButton5"
-        Me.ToolStripButton6.ToolTipText = "Filter by translated"
-        Me.ToolStripButton6.Visible = False
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 39)
         '
-        'ToolStripButton5
+        'projectManagerToolBtn
         '
-        Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton5.Image = Global.TranslaTale.My.Resources.Resources.ico_filter_red
-        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton5.Name = "ToolStripButton5"
-        Me.ToolStripButton5.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton5.Text = "ToolStripButton5"
-        Me.ToolStripButton5.ToolTipText = "Filter by untranslated"
-        Me.ToolStripButton5.Visible = False
+        Me.projectManagerToolBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.projectManagerToolBtn.Enabled = False
+        Me.projectManagerToolBtn.Image = Global.TranslaTale.My.Resources.Resources.house
+        Me.projectManagerToolBtn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.projectManagerToolBtn.Name = "projectManagerToolBtn"
+        Me.projectManagerToolBtn.Size = New System.Drawing.Size(36, 36)
+        Me.projectManagerToolBtn.Text = "Project manager"
         '
-        'MenuStrip1
+        'stringsEditorToolBtn
         '
-        Me.MenuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ProjectToolStripMenuItem, Me.BookmarksToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.OptionsToolStripMenuItem, Me.HelpToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(9, 9)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(666, 24)
-        Me.MenuStrip1.TabIndex = 50
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.stringsEditorToolBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.stringsEditorToolBtn.Enabled = False
+        Me.stringsEditorToolBtn.Image = Global.TranslaTale.My.Resources.Resources.edit_button1
+        Me.stringsEditorToolBtn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.stringsEditorToolBtn.Name = "stringsEditorToolBtn"
+        Me.stringsEditorToolBtn.Size = New System.Drawing.Size(36, 36)
+        Me.stringsEditorToolBtn.Text = "Strings editor"
         '
-        'FileToolStripMenuItem
+        'ToolStripSeparator6
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.SaveToolStripMenuItem, Me.ToolStripSeparator4, Me.ExitToolStripMenuItem})
-        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
-        Me.FileToolStripMenuItem.Text = "&File"
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 39)
         '
-        'OpenToolStripMenuItem
+        'UDTPatchToolStripMenuItem
         '
-        Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
-        Me.OpenToolStripMenuItem.Text = "&Open Project"
+        Me.UDTPatchToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.UDTPatchToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DumpStringstxtToolStripMenuItem, Me.DumpOriginalImagesToolStripMenuItem, Me.ToolStripSeparator11, Me.RepackGameASCIICharactersToolStripMenuItem, Me.RepackGamecustomFontsToolStripMenuItem, Me.ToolStripSeparator3, Me.MigrationToolToolStripMenuItem, Me.ToolStripSeparator7, Me.UndertalePatchToolToolStripMenuItem})
+        Me.UDTPatchToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.compile
+        Me.UDTPatchToolStripMenuItem.Name = "UDTPatchToolStripMenuItem"
+        Me.UDTPatchToolStripMenuItem.Size = New System.Drawing.Size(45, 36)
+        Me.UDTPatchToolStripMenuItem.Text = "Game related"
         '
-        'SaveToolStripMenuItem
+        'DumpStringstxtToolStripMenuItem
         '
-        Me.SaveToolStripMenuItem.Enabled = False
-        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
-        Me.SaveToolStripMenuItem.Text = "&Save Project"
+        Me.DumpStringstxtToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.box_open
+        Me.DumpStringstxtToolStripMenuItem.Name = "DumpStringstxtToolStripMenuItem"
+        Me.DumpStringstxtToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
+        Me.DumpStringstxtToolStripMenuItem.Text = "Dump original strings.ttx"
+        '
+        'DumpOriginalImagesToolStripMenuItem
+        '
+        Me.DumpOriginalImagesToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.box_open
+        Me.DumpOriginalImagesToolStripMenuItem.Name = "DumpOriginalImagesToolStripMenuItem"
+        Me.DumpOriginalImagesToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
+        Me.DumpOriginalImagesToolStripMenuItem.Text = "Dump original images"
+        '
+        'ToolStripSeparator11
+        '
+        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(302, 6)
+        '
+        'RepackGameASCIICharactersToolStripMenuItem
+        '
+        Me.RepackGameASCIICharactersToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.text_allcaps
+        Me.RepackGameASCIICharactersToolStripMenuItem.Name = "RepackGameASCIICharactersToolStripMenuItem"
+        Me.RepackGameASCIICharactersToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
+        Me.RepackGameASCIICharactersToolStripMenuItem.Text = "Repack Game (ASCII characters)"
+        '
+        'RepackGamecustomFontsToolStripMenuItem
+        '
+        Me.RepackGamecustomFontsToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.text_language
+        Me.RepackGamecustomFontsToolStripMenuItem.Name = "RepackGamecustomFontsToolStripMenuItem"
+        Me.RepackGamecustomFontsToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
+        Me.RepackGamecustomFontsToolStripMenuItem.Text = "Repack Game with a custom character table"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(302, 6)
+        '
+        'MigrationToolToolStripMenuItem
+        '
+        Me.MigrationToolToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.translation_tool_tip
+        Me.MigrationToolToolStripMenuItem.Name = "MigrationToolToolStripMenuItem"
+        Me.MigrationToolToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
+        Me.MigrationToolToolStripMenuItem.Text = "Migration Tool (from v1.0 to v1.001)"
+        '
+        'ToolStripSeparator7
+        '
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(302, 6)
+        '
+        'UndertalePatchToolToolStripMenuItem
+        '
+        Me.UndertalePatchToolToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.compile
+        Me.UndertalePatchToolToolStripMenuItem.Name = "UndertalePatchToolToolStripMenuItem"
+        Me.UndertalePatchToolToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
+        Me.UndertalePatchToolToolStripMenuItem.Text = "Undertale Patcher Tool"
+        '
+        'CompareTranslationFilesToolStripMenuItem
+        '
+        Me.CompareTranslationFilesToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.CompareTranslationFilesToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.compare
+        Me.CompareTranslationFilesToolStripMenuItem.Name = "CompareTranslationFilesToolStripMenuItem"
+        Me.CompareTranslationFilesToolStripMenuItem.Size = New System.Drawing.Size(36, 36)
+        Me.CompareTranslationFilesToolStripMenuItem.Text = "Compare and join two projects"
+        Me.CompareTranslationFilesToolStripMenuItem.ToolTipText = "Compare two translation files"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 39)
+        '
+        'filtermenubtn
+        '
+        Me.filtermenubtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.filtermenubtn.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.filterByGroupBtn, Me.ToolStripSeparator4, Me.TranslatedStringsToolStripMenuItem, Me.UntranslatedStringsToolStripMenuItem, Me.ToolStripSeparator9, Me.ClearFilterToolStripMenuItem})
+        Me.filtermenubtn.Image = Global.TranslaTale.My.Resources.Resources.filter
+        Me.filtermenubtn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.filtermenubtn.Name = "filtermenubtn"
+        Me.filtermenubtn.Size = New System.Drawing.Size(45, 36)
+        Me.filtermenubtn.Text = "Filter"
+        '
+        'filterByGroupBtn
+        '
+        Me.filterByGroupBtn.Image = Global.TranslaTale.My.Resources.Resources.tag_orange
+        Me.filterByGroupBtn.Name = "filterByGroupBtn"
+        Me.filterByGroupBtn.Size = New System.Drawing.Size(236, 22)
+        Me.filterByGroupBtn.Text = "Filter by group"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(140, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(233, 6)
         '
-        'ExitToolStripMenuItem
+        'TranslatedStringsToolStripMenuItem
         '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
-        Me.ExitToolStripMenuItem.Text = "&Exit"
+        Me.TranslatedStringsToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.page_green1
+        Me.TranslatedStringsToolStripMenuItem.Name = "TranslatedStringsToolStripMenuItem"
+        Me.TranslatedStringsToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.TranslatedStringsToolStripMenuItem.Text = "Show only translated strings"
         '
-        'ProjectToolStripMenuItem
+        'UntranslatedStringsToolStripMenuItem
         '
-        Me.ProjectToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CompileToolStripMenuItem, Me.CompileAndRunToolStripMenuItem, Me.ToolStripSeparator1, Me.ProjectSettingsToolStripMenuItem})
-        Me.ProjectToolStripMenuItem.Name = "ProjectToolStripMenuItem"
-        Me.ProjectToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
-        Me.ProjectToolStripMenuItem.Text = "Project"
+        Me.UntranslatedStringsToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.page_red1
+        Me.UntranslatedStringsToolStripMenuItem.Name = "UntranslatedStringsToolStripMenuItem"
+        Me.UntranslatedStringsToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.UntranslatedStringsToolStripMenuItem.Text = "Show only untranslated strings"
         '
-        'CompileToolStripMenuItem
+        'ToolStripSeparator9
         '
-        Me.CompileToolStripMenuItem.Name = "CompileToolStripMenuItem"
-        Me.CompileToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
-        Me.CompileToolStripMenuItem.Text = "Compile"
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(233, 6)
         '
-        'CompileAndRunToolStripMenuItem
+        'ClearFilterToolStripMenuItem
         '
-        Me.CompileAndRunToolStripMenuItem.Name = "CompileAndRunToolStripMenuItem"
-        Me.CompileAndRunToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
-        Me.CompileAndRunToolStripMenuItem.Text = "Compile and Run"
+        Me.ClearFilterToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.filter_clear1
+        Me.ClearFilterToolStripMenuItem.Name = "ClearFilterToolStripMenuItem"
+        Me.ClearFilterToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.ClearFilterToolStripMenuItem.Text = "Reset filter"
         '
-        'ToolStripSeparator1
+        'ToolStripSeparator10
         '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(163, 6)
-        '
-        'ProjectSettingsToolStripMenuItem
-        '
-        Me.ProjectSettingsToolStripMenuItem.Name = "ProjectSettingsToolStripMenuItem"
-        Me.ProjectSettingsToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
-        Me.ProjectSettingsToolStripMenuItem.Text = "Project Settings"
-        '
-        'BookmarksToolStripMenuItem
-        '
-        Me.BookmarksToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem, Me.ListBookmarksToolStripMenuItem})
-        Me.BookmarksToolStripMenuItem.Name = "BookmarksToolStripMenuItem"
-        Me.BookmarksToolStripMenuItem.Size = New System.Drawing.Size(78, 20)
-        Me.BookmarksToolStripMenuItem.Text = "&Bookmarks"
-        '
-        'AddToolStripMenuItem
-        '
-        Me.AddToolStripMenuItem.Enabled = False
-        Me.AddToolStripMenuItem.Name = "AddToolStripMenuItem"
-        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
-        Me.AddToolStripMenuItem.Text = "Add Boo&kmark"
-        '
-        'ListBookmarksToolStripMenuItem
-        '
-        Me.ListBookmarksToolStripMenuItem.Name = "ListBookmarksToolStripMenuItem"
-        Me.ListBookmarksToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
-        Me.ListBookmarksToolStripMenuItem.Text = "&List Bookmarks"
-        '
-        'ToolsToolStripMenuItem
-        '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StringsMigrationToolStripMenuItem})
-        Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
-        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
-        Me.ToolsToolStripMenuItem.Text = "&Tools"
-        '
-        'StringsMigrationToolStripMenuItem
-        '
-        Me.StringsMigrationToolStripMenuItem.Name = "StringsMigrationToolStripMenuItem"
-        Me.StringsMigrationToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
-        Me.StringsMigrationToolStripMenuItem.Text = "&Strings migration"
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(6, 39)
         '
         'OptionsToolStripMenuItem
         '
+        Me.OptionsToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowSymbolsToolStripMenuItem})
+        Me.OptionsToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.layout_edit
+        Me.OptionsToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
-        Me.OptionsToolStripMenuItem.Text = "&Options"
-        Me.OptionsToolStripMenuItem.Visible = False
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(45, 36)
+        Me.OptionsToolStripMenuItem.Text = "View settings"
         '
-        'HelpToolStripMenuItem
+        'ShowSymbolsToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.HelpToolStripMenuItem.Text = "&Help"
+        Me.ShowSymbolsToolStripMenuItem.Name = "ShowSymbolsToolStripMenuItem"
+        Me.ShowSymbolsToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
+        Me.ShowSymbolsToolStripMenuItem.Text = "&Show formatting symbols"
+        '
+        'ToolStripSeparator12
+        '
+        Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
+        Me.ToolStripSeparator12.Size = New System.Drawing.Size(6, 39)
         '
         'AboutToolStripMenuItem
         '
+        Me.AboutToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.AboutToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.information
+        Me.AboutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
-        Me.AboutToolStripMenuItem.Text = "&About"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(36, 36)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'ttipMenu
+        '
+        Me.ttipMenu.AutoEllipsis = True
+        Me.ttipMenu.AutoSize = True
+        Me.ttipMenu.BackColor = System.Drawing.Color.Transparent
+        Me.ttipMenu.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ttipMenu.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ttipMenu.Location = New System.Drawing.Point(0, 0)
+        Me.ttipMenu.Margin = New System.Windows.Forms.Padding(0)
+        Me.ttipMenu.Name = "ttipMenu"
+        Me.ttipMenu.Size = New System.Drawing.Size(25, 13)
+        Me.ttipMenu.TabIndex = 61
+        Me.ttipMenu.Text = "File"
+        Me.ttipMenu.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(223, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.TableLayoutPanel2.ColumnCount = 1
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.ttipMenu, 0, 0)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(761, 16)
+        Me.TableLayoutPanel2.TabIndex = 16
+        '
+        'tblEditor
+        '
+        Me.tblEditor.BackColor = System.Drawing.Color.Gainsboro
+        Me.tblEditor.ColumnCount = 2
+        Me.tblEditor.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblEditor.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
+        Me.tblEditor.Controls.Add(Me.MainViewPanel, 0, 0)
+        Me.tblEditor.Controls.Add(Me.TextBox1, 0, 1)
+        Me.tblEditor.Controls.Add(Me.ResetBtn, 1, 1)
+        Me.tblEditor.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tblEditor.Location = New System.Drawing.Point(0, 0)
+        Me.tblEditor.Margin = New System.Windows.Forms.Padding(0)
+        Me.tblEditor.Name = "tblEditor"
+        Me.tblEditor.RowCount = 2
+        Me.tblEditor.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tblEditor.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
+        Me.tblEditor.Size = New System.Drawing.Size(573, 353)
+        Me.tblEditor.TabIndex = 60
+        '
+        'MainViewPanel
+        '
+        Me.tblEditor.SetColumnSpan(Me.MainViewPanel, 2)
+        Me.MainViewPanel.Controls.Add(Me.welcomePnl)
+        Me.MainViewPanel.Controls.Add(Me.projectmanagerPnl)
+        Me.MainViewPanel.Controls.Add(Me.stringsPnl)
+        Me.MainViewPanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.MainViewPanel.Location = New System.Drawing.Point(0, 0)
+        Me.MainViewPanel.Margin = New System.Windows.Forms.Padding(0)
+        Me.MainViewPanel.Name = "MainViewPanel"
+        Me.MainViewPanel.Size = New System.Drawing.Size(573, 327)
+        Me.MainViewPanel.TabIndex = 62
+        '
+        'welcomePnl
+        '
+        Me.welcomePnl.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.welcomePnl.Controls.Add(Me.PictureBox7)
+        Me.welcomePnl.Controls.Add(Me.infoBtn)
+        Me.welcomePnl.Controls.Add(Me.PictureBox6)
+        Me.welcomePnl.Controls.Add(Me.migrationToolBtn)
+        Me.welcomePnl.Controls.Add(Me.PictureBox5)
+        Me.welcomePnl.Controls.Add(Me.compareMainBtn)
+        Me.welcomePnl.Controls.Add(Me.Panel3)
+        Me.welcomePnl.Controls.Add(Me.PictureBox3)
+        Me.welcomePnl.Controls.Add(Me.PictureBox2)
+        Me.welcomePnl.Controls.Add(Me.PictureBox1)
+        Me.welcomePnl.Controls.Add(Me.openProjectBtn)
+        Me.welcomePnl.Controls.Add(Me.newProjectBtn)
+        Me.welcomePnl.Controls.Add(Me.Label12)
+        Me.welcomePnl.Location = New System.Drawing.Point(62, 3)
+        Me.welcomePnl.Name = "welcomePnl"
+        Me.welcomePnl.Size = New System.Drawing.Size(279, 321)
+        Me.welcomePnl.TabIndex = 13
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.Image = Global.TranslaTale.My.Resources.Resources.information
+        Me.PictureBox7.Location = New System.Drawing.Point(10, 187)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox7.TabIndex = 11
+        Me.PictureBox7.TabStop = False
+        '
+        'infoBtn
+        '
+        Me.infoBtn.AutoSize = True
+        Me.infoBtn.LinkColor = System.Drawing.Color.DodgerBlue
+        Me.infoBtn.Location = New System.Drawing.Point(47, 198)
+        Me.infoBtn.Name = "infoBtn"
+        Me.infoBtn.Size = New System.Drawing.Size(35, 13)
+        Me.infoBtn.TabIndex = 4
+        Me.infoBtn.TabStop = True
+        Me.infoBtn.Text = "About"
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = Global.TranslaTale.My.Resources.Resources.translation_tool_tip
+        Me.PictureBox6.Location = New System.Drawing.Point(10, 149)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox6.TabIndex = 9
+        Me.PictureBox6.TabStop = False
+        '
+        'migrationToolBtn
+        '
+        Me.migrationToolBtn.AutoSize = True
+        Me.migrationToolBtn.LinkColor = System.Drawing.Color.DodgerBlue
+        Me.migrationToolBtn.Location = New System.Drawing.Point(47, 160)
+        Me.migrationToolBtn.Name = "migrationToolBtn"
+        Me.migrationToolBtn.Size = New System.Drawing.Size(162, 13)
+        Me.migrationToolBtn.TabIndex = 3
+        Me.migrationToolBtn.TabStop = True
+        Me.migrationToolBtn.Text = "Migration tool (from v1 to v1.001)"
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = Global.TranslaTale.My.Resources.Resources.compare1
+        Me.PictureBox5.Location = New System.Drawing.Point(10, 111)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox5.TabIndex = 9
+        Me.PictureBox5.TabStop = False
+        '
+        'compareMainBtn
+        '
+        Me.compareMainBtn.AutoSize = True
+        Me.compareMainBtn.LinkColor = System.Drawing.Color.DodgerBlue
+        Me.compareMainBtn.Location = New System.Drawing.Point(47, 122)
+        Me.compareMainBtn.Name = "compareMainBtn"
+        Me.compareMainBtn.Size = New System.Drawing.Size(118, 13)
+        Me.compareMainBtn.TabIndex = 2
+        Me.compareMainBtn.TabStop = True
+        Me.compareMainBtn.Text = "Compare two projects..."
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.Gainsboro
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel3.Location = New System.Drawing.Point(0, 208)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(279, 26)
+        Me.Panel3.TabIndex = 7
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.Gainsboro
+        Me.PictureBox3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PictureBox3.Image = Global.TranslaTale.My.Resources.Resources.icon_8SA_icon
+        Me.PictureBox3.Location = New System.Drawing.Point(0, 234)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(0)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(279, 87)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 6
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.TranslaTale.My.Resources.Resources.next_comment
+        Me.PictureBox2.Location = New System.Drawing.Point(10, 73)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox2.TabIndex = 5
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.TranslaTale.My.Resources.Resources.new_comment
+        Me.PictureBox1.Location = New System.Drawing.Point(8, 35)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox1.TabIndex = 4
+        Me.PictureBox1.TabStop = False
+        '
+        'openProjectBtn
+        '
+        Me.openProjectBtn.AutoSize = True
+        Me.openProjectBtn.LinkColor = System.Drawing.Color.DodgerBlue
+        Me.openProjectBtn.Location = New System.Drawing.Point(47, 84)
+        Me.openProjectBtn.Name = "openProjectBtn"
+        Me.openProjectBtn.Size = New System.Drawing.Size(77, 13)
+        Me.openProjectBtn.TabIndex = 1
+        Me.openProjectBtn.TabStop = True
+        Me.openProjectBtn.Text = "Open project..."
+        '
+        'newProjectBtn
+        '
+        Me.newProjectBtn.AutoSize = True
+        Me.newProjectBtn.LinkColor = System.Drawing.Color.DodgerBlue
+        Me.newProjectBtn.Location = New System.Drawing.Point(47, 46)
+        Me.newProjectBtn.Name = "newProjectBtn"
+        Me.newProjectBtn.Size = New System.Drawing.Size(73, 13)
+        Me.newProjectBtn.TabIndex = 0
+        Me.newProjectBtn.TabStop = True
+        Me.newProjectBtn.Text = "New project..."
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Segoe UI Semilight", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(3, 0)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(110, 32)
+        Me.Label12.TabIndex = 1
+        Me.Label12.Text = "Welcome"
+        '
+        'projectmanagerPnl
+        '
+        Me.projectmanagerPnl.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.projectmanagerPnl.Controls.Add(Me.PictureBox10)
+        Me.projectmanagerPnl.Controls.Add(Me.LinkLabel3)
+        Me.projectmanagerPnl.Controls.Add(Me.PictureBox9)
+        Me.projectmanagerPnl.Controls.Add(Me.LinkLabel2)
+        Me.projectmanagerPnl.Controls.Add(Me.PictureBox8)
+        Me.projectmanagerPnl.Controls.Add(Me.LinkLabel1)
+        Me.projectmanagerPnl.Controls.Add(Me.Label9)
+        Me.projectmanagerPnl.Location = New System.Drawing.Point(362, 43)
+        Me.projectmanagerPnl.Name = "projectmanagerPnl"
+        Me.projectmanagerPnl.Size = New System.Drawing.Size(327, 194)
+        Me.projectmanagerPnl.TabIndex = 12
+        '
+        'PictureBox10
+        '
+        Me.PictureBox10.Image = Global.TranslaTale.My.Resources.Resources.edit_button1
+        Me.PictureBox10.Location = New System.Drawing.Point(9, 111)
+        Me.PictureBox10.Name = "PictureBox10"
+        Me.PictureBox10.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox10.TabIndex = 17
+        Me.PictureBox10.TabStop = False
+        '
+        'LinkLabel3
+        '
+        Me.LinkLabel3.AutoSize = True
+        Me.LinkLabel3.LinkColor = System.Drawing.Color.DodgerBlue
+        Me.LinkLabel3.Location = New System.Drawing.Point(46, 122)
+        Me.LinkLabel3.Name = "LinkLabel3"
+        Me.LinkLabel3.Size = New System.Drawing.Size(58, 13)
+        Me.LinkLabel3.TabIndex = 2
+        Me.LinkLabel3.TabStop = True
+        Me.LinkLabel3.Text = "Edit strings"
+        '
+        'PictureBox9
+        '
+        Me.PictureBox9.Image = Global.TranslaTale.My.Resources.Resources.text_add
+        Me.PictureBox9.Location = New System.Drawing.Point(9, 73)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox9.TabIndex = 15
+        Me.PictureBox9.TabStop = False
+        '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.LinkColor = System.Drawing.Color.DodgerBlue
+        Me.LinkLabel2.Location = New System.Drawing.Point(46, 84)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(159, 13)
+        Me.LinkLabel2.TabIndex = 1
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "Import translated Strings.txt file..."
+        '
+        'PictureBox8
+        '
+        Me.PictureBox8.Image = Global.TranslaTale.My.Resources.Resources.text_add
+        Me.PictureBox8.Location = New System.Drawing.Point(9, 35)
+        Me.PictureBox8.Name = "PictureBox8"
+        Me.PictureBox8.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox8.TabIndex = 13
+        Me.PictureBox8.TabStop = False
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.LinkColor = System.Drawing.Color.DodgerBlue
+        Me.LinkLabel1.Location = New System.Drawing.Point(46, 46)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(146, 13)
+        Me.LinkLabel1.TabIndex = 0
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Import original Strings.txt file..."
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI Semilight", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(3, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(184, 32)
+        Me.Label9.TabIndex = 1
+        Me.Label9.Text = "Project manager"
+        '
+        'stringsPnl
+        '
+        Me.stringsPnl.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.stringsPnl.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.stringsPnl.Enabled = False
+        Me.stringsPnl.Font = New System.Drawing.Font("Lucida Sans", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.stringsPnl.ForeColor = System.Drawing.Color.Black
+        Me.stringsPnl.FullRowSelect = True
+        Me.stringsPnl.GridLines = True
+        ListViewGroup1.Header = "ListViewGroup"
+        ListViewGroup1.Name = "ListViewGroup1"
+        ListViewGroup2.Header = "ListViewGroup"
+        ListViewGroup2.Name = "ListViewGroup2"
+        ListViewGroup3.Header = "ListViewGroup"
+        ListViewGroup3.Name = "ListViewGroup3"
+        Me.stringsPnl.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1, ListViewGroup2, ListViewGroup3})
+        Me.stringsPnl.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.stringsPnl.HideSelection = False
+        Me.stringsPnl.Location = New System.Drawing.Point(399, 254)
+        Me.stringsPnl.Margin = New System.Windows.Forms.Padding(0)
+        Me.stringsPnl.Name = "stringsPnl"
+        Me.stringsPnl.OwnerDraw = True
+        Me.stringsPnl.Size = New System.Drawing.Size(106, 57)
+        Me.stringsPnl.TabIndex = 11
+        Me.stringsPnl.UseCompatibleStateImageBehavior = False
+        Me.stringsPnl.View = System.Windows.Forms.View.Details
+        '
+        'ResetBtn
+        '
+        Me.ResetBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ResetBtn.BackColor = System.Drawing.Color.Gainsboro
+        Me.ResetBtn.BackgroundImage = Global.TranslaTale.My.Resources.Resources.cross2
+        Me.ResetBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.ResetBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ResetBtn.Location = New System.Drawing.Point(547, 327)
+        Me.ResetBtn.Margin = New System.Windows.Forms.Padding(0)
+        Me.ResetBtn.Name = "ResetBtn"
+        Me.ResetBtn.Size = New System.Drawing.Size(26, 26)
+        Me.ResetBtn.TabIndex = 55
+        Me.ResetBtn.TabStop = False
+        Me.ResetBtn.Visible = False
+        '
+        'splitMain
+        '
+        Me.splitMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.splitMain.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
+        Me.splitMain.Location = New System.Drawing.Point(0, 88)
+        Me.splitMain.Margin = New System.Windows.Forms.Padding(0)
+        Me.splitMain.Name = "splitMain"
+        '
+        'splitMain.Panel1
+        '
+        Me.splitMain.Panel1.Controls.Add(Me.tblEditor)
+        Me.splitMain.Panel1MinSize = 573
+        '
+        'splitMain.Panel2
+        '
+        Me.splitMain.Panel2.Controls.Add(Me.splitRight)
+        Me.splitMain.Panel2MinSize = 184
+        Me.splitMain.Size = New System.Drawing.Size(761, 353)
+        Me.splitMain.SplitterDistance = 573
+        Me.splitMain.TabIndex = 61
+        '
+        'splitRight
+        '
+        Me.splitRight.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.splitRight.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
+        Me.splitRight.Location = New System.Drawing.Point(0, 0)
+        Me.splitRight.Margin = New System.Windows.Forms.Padding(0)
+        Me.splitRight.Name = "splitRight"
+        Me.splitRight.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'splitRight.Panel1
+        '
+        Me.splitRight.Panel1.Controls.Add(Me.pnlGroups)
+        Me.splitRight.Panel1MinSize = 228
+        '
+        'splitRight.Panel2
+        '
+        Me.splitRight.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(223, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.splitRight.Panel2.Controls.Add(Me.Panel2)
+        Me.splitRight.Panel2MinSize = 121
+        Me.splitRight.Size = New System.Drawing.Size(184, 353)
+        Me.splitRight.SplitterDistance = 228
+        Me.splitRight.TabIndex = 2
+        '
+        'pnlGroups
+        '
+        Me.pnlGroups.Controls.Add(Me.btnEditGroup)
+        Me.pnlGroups.Controls.Add(Me.btnDeleteGroup)
+        Me.pnlGroups.Controls.Add(Me.btnCreateGroup)
+        Me.pnlGroups.Controls.Add(Me.btnSetGroup)
+        Me.pnlGroups.Controls.Add(Me.Label10)
+        Me.pnlGroups.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlGroups.Location = New System.Drawing.Point(0, 0)
+        Me.pnlGroups.Margin = New System.Windows.Forms.Padding(0)
+        Me.pnlGroups.Name = "pnlGroups"
+        Me.pnlGroups.Size = New System.Drawing.Size(184, 228)
+        Me.pnlGroups.TabIndex = 1
+        '
+        'btnEditGroup
+        '
+        Me.btnEditGroup.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnEditGroup.Image = Global.TranslaTale.My.Resources.Resources.tag_blue_edit
+        Me.btnEditGroup.Location = New System.Drawing.Point(9, 176)
+        Me.btnEditGroup.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnEditGroup.Name = "btnEditGroup"
+        Me.btnEditGroup.Size = New System.Drawing.Size(163, 41)
+        Me.btnEditGroup.TabIndex = 4
+        Me.btnEditGroup.Text = "Edit group"
+        Me.btnEditGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnEditGroup.UseVisualStyleBackColor = True
+        '
+        'btnDeleteGroup
+        '
+        Me.btnDeleteGroup.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnDeleteGroup.Image = Global.TranslaTale.My.Resources.Resources.tag_blue_delete
+        Me.btnDeleteGroup.Location = New System.Drawing.Point(9, 129)
+        Me.btnDeleteGroup.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnDeleteGroup.Name = "btnDeleteGroup"
+        Me.btnDeleteGroup.Size = New System.Drawing.Size(163, 41)
+        Me.btnDeleteGroup.TabIndex = 3
+        Me.btnDeleteGroup.Text = "Delete group"
+        Me.btnDeleteGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnDeleteGroup.UseVisualStyleBackColor = True
+        '
+        'btnCreateGroup
+        '
+        Me.btnCreateGroup.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCreateGroup.Image = Global.TranslaTale.My.Resources.Resources.tag_blue_add
+        Me.btnCreateGroup.Location = New System.Drawing.Point(9, 82)
+        Me.btnCreateGroup.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnCreateGroup.Name = "btnCreateGroup"
+        Me.btnCreateGroup.Size = New System.Drawing.Size(163, 41)
+        Me.btnCreateGroup.TabIndex = 2
+        Me.btnCreateGroup.Text = "Create group"
+        Me.btnCreateGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnCreateGroup.UseVisualStyleBackColor = True
+        '
+        'btnSetGroup
+        '
+        Me.btnSetGroup.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSetGroup.Image = Global.TranslaTale.My.Resources.Resources.tag_green
+        Me.btnSetGroup.Location = New System.Drawing.Point(9, 35)
+        Me.btnSetGroup.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnSetGroup.Name = "btnSetGroup"
+        Me.btnSetGroup.Size = New System.Drawing.Size(163, 41)
+        Me.btnSetGroup.TabIndex = 1
+        Me.btnSetGroup.Text = "Set group"
+        Me.btnSetGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnSetGroup.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI Semilight", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(3, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(90, 32)
+        Me.Label10.TabIndex = 0
+        Me.Label10.Text = "Groups"
+        '
+        'Panel2
+        '
+        Me.Panel2.AutoScroll = True
+        Me.Panel2.Controls.Add(Me.Label8)
+        Me.Panel2.Controls.Add(Me.TranslationPercentageBox1)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(184, 121)
+        Me.Panel2.TabIndex = 2
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semilight", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(3, 4)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(132, 32)
+        Me.Label8.TabIndex = 1
+        Me.Label8.Text = "Project info"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI Semilight", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(3, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(94, 32)
+        Me.Label11.TabIndex = 0
+        Me.Label11.Text = "File info"
+        '
+        'topPnl
+        '
+        Me.topPnl.BackColor = System.Drawing.Color.White
+        Me.topPnl.Controls.Add(Me.TableLayoutPanel2)
+        Me.topPnl.Controls.Add(Me.FlowLayoutPanel1)
+        Me.topPnl.Controls.Add(Me.ToolStrip1)
+        Me.topPnl.Dock = System.Windows.Forms.DockStyle.Top
+        Me.topPnl.Location = New System.Drawing.Point(0, 0)
+        Me.topPnl.Margin = New System.Windows.Forms.Padding(0)
+        Me.topPnl.Name = "topPnl"
+        Me.topPnl.Size = New System.Drawing.Size(761, 88)
+        Me.topPnl.TabIndex = 12
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.White
+        Me.FlowLayoutPanel1.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
+        Me.FlowLayoutPanel1.Controls.Add(Me.FlowLayoutPanel2)
+        Me.FlowLayoutPanel1.Controls.Add(Me.FlowLayoutPanel5)
+        Me.FlowLayoutPanel1.Controls.Add(Me.FlowLayoutPanel3)
+        Me.FlowLayoutPanel1.Controls.Add(Me.FlowLayoutPanel4)
+        Me.FlowLayoutPanel1.Controls.Add(Me.FlowLayoutPanel7)
+        Me.FlowLayoutPanel1.Controls.Add(Me.FlowLayoutPanel9)
+        Me.FlowLayoutPanel1.Controls.Add(Me.FlowLayoutPanel8)
+        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 63)
+        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(761, 25)
+        Me.FlowLayoutPanel1.TabIndex = 57
+        '
+        'FlowLayoutPanel2
+        '
+        Me.FlowLayoutPanel2.BackColor = System.Drawing.Color.MintCream
+        Me.FlowLayoutPanel2.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
+        Me.FlowLayoutPanel2.Controls.Add(Me.Label1)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(122, 25)
+        Me.FlowLayoutPanel2.TabIndex = 8
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Location = New System.Drawing.Point(0, 0)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(122, 25)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "File"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'FlowLayoutPanel3
+        '
+        Me.FlowLayoutPanel3.BackColor = System.Drawing.Color.LightCyan
+        Me.FlowLayoutPanel3.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
+        Me.FlowLayoutPanel3.Controls.Add(Me.Label2)
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(200, 0)
+        Me.FlowLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(76, 25)
+        Me.FlowLayoutPanel3.TabIndex = 9
+        '
+        'Label2
+        '
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Location = New System.Drawing.Point(0, 0)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(76, 25)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Search"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'FlowLayoutPanel5
+        '
+        Me.FlowLayoutPanel5.BackColor = System.Drawing.Color.MistyRose
+        Me.FlowLayoutPanel5.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
+        Me.FlowLayoutPanel5.Controls.Add(Me.Label4)
+        Me.FlowLayoutPanel5.Location = New System.Drawing.Point(122, 0)
+        Me.FlowLayoutPanel5.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
+        Me.FlowLayoutPanel5.Size = New System.Drawing.Size(78, 25)
+        Me.FlowLayoutPanel5.TabIndex = 11
+        '
+        'Label4
+        '
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Location = New System.Drawing.Point(0, 0)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(78, 25)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "My project"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'FlowLayoutPanel4
+        '
+        Me.FlowLayoutPanel4.BackColor = System.Drawing.Color.Honeydew
+        Me.FlowLayoutPanel4.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
+        Me.FlowLayoutPanel4.Controls.Add(Me.Label3)
+        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(276, 0)
+        Me.FlowLayoutPanel4.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(89, 25)
+        Me.FlowLayoutPanel4.TabIndex = 15
+        '
+        'Label3
+        '
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Location = New System.Drawing.Point(0, 0)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(89, 25)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Tools"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'FlowLayoutPanel7
+        '
+        Me.FlowLayoutPanel7.BackColor = System.Drawing.Color.LightGoldenrodYellow
+        Me.FlowLayoutPanel7.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
+        Me.FlowLayoutPanel7.Controls.Add(Me.Label7)
+        Me.FlowLayoutPanel7.Location = New System.Drawing.Point(365, 0)
+        Me.FlowLayoutPanel7.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel7.Name = "FlowLayoutPanel7"
+        Me.FlowLayoutPanel7.Size = New System.Drawing.Size(50, 25)
+        Me.FlowLayoutPanel7.TabIndex = 13
+        '
+        'Label7
+        '
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Location = New System.Drawing.Point(0, 0)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(50, 25)
+        Me.Label7.TabIndex = 6
+        Me.Label7.Text = "Sort"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'FlowLayoutPanel9
+        '
+        Me.FlowLayoutPanel9.BackColor = System.Drawing.Color.PapayaWhip
+        Me.FlowLayoutPanel9.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
+        Me.FlowLayoutPanel9.Controls.Add(Me.Label13)
+        Me.FlowLayoutPanel9.Location = New System.Drawing.Point(415, 0)
+        Me.FlowLayoutPanel9.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel9.Name = "FlowLayoutPanel9"
+        Me.FlowLayoutPanel9.Size = New System.Drawing.Size(51, 25)
+        Me.FlowLayoutPanel9.TabIndex = 16
+        '
+        'Label13
+        '
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
+        Me.Label13.Location = New System.Drawing.Point(0, 0)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(51, 25)
+        Me.Label13.TabIndex = 3
+        Me.Label13.Text = "View"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'FlowLayoutPanel8
+        '
+        Me.FlowLayoutPanel8.BackColor = System.Drawing.Color.Azure
+        Me.FlowLayoutPanel8.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
+        Me.FlowLayoutPanel8.Controls.Add(Me.Label6)
+        Me.FlowLayoutPanel8.Location = New System.Drawing.Point(466, 0)
+        Me.FlowLayoutPanel8.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel8.Name = "FlowLayoutPanel8"
+        Me.FlowLayoutPanel8.Size = New System.Drawing.Size(42, 25)
+        Me.FlowLayoutPanel8.TabIndex = 14
+        '
+        'Label6
+        '
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Location = New System.Drawing.Point(0, 0)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(42, 25)
+        Me.Label6.TabIndex = 5
+        Me.Label6.Text = "About"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'bottomPnl
+        '
+        Me.bottomPnl.Controls.Add(Me.cbFonts)
+        Me.bottomPnl.Controls.Add(Me.rbFacebox)
+        Me.bottomPnl.Controls.Add(Me.rbTextbox)
+        Me.bottomPnl.Controls.Add(Me.TableLayoutPanel1)
+        Me.bottomPnl.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.bottomPnl.Location = New System.Drawing.Point(0, 441)
+        Me.bottomPnl.Margin = New System.Windows.Forms.Padding(0)
+        Me.bottomPnl.Name = "bottomPnl"
+        Me.bottomPnl.Size = New System.Drawing.Size(761, 195)
+        Me.bottomPnl.TabIndex = 62
+        '
+        'cbFonts
+        '
+        Me.cbFonts.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbFonts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbFonts.FormattingEnabled = True
+        Me.cbFonts.Items.AddRange(New Object() {"BitOperator", "ComicSans", "Papyrus"})
+        Me.cbFonts.Location = New System.Drawing.Point(624, 2)
+        Me.cbFonts.Name = "cbFonts"
+        Me.cbFonts.Size = New System.Drawing.Size(121, 21)
+        Me.cbFonts.TabIndex = 57
+        '
+        'rbFacebox
+        '
+        Me.rbFacebox.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.rbFacebox.AutoSize = True
+        Me.rbFacebox.ForeColor = System.Drawing.Color.Black
+        Me.rbFacebox.Location = New System.Drawing.Point(84, 5)
+        Me.rbFacebox.Name = "rbFacebox"
+        Me.rbFacebox.Size = New System.Drawing.Size(112, 17)
+        Me.rbFacebox.TabIndex = 56
+        Me.rbFacebox.Text = "Text box with face"
+        Me.rbFacebox.UseVisualStyleBackColor = True
+        '
+        'rbTextbox
+        '
+        Me.rbTextbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.rbTextbox.AutoSize = True
+        Me.rbTextbox.Checked = True
+        Me.rbTextbox.ForeColor = System.Drawing.Color.Black
+        Me.rbTextbox.Location = New System.Drawing.Point(12, 5)
+        Me.rbTextbox.Name = "rbTextbox"
+        Me.rbTextbox.Size = New System.Drawing.Size(66, 17)
+        Me.rbTextbox.TabIndex = 55
+        Me.rbTextbox.TabStop = True
+        Me.rbTextbox.Text = "Text box"
+        Me.rbTextbox.UseVisualStyleBackColor = True
+        '
+        'TranslationPercentageBox1
+        '
+        Me.TranslationPercentageBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TranslationPercentageBox1.LeftValue = 0R
+        Me.TranslationPercentageBox1.Location = New System.Drawing.Point(9, 36)
+        Me.TranslationPercentageBox1.Margin = New System.Windows.Forms.Padding(0)
+        Me.TranslationPercentageBox1.MinimumSize = New System.Drawing.Size(150, 85)
+        Me.TranslationPercentageBox1.Name = "TranslationPercentageBox1"
+        Me.TranslationPercentageBox1.RightValue = 0R
+        Me.TranslationPercentageBox1.SelectedPercentage = TranslaTale.TranslationPercentageBox.Percentage.All
+        Me.TranslationPercentageBox1.Size = New System.Drawing.Size(166, 85)
+        Me.TranslationPercentageBox1.TabIndex = 0
         '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(684, 661)
-        Me.Controls.Add(Me.ToolStrip1)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.TableLayoutPanel)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(761, 636)
+        Me.Controls.Add(Me.splitMain)
+        Me.Controls.Add(Me.bottomPnl)
+        Me.Controls.Add(Me.topPnl)
+        Me.ForeColor = System.Drawing.Color.Black
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(700, 700)
+        Me.MinimumSize = New System.Drawing.Size(777, 675)
         Me.Name = "frmMain"
-        Me.Padding = New System.Windows.Forms.Padding(9)
-        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "TranslaTale"
-        Me.TableLayoutPanel.ResumeLayout(False)
-        Me.TableLayoutPanel.PerformLayout()
-        Me.pnlPreview.ResumeLayout(False)
-        Me.pnlPreview.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
         CType(Me.SpriteFontBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picTxtEnemy, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.StatusStrip1.ResumeLayout(False)
-        Me.StatusStrip1.PerformLayout()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
+        Me.tblEditor.ResumeLayout(False)
+        Me.tblEditor.PerformLayout()
+        Me.MainViewPanel.ResumeLayout(False)
+        Me.welcomePnl.ResumeLayout(False)
+        Me.welcomePnl.PerformLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.projectmanagerPnl.ResumeLayout(False)
+        Me.projectmanagerPnl.PerformLayout()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ResetBtn, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.splitMain.Panel1.ResumeLayout(False)
+        Me.splitMain.Panel2.ResumeLayout(False)
+        CType(Me.splitMain, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.splitMain.ResumeLayout(False)
+        Me.splitRight.Panel1.ResumeLayout(False)
+        Me.splitRight.Panel2.ResumeLayout(False)
+        CType(Me.splitRight, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.splitRight.ResumeLayout(False)
+        Me.pnlGroups.ResumeLayout(False)
+        Me.pnlGroups.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.topPnl.ResumeLayout(False)
+        Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.FlowLayoutPanel2.ResumeLayout(False)
+        Me.FlowLayoutPanel3.ResumeLayout(False)
+        Me.FlowLayoutPanel5.ResumeLayout(False)
+        Me.FlowLayoutPanel4.ResumeLayout(False)
+        Me.FlowLayoutPanel7.ResumeLayout(False)
+        Me.FlowLayoutPanel9.ResumeLayout(False)
+        Me.FlowLayoutPanel8.ResumeLayout(False)
+        Me.bottomPnl.ResumeLayout(False)
+        Me.bottomPnl.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ListView1 As System.Windows.Forms.ListView
-    Friend WithEvents pnlPreview As System.Windows.Forms.Panel
-    Friend WithEvents cbFonts As System.Windows.Forms.ComboBox
-    Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
-    Friend WithEvents rbFacebox As System.Windows.Forms.RadioButton
-    Friend WithEvents rbTextbox As System.Windows.Forms.RadioButton
-    Friend WithEvents picTxtEnemy As System.Windows.Forms.PictureBox
+    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
-    Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
-    Friend WithEvents ttipTranslated As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents ttipUntranslated As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents ttipTotal As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
+    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
+    Friend WithEvents openProjectBtn2 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents SaveToolStripMenuItem As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
     Friend WithEvents OpenFileDialog2 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents SaveFileDialog2 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
-    Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SaveToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents BookmarksToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AddToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ListBookmarksToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents OptionsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
-    Friend WithEvents ToolStripButton5 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents SpriteFontBox1 As UTSpriteFontBox.SpriteFontBox
-    Friend WithEvents ToolStripButton6 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents StringsMigrationToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents OpenToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ProjectToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CompileToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CompileAndRunToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents ResetBtn As PictureBox
+    Friend WithEvents OptionsToolStripMenuItem As ToolStripDropDownButton
+    Friend WithEvents AboutToolStripMenuItem As ToolStripButton
+    Friend WithEvents ShowSymbolsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents ProjectSettingsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripButton7 As ToolStripButton
+    Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
+    Friend WithEvents CompareTranslationFilesToolStripMenuItem As ToolStripButton
+    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label6 As Label
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents Label7 As Label
+    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
+    Friend WithEvents filtermenubtn As ToolStripDropDownButton
+    Friend WithEvents filterByGroupBtn As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents TranslatedStringsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UntranslatedStringsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
+    Friend WithEvents ClearFilterToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
+    Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
+    Friend WithEvents FlowLayoutPanel5 As FlowLayoutPanel
+    Friend WithEvents FlowLayoutPanel7 As FlowLayoutPanel
+    Friend WithEvents FlowLayoutPanel8 As FlowLayoutPanel
+    Friend WithEvents SpriteFontBox1 As UTSpriteFontBox.SpriteFontBox
+    Friend WithEvents UDTPatchToolStripMenuItem As ToolStripDropDownButton
+    Friend WithEvents UndertalePatchToolToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
+    Friend WithEvents DumpStringstxtToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DumpOriginalImagesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator11 As ToolStripSeparator
+    Friend WithEvents RepackGameASCIICharactersToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RepackGamecustomFontsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MigrationToolToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ttipMenu As Label
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents tblEditor As TableLayoutPanel
+    Friend WithEvents splitMain As SplitContainer
+    Friend WithEvents pnlGroups As Panel
+    Friend WithEvents Label10 As Label
+    Friend WithEvents splitRight As SplitContainer
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label11 As Label
+    Friend WithEvents btnEditGroup As Button
+    Friend WithEvents btnDeleteGroup As Button
+    Friend WithEvents btnCreateGroup As Button
+    Friend WithEvents btnSetGroup As Button
+    Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
+    Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
+    Friend WithEvents Label3 As Label
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents TranslationPercentageBox1 As TranslationPercentageBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
+    Friend WithEvents MainViewPanel As Panel
+    Public WithEvents stringsPnl As ListView
+    Friend WithEvents topPnl As Panel
+    Friend WithEvents bottomPnl As Panel
+    Friend WithEvents cbFonts As ComboBox
+    Friend WithEvents rbFacebox As RadioButton
+    Friend WithEvents rbTextbox As RadioButton
+    Friend WithEvents projectmanagerPnl As Panel
+    Friend WithEvents Label9 As Label
+    Friend WithEvents welcomePnl As Panel
+    Friend WithEvents openProjectBtn As LinkLabel
+    Friend WithEvents newProjectBtn As LinkLabel
+    Friend WithEvents Label12 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents projectManagerToolBtn As ToolStripButton
+    Friend WithEvents stringsEditorToolBtn As ToolStripButton
+    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents compareMainBtn As LinkLabel
+    Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents migrationToolBtn As LinkLabel
+    Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents infoBtn As LinkLabel
+    Friend WithEvents PictureBox10 As PictureBox
+    Friend WithEvents LinkLabel3 As LinkLabel
+    Friend WithEvents PictureBox9 As PictureBox
+    Friend WithEvents LinkLabel2 As LinkLabel
+    Friend WithEvents PictureBox8 As PictureBox
+    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents newProjectToolStripBtn As ToolStripButton
+    Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
+    Friend WithEvents FlowLayoutPanel9 As FlowLayoutPanel
+    Friend WithEvents Label13 As Label
 End Class
