@@ -90,16 +90,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="UTSpriteFontBox">
-      <HintPath>Resources\UTSpriteFontBox.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -213,6 +211,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TranslationFile.vb" />
+    <Compile Include="UTSpriteFontBox\Character.vb" />
+    <Compile Include="UTSpriteFontBox\CharPainter.vb" />
+    <Compile Include="UTSpriteFontBox\FontInformation.vb" />
+    <Compile Include="UTSpriteFontBox\SpriteFont.vb" />
+    <Compile Include="UTSpriteFontBox\SpriteFontBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutBox1.resx">
@@ -464,6 +469,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

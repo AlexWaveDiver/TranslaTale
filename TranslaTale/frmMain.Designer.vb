@@ -23,14 +23,14 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup2 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup3 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Undertale.exe", 0)
-        Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("data.win", 0)
-        Dim ListViewItem3 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Sprites", 0)
-        Dim ListViewItem4 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Original Strings.txt", 0)
-        Dim ListViewItem5 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Translated Srings.txt", 0)
+        Dim ListViewGroup4 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup5 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup6 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewItem6 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Undertale.exe", 0)
+        Dim ListViewItem7 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("data.win", 0)
+        Dim ListViewItem8 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Sprites", 0)
+        Dim ListViewItem9 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Original Strings.txt", 0)
+        Dim ListViewItem10 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("Translated Srings.txt", 0)
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.stringTextEditor = New System.Windows.Forms.TextBox()
@@ -41,94 +41,129 @@ Partial Class frmMain
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.newProjectToolStripBtn = New System.Windows.Forms.ToolStripButton()
+        Me.openProjectBtn2 = New System.Windows.Forms.ToolStripSplitButton()
+        Me.HistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.LastestFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QSaveToolStripMenuItem = New System.Windows.Forms.ToolStripButton()
+        Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.projectManagerToolBtn = New System.Windows.Forms.ToolStripButton()
+        Me.stringsEditorToolBtn = New System.Windows.Forms.ToolStripButton()
+        Me.spritesEditorToolBtn = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.searchToolStripBtn = New System.Windows.Forms.ToolStripButton()
+        Me.goToLineToolStripBtn = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.debugToolBtn = New System.Windows.Forms.ToolStripButton()
+        Me.UDTPatchToolStripMenuItem = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.DumpStringstxtToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DumpOriginalImagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+        Me.RepackGameASCIICharactersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RepackGamecustomFontsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.MigrationToolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.UndertalePatchToolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CompareTranslationFilesToolStripMenuItem = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.filtermenubtn = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.filterByGroupBtn = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.TranslatedStringsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UntranslatedStringsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ClearFilterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.ShowSymbolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripButton()
         Me.ttipMenu = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.tblEditor = New System.Windows.Forms.TableLayoutPanel()
+        Me.ResetBtn = New System.Windows.Forms.PictureBox()
         Me.stringsPnl = New System.Windows.Forms.ListView()
         Me.MainViewPanel = New System.Windows.Forms.Panel()
         Me.spritesPnl = New System.Windows.Forms.Panel()
         Me.spritesListView = New System.Windows.Forms.ListView()
         Me.spriteContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ChangeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator14 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.spritesImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.ToolStrip3 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.ChooseSpritesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FromFolderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FromUndertaleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.projectmanagerPnl = New System.Windows.Forms.Panel()
+        Me.PictureBox16 = New System.Windows.Forms.PictureBox()
         Me.LinkLabel6 = New System.Windows.Forms.LinkLabel()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.PictureBox15 = New System.Windows.Forms.PictureBox()
         Me.useDefaultStringsBtn = New System.Windows.Forms.LinkLabel()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.PictureBox14 = New System.Windows.Forms.PictureBox()
         Me.LinkLabel7 = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox13 = New System.Windows.Forms.PictureBox()
         Me.useDefaultSpritesBtn = New System.Windows.Forms.LinkLabel()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.PictureBox12 = New System.Windows.Forms.PictureBox()
         Me.LinkLabel5 = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox11 = New System.Windows.Forms.PictureBox()
         Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
         Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
         Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.welcomePnl = New System.Windows.Forms.Panel()
         Me.historyListView = New System.Windows.Forms.ListView()
         Me.historyImagesList = New System.Windows.Forms.ImageList(Me.components)
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.infoBtn = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.migrationToolBtn = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.compareMainBtn = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.openProjectBtn = New System.Windows.Forms.LinkLabel()
         Me.newProjectBtn = New System.Windows.Forms.LinkLabel()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.splitMain = New System.Windows.Forms.SplitContainer()
         Me.bottomPnl = New System.Windows.Forms.Panel()
+        Me.startAnimationBtn = New System.Windows.Forms.Button()
+        Me.ImageList2 = New System.Windows.Forms.ImageList(Me.components)
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.frameTrackBar = New System.Windows.Forms.TrackBar()
         Me.cbFonts = New System.Windows.Forms.ComboBox()
         Me.rbFacebox = New System.Windows.Forms.RadioButton()
         Me.rbTextbox = New System.Windows.Forms.RadioButton()
         Me.splitRight = New System.Windows.Forms.SplitContainer()
         Me.pnlGroups = New System.Windows.Forms.Panel()
+        Me.btnEditGroup = New System.Windows.Forms.Button()
+        Me.btnDeleteGroup = New System.Windows.Forms.Button()
+        Me.btnCreateGroup = New System.Windows.Forms.Button()
+        Me.btnSetGroup = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.componentsList = New System.Windows.Forms.ListView()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TranslationPercentageBox1 = New TranslaTale.TranslationPercentageBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.topPnl = New System.Windows.Forms.Panel()
-        Me.OpenFileDialogMulti = New System.Windows.Forms.OpenFileDialog()
-        Me.ChangeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.ChooseSpritesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FromFolderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FromUndertaleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PictureBox16 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox15 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox14 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox13 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox12 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox11 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox9 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox8 = New System.Windows.Forms.PictureBox()
-        Me.ResetBtn = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.SpriteFontBox1 = New UTSpriteFontBox.SpriteFontBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.btnEditGroup = New System.Windows.Forms.Button()
-        Me.btnDeleteGroup = New System.Windows.Forms.Button()
-        Me.btnCreateGroup = New System.Windows.Forms.Button()
-        Me.btnSetGroup = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -144,63 +179,22 @@ Partial Class frmMain
         Me.Label13 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel8 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.newProjectToolStripBtn = New System.Windows.Forms.ToolStripButton()
-        Me.openProjectBtn2 = New System.Windows.Forms.ToolStripSplitButton()
-        Me.HistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
-        Me.LastestFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.QSaveToolStripMenuItem = New System.Windows.Forms.ToolStripButton()
-        Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripButton()
-        Me.projectManagerToolBtn = New System.Windows.Forms.ToolStripButton()
-        Me.stringsEditorToolBtn = New System.Windows.Forms.ToolStripButton()
-        Me.spritesEditorToolBtn = New System.Windows.Forms.ToolStripButton()
-        Me.searchToolStripBtn = New System.Windows.Forms.ToolStripButton()
-        Me.goToLineToolStripBtn = New System.Windows.Forms.ToolStripButton()
-        Me.debugToolBtn = New System.Windows.Forms.ToolStripButton()
-        Me.UDTPatchToolStripMenuItem = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.DumpStringstxtToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DumpOriginalImagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
-        Me.RepackGameASCIICharactersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RepackGamecustomFontsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.MigrationToolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
-        Me.UndertalePatchToolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CompareTranslationFilesToolStripMenuItem = New System.Windows.Forms.ToolStripButton()
-        Me.filtermenubtn = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.filterByGroupBtn = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.TranslatedStringsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UntranslatedStringsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ClearFilterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.ShowSymbolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripButton()
+        Me.OpenFileDialogMulti = New System.Windows.Forms.OpenFileDialog()
+        Me.aniTime = New System.Windows.Forms.Timer(Me.components)
+        Me.SpriteFontBox1 = New TranslaTale.UTSpriteFontBox.SpriteFontBox()
+        Me.TranslationPercentageBox1 = New TranslaTale.TranslationPercentageBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.tblEditor.SuspendLayout()
+        CType(Me.ResetBtn, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainViewPanel.SuspendLayout()
         Me.spritesPnl.SuspendLayout()
         Me.spriteContextMenuStrip.SuspendLayout()
         Me.ToolStrip3.SuspendLayout()
         Me.projectmanagerPnl.SuspendLayout()
-        Me.welcomePnl.SuspendLayout()
-        CType(Me.splitMain, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.splitMain.Panel1.SuspendLayout()
-        Me.splitMain.Panel2.SuspendLayout()
-        Me.splitMain.SuspendLayout()
-        Me.bottomPnl.SuspendLayout()
-        CType(Me.splitRight, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.splitRight.Panel1.SuspendLayout()
-        Me.splitRight.Panel2.SuspendLayout()
-        Me.splitRight.SuspendLayout()
-        Me.pnlGroups.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.topPnl.SuspendLayout()
         CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -210,15 +204,26 @@ Partial Class frmMain
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ResetBtn, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.welcomePnl.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SpriteFontBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.splitMain, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.splitMain.Panel1.SuspendLayout()
+        Me.splitMain.Panel2.SuspendLayout()
+        Me.splitMain.SuspendLayout()
+        Me.bottomPnl.SuspendLayout()
+        CType(Me.frameTrackBar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.splitRight, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.splitRight.Panel1.SuspendLayout()
+        Me.splitRight.Panel2.SuspendLayout()
+        Me.splitRight.SuspendLayout()
+        Me.pnlGroups.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.topPnl.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel5.SuspendLayout()
@@ -227,6 +232,7 @@ Partial Class frmMain
         Me.FlowLayoutPanel7.SuspendLayout()
         Me.FlowLayoutPanel9.SuspendLayout()
         Me.FlowLayoutPanel8.SuspendLayout()
+        CType(Me.SpriteFontBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'stringTextEditor
@@ -280,6 +286,17 @@ Partial Class frmMain
         Me.Panel1.Size = New System.Drawing.Size(660, 164)
         Me.Panel1.TabIndex = 0
         '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.DimGray
+        Me.PictureBox4.BackgroundImage = Global.TranslaTale.My.Resources.Resources.tablebg
+        Me.PictureBox4.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(0)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(652, 158)
+        Me.PictureBox4.TabIndex = 5
+        Me.PictureBox4.TabStop = False
+        '
         'ToolStrip1
         '
         Me.ToolStrip1.AllowMerge = False
@@ -300,35 +317,301 @@ Partial Class frmMain
         Me.ToolStrip1.TabIndex = 49
         Me.ToolStrip1.Text = "ToolStrip1"
         '
+        'newProjectToolStripBtn
+        '
+        Me.newProjectToolStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.newProjectToolStripBtn.Image = Global.TranslaTale.My.Resources.Resources._new
+        Me.newProjectToolStripBtn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.newProjectToolStripBtn.Name = "newProjectToolStripBtn"
+        Me.newProjectToolStripBtn.Size = New System.Drawing.Size(36, 36)
+        Me.newProjectToolStripBtn.Text = "New Project"
+        '
+        'openProjectBtn2
+        '
+        Me.openProjectBtn2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.openProjectBtn2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HistoryToolStripMenuItem, Me.ToolStripSeparator8, Me.LastestFileToolStripMenuItem})
+        Me.openProjectBtn2.Image = Global.TranslaTale.My.Resources.Resources.folder_page_white1
+        Me.openProjectBtn2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.openProjectBtn2.Name = "openProjectBtn2"
+        Me.openProjectBtn2.Size = New System.Drawing.Size(48, 36)
+        Me.openProjectBtn2.Text = "Open"
+        '
+        'HistoryToolStripMenuItem
+        '
+        Me.HistoryToolStripMenuItem.Name = "HistoryToolStripMenuItem"
+        Me.HistoryToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.HistoryToolStripMenuItem.Text = "History"
+        '
+        'ToolStripSeparator8
+        '
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(126, 6)
+        '
+        'LastestFileToolStripMenuItem
+        '
+        Me.LastestFileToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.time
+        Me.LastestFileToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.LastestFileToolStripMenuItem.Name = "LastestFileToolStripMenuItem"
+        Me.LastestFileToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.LastestFileToolStripMenuItem.Text = "Lastest file"
+        '
+        'QSaveToolStripMenuItem
+        '
+        Me.QSaveToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.QSaveToolStripMenuItem.Enabled = False
+        Me.QSaveToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.diskette
+        Me.QSaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.QSaveToolStripMenuItem.Name = "QSaveToolStripMenuItem"
+        Me.QSaveToolStripMenuItem.Size = New System.Drawing.Size(36, 36)
+        Me.QSaveToolStripMenuItem.Text = "Quick save"
+        '
+        'SaveToolStripMenuItem
+        '
+        Me.SaveToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.SaveToolStripMenuItem.Enabled = False
+        Me.SaveToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.save_as1
+        Me.SaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(36, 36)
+        Me.SaveToolStripMenuItem.Text = "Save"
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 39)
+        '
+        'projectManagerToolBtn
+        '
+        Me.projectManagerToolBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.projectManagerToolBtn.Enabled = False
+        Me.projectManagerToolBtn.Image = Global.TranslaTale.My.Resources.Resources.house
+        Me.projectManagerToolBtn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.projectManagerToolBtn.Name = "projectManagerToolBtn"
+        Me.projectManagerToolBtn.Size = New System.Drawing.Size(36, 36)
+        Me.projectManagerToolBtn.Text = "Project manager"
+        '
+        'stringsEditorToolBtn
+        '
+        Me.stringsEditorToolBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.stringsEditorToolBtn.Enabled = False
+        Me.stringsEditorToolBtn.Image = Global.TranslaTale.My.Resources.Resources.edit_diff
+        Me.stringsEditorToolBtn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.stringsEditorToolBtn.Name = "stringsEditorToolBtn"
+        Me.stringsEditorToolBtn.Size = New System.Drawing.Size(36, 36)
+        Me.stringsEditorToolBtn.Text = "Strings editor"
+        '
+        'spritesEditorToolBtn
+        '
+        Me.spritesEditorToolBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.spritesEditorToolBtn.Enabled = False
+        Me.spritesEditorToolBtn.Image = Global.TranslaTale.My.Resources.Resources.image_edit
+        Me.spritesEditorToolBtn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.spritesEditorToolBtn.Name = "spritesEditorToolBtn"
+        Me.spritesEditorToolBtn.Size = New System.Drawing.Size(36, 36)
+        Me.spritesEditorToolBtn.Text = "Sprites editor"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
         Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 39)
         '
+        'searchToolStripBtn
+        '
+        Me.searchToolStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.searchToolStripBtn.Enabled = False
+        Me.searchToolStripBtn.Image = Global.TranslaTale.My.Resources.Resources.find2
+        Me.searchToolStripBtn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.searchToolStripBtn.Name = "searchToolStripBtn"
+        Me.searchToolStripBtn.Size = New System.Drawing.Size(36, 36)
+        Me.searchToolStripBtn.Text = "Search"
+        '
+        'goToLineToolStripBtn
+        '
+        Me.goToLineToolStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.goToLineToolStripBtn.Enabled = False
+        Me.goToLineToolStripBtn.Image = Global.TranslaTale.My.Resources.Resources.table_select_row
+        Me.goToLineToolStripBtn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.goToLineToolStripBtn.Name = "goToLineToolStripBtn"
+        Me.goToLineToolStripBtn.Size = New System.Drawing.Size(36, 36)
+        Me.goToLineToolStripBtn.Text = "Jump to line"
+        '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 39)
+        '
+        'debugToolBtn
+        '
+        Me.debugToolBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.debugToolBtn.Enabled = False
+        Me.debugToolBtn.Image = Global.TranslaTale.My.Resources.Resources.resultset_next
+        Me.debugToolBtn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.debugToolBtn.Name = "debugToolBtn"
+        Me.debugToolBtn.Size = New System.Drawing.Size(36, 36)
+        Me.debugToolBtn.Text = "Debug"
+        '
+        'UDTPatchToolStripMenuItem
+        '
+        Me.UDTPatchToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.UDTPatchToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DumpStringstxtToolStripMenuItem, Me.DumpOriginalImagesToolStripMenuItem, Me.ToolStripSeparator11, Me.RepackGameASCIICharactersToolStripMenuItem, Me.RepackGamecustomFontsToolStripMenuItem, Me.ToolStripSeparator3, Me.MigrationToolToolStripMenuItem, Me.ToolStripSeparator7, Me.UndertalePatchToolToolStripMenuItem})
+        Me.UDTPatchToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.compile
+        Me.UDTPatchToolStripMenuItem.Name = "UDTPatchToolStripMenuItem"
+        Me.UDTPatchToolStripMenuItem.Size = New System.Drawing.Size(45, 36)
+        Me.UDTPatchToolStripMenuItem.Text = "Game related"
+        '
+        'DumpStringstxtToolStripMenuItem
+        '
+        Me.DumpStringstxtToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.box_open
+        Me.DumpStringstxtToolStripMenuItem.Name = "DumpStringstxtToolStripMenuItem"
+        Me.DumpStringstxtToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
+        Me.DumpStringstxtToolStripMenuItem.Text = "Dump original strings.txt"
+        '
+        'DumpOriginalImagesToolStripMenuItem
+        '
+        Me.DumpOriginalImagesToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.box_open
+        Me.DumpOriginalImagesToolStripMenuItem.Name = "DumpOriginalImagesToolStripMenuItem"
+        Me.DumpOriginalImagesToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
+        Me.DumpOriginalImagesToolStripMenuItem.Text = "Dump original images"
+        '
+        'ToolStripSeparator11
+        '
+        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(302, 6)
+        '
+        'RepackGameASCIICharactersToolStripMenuItem
+        '
+        Me.RepackGameASCIICharactersToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.text_allcaps
+        Me.RepackGameASCIICharactersToolStripMenuItem.Name = "RepackGameASCIICharactersToolStripMenuItem"
+        Me.RepackGameASCIICharactersToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
+        Me.RepackGameASCIICharactersToolStripMenuItem.Text = "Repack Game (ASCII characters)"
+        '
+        'RepackGamecustomFontsToolStripMenuItem
+        '
+        Me.RepackGamecustomFontsToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.text_language
+        Me.RepackGamecustomFontsToolStripMenuItem.Name = "RepackGamecustomFontsToolStripMenuItem"
+        Me.RepackGamecustomFontsToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
+        Me.RepackGamecustomFontsToolStripMenuItem.Text = "Repack Game with a custom character table"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(302, 6)
+        '
+        'MigrationToolToolStripMenuItem
+        '
+        Me.MigrationToolToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.translation_tool_tip
+        Me.MigrationToolToolStripMenuItem.Name = "MigrationToolToolStripMenuItem"
+        Me.MigrationToolToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
+        Me.MigrationToolToolStripMenuItem.Text = "Migration Tool (from v1.0 to v1.001)"
+        '
+        'ToolStripSeparator7
+        '
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(302, 6)
+        '
+        'UndertalePatchToolToolStripMenuItem
+        '
+        Me.UndertalePatchToolToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.compile
+        Me.UndertalePatchToolToolStripMenuItem.Name = "UndertalePatchToolToolStripMenuItem"
+        Me.UndertalePatchToolToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
+        Me.UndertalePatchToolToolStripMenuItem.Text = "Undertale Patcher Tool"
+        '
+        'CompareTranslationFilesToolStripMenuItem
+        '
+        Me.CompareTranslationFilesToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.CompareTranslationFilesToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.compare
+        Me.CompareTranslationFilesToolStripMenuItem.Name = "CompareTranslationFilesToolStripMenuItem"
+        Me.CompareTranslationFilesToolStripMenuItem.Size = New System.Drawing.Size(36, 36)
+        Me.CompareTranslationFilesToolStripMenuItem.Text = "Compare and join two projects"
+        Me.CompareTranslationFilesToolStripMenuItem.ToolTipText = "Compare two translation files"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 39)
         '
+        'filtermenubtn
+        '
+        Me.filtermenubtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.filtermenubtn.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.filterByGroupBtn, Me.ToolStripSeparator4, Me.TranslatedStringsToolStripMenuItem, Me.UntranslatedStringsToolStripMenuItem, Me.ToolStripSeparator9, Me.ClearFilterToolStripMenuItem})
+        Me.filtermenubtn.Image = Global.TranslaTale.My.Resources.Resources.filter
+        Me.filtermenubtn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.filtermenubtn.Name = "filtermenubtn"
+        Me.filtermenubtn.Size = New System.Drawing.Size(45, 36)
+        Me.filtermenubtn.Text = "Filter"
+        '
+        'filterByGroupBtn
+        '
+        Me.filterByGroupBtn.Image = Global.TranslaTale.My.Resources.Resources.tag_orange
+        Me.filterByGroupBtn.Name = "filterByGroupBtn"
+        Me.filterByGroupBtn.Size = New System.Drawing.Size(236, 22)
+        Me.filterByGroupBtn.Text = "Filter by group"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(233, 6)
+        '
+        'TranslatedStringsToolStripMenuItem
+        '
+        Me.TranslatedStringsToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.page_green1
+        Me.TranslatedStringsToolStripMenuItem.Name = "TranslatedStringsToolStripMenuItem"
+        Me.TranslatedStringsToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.TranslatedStringsToolStripMenuItem.Text = "Show only translated strings"
+        '
+        'UntranslatedStringsToolStripMenuItem
+        '
+        Me.UntranslatedStringsToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.page_red1
+        Me.UntranslatedStringsToolStripMenuItem.Name = "UntranslatedStringsToolStripMenuItem"
+        Me.UntranslatedStringsToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.UntranslatedStringsToolStripMenuItem.Text = "Show only untranslated strings"
+        '
+        'ToolStripSeparator9
+        '
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(233, 6)
+        '
+        'ClearFilterToolStripMenuItem
+        '
+        Me.ClearFilterToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.filter_clear1
+        Me.ClearFilterToolStripMenuItem.Name = "ClearFilterToolStripMenuItem"
+        Me.ClearFilterToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
+        Me.ClearFilterToolStripMenuItem.Text = "Reset filter"
+        '
         'ToolStripSeparator10
         '
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
         Me.ToolStripSeparator10.Size = New System.Drawing.Size(6, 39)
         '
+        'OptionsToolStripMenuItem
+        '
+        Me.OptionsToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowSymbolsToolStripMenuItem})
+        Me.OptionsToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.layout_edit
+        Me.OptionsToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(45, 36)
+        Me.OptionsToolStripMenuItem.Text = "View settings"
+        '
+        'ShowSymbolsToolStripMenuItem
+        '
+        Me.ShowSymbolsToolStripMenuItem.Name = "ShowSymbolsToolStripMenuItem"
+        Me.ShowSymbolsToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
+        Me.ShowSymbolsToolStripMenuItem.Text = "&Show formatting symbols"
+        '
         'ToolStripSeparator12
         '
         Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
         Me.ToolStripSeparator12.Size = New System.Drawing.Size(6, 39)
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.AboutToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.information
+        Me.AboutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(36, 36)
+        Me.AboutToolStripMenuItem.Text = "About"
         '
         'ttipMenu
         '
@@ -378,6 +661,21 @@ Partial Class frmMain
         Me.tblEditor.Size = New System.Drawing.Size(81, 67)
         Me.tblEditor.TabIndex = 60
         '
+        'ResetBtn
+        '
+        Me.ResetBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ResetBtn.BackColor = System.Drawing.Color.Gainsboro
+        Me.ResetBtn.BackgroundImage = Global.TranslaTale.My.Resources.Resources.cross2
+        Me.ResetBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.ResetBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ResetBtn.Location = New System.Drawing.Point(55, 41)
+        Me.ResetBtn.Margin = New System.Windows.Forms.Padding(0)
+        Me.ResetBtn.Name = "ResetBtn"
+        Me.ResetBtn.Size = New System.Drawing.Size(26, 26)
+        Me.ResetBtn.TabIndex = 55
+        Me.ResetBtn.TabStop = False
+        Me.ResetBtn.Visible = False
+        '
         'stringsPnl
         '
         Me.stringsPnl.BackColor = System.Drawing.Color.WhiteSmoke
@@ -389,13 +687,13 @@ Partial Class frmMain
         Me.stringsPnl.ForeColor = System.Drawing.Color.Black
         Me.stringsPnl.FullRowSelect = True
         Me.stringsPnl.GridLines = True
-        ListViewGroup1.Header = "ListViewGroup"
-        ListViewGroup1.Name = "ListViewGroup1"
-        ListViewGroup2.Header = "ListViewGroup"
-        ListViewGroup2.Name = "ListViewGroup2"
-        ListViewGroup3.Header = "ListViewGroup"
-        ListViewGroup3.Name = "ListViewGroup3"
-        Me.stringsPnl.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1, ListViewGroup2, ListViewGroup3})
+        ListViewGroup4.Header = "ListViewGroup"
+        ListViewGroup4.Name = "ListViewGroup1"
+        ListViewGroup5.Header = "ListViewGroup"
+        ListViewGroup5.Name = "ListViewGroup2"
+        ListViewGroup6.Header = "ListViewGroup"
+        ListViewGroup6.Name = "ListViewGroup3"
+        Me.stringsPnl.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup4, ListViewGroup5, ListViewGroup6})
         Me.stringsPnl.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.stringsPnl.HideSelection = False
         Me.stringsPnl.Location = New System.Drawing.Point(0, 0)
@@ -448,10 +746,31 @@ Partial Class frmMain
         Me.spriteContextMenuStrip.Name = "spriteContextMenuStrip"
         Me.spriteContextMenuStrip.Size = New System.Drawing.Size(125, 76)
         '
+        'ChangeToolStripMenuItem
+        '
+        Me.ChangeToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.folder_image1
+        Me.ChangeToolStripMenuItem.Name = "ChangeToolStripMenuItem"
+        Me.ChangeToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.ChangeToolStripMenuItem.Text = "Change..."
+        '
         'ToolStripSeparator14
         '
         Me.ToolStripSeparator14.Name = "ToolStripSeparator14"
         Me.ToolStripSeparator14.Size = New System.Drawing.Size(121, 6)
+        '
+        'ExportToolStripMenuItem
+        '
+        Me.ExportToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.save_close
+        Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
+        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.ExportToolStripMenuItem.Text = "Export"
+        '
+        'DeleteToolStripMenuItem
+        '
+        Me.DeleteToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.bin
+        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'spritesImageList
         '
@@ -471,6 +790,33 @@ Partial Class frmMain
         Me.ToolStrip3.Size = New System.Drawing.Size(358, 25)
         Me.ToolStrip3.TabIndex = 1
         Me.ToolStrip3.Text = "Edit"
+        '
+        'ToolStripButton6
+        '
+        Me.ToolStripButton6.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChooseSpritesToolStripMenuItem, Me.FromFolderToolStripMenuItem, Me.FromUndertaleToolStripMenuItem})
+        Me.ToolStripButton6.Image = Global.TranslaTale.My.Resources.Resources.plus
+        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton6.Name = "ToolStripButton6"
+        Me.ToolStripButton6.Size = New System.Drawing.Size(104, 22)
+        Me.ToolStripButton6.Text = "Add sprites..."
+        '
+        'ChooseSpritesToolStripMenuItem
+        '
+        Me.ChooseSpritesToolStripMenuItem.Name = "ChooseSpritesToolStripMenuItem"
+        Me.ChooseSpritesToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.ChooseSpritesToolStripMenuItem.Text = "Choose sprites..."
+        '
+        'FromFolderToolStripMenuItem
+        '
+        Me.FromFolderToolStripMenuItem.Name = "FromFolderToolStripMenuItem"
+        Me.FromFolderToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.FromFolderToolStripMenuItem.Text = "From folder..."
+        '
+        'FromUndertaleToolStripMenuItem
+        '
+        Me.FromUndertaleToolStripMenuItem.Name = "FromUndertaleToolStripMenuItem"
+        Me.FromUndertaleToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
+        Me.FromUndertaleToolStripMenuItem.Text = "From Undertale"
         '
         'projectmanagerPnl
         '
@@ -502,6 +848,15 @@ Partial Class frmMain
         Me.projectmanagerPnl.Size = New System.Drawing.Size(153, 83)
         Me.projectmanagerPnl.TabIndex = 12
         '
+        'PictureBox16
+        '
+        Me.PictureBox16.Image = Global.TranslaTale.My.Resources.Resources.image_edit
+        Me.PictureBox16.Location = New System.Drawing.Point(9, 277)
+        Me.PictureBox16.Name = "PictureBox16"
+        Me.PictureBox16.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox16.TabIndex = 27
+        Me.PictureBox16.TabStop = False
+        '
         'LinkLabel6
         '
         Me.LinkLabel6.AutoSize = True
@@ -521,6 +876,15 @@ Partial Class frmMain
         Me.TextBox2.TabIndex = 25
         Me.TextBox2.Text = "Rename project"
         Me.TextBox2.Visible = False
+        '
+        'PictureBox15
+        '
+        Me.PictureBox15.Image = Global.TranslaTale.My.Resources.Resources.file_extension_txt
+        Me.PictureBox15.Location = New System.Drawing.Point(196, 35)
+        Me.PictureBox15.Name = "PictureBox15"
+        Me.PictureBox15.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox15.TabIndex = 24
+        Me.PictureBox15.TabStop = False
         '
         'useDefaultStringsBtn
         '
@@ -544,6 +908,15 @@ Partial Class frmMain
         Me.Panel5.Size = New System.Drawing.Size(147, 1)
         Me.Panel5.TabIndex = 19
         '
+        'PictureBox14
+        '
+        Me.PictureBox14.Image = Global.TranslaTale.My.Resources.Resources.game_monitor
+        Me.PictureBox14.Location = New System.Drawing.Point(9, 35)
+        Me.PictureBox14.Name = "PictureBox14"
+        Me.PictureBox14.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox14.TabIndex = 22
+        Me.PictureBox14.TabStop = False
+        '
         'LinkLabel7
         '
         Me.LinkLabel7.AutoSize = True
@@ -554,6 +927,15 @@ Partial Class frmMain
         Me.LinkLabel7.TabIndex = 21
         Me.LinkLabel7.TabStop = True
         Me.LinkLabel7.Text = "Import Undertale..."
+        '
+        'PictureBox13
+        '
+        Me.PictureBox13.Image = Global.TranslaTale.My.Resources.Resources.file_extension_png
+        Me.PictureBox13.Location = New System.Drawing.Point(385, 35)
+        Me.PictureBox13.Name = "PictureBox13"
+        Me.PictureBox13.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox13.TabIndex = 20
+        Me.PictureBox13.TabStop = False
         '
         'useDefaultSpritesBtn
         '
@@ -577,6 +959,15 @@ Partial Class frmMain
         Me.Panel4.Size = New System.Drawing.Size(147, 1)
         Me.Panel4.TabIndex = 18
         '
+        'PictureBox12
+        '
+        Me.PictureBox12.Image = Global.TranslaTale.My.Resources.Resources.folder_image
+        Me.PictureBox12.Location = New System.Drawing.Point(9, 239)
+        Me.PictureBox12.Name = "PictureBox12"
+        Me.PictureBox12.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox12.TabIndex = 17
+        Me.PictureBox12.TabStop = False
+        '
         'LinkLabel5
         '
         Me.LinkLabel5.AutoSize = True
@@ -587,6 +978,15 @@ Partial Class frmMain
         Me.LinkLabel5.TabIndex = 2
         Me.LinkLabel5.TabStop = True
         Me.LinkLabel5.Text = "Import sprites from folder..."
+        '
+        'PictureBox11
+        '
+        Me.PictureBox11.Image = Global.TranslaTale.My.Resources.Resources.inbox_slide1
+        Me.PictureBox11.Location = New System.Drawing.Point(9, 201)
+        Me.PictureBox11.Name = "PictureBox11"
+        Me.PictureBox11.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox11.TabIndex = 17
+        Me.PictureBox11.TabStop = False
         '
         'LinkLabel4
         '
@@ -599,6 +999,15 @@ Partial Class frmMain
         Me.LinkLabel4.TabStop = True
         Me.LinkLabel4.Text = "Import sprites..."
         '
+        'PictureBox10
+        '
+        Me.PictureBox10.Image = Global.TranslaTale.My.Resources.Resources.edit_diff
+        Me.PictureBox10.Location = New System.Drawing.Point(9, 156)
+        Me.PictureBox10.Name = "PictureBox10"
+        Me.PictureBox10.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox10.TabIndex = 17
+        Me.PictureBox10.TabStop = False
+        '
         'LinkLabel3
         '
         Me.LinkLabel3.AutoSize = True
@@ -610,6 +1019,15 @@ Partial Class frmMain
         Me.LinkLabel3.TabStop = True
         Me.LinkLabel3.Text = "Edit strings"
         '
+        'PictureBox9
+        '
+        Me.PictureBox9.Image = Global.TranslaTale.My.Resources.Resources.inbox_document_text
+        Me.PictureBox9.Location = New System.Drawing.Point(9, 118)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox9.TabIndex = 15
+        Me.PictureBox9.TabStop = False
+        '
         'LinkLabel2
         '
         Me.LinkLabel2.AutoSize = True
@@ -620,6 +1038,15 @@ Partial Class frmMain
         Me.LinkLabel2.TabIndex = 1
         Me.LinkLabel2.TabStop = True
         Me.LinkLabel2.Text = "Import translated Strings.txt file..."
+        '
+        'PictureBox8
+        '
+        Me.PictureBox8.Image = Global.TranslaTale.My.Resources.Resources.inbox_document
+        Me.PictureBox8.Location = New System.Drawing.Point(9, 80)
+        Me.PictureBox8.Name = "PictureBox8"
+        Me.PictureBox8.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox8.TabIndex = 13
+        Me.PictureBox8.TabStop = False
         '
         'LinkLabel1
         '
@@ -698,6 +1125,19 @@ Partial Class frmMain
         Me.Panel3.Size = New System.Drawing.Size(343, 26)
         Me.Panel3.TabIndex = 7
         '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.Gainsboro
+        Me.PictureBox3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PictureBox3.Image = Global.TranslaTale.My.Resources.Resources.icon_8SA_icon
+        Me.PictureBox3.Location = New System.Drawing.Point(0, 48)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(0)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(343, 87)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 6
+        Me.PictureBox3.TabStop = False
+        '
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.Gainsboro
@@ -706,6 +1146,15 @@ Partial Class frmMain
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(343, 26)
         Me.Panel6.TabIndex = 12
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.Image = Global.TranslaTale.My.Resources.Resources.information
+        Me.PictureBox7.Location = New System.Drawing.Point(10, 187)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox7.TabIndex = 11
+        Me.PictureBox7.TabStop = False
         '
         'infoBtn
         '
@@ -718,6 +1167,15 @@ Partial Class frmMain
         Me.infoBtn.TabStop = True
         Me.infoBtn.Text = "About"
         '
+        'PictureBox6
+        '
+        Me.PictureBox6.Image = Global.TranslaTale.My.Resources.Resources.translation_tool_tip
+        Me.PictureBox6.Location = New System.Drawing.Point(10, 149)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox6.TabIndex = 9
+        Me.PictureBox6.TabStop = False
+        '
         'migrationToolBtn
         '
         Me.migrationToolBtn.AutoSize = True
@@ -729,6 +1187,15 @@ Partial Class frmMain
         Me.migrationToolBtn.TabStop = True
         Me.migrationToolBtn.Text = "Migration tool (from v1 to v1.001)"
         '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = Global.TranslaTale.My.Resources.Resources.compare1
+        Me.PictureBox5.Location = New System.Drawing.Point(10, 111)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox5.TabIndex = 9
+        Me.PictureBox5.TabStop = False
+        '
         'compareMainBtn
         '
         Me.compareMainBtn.AutoSize = True
@@ -739,6 +1206,24 @@ Partial Class frmMain
         Me.compareMainBtn.TabIndex = 2
         Me.compareMainBtn.TabStop = True
         Me.compareMainBtn.Text = "Compare two projects..."
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.TranslaTale.My.Resources.Resources.next_comment
+        Me.PictureBox2.Location = New System.Drawing.Point(10, 73)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox2.TabIndex = 5
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.TranslaTale.My.Resources.Resources.new_comment
+        Me.PictureBox1.Location = New System.Drawing.Point(8, 35)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox1.TabIndex = 4
+        Me.PictureBox1.TabStop = False
         '
         'openProjectBtn
         '
@@ -796,6 +1281,9 @@ Partial Class frmMain
         '
         'bottomPnl
         '
+        Me.bottomPnl.Controls.Add(Me.startAnimationBtn)
+        Me.bottomPnl.Controls.Add(Me.Label5)
+        Me.bottomPnl.Controls.Add(Me.frameTrackBar)
         Me.bottomPnl.Controls.Add(Me.cbFonts)
         Me.bottomPnl.Controls.Add(Me.rbFacebox)
         Me.bottomPnl.Controls.Add(Me.rbTextbox)
@@ -806,6 +1294,44 @@ Partial Class frmMain
         Me.bottomPnl.Name = "bottomPnl"
         Me.bottomPnl.Size = New System.Drawing.Size(666, 195)
         Me.bottomPnl.TabIndex = 62
+        '
+        'startAnimationBtn
+        '
+        Me.startAnimationBtn.ImageIndex = 0
+        Me.startAnimationBtn.ImageList = Me.ImageList2
+        Me.startAnimationBtn.Location = New System.Drawing.Point(337, 4)
+        Me.startAnimationBtn.Name = "startAnimationBtn"
+        Me.startAnimationBtn.Size = New System.Drawing.Size(43, 23)
+        Me.startAnimationBtn.TabIndex = 60
+        Me.startAnimationBtn.UseVisualStyleBackColor = True
+        '
+        'ImageList2
+        '
+        Me.ImageList2.ImageStream = CType(resources.GetObject("ImageList2.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList2.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList2.Images.SetKeyName(0, "slideshow_next.png")
+        Me.ImageList2.Images.SetKeyName(1, "stop.png")
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(382, 9)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(36, 13)
+        Me.Label5.TabIndex = 59
+        Me.Label5.Text = "Frame"
+        '
+        'frameTrackBar
+        '
+        Me.frameTrackBar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.frameTrackBar.AutoSize = False
+        Me.frameTrackBar.LargeChange = 1
+        Me.frameTrackBar.Location = New System.Drawing.Point(419, 2)
+        Me.frameTrackBar.Maximum = 1
+        Me.frameTrackBar.Name = "frameTrackBar"
+        Me.frameTrackBar.Size = New System.Drawing.Size(104, 24)
+        Me.frameTrackBar.TabIndex = 58
         '
         'cbFonts
         '
@@ -880,342 +1406,6 @@ Partial Class frmMain
         Me.pnlGroups.Size = New System.Drawing.Size(184, 228)
         Me.pnlGroups.TabIndex = 1
         '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI Semilight", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(3, 0)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(90, 32)
-        Me.Label10.TabIndex = 0
-        Me.Label10.Text = "Groups"
-        '
-        'Panel2
-        '
-        Me.Panel2.AutoScroll = True
-        Me.Panel2.Controls.Add(Me.componentsList)
-        Me.Panel2.Controls.Add(Me.Label8)
-        Me.Panel2.Controls.Add(Me.TranslationPercentageBox1)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(184, 247)
-        Me.Panel2.TabIndex = 2
-        '
-        'componentsList
-        '
-        Me.componentsList.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid
-        Me.componentsList.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.componentsList.BackColor = System.Drawing.Color.FromArgb(CType(CType(233, Byte), Integer), CType(CType(233, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.componentsList.Enabled = False
-        Me.componentsList.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        ListViewItem1.Tag = "Undertale"
-        ListViewItem2.Tag = "data.win"
-        ListViewItem3.Tag = "Sprites"
-        ListViewItem4.Tag = "Original"
-        ListViewItem5.Tag = "Translated"
-        Me.componentsList.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3, ListViewItem4, ListViewItem5})
-        Me.componentsList.Location = New System.Drawing.Point(9, 124)
-        Me.componentsList.Name = "componentsList"
-        Me.componentsList.Scrollable = False
-        Me.componentsList.Size = New System.Drawing.Size(166, 113)
-        Me.componentsList.SmallImageList = Me.ImageList1
-        Me.componentsList.TabIndex = 21
-        Me.componentsList.UseCompatibleStateImageBehavior = False
-        Me.componentsList.View = System.Windows.Forms.View.List
-        '
-        'ImageList1
-        '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "delete.png")
-        Me.ImageList1.Images.SetKeyName(1, "accept_button.png")
-        Me.ImageList1.Images.SetKeyName(2, "error.png")
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semilight", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(3, 4)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(132, 32)
-        Me.Label8.TabIndex = 1
-        Me.Label8.Text = "Project info"
-        '
-        'TranslationPercentageBox1
-        '
-        Me.TranslationPercentageBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TranslationPercentageBox1.LeftValue = 0R
-        Me.TranslationPercentageBox1.Location = New System.Drawing.Point(9, 36)
-        Me.TranslationPercentageBox1.Margin = New System.Windows.Forms.Padding(0)
-        Me.TranslationPercentageBox1.MinimumSize = New System.Drawing.Size(150, 85)
-        Me.TranslationPercentageBox1.Name = "TranslationPercentageBox1"
-        Me.TranslationPercentageBox1.RightValue = 0R
-        Me.TranslationPercentageBox1.SelectedPercentage = TranslaTale.TranslationPercentageBox.Percentage.All
-        Me.TranslationPercentageBox1.Size = New System.Drawing.Size(166, 85)
-        Me.TranslationPercentageBox1.TabIndex = 0
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Segoe UI Semilight", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(3, 0)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(94, 32)
-        Me.Label11.TabIndex = 0
-        Me.Label11.Text = "File info"
-        '
-        'topPnl
-        '
-        Me.topPnl.BackColor = System.Drawing.Color.White
-        Me.topPnl.Controls.Add(Me.TableLayoutPanel2)
-        Me.topPnl.Controls.Add(Me.FlowLayoutPanel1)
-        Me.topPnl.Controls.Add(Me.ToolStrip1)
-        Me.topPnl.Dock = System.Windows.Forms.DockStyle.Top
-        Me.topPnl.Location = New System.Drawing.Point(0, 0)
-        Me.topPnl.Margin = New System.Windows.Forms.Padding(0)
-        Me.topPnl.Name = "topPnl"
-        Me.topPnl.Size = New System.Drawing.Size(854, 88)
-        Me.topPnl.TabIndex = 12
-        '
-        'OpenFileDialogMulti
-        '
-        Me.OpenFileDialogMulti.Multiselect = True
-        '
-        'ChangeToolStripMenuItem
-        '
-        Me.ChangeToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.folder_image1
-        Me.ChangeToolStripMenuItem.Name = "ChangeToolStripMenuItem"
-        Me.ChangeToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
-        Me.ChangeToolStripMenuItem.Text = "Change..."
-        '
-        'ExportToolStripMenuItem
-        '
-        Me.ExportToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.save_close
-        Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
-        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
-        Me.ExportToolStripMenuItem.Text = "Export"
-        '
-        'DeleteToolStripMenuItem
-        '
-        Me.DeleteToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.bin
-        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
-        Me.DeleteToolStripMenuItem.Text = "Delete"
-        '
-        'ToolStripButton6
-        '
-        Me.ToolStripButton6.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChooseSpritesToolStripMenuItem, Me.FromFolderToolStripMenuItem, Me.FromUndertaleToolStripMenuItem})
-        Me.ToolStripButton6.Image = Global.TranslaTale.My.Resources.Resources.plus
-        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton6.Name = "ToolStripButton6"
-        Me.ToolStripButton6.Size = New System.Drawing.Size(104, 22)
-        Me.ToolStripButton6.Text = "Add sprites..."
-        '
-        'ChooseSpritesToolStripMenuItem
-        '
-        Me.ChooseSpritesToolStripMenuItem.Name = "ChooseSpritesToolStripMenuItem"
-        Me.ChooseSpritesToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
-        Me.ChooseSpritesToolStripMenuItem.Text = "Choose sprites..."
-        '
-        'FromFolderToolStripMenuItem
-        '
-        Me.FromFolderToolStripMenuItem.Name = "FromFolderToolStripMenuItem"
-        Me.FromFolderToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
-        Me.FromFolderToolStripMenuItem.Text = "From folder..."
-        '
-        'FromUndertaleToolStripMenuItem
-        '
-        Me.FromUndertaleToolStripMenuItem.Name = "FromUndertaleToolStripMenuItem"
-        Me.FromUndertaleToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
-        Me.FromUndertaleToolStripMenuItem.Text = "From Undertale"
-        '
-        'PictureBox16
-        '
-        Me.PictureBox16.Image = Global.TranslaTale.My.Resources.Resources.image_edit
-        Me.PictureBox16.Location = New System.Drawing.Point(9, 277)
-        Me.PictureBox16.Name = "PictureBox16"
-        Me.PictureBox16.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox16.TabIndex = 27
-        Me.PictureBox16.TabStop = False
-        '
-        'PictureBox15
-        '
-        Me.PictureBox15.Image = Global.TranslaTale.My.Resources.Resources.file_extension_txt
-        Me.PictureBox15.Location = New System.Drawing.Point(196, 35)
-        Me.PictureBox15.Name = "PictureBox15"
-        Me.PictureBox15.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox15.TabIndex = 24
-        Me.PictureBox15.TabStop = False
-        '
-        'PictureBox14
-        '
-        Me.PictureBox14.Image = Global.TranslaTale.My.Resources.Resources.game_monitor
-        Me.PictureBox14.Location = New System.Drawing.Point(9, 35)
-        Me.PictureBox14.Name = "PictureBox14"
-        Me.PictureBox14.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox14.TabIndex = 22
-        Me.PictureBox14.TabStop = False
-        '
-        'PictureBox13
-        '
-        Me.PictureBox13.Image = Global.TranslaTale.My.Resources.Resources.file_extension_png
-        Me.PictureBox13.Location = New System.Drawing.Point(385, 35)
-        Me.PictureBox13.Name = "PictureBox13"
-        Me.PictureBox13.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox13.TabIndex = 20
-        Me.PictureBox13.TabStop = False
-        '
-        'PictureBox12
-        '
-        Me.PictureBox12.Image = Global.TranslaTale.My.Resources.Resources.folder_image
-        Me.PictureBox12.Location = New System.Drawing.Point(9, 239)
-        Me.PictureBox12.Name = "PictureBox12"
-        Me.PictureBox12.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox12.TabIndex = 17
-        Me.PictureBox12.TabStop = False
-        '
-        'PictureBox11
-        '
-        Me.PictureBox11.Image = Global.TranslaTale.My.Resources.Resources.inbox_slide1
-        Me.PictureBox11.Location = New System.Drawing.Point(9, 201)
-        Me.PictureBox11.Name = "PictureBox11"
-        Me.PictureBox11.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox11.TabIndex = 17
-        Me.PictureBox11.TabStop = False
-        '
-        'PictureBox10
-        '
-        Me.PictureBox10.Image = Global.TranslaTale.My.Resources.Resources.edit_diff
-        Me.PictureBox10.Location = New System.Drawing.Point(9, 156)
-        Me.PictureBox10.Name = "PictureBox10"
-        Me.PictureBox10.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox10.TabIndex = 17
-        Me.PictureBox10.TabStop = False
-        '
-        'PictureBox9
-        '
-        Me.PictureBox9.Image = Global.TranslaTale.My.Resources.Resources.inbox_document_text
-        Me.PictureBox9.Location = New System.Drawing.Point(9, 118)
-        Me.PictureBox9.Name = "PictureBox9"
-        Me.PictureBox9.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox9.TabIndex = 15
-        Me.PictureBox9.TabStop = False
-        '
-        'PictureBox8
-        '
-        Me.PictureBox8.Image = Global.TranslaTale.My.Resources.Resources.inbox_document
-        Me.PictureBox8.Location = New System.Drawing.Point(9, 80)
-        Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox8.TabIndex = 13
-        Me.PictureBox8.TabStop = False
-        '
-        'ResetBtn
-        '
-        Me.ResetBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ResetBtn.BackColor = System.Drawing.Color.Gainsboro
-        Me.ResetBtn.BackgroundImage = Global.TranslaTale.My.Resources.Resources.cross2
-        Me.ResetBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ResetBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ResetBtn.Location = New System.Drawing.Point(55, 41)
-        Me.ResetBtn.Margin = New System.Windows.Forms.Padding(0)
-        Me.ResetBtn.Name = "ResetBtn"
-        Me.ResetBtn.Size = New System.Drawing.Size(26, 26)
-        Me.ResetBtn.TabIndex = 55
-        Me.ResetBtn.TabStop = False
-        Me.ResetBtn.Visible = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.Gainsboro
-        Me.PictureBox3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox3.Image = Global.TranslaTale.My.Resources.Resources.icon_8SA_icon
-        Me.PictureBox3.Location = New System.Drawing.Point(0, 48)
-        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(0)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(343, 87)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 6
-        Me.PictureBox3.TabStop = False
-        '
-        'PictureBox7
-        '
-        Me.PictureBox7.Image = Global.TranslaTale.My.Resources.Resources.information
-        Me.PictureBox7.Location = New System.Drawing.Point(10, 187)
-        Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox7.TabIndex = 11
-        Me.PictureBox7.TabStop = False
-        '
-        'PictureBox6
-        '
-        Me.PictureBox6.Image = Global.TranslaTale.My.Resources.Resources.translation_tool_tip
-        Me.PictureBox6.Location = New System.Drawing.Point(10, 149)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox6.TabIndex = 9
-        Me.PictureBox6.TabStop = False
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.Image = Global.TranslaTale.My.Resources.Resources.compare1
-        Me.PictureBox5.Location = New System.Drawing.Point(10, 111)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox5.TabIndex = 9
-        Me.PictureBox5.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.TranslaTale.My.Resources.Resources.next_comment
-        Me.PictureBox2.Location = New System.Drawing.Point(10, 73)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox2.TabIndex = 5
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.TranslaTale.My.Resources.Resources.new_comment
-        Me.PictureBox1.Location = New System.Drawing.Point(8, 35)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox1.TabIndex = 4
-        Me.PictureBox1.TabStop = False
-        '
-        'SpriteFontBox1
-        '
-        Me.SpriteFontBox1.CurrentSpriteFont = UTSpriteFontBox.SpriteFontBox.SpriteFonts.BitOperator
-        Me.SpriteFontBox1.ErrorImage = Nothing
-        Me.SpriteFontBox1.FontPath = ""
-        Me.SpriteFontBox1.Image = CType(resources.GetObject("SpriteFontBox1.Image"), System.Drawing.Image)
-        Me.SpriteFontBox1.InitialImage = Nothing
-        Me.SpriteFontBox1.Location = New System.Drawing.Point(41, 6)
-        Me.SpriteFontBox1.MinimumSize = New System.Drawing.Size(578, 152)
-        Me.SpriteFontBox1.Name = "SpriteFontBox1"
-        Me.SpriteFontBox1.ShowCommands = False
-        Me.SpriteFontBox1.ShowFaces = False
-        Me.SpriteFontBox1.Size = New System.Drawing.Size(578, 152)
-        Me.SpriteFontBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.SpriteFontBox1.TabIndex = 60
-        Me.SpriteFontBox1.Text = "SpriteFontBox1"
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.BackColor = System.Drawing.Color.DimGray
-        Me.PictureBox4.BackgroundImage = Global.TranslaTale.My.Resources.Resources.tablebg
-        Me.PictureBox4.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(0)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(652, 158)
-        Me.PictureBox4.TabIndex = 5
-        Me.PictureBox4.TabStop = False
-        '
         'btnEditGroup
         '
         Me.btnEditGroup.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -1271,6 +1461,93 @@ Partial Class frmMain
         Me.btnSetGroup.Text = "Set group"
         Me.btnSetGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnSetGroup.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI Semilight", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(3, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(90, 32)
+        Me.Label10.TabIndex = 0
+        Me.Label10.Text = "Groups"
+        '
+        'Panel2
+        '
+        Me.Panel2.AutoScroll = True
+        Me.Panel2.Controls.Add(Me.componentsList)
+        Me.Panel2.Controls.Add(Me.Label8)
+        Me.Panel2.Controls.Add(Me.TranslationPercentageBox1)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(184, 247)
+        Me.Panel2.TabIndex = 2
+        '
+        'componentsList
+        '
+        Me.componentsList.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid
+        Me.componentsList.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.componentsList.BackColor = System.Drawing.Color.FromArgb(CType(CType(233, Byte), Integer), CType(CType(233, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.componentsList.Enabled = False
+        Me.componentsList.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        ListViewItem6.Tag = "Undertale"
+        ListViewItem7.Tag = "data.win"
+        ListViewItem8.Tag = "Sprites"
+        ListViewItem9.Tag = "Original"
+        ListViewItem10.Tag = "Translated"
+        Me.componentsList.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem6, ListViewItem7, ListViewItem8, ListViewItem9, ListViewItem10})
+        Me.componentsList.Location = New System.Drawing.Point(9, 124)
+        Me.componentsList.Name = "componentsList"
+        Me.componentsList.Scrollable = False
+        Me.componentsList.Size = New System.Drawing.Size(166, 113)
+        Me.componentsList.SmallImageList = Me.ImageList1
+        Me.componentsList.TabIndex = 21
+        Me.componentsList.UseCompatibleStateImageBehavior = False
+        Me.componentsList.View = System.Windows.Forms.View.List
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "delete.png")
+        Me.ImageList1.Images.SetKeyName(1, "accept_button.png")
+        Me.ImageList1.Images.SetKeyName(2, "error.png")
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semilight", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(3, 4)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(132, 32)
+        Me.Label8.TabIndex = 1
+        Me.Label8.Text = "Project info"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI Semilight", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(3, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(94, 32)
+        Me.Label11.TabIndex = 0
+        Me.Label11.Text = "File info"
+        '
+        'topPnl
+        '
+        Me.topPnl.BackColor = System.Drawing.Color.White
+        Me.topPnl.Controls.Add(Me.TableLayoutPanel2)
+        Me.topPnl.Controls.Add(Me.FlowLayoutPanel1)
+        Me.topPnl.Controls.Add(Me.ToolStrip1)
+        Me.topPnl.Dock = System.Windows.Forms.DockStyle.Top
+        Me.topPnl.Location = New System.Drawing.Point(0, 0)
+        Me.topPnl.Margin = New System.Windows.Forms.Padding(0)
+        Me.topPnl.Name = "topPnl"
+        Me.topPnl.Size = New System.Drawing.Size(854, 88)
+        Me.topPnl.TabIndex = 12
         '
         'FlowLayoutPanel1
         '
@@ -1444,271 +1721,46 @@ Partial Class frmMain
         Me.Label6.Text = "About"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'newProjectToolStripBtn
-        '
-        Me.newProjectToolStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.newProjectToolStripBtn.Image = Global.TranslaTale.My.Resources.Resources._new
-        Me.newProjectToolStripBtn.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.newProjectToolStripBtn.Name = "newProjectToolStripBtn"
-        Me.newProjectToolStripBtn.Size = New System.Drawing.Size(36, 36)
-        Me.newProjectToolStripBtn.Text = "New Project"
-        '
-        'openProjectBtn2
-        '
-        Me.openProjectBtn2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.openProjectBtn2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HistoryToolStripMenuItem, Me.ToolStripSeparator8, Me.LastestFileToolStripMenuItem})
-        Me.openProjectBtn2.Image = Global.TranslaTale.My.Resources.Resources.folder_page_white1
-        Me.openProjectBtn2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.openProjectBtn2.Name = "openProjectBtn2"
-        Me.openProjectBtn2.Size = New System.Drawing.Size(48, 36)
-        Me.openProjectBtn2.Text = "Open"
-        '
-        'HistoryToolStripMenuItem
-        '
-        Me.HistoryToolStripMenuItem.Name = "HistoryToolStripMenuItem"
-        Me.HistoryToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
-        Me.HistoryToolStripMenuItem.Text = "History"
-        '
-        'ToolStripSeparator8
-        '
-        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(126, 6)
-        '
-        'LastestFileToolStripMenuItem
-        '
-        Me.LastestFileToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.time
-        Me.LastestFileToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.LastestFileToolStripMenuItem.Name = "LastestFileToolStripMenuItem"
-        Me.LastestFileToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
-        Me.LastestFileToolStripMenuItem.Text = "Lastest file"
-        '
-        'QSaveToolStripMenuItem
-        '
-        Me.QSaveToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.QSaveToolStripMenuItem.Enabled = False
-        Me.QSaveToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.diskette
-        Me.QSaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.QSaveToolStripMenuItem.Name = "QSaveToolStripMenuItem"
-        Me.QSaveToolStripMenuItem.Size = New System.Drawing.Size(36, 36)
-        Me.QSaveToolStripMenuItem.Text = "Quick save"
-        '
-        'SaveToolStripMenuItem
-        '
-        Me.SaveToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.SaveToolStripMenuItem.Enabled = False
-        Me.SaveToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.save_as1
-        Me.SaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(36, 36)
-        Me.SaveToolStripMenuItem.Text = "Save"
-        '
-        'projectManagerToolBtn
-        '
-        Me.projectManagerToolBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.projectManagerToolBtn.Enabled = False
-        Me.projectManagerToolBtn.Image = Global.TranslaTale.My.Resources.Resources.house
-        Me.projectManagerToolBtn.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.projectManagerToolBtn.Name = "projectManagerToolBtn"
-        Me.projectManagerToolBtn.Size = New System.Drawing.Size(36, 36)
-        Me.projectManagerToolBtn.Text = "Project manager"
-        '
-        'stringsEditorToolBtn
-        '
-        Me.stringsEditorToolBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.stringsEditorToolBtn.Enabled = False
-        Me.stringsEditorToolBtn.Image = Global.TranslaTale.My.Resources.Resources.edit_diff
-        Me.stringsEditorToolBtn.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.stringsEditorToolBtn.Name = "stringsEditorToolBtn"
-        Me.stringsEditorToolBtn.Size = New System.Drawing.Size(36, 36)
-        Me.stringsEditorToolBtn.Text = "Strings editor"
-        '
-        'spritesEditorToolBtn
-        '
-        Me.spritesEditorToolBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.spritesEditorToolBtn.Enabled = False
-        Me.spritesEditorToolBtn.Image = Global.TranslaTale.My.Resources.Resources.image_edit
-        Me.spritesEditorToolBtn.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.spritesEditorToolBtn.Name = "spritesEditorToolBtn"
-        Me.spritesEditorToolBtn.Size = New System.Drawing.Size(36, 36)
-        Me.spritesEditorToolBtn.Text = "Sprites editor"
-        '
-        'searchToolStripBtn
-        '
-        Me.searchToolStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.searchToolStripBtn.Enabled = False
-        Me.searchToolStripBtn.Image = Global.TranslaTale.My.Resources.Resources.find2
-        Me.searchToolStripBtn.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.searchToolStripBtn.Name = "searchToolStripBtn"
-        Me.searchToolStripBtn.Size = New System.Drawing.Size(36, 36)
-        Me.searchToolStripBtn.Text = "Search"
-        '
-        'goToLineToolStripBtn
-        '
-        Me.goToLineToolStripBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.goToLineToolStripBtn.Enabled = False
-        Me.goToLineToolStripBtn.Image = Global.TranslaTale.My.Resources.Resources.table_select_row
-        Me.goToLineToolStripBtn.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.goToLineToolStripBtn.Name = "goToLineToolStripBtn"
-        Me.goToLineToolStripBtn.Size = New System.Drawing.Size(36, 36)
-        Me.goToLineToolStripBtn.Text = "Jump to line"
-        '
-        'debugToolBtn
-        '
-        Me.debugToolBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.debugToolBtn.Enabled = False
-        Me.debugToolBtn.Image = Global.TranslaTale.My.Resources.Resources.resultset_next
-        Me.debugToolBtn.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.debugToolBtn.Name = "debugToolBtn"
-        Me.debugToolBtn.Size = New System.Drawing.Size(36, 36)
-        Me.debugToolBtn.Text = "Debug"
-        '
-        'UDTPatchToolStripMenuItem
-        '
-        Me.UDTPatchToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.UDTPatchToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DumpStringstxtToolStripMenuItem, Me.DumpOriginalImagesToolStripMenuItem, Me.ToolStripSeparator11, Me.RepackGameASCIICharactersToolStripMenuItem, Me.RepackGamecustomFontsToolStripMenuItem, Me.ToolStripSeparator3, Me.MigrationToolToolStripMenuItem, Me.ToolStripSeparator7, Me.UndertalePatchToolToolStripMenuItem})
-        Me.UDTPatchToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.compile
-        Me.UDTPatchToolStripMenuItem.Name = "UDTPatchToolStripMenuItem"
-        Me.UDTPatchToolStripMenuItem.Size = New System.Drawing.Size(45, 36)
-        Me.UDTPatchToolStripMenuItem.Text = "Game related"
-        '
-        'DumpStringstxtToolStripMenuItem
-        '
-        Me.DumpStringstxtToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.box_open
-        Me.DumpStringstxtToolStripMenuItem.Name = "DumpStringstxtToolStripMenuItem"
-        Me.DumpStringstxtToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
-        Me.DumpStringstxtToolStripMenuItem.Text = "Dump original strings.txt"
-        '
-        'DumpOriginalImagesToolStripMenuItem
-        '
-        Me.DumpOriginalImagesToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.box_open
-        Me.DumpOriginalImagesToolStripMenuItem.Name = "DumpOriginalImagesToolStripMenuItem"
-        Me.DumpOriginalImagesToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
-        Me.DumpOriginalImagesToolStripMenuItem.Text = "Dump original images"
-        '
-        'ToolStripSeparator11
-        '
-        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
-        Me.ToolStripSeparator11.Size = New System.Drawing.Size(302, 6)
-        '
-        'RepackGameASCIICharactersToolStripMenuItem
-        '
-        Me.RepackGameASCIICharactersToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.text_allcaps
-        Me.RepackGameASCIICharactersToolStripMenuItem.Name = "RepackGameASCIICharactersToolStripMenuItem"
-        Me.RepackGameASCIICharactersToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
-        Me.RepackGameASCIICharactersToolStripMenuItem.Text = "Repack Game (ASCII characters)"
-        '
-        'RepackGamecustomFontsToolStripMenuItem
-        '
-        Me.RepackGamecustomFontsToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.text_language
-        Me.RepackGamecustomFontsToolStripMenuItem.Name = "RepackGamecustomFontsToolStripMenuItem"
-        Me.RepackGamecustomFontsToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
-        Me.RepackGamecustomFontsToolStripMenuItem.Text = "Repack Game with a custom character table"
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(302, 6)
-        '
-        'MigrationToolToolStripMenuItem
-        '
-        Me.MigrationToolToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.translation_tool_tip
-        Me.MigrationToolToolStripMenuItem.Name = "MigrationToolToolStripMenuItem"
-        Me.MigrationToolToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
-        Me.MigrationToolToolStripMenuItem.Text = "Migration Tool (from v1.0 to v1.001)"
-        '
-        'ToolStripSeparator7
-        '
-        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(302, 6)
-        '
-        'UndertalePatchToolToolStripMenuItem
-        '
-        Me.UndertalePatchToolToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.compile
-        Me.UndertalePatchToolToolStripMenuItem.Name = "UndertalePatchToolToolStripMenuItem"
-        Me.UndertalePatchToolToolStripMenuItem.Size = New System.Drawing.Size(305, 22)
-        Me.UndertalePatchToolToolStripMenuItem.Text = "Undertale Patcher Tool"
-        '
-        'CompareTranslationFilesToolStripMenuItem
-        '
-        Me.CompareTranslationFilesToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.CompareTranslationFilesToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.compare
-        Me.CompareTranslationFilesToolStripMenuItem.Name = "CompareTranslationFilesToolStripMenuItem"
-        Me.CompareTranslationFilesToolStripMenuItem.Size = New System.Drawing.Size(36, 36)
-        Me.CompareTranslationFilesToolStripMenuItem.Text = "Compare and join two projects"
-        Me.CompareTranslationFilesToolStripMenuItem.ToolTipText = "Compare two translation files"
-        '
-        'filtermenubtn
-        '
-        Me.filtermenubtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.filtermenubtn.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.filterByGroupBtn, Me.ToolStripSeparator4, Me.TranslatedStringsToolStripMenuItem, Me.UntranslatedStringsToolStripMenuItem, Me.ToolStripSeparator9, Me.ClearFilterToolStripMenuItem})
-        Me.filtermenubtn.Image = Global.TranslaTale.My.Resources.Resources.filter
-        Me.filtermenubtn.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.filtermenubtn.Name = "filtermenubtn"
-        Me.filtermenubtn.Size = New System.Drawing.Size(45, 36)
-        Me.filtermenubtn.Text = "Filter"
-        '
-        'filterByGroupBtn
-        '
-        Me.filterByGroupBtn.Image = Global.TranslaTale.My.Resources.Resources.tag_orange
-        Me.filterByGroupBtn.Name = "filterByGroupBtn"
-        Me.filterByGroupBtn.Size = New System.Drawing.Size(236, 22)
-        Me.filterByGroupBtn.Text = "Filter by group"
-        '
-        'ToolStripSeparator4
-        '
-        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(233, 6)
-        '
-        'TranslatedStringsToolStripMenuItem
-        '
-        Me.TranslatedStringsToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.page_green1
-        Me.TranslatedStringsToolStripMenuItem.Name = "TranslatedStringsToolStripMenuItem"
-        Me.TranslatedStringsToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
-        Me.TranslatedStringsToolStripMenuItem.Text = "Show only translated strings"
-        '
-        'UntranslatedStringsToolStripMenuItem
-        '
-        Me.UntranslatedStringsToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.page_red1
-        Me.UntranslatedStringsToolStripMenuItem.Name = "UntranslatedStringsToolStripMenuItem"
-        Me.UntranslatedStringsToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
-        Me.UntranslatedStringsToolStripMenuItem.Text = "Show only untranslated strings"
-        '
-        'ToolStripSeparator9
-        '
-        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(233, 6)
-        '
-        'ClearFilterToolStripMenuItem
-        '
-        Me.ClearFilterToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.filter_clear1
-        Me.ClearFilterToolStripMenuItem.Name = "ClearFilterToolStripMenuItem"
-        Me.ClearFilterToolStripMenuItem.Size = New System.Drawing.Size(236, 22)
-        Me.ClearFilterToolStripMenuItem.Text = "Reset filter"
-        '
-        'OptionsToolStripMenuItem
-        '
-        Me.OptionsToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowSymbolsToolStripMenuItem})
-        Me.OptionsToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.layout_edit
-        Me.OptionsToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(45, 36)
-        Me.OptionsToolStripMenuItem.Text = "View settings"
-        '
-        'ShowSymbolsToolStripMenuItem
-        '
-        Me.ShowSymbolsToolStripMenuItem.Name = "ShowSymbolsToolStripMenuItem"
-        Me.ShowSymbolsToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
-        Me.ShowSymbolsToolStripMenuItem.Text = "&Show formatting symbols"
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.AboutToolStripMenuItem.Image = Global.TranslaTale.My.Resources.Resources.information
-        Me.AboutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(36, 36)
-        Me.AboutToolStripMenuItem.Text = "About"
+        'OpenFileDialogMulti
+        '
+        Me.OpenFileDialogMulti.Multiselect = True
+        '
+        'aniTime
+        '
+        Me.aniTime.Interval = 150
+        '
+        'SpriteFontBox1
+        '
+        Me.SpriteFontBox1.CurrentSpriteFont = TranslaTale.UTSpriteFontBox.SpriteFontBox.SpriteFonts.BitOperator
+        Me.SpriteFontBox1.ErrorImage = Nothing
+        Me.SpriteFontBox1.FontPath = ""
+        Me.SpriteFontBox1.Frame = -1
+        Me.SpriteFontBox1.Image = CType(resources.GetObject("SpriteFontBox1.Image"), System.Drawing.Image)
+        Me.SpriteFontBox1.InitialImage = Nothing
+        Me.SpriteFontBox1.Location = New System.Drawing.Point(41, 6)
+        Me.SpriteFontBox1.MinimumSize = New System.Drawing.Size(578, 152)
+        Me.SpriteFontBox1.Name = "SpriteFontBox1"
+        Me.SpriteFontBox1.ShowCommands = False
+        Me.SpriteFontBox1.ShowFaces = False
+        Me.SpriteFontBox1.Size = New System.Drawing.Size(578, 152)
+        Me.SpriteFontBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.SpriteFontBox1.TabIndex = 60
+        Me.SpriteFontBox1.Text = "SpriteFontBox1"
+        '
+        'TranslationPercentageBox1
+        '
+        Me.TranslationPercentageBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TranslationPercentageBox1.LeftValue = 0R
+        Me.TranslationPercentageBox1.Location = New System.Drawing.Point(9, 36)
+        Me.TranslationPercentageBox1.Margin = New System.Windows.Forms.Padding(0)
+        Me.TranslationPercentageBox1.MinimumSize = New System.Drawing.Size(150, 85)
+        Me.TranslationPercentageBox1.Name = "TranslationPercentageBox1"
+        Me.TranslationPercentageBox1.RightValue = 0R
+        Me.TranslationPercentageBox1.SelectedPercentage = TranslaTale.TranslationPercentageBox.Percentage.All
+        Me.TranslationPercentageBox1.Size = New System.Drawing.Size(166, 85)
+        Me.TranslationPercentageBox1.TabIndex = 0
         '
         'frmMain
         '
@@ -1726,12 +1778,14 @@ Partial Class frmMain
         Me.Text = "TranslaTale"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         Me.tblEditor.ResumeLayout(False)
         Me.tblEditor.PerformLayout()
+        CType(Me.ResetBtn, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MainViewPanel.ResumeLayout(False)
         Me.spritesPnl.ResumeLayout(False)
         Me.spritesPnl.PerformLayout()
@@ -1740,23 +1794,6 @@ Partial Class frmMain
         Me.ToolStrip3.PerformLayout()
         Me.projectmanagerPnl.ResumeLayout(False)
         Me.projectmanagerPnl.PerformLayout()
-        Me.welcomePnl.ResumeLayout(False)
-        Me.welcomePnl.PerformLayout()
-        Me.splitMain.Panel1.ResumeLayout(False)
-        Me.splitMain.Panel2.ResumeLayout(False)
-        CType(Me.splitMain, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.splitMain.ResumeLayout(False)
-        Me.bottomPnl.ResumeLayout(False)
-        Me.bottomPnl.PerformLayout()
-        Me.splitRight.Panel1.ResumeLayout(False)
-        Me.splitRight.Panel2.ResumeLayout(False)
-        CType(Me.splitRight, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.splitRight.ResumeLayout(False)
-        Me.pnlGroups.ResumeLayout(False)
-        Me.pnlGroups.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        Me.topPnl.ResumeLayout(False)
         CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1766,15 +1803,30 @@ Partial Class frmMain
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ResetBtn, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.welcomePnl.ResumeLayout(False)
+        Me.welcomePnl.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SpriteFontBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.splitMain.Panel1.ResumeLayout(False)
+        Me.splitMain.Panel2.ResumeLayout(False)
+        CType(Me.splitMain, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.splitMain.ResumeLayout(False)
+        Me.bottomPnl.ResumeLayout(False)
+        Me.bottomPnl.PerformLayout()
+        CType(Me.frameTrackBar, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.splitRight.Panel1.ResumeLayout(False)
+        Me.splitRight.Panel2.ResumeLayout(False)
+        CType(Me.splitRight, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.splitRight.ResumeLayout(False)
+        Me.pnlGroups.ResumeLayout(False)
+        Me.pnlGroups.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.topPnl.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel2.ResumeLayout(False)
         Me.FlowLayoutPanel5.ResumeLayout(False)
@@ -1783,6 +1835,7 @@ Partial Class frmMain
         Me.FlowLayoutPanel7.ResumeLayout(False)
         Me.FlowLayoutPanel9.ResumeLayout(False)
         Me.FlowLayoutPanel8.ResumeLayout(False)
+        CType(Me.SpriteFontBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1934,4 +1987,9 @@ Partial Class frmMain
     Friend WithEvents historyListView As ListView
     Friend WithEvents historyImagesList As ImageList
     Friend WithEvents QSaveToolStripMenuItem As ToolStripButton
+    Friend WithEvents frameTrackBar As TrackBar
+    Friend WithEvents startAnimationBtn As Button
+    Friend WithEvents aniTime As Timer
+    Friend WithEvents ImageList2 As ImageList
+    Friend WithEvents Label5 As Label
 End Class

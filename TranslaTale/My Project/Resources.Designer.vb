@@ -211,6 +211,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Cerca una stringa localizzata simile a {&quot;name&quot;:&quot;8BitOperator&quot;,&quot;x_index&quot;:784,&quot;y_index&quot;:4,&quot;max_width&quot;:9,&quot;font&quot;:[{&quot;character&quot;:&quot;g&quot;,&quot;width&quot;:7,&quot;height&quot;:17,&quot;cell_width&quot;:8},{&quot;character&quot;:&quot;y&quot;,&quot;width&quot;:7,&quot;height&quot;:17,&quot;cell_width&quot;:8},{&quot;character&quot;:&quot;j&quot;,&quot;width&quot;:7,&quot;height&quot;:17,&quot;cell_width&quot;:8},{&quot;character&quot;:&quot;q&quot;,&quot;width&quot;:7,&quot;height&quot;:17,&quot;cell_width&quot;:8},{&quot;character&quot;:&quot;p&quot;,&quot;width&quot;:7,&quot;height&quot;:17,&quot;cell_width&quot;:8},{&quot;character&quot;:&quot;W&quot;,&quot;width&quot;:8,&quot;height&quot;:14,&quot;cell_width&quot;:8},{&quot;character&quot;:&quot;%&quot;,&quot;width&quot;:8,&quot;height&quot;:14,&quot;cell_width&quot;:8},{&quot;character&quot;:&quot;#&quot;,&quot;width&quot;:8,&quot;height&quot;:14,&quot;cell_width&quot;:8},{ [stringa troncata]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property BitOperatorJSON() As String
+            Get
+                Return ResourceManager.GetString("BitOperatorJSON", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property box_open() As System.Drawing.Bitmap
@@ -257,6 +266,15 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("check_box1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a {&quot;name&quot;:&quot;Comic Sans&quot;,&quot;x_index&quot;:523,&quot;y_index&quot;:263,&quot;max_width&quot;:14,&quot;font&quot;:[{&quot;character&quot;:&quot;Q&quot;,&quot;width&quot;:12,&quot;height&quot;:19,&quot;cell_width&quot;:9},{&quot;character&quot;:&quot;W&quot;,&quot;width&quot;:14,&quot;height&quot;:14,&quot;cell_width&quot;:7},{&quot;character&quot;:&quot;@&quot;,&quot;width&quot;:13,&quot;height&quot;:17,&quot;cell_width&quot;:13},{&quot;character&quot;:&quot;%&quot;,&quot;width&quot;:12,&quot;height&quot;:17,&quot;cell_width&quot;:0},{&quot;character&quot;:&quot;_&quot;,&quot;width&quot;:10,&quot;height&quot;:18,&quot;cell_width&quot;:8},{&quot;character&quot;:&quot;O&quot;,&quot;width&quot;:11,&quot;height&quot;:16,&quot;cell_width&quot;:9},{&quot;character&quot;:&quot;M&quot;,&quot;width&quot;:11,&quot;height&quot;:16,&quot;cell_width&quot;:9},{&quot;character&quot;:&quot;$&quot;,&quot;width&quot;:9,&quot;height&quot;:18,&quot;cell_wi [stringa troncata]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property ComicSansJSON() As String
+            Get
+                Return ResourceManager.GetString("ComicSansJSON", resourceCulture)
             End Get
         End Property
         
@@ -927,6 +945,44 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("page_red1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a {
+        '''  &quot;name&quot;: &quot;Papyrus&quot;,
+        '''  &quot;x_index&quot;: 784,
+        '''  &quot;y_index&quot;: 268,
+        '''  &quot;max_width&quot;: 20,
+        '''  &quot;font&quot;: [
+        '''    {
+        '''      &quot;character&quot;: &quot;Q&quot;,
+        '''      &quot;width&quot;: 15,
+        '''      &quot;height&quot;: 17,
+        '''      &quot;cell_width&quot;: 15
+        '''    },
+        '''    {
+        '''      &quot;character&quot;: &quot;A&quot;,
+        '''      &quot;width&quot;: 13,
+        '''      &quot;height&quot;: 17,
+        '''      &quot;cell_width&quot;: 13
+        '''    },
+        '''    {
+        '''      &quot;character&quot;: &quot;O&quot;,
+        '''      &quot;width&quot;: 13,
+        '''      &quot;height&quot;: 17,
+        '''      &quot;cell_width&quot;: 12
+        '''    },
+        '''    {
+        '''      &quot;character&quot;: &quot;W&quot;,
+        '''      &quot;width&quot;: 13,
+        '''      &quot;height&quot;: 17,
+        '''      &quot;cell_width&quot;: 13
+        '''     [stringa troncata]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property PapyrusJSON() As String
+            Get
+                Return ResourceManager.GetString("PapyrusJSON", resourceCulture)
             End Get
         End Property
         

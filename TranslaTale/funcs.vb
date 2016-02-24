@@ -92,6 +92,7 @@ Module funcs
         Dim ttx1 As TranslataleFile = TranslataleFile.Load(path1)
 
         If IsNothing(ttx1) Then
+            MsgBox("This file doesn't exists!", vbExclamation)
             frmMain.Enabled = True
             Return False
         End If

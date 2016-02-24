@@ -31,7 +31,7 @@ Namespace FolderSelect
         ''' <summary>
         ''' Constructor
         ''' </summary>
-        ''' <param name="an">A specific assembly name (used if the assembly name does not tie exactly with the namespace)</param>
+        ''' <param name="an__1">A specific assembly name (used if the assembly name does not tie exactly with the namespace)</param>
         ''' <param name="ns">The namespace containing types to be used</param>
         Public Sub New(an__1 As String, ns As String)
             m_ns = ns
@@ -53,7 +53,7 @@ Namespace FolderSelect
         ''' </summary>
         ''' <param name="typeName">The name of the type</param>
         ''' <returns>A type instance</returns>
-        Public Function [GetType](typeName As String) As Type
+        Public Overloads Function [GetType](typeName As String) As Type
             Dim type As Type = Nothing
             Dim names As String() = typeName.Split("."c)
 

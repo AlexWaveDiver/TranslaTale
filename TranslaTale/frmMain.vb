@@ -5,6 +5,7 @@ Imports System.Runtime.InteropServices
 Imports System.Threading
 Imports NBT.IO
 Imports NBT.Tags
+Imports TranslaTale.UTSpriteFontBox
 
 Public Class frmMain
     Dim actualColor As String = "white"
@@ -296,8 +297,18 @@ Public Class frmMain
         Return True
     End Function
 
+    Dim manualframechange As Boolean = True
     Public Function showText(ByVal txt As String)
+        manualframechange = False
+        frameTrackBar.Minimum = 0
+        Dim val As Integer = frameTrackBar.Value
+        frameTrackBar.Maximum = SpriteFont.CountFrames(txt) - 1
+        If val <= frameTrackBar.Maximum Then
+            frameTrackBar.Value = val
+        End If
         SpriteFontBox1.Text = txt
+        SpriteFontBox1.Frame = frameTrackBar.Value
+        manualframechange = True
         Return True
     End Function
 
@@ -329,6 +340,9 @@ Public Class frmMain
             ResetBtn.Visible = False
             showText(stringTextEditor.Text)
         End If
+
+        aniTime.Stop()
+        startAnimationBtn.ImageIndex = 0
     End Sub
 
     Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
@@ -1513,6 +1527,32 @@ Public Class frmMain
             SaveTTX(CurrentSession.projectPath)
         Else
             MsgBox("Can't save", vbExclamation)
+        End If
+    End Sub
+
+    Private Sub frameTrackBar_ValueChanged(sender As Object, e As EventArgs) Handles frameTrackBar.ValueChanged
+        If manualframechange Then
+            showText(stringTextEditor.Text)
+        End If
+    End Sub
+
+    Private Sub aniTime_Tick(sender As Object, e As EventArgs) Handles aniTime.Tick
+        If frameTrackBar.Value + 1 <= frameTrackBar.Maximum Then
+            frameTrackBar.Value += 1
+        Else
+            aniTime.Stop()
+            startAnimationBtn.ImageIndex = 0
+        End If
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles startAnimationBtn.Click
+        If aniTime.Enabled = False Then
+            startAnimationBtn.ImageIndex = 1
+            frameTrackBar.Value = 0
+            aniTime.Start()
+        Else
+            aniTime.Stop()
+            startAnimationBtn.ImageIndex = 0
         End If
     End Sub
 End Class

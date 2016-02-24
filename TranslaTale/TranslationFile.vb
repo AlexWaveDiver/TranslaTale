@@ -55,6 +55,9 @@ Friend Class TranslataleFile
             ttx1.SetLines(textSource, textTranslated)
             ttx1.isProjectFile = False
         Else
+            If Not File.Exists(path1) Then
+                Return Nothing
+            End If
             ttx1.groups.Clear()
             Dim nbt As New NBTFile
             nbt.Load(path1)
