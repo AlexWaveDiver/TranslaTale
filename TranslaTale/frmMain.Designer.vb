@@ -103,6 +103,8 @@ Partial Class frmMain
         Me.FromFolderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FromUndertaleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.projectmanagerPnl = New System.Windows.Forms.Panel()
+        Me.PictureBox16 = New System.Windows.Forms.PictureBox()
+        Me.LinkLabel6 = New System.Windows.Forms.LinkLabel()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.PictureBox15 = New System.Windows.Forms.PictureBox()
         Me.useDefaultStringsBtn = New System.Windows.Forms.LinkLabel()
@@ -124,14 +126,17 @@ Partial Class frmMain
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.welcomePnl = New System.Windows.Forms.Panel()
+        Me.historyListView = New System.Windows.Forms.ListView()
+        Me.historyImagesList = New System.Windows.Forms.ImageList(Me.components)
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.Panel6 = New System.Windows.Forms.Panel()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.infoBtn = New System.Windows.Forms.LinkLabel()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.migrationToolBtn = New System.Windows.Forms.LinkLabel()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.compareMainBtn = New System.Windows.Forms.LinkLabel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.openProjectBtn = New System.Windows.Forms.LinkLabel()
@@ -171,9 +176,6 @@ Partial Class frmMain
         Me.FlowLayoutPanel8 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.OpenFileDialogMulti = New System.Windows.Forms.OpenFileDialog()
-        Me.PictureBox16 = New System.Windows.Forms.PictureBox()
-        Me.LinkLabel6 = New System.Windows.Forms.LinkLabel()
-        Me.Panel6 = New System.Windows.Forms.Panel()
         Me.TranslationPercentageBox1 = New TranslaTale.TranslationPercentageBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -188,6 +190,7 @@ Partial Class frmMain
         Me.spriteContextMenuStrip.SuspendLayout()
         Me.ToolStrip3.SuspendLayout()
         Me.projectmanagerPnl.SuspendLayout()
+        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -197,10 +200,10 @@ Partial Class frmMain
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.welcomePnl.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.splitMain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -223,7 +226,6 @@ Partial Class frmMain
         Me.FlowLayoutPanel7.SuspendLayout()
         Me.FlowLayoutPanel9.SuspendLayout()
         Me.FlowLayoutPanel8.SuspendLayout()
-        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'stringTextEditor
@@ -713,7 +715,7 @@ Partial Class frmMain
         Me.MainViewPanel.Location = New System.Drawing.Point(0, 0)
         Me.MainViewPanel.Margin = New System.Windows.Forms.Padding(0)
         Me.MainViewPanel.Name = "MainViewPanel"
-        Me.MainViewPanel.Size = New System.Drawing.Size(666, 361)
+        Me.MainViewPanel.Size = New System.Drawing.Size(666, 263)
         Me.MainViewPanel.TabIndex = 62
         '
         'spritesPnl
@@ -721,7 +723,7 @@ Partial Class frmMain
         Me.spritesPnl.BackColor = System.Drawing.Color.WhiteSmoke
         Me.spritesPnl.Controls.Add(Me.spritesListView)
         Me.spritesPnl.Controls.Add(Me.ToolStrip3)
-        Me.spritesPnl.Location = New System.Drawing.Point(589, 261)
+        Me.spritesPnl.Location = New System.Drawing.Point(514, 206)
         Me.spritesPnl.Name = "spritesPnl"
         Me.spritesPnl.Size = New System.Drawing.Size(358, 222)
         Me.spritesPnl.TabIndex = 61
@@ -841,10 +843,30 @@ Partial Class frmMain
         Me.projectmanagerPnl.Controls.Add(Me.PictureBox8)
         Me.projectmanagerPnl.Controls.Add(Me.LinkLabel1)
         Me.projectmanagerPnl.Controls.Add(Me.Label9)
-        Me.projectmanagerPnl.Location = New System.Drawing.Point(62, 14)
+        Me.projectmanagerPnl.Location = New System.Drawing.Point(630, 126)
         Me.projectmanagerPnl.Name = "projectmanagerPnl"
-        Me.projectmanagerPnl.Size = New System.Drawing.Size(490, 298)
+        Me.projectmanagerPnl.Size = New System.Drawing.Size(153, 83)
         Me.projectmanagerPnl.TabIndex = 12
+        '
+        'PictureBox16
+        '
+        Me.PictureBox16.Image = Global.TranslaTale.My.Resources.Resources.image_edit
+        Me.PictureBox16.Location = New System.Drawing.Point(9, 277)
+        Me.PictureBox16.Name = "PictureBox16"
+        Me.PictureBox16.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox16.TabIndex = 27
+        Me.PictureBox16.TabStop = False
+        '
+        'LinkLabel6
+        '
+        Me.LinkLabel6.AutoSize = True
+        Me.LinkLabel6.LinkColor = System.Drawing.Color.DodgerBlue
+        Me.LinkLabel6.Location = New System.Drawing.Point(46, 288)
+        Me.LinkLabel6.Name = "LinkLabel6"
+        Me.LinkLabel6.Size = New System.Drawing.Size(58, 13)
+        Me.LinkLabel6.TabIndex = 26
+        Me.LinkLabel6.TabStop = True
+        Me.LinkLabel6.Text = "Edit sprites"
         '
         'TextBox2
         '
@@ -883,7 +905,7 @@ Partial Class frmMain
         Me.Panel5.BackColor = System.Drawing.Color.Gray
         Me.Panel5.Location = New System.Drawing.Point(3, 73)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(484, 1)
+        Me.Panel5.Size = New System.Drawing.Size(147, 1)
         Me.Panel5.TabIndex = 19
         '
         'PictureBox14
@@ -934,7 +956,7 @@ Partial Class frmMain
         Me.Panel4.BackColor = System.Drawing.Color.Gray
         Me.Panel4.Location = New System.Drawing.Point(3, 194)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(484, 1)
+        Me.Panel4.Size = New System.Drawing.Size(147, 1)
         Me.Panel4.TabIndex = 18
         '
         'PictureBox12
@@ -1051,6 +1073,7 @@ Partial Class frmMain
         'welcomePnl
         '
         Me.welcomePnl.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.welcomePnl.Controls.Add(Me.historyListView)
         Me.welcomePnl.Controls.Add(Me.Panel3)
         Me.welcomePnl.Controls.Add(Me.PictureBox3)
         Me.welcomePnl.Controls.Add(Me.Panel6)
@@ -1065,10 +1088,64 @@ Partial Class frmMain
         Me.welcomePnl.Controls.Add(Me.openProjectBtn)
         Me.welcomePnl.Controls.Add(Me.newProjectBtn)
         Me.welcomePnl.Controls.Add(Me.Label12)
-        Me.welcomePnl.Location = New System.Drawing.Point(558, 138)
+        Me.welcomePnl.Location = New System.Drawing.Point(122, 99)
+        Me.welcomePnl.MinimumSize = New System.Drawing.Size(343, 161)
         Me.welcomePnl.Name = "welcomePnl"
-        Me.welcomePnl.Size = New System.Drawing.Size(81, 101)
+        Me.welcomePnl.Size = New System.Drawing.Size(343, 161)
         Me.welcomePnl.TabIndex = 13
+        '
+        'historyListView
+        '
+        Me.historyListView.Activation = System.Windows.Forms.ItemActivation.TwoClick
+        Me.historyListView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.historyListView.Location = New System.Drawing.Point(267, 3)
+        Me.historyListView.MultiSelect = False
+        Me.historyListView.Name = "historyListView"
+        Me.historyListView.Size = New System.Drawing.Size(73, 16)
+        Me.historyListView.SmallImageList = Me.historyImagesList
+        Me.historyListView.TabIndex = 13
+        Me.historyListView.UseCompatibleStateImageBehavior = False
+        Me.historyListView.View = System.Windows.Forms.View.List
+        '
+        'historyImagesList
+        '
+        Me.historyImagesList.ImageStream = CType(resources.GetObject("historyImagesList.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.historyImagesList.TransparentColor = System.Drawing.Color.Transparent
+        Me.historyImagesList.Images.SetKeyName(0, "time.png")
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.Gainsboro
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel3.Location = New System.Drawing.Point(0, 22)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(343, 26)
+        Me.Panel3.TabIndex = 7
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.Gainsboro
+        Me.PictureBox3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PictureBox3.Image = Global.TranslaTale.My.Resources.Resources.icon_8SA_icon
+        Me.PictureBox3.Location = New System.Drawing.Point(0, 48)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(0)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(343, 87)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox3.TabIndex = 6
+        Me.PictureBox3.TabStop = False
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.Gainsboro
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel6.Location = New System.Drawing.Point(0, 135)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(343, 26)
+        Me.Panel6.TabIndex = 12
         '
         'PictureBox7
         '
@@ -1129,28 +1206,6 @@ Partial Class frmMain
         Me.compareMainBtn.TabIndex = 2
         Me.compareMainBtn.TabStop = True
         Me.compareMainBtn.Text = "Compare two projects..."
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.Gainsboro
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, -38)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(81, 26)
-        Me.Panel3.TabIndex = 7
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.Gainsboro
-        Me.PictureBox3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PictureBox3.Image = Global.TranslaTale.My.Resources.Resources.icon_8SA_icon
-        Me.PictureBox3.Location = New System.Drawing.Point(0, -12)
-        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(0)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(81, 87)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 6
-        Me.PictureBox3.TabStop = False
         '
         'PictureBox2
         '
@@ -1220,7 +1275,7 @@ Partial Class frmMain
         '
         Me.splitMain.Panel2.Controls.Add(Me.splitRight)
         Me.splitMain.Panel2MinSize = 184
-        Me.splitMain.Size = New System.Drawing.Size(854, 556)
+        Me.splitMain.Size = New System.Drawing.Size(854, 458)
         Me.splitMain.SplitterDistance = 666
         Me.splitMain.TabIndex = 61
         '
@@ -1231,7 +1286,7 @@ Partial Class frmMain
         Me.bottomPnl.Controls.Add(Me.rbTextbox)
         Me.bottomPnl.Controls.Add(Me.TableLayoutPanel1)
         Me.bottomPnl.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.bottomPnl.Location = New System.Drawing.Point(0, 361)
+        Me.bottomPnl.Location = New System.Drawing.Point(0, 263)
         Me.bottomPnl.Margin = New System.Windows.Forms.Padding(0)
         Me.bottomPnl.Name = "bottomPnl"
         Me.bottomPnl.Size = New System.Drawing.Size(666, 195)
@@ -1292,7 +1347,7 @@ Partial Class frmMain
         Me.splitRight.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(223, Byte), Integer), CType(CType(223, Byte), Integer))
         Me.splitRight.Panel2.Controls.Add(Me.Panel2)
         Me.splitRight.Panel2MinSize = 226
-        Me.splitRight.Size = New System.Drawing.Size(184, 556)
+        Me.splitRight.Size = New System.Drawing.Size(184, 458)
         Me.splitRight.SplitterDistance = 228
         Me.splitRight.TabIndex = 2
         '
@@ -1386,7 +1441,7 @@ Partial Class frmMain
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(184, 324)
+        Me.Panel2.Size = New System.Drawing.Size(184, 226)
         Me.Panel2.TabIndex = 2
         '
         'componentsList
@@ -1403,7 +1458,7 @@ Partial Class frmMain
         ListViewItem4.Tag = "Original"
         ListViewItem5.Tag = "Translated"
         Me.componentsList.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3, ListViewItem4, ListViewItem5})
-        Me.componentsList.Location = New System.Drawing.Point(9, 201)
+        Me.componentsList.Location = New System.Drawing.Point(9, 103)
         Me.componentsList.Name = "componentsList"
         Me.componentsList.Scrollable = False
         Me.componentsList.Size = New System.Drawing.Size(166, 113)
@@ -1629,35 +1684,6 @@ Partial Class frmMain
         '
         Me.OpenFileDialogMulti.Multiselect = True
         '
-        'PictureBox16
-        '
-        Me.PictureBox16.Image = Global.TranslaTale.My.Resources.Resources.image_edit
-        Me.PictureBox16.Location = New System.Drawing.Point(9, 277)
-        Me.PictureBox16.Name = "PictureBox16"
-        Me.PictureBox16.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox16.TabIndex = 27
-        Me.PictureBox16.TabStop = False
-        '
-        'LinkLabel6
-        '
-        Me.LinkLabel6.AutoSize = True
-        Me.LinkLabel6.LinkColor = System.Drawing.Color.DodgerBlue
-        Me.LinkLabel6.Location = New System.Drawing.Point(46, 288)
-        Me.LinkLabel6.Name = "LinkLabel6"
-        Me.LinkLabel6.Size = New System.Drawing.Size(58, 13)
-        Me.LinkLabel6.TabIndex = 26
-        Me.LinkLabel6.TabStop = True
-        Me.LinkLabel6.Text = "Edit sprites"
-        '
-        'Panel6
-        '
-        Me.Panel6.BackColor = System.Drawing.Color.Gainsboro
-        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel6.Location = New System.Drawing.Point(0, 75)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(81, 26)
-        Me.Panel6.TabIndex = 12
-        '
         'TranslationPercentageBox1
         '
         Me.TranslationPercentageBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -1670,7 +1696,7 @@ Partial Class frmMain
         Me.TranslationPercentageBox1.Name = "TranslationPercentageBox1"
         Me.TranslationPercentageBox1.RightValue = 0R
         Me.TranslationPercentageBox1.SelectedPercentage = TranslaTale.TranslationPercentageBox.Percentage.All
-        Me.TranslationPercentageBox1.Size = New System.Drawing.Size(166, 162)
+        Me.TranslationPercentageBox1.Size = New System.Drawing.Size(166, 85)
         Me.TranslationPercentageBox1.TabIndex = 0
         '
         'frmMain
@@ -1678,7 +1704,7 @@ Partial Class frmMain
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(854, 644)
+        Me.ClientSize = New System.Drawing.Size(854, 546)
         Me.Controls.Add(Me.splitMain)
         Me.Controls.Add(Me.topPnl)
         Me.ForeColor = System.Drawing.Color.Black
@@ -1706,6 +1732,7 @@ Partial Class frmMain
         Me.ToolStrip3.PerformLayout()
         Me.projectmanagerPnl.ResumeLayout(False)
         Me.projectmanagerPnl.PerformLayout()
+        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1716,10 +1743,10 @@ Partial Class frmMain
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.welcomePnl.ResumeLayout(False)
         Me.welcomePnl.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.splitMain.Panel1.ResumeLayout(False)
@@ -1745,7 +1772,6 @@ Partial Class frmMain
         Me.FlowLayoutPanel7.ResumeLayout(False)
         Me.FlowLayoutPanel9.ResumeLayout(False)
         Me.FlowLayoutPanel8.ResumeLayout(False)
-        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1894,4 +1920,6 @@ Partial Class frmMain
     Friend WithEvents PictureBox16 As PictureBox
     Friend WithEvents LinkLabel6 As LinkLabel
     Friend WithEvents Panel6 As Panel
+    Friend WithEvents historyListView As ListView
+    Friend WithEvents historyImagesList As ImageList
 End Class

@@ -156,6 +156,7 @@ Public Class frmMain
                 topPnl.Visible = True
                 bottomPnl.Visible = False
 
+
                 stringTextEditor.Enabled = False
                 SaveToolStripMenuItem.Enabled = True
                 searchToolStripBtn.Enabled = False
@@ -214,6 +215,19 @@ Public Class frmMain
 
                 topPnl.Visible = False
                 bottomPnl.Visible = False
+
+                'Update history
+                historyListView.Items.Clear()
+                If Not IsNothing(My.Settings.filesHistory) Then
+                    For Each current As String In My.Settings.filesHistory
+                        Dim lwi As ListViewItem = New ListViewItem(current.Split("|").LastOrDefault & " (" & current.Split("|").FirstOrDefault & ")")
+                        lwi.ImageIndex = 0
+                        lwi.Tag = current.Split("|").FirstOrDefault
+                        historyListView.Items.Add(lwi)
+                    Next
+                End If
+                'End update history
+
 
                 SaveToolStripMenuItem.Enabled = False
                 searchToolStripBtn.Enabled = False
@@ -1179,12 +1193,18 @@ Public Class frmMain
                         useDefaultStringsBtn.Enabled = False
                         PictureBox13.Enabled = False
                         PictureBox15.Enabled = False
+                        FromUndertaleToolStripMenuItem.Enabled = False
+                        DumpOriginalImagesToolStripMenuItem.Enabled = False
+                        DumpStringstxtToolStripMenuItem.Enabled = False
                     Else
                         itm.ImageIndex = 1
                         useDefaultSpritesBtn.Enabled = True
                         useDefaultStringsBtn.Enabled = True
                         PictureBox13.Enabled = True
                         PictureBox15.Enabled = True
+                        FromUndertaleToolStripMenuItem.Enabled = True
+                        DumpOriginalImagesToolStripMenuItem.Enabled = True
+                        DumpStringstxtToolStripMenuItem.Enabled = True
                     End If
             End Select
         Next
@@ -1278,7 +1298,6 @@ Public Class frmMain
     End Sub
 
     Private Sub openProjectBtn2_DropDownOpening(sender As Object, e As EventArgs) Handles openProjectBtn2.DropDownOpening
-        'This variables have random names and strange syntax because i recovered them using a decompiler.
         sender.DropDown.Items.Clear()
         Dim toolStripMenuItem As ToolStripMenuItem = New ToolStripMenuItem() With
             {
@@ -1290,20 +1309,22 @@ Public Class frmMain
 
         For Each current As String In My.Settings.filesHistory
             Dim toolStripMenuItem1 As ToolStripMenuItem = New ToolStripMenuItem() With
-         {
-             .Text = current.Split("|").LastOrDefault & " (" & current.Split("|").FirstOrDefault & ")",
-             .ImageScaling = ToolStripItemImageScaling.None,
-             .Image = My.Resources.time,
-             .Tag = current.Split("|").FirstOrDefault
-         }
+            {
+                 .Text = current.Split("|").LastOrDefault & " (" & current.Split("|").FirstOrDefault & ")",
+                 .ImageScaling = ToolStripItemImageScaling.None,
+                 .Image = My.Resources.time,
+                 .Tag = current.Split("|").FirstOrDefault
+            }
             AddHandler toolStripMenuItem1.Click, AddressOf Me.historyOpen
             sender.DropDown.Items.Add(toolStripMenuItem1)
         Next
-
     End Sub
 
     Private Sub historyOpen(sender As ToolStripMenuItem, e As EventArgs)
-        LoadTTX(sender.Tag)
+        Dim res = SaveTTXDialogAsk()
+        If res = SaveResultAsk.YES Or res = SaveResultAsk.No Or res = SaveResultAsk.AlreadySaved Then
+            LoadTTX(sender.Tag)
+        End If
     End Sub
 
     Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
@@ -1327,6 +1348,8 @@ Public Class frmMain
         If TextBox2.Text.Length > 1 And TextBox2.Text <> " " Then
             CurrentSession.projectName = TextBox2.Text
             Label9.Text = CurrentSession.projectName
+            saved = False
+            Me.Text = "TranslaTale - " & CurrentSession.projectName & IIf(saved, "", " *")
             TextBox2.Visible = False
         End If
     End Sub
@@ -1467,6 +1490,16 @@ Public Class frmMain
 
     Private Sub ToolStripButton1_Click_2(sender As Object, e As EventArgs) Handles debugToolBtn.Click
         frmGameCompiler.ShowDialog(False, True)
+    End Sub
+
+    Private Sub historyListView_ItemActivate(sender As Object, e As EventArgs) Handles historyListView.ItemActivate
+        If sender.SelectedItems.Count = 1 Then
+            LoadTTX(sender.SelectedItems(0).Tag)
+        End If
+    End Sub
+
+    Private Sub OptionsToolStripMenuItem_DropDownOpening(sender As Object, e As EventArgs) Handles OptionsToolStripMenuItem.DropDownOpening
+        ShowSymbolsToolStripMenuItem.Enabled = IIf(viewMode = ViewModes.EditorStrings, True, False)
     End Sub
 End Class
 
