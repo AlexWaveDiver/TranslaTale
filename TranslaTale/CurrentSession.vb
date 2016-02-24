@@ -8,6 +8,8 @@ Public Class CurrentSession
     Public Shared undertaleEXE As Byte() = New Byte() {}
     Public Shared sprites As New List(Of FileImage)
     Public Shared projectName As String = "New project"
+    Public Shared isProjectFile As Boolean = False
+    Public Shared projectPath As String = ""
 
     Public Shared Function getIndex(item As ListViewItem) As Integer
         If Integer.TryParse(item.SubItems(0).Text, 0) Then

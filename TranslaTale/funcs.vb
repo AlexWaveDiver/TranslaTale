@@ -91,7 +91,6 @@ Module funcs
 
         Dim ttx1 As TranslataleFile = TranslataleFile.Load(path1)
 
-
         If IsNothing(ttx1) Then
             frmMain.Enabled = True
             Return False
@@ -123,6 +122,12 @@ Module funcs
         CurrentSession.undertaleWIN = ttx1.undertaleWIN
         CurrentSession.undertaleEXE = ttx1.undertaleEXE
         CurrentSession.projectName = ttx1.projectName
+        CurrentSession.isProjectFile = ttx1.isProjectFile
+        If ttx1.isProjectFile Then
+            CurrentSession.projectPath = path1
+        Else
+            CurrentSession.projectPath = ""
+        End If
         frmMain.showText(CurrentSession.getLine(0).translatedText)
         frmMain.stringsPnl.HideSelection = False
         frmMain.stringTextEditor.Text = frmMain.FilterText(CurrentSession.getLine(0).translatedText, True, False)
@@ -330,6 +335,8 @@ Module funcs
                 Next
                 W.Close()
             End If
+            frmMain.saved = True
+            frmMain.Text = "TranslaTale - " & CurrentSession.projectName
             Return True
         Catch ex As Exception
             Return False

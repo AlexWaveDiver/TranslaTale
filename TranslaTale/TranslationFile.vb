@@ -9,6 +9,7 @@ Friend Class TranslataleFile
     Public undertaleEXE As Byte()
     Public images As List(Of FileImage)
     Public projectName As String
+    Public isProjectFile As Boolean
 
     Public Sub New()
         lines = New Dictionary(Of Integer, LineDouble)
@@ -18,6 +19,7 @@ Friend Class TranslataleFile
         undertaleEXE = New Byte() {}
         images = New List(Of FileImage)
         projectName = "New project"
+        isProjectFile = False
     End Sub
 
     Public Function NumeroRighe() As Integer
@@ -51,6 +53,7 @@ Friend Class TranslataleFile
             End Try
             sr.Close()
             ttx1.SetLines(textSource, textTranslated)
+            ttx1.isProjectFile = False
         Else
             ttx1.groups.Clear()
             Dim nbt As New NBTFile
@@ -110,6 +113,7 @@ Friend Class TranslataleFile
             ttx1.undertaleWIN = undertaleWIN
             ttx1.undertaleEXE = undertaleEXE
             ttx1.projectName = projname.Value
+            ttx1.isProjectFile = True
         End If
         Return ttx1
     End Function

@@ -1214,6 +1214,12 @@ Public Class frmMain
         Else
             debugToolBtn.Enabled = False
         End If
+
+        If CurrentSession.isProjectFile And CurrentSession.projectPath <> "" Then
+            QSaveToolStripMenuItem.Enabled = True
+        Else
+            QSaveToolStripMenuItem.Enabled = False
+        End If
     End Sub
 
     Private Sub LinkLabel7_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel7.LinkClicked
@@ -1500,6 +1506,14 @@ Public Class frmMain
 
     Private Sub OptionsToolStripMenuItem_DropDownOpening(sender As Object, e As EventArgs) Handles OptionsToolStripMenuItem.DropDownOpening
         ShowSymbolsToolStripMenuItem.Enabled = IIf(viewMode = ViewModes.EditorStrings, True, False)
+    End Sub
+
+    Private Sub QSaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QSaveToolStripMenuItem.Click
+        If CurrentSession.isProjectFile And CurrentSession.projectPath <> "" Then
+            SaveTTX(CurrentSession.projectPath)
+        Else
+            MsgBox("Can't save", vbExclamation)
+        End If
     End Sub
 End Class
 

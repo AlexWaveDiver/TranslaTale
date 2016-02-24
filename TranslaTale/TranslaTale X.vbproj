@@ -287,6 +287,7 @@
     <None Include="Resources\3.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\diskette.png" />
     <None Include="Resources\UDTRebuildSFXCAB.exe" />
     <None Include="Resources\Crypt.au3" />
     <None Include="Resources\FileConstants.au3" />
