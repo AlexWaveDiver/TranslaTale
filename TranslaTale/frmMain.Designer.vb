@@ -1575,7 +1575,7 @@ Partial Class frmMain
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(122, 25)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(170, 25)
         Me.FlowLayoutPanel2.TabIndex = 8
         '
         'Label1
@@ -1584,7 +1584,7 @@ Partial Class frmMain
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Margin = New System.Windows.Forms.Padding(0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(122, 25)
+        Me.Label1.Size = New System.Drawing.Size(170, 25)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "File"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1594,10 +1594,10 @@ Partial Class frmMain
         Me.FlowLayoutPanel5.BackColor = System.Drawing.Color.MistyRose
         Me.FlowLayoutPanel5.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
         Me.FlowLayoutPanel5.Controls.Add(Me.Label4)
-        Me.FlowLayoutPanel5.Location = New System.Drawing.Point(122, 0)
+        Me.FlowLayoutPanel5.Location = New System.Drawing.Point(170, 0)
         Me.FlowLayoutPanel5.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
-        Me.FlowLayoutPanel5.Size = New System.Drawing.Size(124, 25)
+        Me.FlowLayoutPanel5.Size = New System.Drawing.Size(110, 25)
         Me.FlowLayoutPanel5.TabIndex = 11
         '
         'Label4
@@ -1606,7 +1606,7 @@ Partial Class frmMain
         Me.Label4.Location = New System.Drawing.Point(0, 0)
         Me.Label4.Margin = New System.Windows.Forms.Padding(0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(124, 25)
+        Me.Label4.Size = New System.Drawing.Size(110, 25)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "My project"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1616,10 +1616,10 @@ Partial Class frmMain
         Me.FlowLayoutPanel3.BackColor = System.Drawing.Color.LightCyan
         Me.FlowLayoutPanel3.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
         Me.FlowLayoutPanel3.Controls.Add(Me.Label2)
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(246, 0)
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(280, 0)
         Me.FlowLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(76, 25)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(80, 25)
         Me.FlowLayoutPanel3.TabIndex = 9
         '
         'Label2
@@ -1628,7 +1628,7 @@ Partial Class frmMain
         Me.Label2.Location = New System.Drawing.Point(0, 0)
         Me.Label2.Margin = New System.Windows.Forms.Padding(0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(76, 25)
+        Me.Label2.Size = New System.Drawing.Size(80, 25)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Search"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1638,10 +1638,10 @@ Partial Class frmMain
         Me.FlowLayoutPanel4.BackColor = System.Drawing.Color.Honeydew
         Me.FlowLayoutPanel4.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
         Me.FlowLayoutPanel4.Controls.Add(Me.Label3)
-        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(322, 0)
+        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(360, 0)
         Me.FlowLayoutPanel4.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(139, 25)
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(125, 25)
         Me.FlowLayoutPanel4.TabIndex = 15
         '
         'Label3
@@ -1650,7 +1650,7 @@ Partial Class frmMain
         Me.Label3.Location = New System.Drawing.Point(0, 0)
         Me.Label3.Margin = New System.Windows.Forms.Padding(0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(139, 25)
+        Me.Label3.Size = New System.Drawing.Size(125, 25)
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Tools"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1660,7 +1660,7 @@ Partial Class frmMain
         Me.FlowLayoutPanel7.BackColor = System.Drawing.Color.LightGoldenrodYellow
         Me.FlowLayoutPanel7.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
         Me.FlowLayoutPanel7.Controls.Add(Me.Label7)
-        Me.FlowLayoutPanel7.Location = New System.Drawing.Point(461, 0)
+        Me.FlowLayoutPanel7.Location = New System.Drawing.Point(485, 0)
         Me.FlowLayoutPanel7.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel7.Name = "FlowLayoutPanel7"
         Me.FlowLayoutPanel7.Size = New System.Drawing.Size(50, 25)
@@ -1682,7 +1682,7 @@ Partial Class frmMain
         Me.FlowLayoutPanel9.BackColor = System.Drawing.Color.PapayaWhip
         Me.FlowLayoutPanel9.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
         Me.FlowLayoutPanel9.Controls.Add(Me.Label13)
-        Me.FlowLayoutPanel9.Location = New System.Drawing.Point(511, 0)
+        Me.FlowLayoutPanel9.Location = New System.Drawing.Point(535, 0)
         Me.FlowLayoutPanel9.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel9.Name = "FlowLayoutPanel9"
         Me.FlowLayoutPanel9.Size = New System.Drawing.Size(51, 25)
@@ -1704,7 +1704,7 @@ Partial Class frmMain
         Me.FlowLayoutPanel8.BackColor = System.Drawing.Color.Azure
         Me.FlowLayoutPanel8.BackgroundImage = Global.TranslaTale.My.Resources.Resources.ttxbgfooter
         Me.FlowLayoutPanel8.Controls.Add(Me.Label6)
-        Me.FlowLayoutPanel8.Location = New System.Drawing.Point(562, 0)
+        Me.FlowLayoutPanel8.Location = New System.Drawing.Point(586, 0)
         Me.FlowLayoutPanel8.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel8.Name = "FlowLayoutPanel8"
         Me.FlowLayoutPanel8.Size = New System.Drawing.Size(42, 25)
