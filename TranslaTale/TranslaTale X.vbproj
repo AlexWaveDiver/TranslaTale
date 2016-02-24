@@ -82,10 +82,9 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NBT-edit, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="NBT, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\NBT-edit.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\Users\Andrea\Downloads\NBT_SourceCode\NBT Source Code\NBT\bin\Release\NBT.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -121,6 +120,8 @@
     <Compile Include="AboutBox1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FileImage.vb" />
+    <Compile Include="FolderSelectDialog.vb" />
     <Compile Include="frmCompare.Designer.vb">
       <DependentUpon>frmCompare.vb</DependentUpon>
     </Compile>
@@ -133,10 +134,10 @@
     <Compile Include="frmCreateGroup.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFontImporter.designer.vb">
-      <DependentUpon>frmFontImporter.vb</DependentUpon>
+    <Compile Include="frmGameCompiler.designer.vb">
+      <DependentUpon>frmGameCompiler.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmFontImporter.vb">
+    <Compile Include="frmGameCompiler.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSearch.Designer.vb">
@@ -181,7 +182,7 @@
     <Compile Include="LineCompare.vb" />
     <Compile Include="LineDouble.vb" />
     <Compile Include="LineSingle.vb" />
-    <Compile Include="LinesLoaded.vb" />
+    <Compile Include="CurrentSession.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -197,6 +198,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Reflector.vb" />
     <Compile Include="TranslataleStringFile.vb" />
     <Compile Include="TranslationPercentageBox.Designer.vb">
       <DependentUpon>TranslationPercentageBox.vb</DependentUpon>
@@ -225,8 +227,8 @@
       <DependentUpon>frmCreateGroup.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFontImporter.resx">
-      <DependentUpon>frmFontImporter.vb</DependentUpon>
+    <EmbeddedResource Include="frmGameCompiler.resx">
+      <DependentUpon>frmGameCompiler.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSearch.resx">
@@ -285,6 +287,32 @@
     <None Include="Resources\3.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\UDTRebuildSFXCAB.exe" />
+    <None Include="Resources\Crypt.au3" />
+    <None Include="Resources\FileConstants.au3" />
+    <None Include="Resources\UNDERTALE.ico" />
+    <None Include="Resources\Aut2exe.exe" />
+    <None Include="Resources\more_form.png" />
+    <None Include="Resources\image_edit.png" />
+    <None Include="Resources\save_close.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\folder_image1.png" />
+    <None Include="Resources\bin.png" />
+    <None Include="Resources\resultset_next.png" />
+    <None Include="Resources\7z.exe" />
+    <None Include="Resources\7z.dll" />
+    <None Include="Resources\file_extension_png.png" />
+    <None Include="Resources\file_extension_txt.png" />
+    <None Include="Resources\game_monitor.png" />
+    <None Include="Resources\edit_diff.png" />
+    <None Include="Resources\inbox_document.png" />
+    <None Include="Resources\inbox_document_text.png" />
+    <None Include="Resources\inbox_slide1.png" />
+    <None Include="Resources\inbox_slide.png" />
+    <None Include="Resources\folder_image.png" />
+    <None Include="Resources\info_rhombus1.png" />
+    <None Include="Resources\inbox_images.png" />
+    <None Include="Resources\time.png" />
     <None Include="Resources\new.png" />
     <None Include="Resources\text_add.png" />
     <None Include="Resources\compare1.png" />
@@ -305,6 +333,8 @@
     <None Include="Resources\text_allcaps.png" />
     <None Include="Resources\text_language.png" />
     <None Include="Resources\font_colors.png" />
+    <None Include="Resources\UDTSFXCAB_Template.au3" />
+    <None Include="Resources\UNDERTALEico" />
     <None Include="Resources\UTFontsASCII.win" />
     <None Include="Resources\winpack.exe" />
     <None Include="Resources\winextract.exe" />
@@ -366,16 +396,7 @@
     <None Include="Resources\cross2.png" />
     <None Include="Resources\cross1.png" />
     <None Include="Resources\cross.png" />
-    <None Include="Resources\7z.exe" />
-    <None Include="Resources\7z.dll" />
-    <None Include="Resources\UNDERTALEico" />
     <None Include="Resources\UndertalePatchTool.bat" />
-    <None Include="Resources\Crypt.au3" />
-    <None Include="Resources\FileConstants.au3" />
-    <None Include="Resources\UNDERTALE.ico" />
-    <None Include="Resources\Aut2exe.exe" />
-    <None Include="Resources\UDTRebuildSFXCAB.exe" />
-    <None Include="Resources\UDTSFXCAB_Template.au3" />
     <None Include="Resources\Undertale Patch Tool.bat" />
     <None Include="Resources\libgcc_s_dw2-1.dll" />
     <None Include="Resources\Interop.Shell32.dll" />

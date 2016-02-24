@@ -1,4 +1,5 @@
-﻿Imports System.Drawing.Imaging
+﻿Imports System.Collections.Specialized
+Imports System.Drawing.Imaging
 Imports System.IO
 Imports System.Runtime.InteropServices
 Imports System.Threading
@@ -9,8 +10,7 @@ Public Class frmMain
     Dim actualColor As String = "white"
     Dim lastClicked As Integer = 0
     Dim opened As Boolean = True
-    Dim saved As Boolean = True
-    Public fileNameTitle As String = ""
+    Public saved As Boolean = True
     Dim fontResource As String = Application.StartupPath + "\fonts.png"
 
     Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbTextbox.CheckedChanged
@@ -32,19 +32,19 @@ Public Class frmMain
     Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
     End Sub
 
-    Private Sub TextBox1_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyUp
+    Private Sub TextBox1_KeyUp(ByVal sender As Object, ByVal e As KeyEventArgs) Handles stringTextEditor.KeyUp
         Timer1.Enabled = False
         If stringsPnl.SelectedItems.Count > 0 Then
             Dim index As Integer = CurrentSession.getIndex(stringsPnl.SelectedItems(0))
             Dim linea As LineDouble = CurrentSession.getLine(index)
-            CurrentSession.listViewObjects(index).SubItems(2).Text = TextBox1.Text
-            CurrentSession.lines(index).translatedText = TextBox1.Text
-            stringsPnl.SelectedItems(0).SubItems(2).Text = TextBox1.Text
-            If stringsPnl.SelectedItems(0).SubItems(1).Text <> TextBox1.Text Then
+            CurrentSession.listViewObjects(index).SubItems(2).Text = stringTextEditor.Text
+            CurrentSession.lines(index).translatedText = stringTextEditor.Text
+            stringsPnl.SelectedItems(0).SubItems(2).Text = stringTextEditor.Text
+            If stringsPnl.SelectedItems(0).SubItems(1).Text <> stringTextEditor.Text Then
                 CurrentSession.listViewObjects(index).BackColor = Color.LightGreen
                 stringsPnl.SelectedItems(0).BackColor = Color.LightGreen
                 saved = False
-                Me.Text = "TranslaTale - " + fileNameTitle + " *"
+                Me.Text = "TranslaTale - " + CurrentSession.projectName + " *"
                 SaveToolStripMenuItem.Enabled = True
                 ResetBtn.Visible = True
             Else
@@ -53,9 +53,9 @@ Public Class frmMain
                 ResetBtn.Visible = False
             End If
         Else
-            TextBox1.Enabled = False
-            TextBox1.Text = ""
-            showText(TextBox1.Text)
+            stringTextEditor.Enabled = False
+            stringTextEditor.Text = ""
+            showText(stringTextEditor.Text)
         End If
         Timer1.Enabled = True
     End Sub
@@ -90,10 +90,6 @@ Public Class frmMain
         stringsPnl.FullRowSelect = True
         stringsPnl.CheckBoxes = False
 
-        Dim filename As String
-        filename = Application.StartupPath + "\NBT.dll"
-        System.IO.File.WriteAllBytes(filename, My.Resources.NBT_edit)
-
         ListViewHelper.EnableDoubleBuffer(stringsPnl)
         cbFonts.SelectedIndex = 0
         With stringsPnl
@@ -111,29 +107,31 @@ Public Class frmMain
             Return _viewMode
         End Get
         Set(value As ViewModes)
-            If value = ViewModes.Editor Then
+            If value = ViewModes.EditorStrings Then
                 projectmanagerPnl.Visible = False
+                spritesPnl.Visible = False
                 welcomePnl.Visible = False
-                stringsPnl.Visible = True
+                tblEditor.Visible = True
 
-                stringsPnl.Dock = DockStyle.Fill
+                tblEditor.Dock = DockStyle.Fill
                 splitMain.Panel2Collapsed = False
 
                 topPnl.Visible = True
                 bottomPnl.Visible = True
 
                 stringsPnl.Enabled = True
-                TextBox1.Enabled = True
+                stringTextEditor.Enabled = True
                 SaveToolStripMenuItem.Enabled = True
-                ToolStripButton3.Enabled = True
+                searchToolStripBtn.Enabled = True
                 RepackGameASCIICharactersToolStripMenuItem.Enabled = True
                 RepackGamecustomFontsToolStripMenuItem.Enabled = True
-                ToolStripButton4.Enabled = True
+                goToLineToolStripBtn.Enabled = True
                 pnlGroups.Enabled = True
                 btnSetGroup.Enabled = True
                 TranslationPercentageBox1.Enabled = True
                 projectManagerToolBtn.Enabled = True
                 stringsEditorToolBtn.Enabled = False
+                spritesEditorToolBtn.Enabled = True
 
                 With stringsPnl
                     .Columns(0).Width = 65
@@ -142,11 +140,15 @@ Public Class frmMain
                 End With
                 stringsPnl.Focus()
                 RicalcolaGruppi()
+                updateComponents()
             ElseIf value = ViewModes.ProjectManager Then
-                stringsPnl.Visible = False
+                tblEditor.Visible = False
+                spritesPnl.Visible = False
                 welcomePnl.Visible = False
                 projectmanagerPnl.Visible = True
                 projectmanagerPnl.Focus()
+
+                Label9.Text = CurrentSession.projectName
 
                 projectmanagerPnl.Dock = DockStyle.Fill
                 splitMain.Panel2Collapsed = False
@@ -154,23 +156,55 @@ Public Class frmMain
                 topPnl.Visible = True
                 bottomPnl.Visible = False
 
-                TextBox1.Enabled = False
+                stringTextEditor.Enabled = False
                 SaveToolStripMenuItem.Enabled = True
-                ToolStripButton3.Enabled = False
+                searchToolStripBtn.Enabled = False
                 RepackGameASCIICharactersToolStripMenuItem.Enabled = True
                 RepackGamecustomFontsToolStripMenuItem.Enabled = True
-                ToolStripButton4.Enabled = False
+                goToLineToolStripBtn.Enabled = False
                 filtermenubtn.Enabled = False
                 pnlGroups.Enabled = True
                 btnSetGroup.Enabled = False
                 TranslationPercentageBox1.Enabled = False
                 showText("")
-                TextBox1.Text = ""
+                stringTextEditor.Text = ""
                 projectManagerToolBtn.Enabled = False
                 stringsEditorToolBtn.Enabled = True
+                spritesEditorToolBtn.Enabled = True
+                updateComponents()
+            ElseIf value = ViewModes.EditorSprites Then
+                tblEditor.Visible = False
+                welcomePnl.Visible = False
+                projectmanagerPnl.Visible = False
+                spritesPnl.Visible = True
+                spritesPnl.Focus()
 
+                spritesPnl.Dock = DockStyle.Fill
+                splitMain.Panel2Collapsed = False
+
+                topPnl.Visible = True
+                bottomPnl.Visible = False
+
+                stringTextEditor.Enabled = False
+                SaveToolStripMenuItem.Enabled = True
+                searchToolStripBtn.Enabled = False
+                RepackGameASCIICharactersToolStripMenuItem.Enabled = True
+                RepackGamecustomFontsToolStripMenuItem.Enabled = True
+                goToLineToolStripBtn.Enabled = False
+                filtermenubtn.Enabled = False
+                pnlGroups.Enabled = False
+                btnSetGroup.Enabled = False
+                TranslationPercentageBox1.Enabled = False
+                showText("")
+                stringTextEditor.Text = ""
+                projectManagerToolBtn.Enabled = True
+                stringsEditorToolBtn.Enabled = True
+                spritesEditorToolBtn.Enabled = False
+                updateComponents()
+                updateSpritesPanel()
             ElseIf value = ViewModes.Default Then
-                stringsPnl.Visible = False
+                tblEditor.Visible = False
+                spritesPnl.Visible = False
                 projectmanagerPnl.Visible = False
                 welcomePnl.Visible = True
                 welcomePnl.Focus()
@@ -182,68 +216,53 @@ Public Class frmMain
                 bottomPnl.Visible = False
 
                 SaveToolStripMenuItem.Enabled = False
-                ToolStripButton3.Enabled = False
+                searchToolStripBtn.Enabled = False
                 RepackGameASCIICharactersToolStripMenuItem.Enabled = False
                 RepackGamecustomFontsToolStripMenuItem.Enabled = False
-                ToolStripButton4.Enabled = False
+                goToLineToolStripBtn.Enabled = False
                 filtermenubtn.Enabled = False
                 pnlGroups.Enabled = False
                 btnSetGroup.Enabled = False
                 TranslationPercentageBox1.Enabled = False
                 showText("")
-                TextBox1.Text = ""
+                stringTextEditor.Text = ""
                 projectManagerToolBtn.Enabled = False
                 stringsEditorToolBtn.Enabled = False
+                spritesEditorToolBtn.Enabled = False
             End If
             _viewMode = value
         End Set
     End Property
 
+    Private Sub updateSpritesPanel()
+        spritesListView.Items.Clear()
+        spritesImageList.Images.Clear()
+        For Each sprite In CurrentSession.sprites
+            Dim li As New ListViewItem()
+            li.Text = sprite.fileName
+            li.Tag = sprite.fileName
+            spritesImageList.Images.Add(li.Text, Image.FromStream(New MemoryStream(sprite.content)))
+            li.ImageKey = li.Text
+            spritesListView.Items.Add(li)
+        Next
+    End Sub
+
     Public Enum ViewModes
-        Editor
+        EditorStrings
         ProjectManager
+        EditorSprites
         [Default]
     End Enum
 
     Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles openProjectBtn.LinkClicked
-        LoadTTX()
+        LoadTTXPopup()
     End Sub
 
     Private Sub Form1_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
-        Dim stat As Integer
-        If saved = False Then
-            stat = MsgBox("Do you want to save your changes?", vbYesNoCancel + vbInformation)
-            If stat = 2 Then
-                e.Cancel = True
-            ElseIf stat = 6 Then
-                SaveFileDialog1.Filter = "Text file|*.txt"
-                SaveFileDialog1.Title = "Save translation file"
-                If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
-                    Dim W As IO.StreamWriter
-                    W = New IO.StreamWriter(SaveFileDialog1.FileName)
-                    For i = 0 To CurrentSession.length - 1
-                        If i = CurrentSession.length Then
-                            If CurrentSession.lines.ContainsKey(i) Then
-                                W.Write(CurrentSession.lines(i).translatedText)
-                            Else
-                                W.Write("")
-                            End If
-                        Else
-                            If CurrentSession.lines.ContainsKey(i) Then
-                                W.WriteLine(CurrentSession.lines(i).translatedText)
-                            Else
-                                W.WriteLine("")
-                            End If
-                        End If
-                    Next
-                    W.Close()
-                    saved = True
-                    End
-                Else
-                    saved = False
-                    e.Cancel = True
-                End If
-            End If
+        Dim res = SaveTTXDialogAsk()
+        If res = SaveResultAsk.YES Or res = SaveResultAsk.No Or res = SaveResultAsk.AlreadySaved Then
+        Else
+            e.Cancel = True
         End If
     End Sub
 
@@ -276,8 +295,8 @@ Public Class frmMain
         If stringsPnl.SelectedItems.Count > 0 Then
             If stringsPnl.SelectedItems(0) IsNot Nothing Then
                 Dim val As String = stringsPnl.SelectedItems(0).SubItems(2).Text
-                TextBox1.Enabled = True
-                TextBox1.Text = FilterText(val, True, False)
+                stringTextEditor.Enabled = True
+                stringTextEditor.Text = FilterText(val, True, False)
                 If stringsPnl.SelectedItems(0).SubItems(1).Text <> stringsPnl.SelectedItems(0).SubItems(2).Text Then
                     ResetBtn.Visible = True
                 Else
@@ -285,50 +304,28 @@ Public Class frmMain
                 End If
                 showText(val)
             Else
-                TextBox1.Enabled = False
-                TextBox1.Text = ""
+                stringTextEditor.Enabled = False
+                stringTextEditor.Text = ""
                 ResetBtn.Visible = False
-                showText(TextBox1.Text)
+                showText(stringTextEditor.Text)
             End If
         Else
-            TextBox1.Enabled = False
-            TextBox1.Text = ""
+            stringTextEditor.Enabled = False
+            stringTextEditor.Text = ""
             ResetBtn.Visible = False
-            showText(TextBox1.Text)
+            showText(stringTextEditor.Text)
         End If
     End Sub
 
     Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
-        Me.Enabled = False
-        Dim fil As Efiltro = filtro
-        Dim filg As Integer = filtroGruppo
-        If (filtro <> Efiltro.Default_mode) Then
-            filtro = Efiltro.Default_mode
-            filtroGruppo = -1
-            Ricalcola()
-            Me.Enabled = False
-        End If
-        Dim lineslength = CurrentSession.length
-        filtro = fil
-        filtroGruppo = filg
-        fil = Nothing
-        SaveFileDialog1.Title = "Save translation file"
-        SaveFileDialog1.Filter = "TranslaTale file|*.ttx|Export translation Strings.txt|*.txt"
-        If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
-            saved = SaveTTX(SaveFileDialog1.FileName)
-            If saved = False Then
-                MsgBox("Error during file saving!" & vbCrLf & "Please, retry.", MsgBoxStyle.Critical, "TranslaTale")
-            End If
-        End If
-        Me.Text = "TranslaTale - " + fileNameTitle
-        Me.Enabled = True
+        SaveTTXDialog()
     End Sub
 
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles openProjectBtn2.Click
-        LoadTTX()
+    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles openProjectBtn2.ButtonClick
+        LoadTTXPopup()
     End Sub
 
-    Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton4.Click
+    Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles goToLineToolStripBtn.Click
         Dim frmgoto As New frmGoTo()
         Dim line As Integer = frmgoto.PopupGoTo()
 
@@ -346,14 +343,14 @@ Public Class frmMain
                 stringsPnl.Focus()
                 Dim val As String = CurrentSession.getLine(line - 1).translatedText
                 Me.showText(val)
-                Me.TextBox1.Text = FilterText(val, True, False)
+                Me.stringTextEditor.Text = FilterText(val, True, False)
                 Return
             End If
         End If
 
         If line <> -1 Then
             MsgBox("Line " + line.ToString + " not found", vbInformation)
-            ToolStripButton4.PerformClick()
+            goToLineToolStripBtn.PerformClick()
         End If
     End Sub
 
@@ -362,7 +359,7 @@ Public Class frmMain
             SpriteFontBox1.CurrentSpriteFont = DirectCast([Enum].Parse(GetType(UTSpriteFontBox.SpriteFontBox.SpriteFonts), cbFonts.SelectedItem), UTSpriteFontBox.SpriteFontBox.SpriteFonts)
             If stringsPnl.SelectedItems(0) IsNot Nothing Then
                 Dim val As String = stringsPnl.SelectedItems(0).SubItems(2).Text
-                TextBox1.Text = FilterText(val, True, False)
+                stringTextEditor.Text = FilterText(val, True, False)
                 showText(val)
             End If
         End If
@@ -371,7 +368,8 @@ Public Class frmMain
     Private Sub DumpOriginalImagesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DumpOriginalImagesToolStripMenuItem.Click
         Dim winPath As String
         Dim imgPath As String
-        Dim unpackImagesProc As Process
+
+        Dim fld As New FolderSelect.FolderSelectDialog
 
         OpenFileDialog2.Filter = "data.win|*.win"
         OpenFileDialog2.Title = "Select data.win"
@@ -382,55 +380,25 @@ Public Class frmMain
             Exit Sub
         End If
 
-        Dim options As Integer = &H40 + &H20
-        options += &H10   '' Adds edit box
-        Dim shellAppType As Type = Type.GetTypeFromProgID("Shell.Application")
-        Dim shell As Object = Activator.CreateInstance(shellAppType)
-        Dim root = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
-        Dim folder = CType(shell.BrowseForFolder(Nothing, "Choose an extraction location", options, root), Shell32.Folder2)
-        If folder Is Nothing Then
-            Exit Sub
-        Else
-            imgPath = folder.Self.Path
+        fld.Title = "Choose an extraction location"
+        If fld.ShowDialog Then
+            imgPath = fld.FileName
             If Not Directory.Exists(imgPath) Then
                 MsgBox("Directory doesn't exists!", MsgBoxStyle.Exclamation, "TranslaTale")
                 Exit Sub
             End If
+        Else
+            Exit Sub
         End If
-
-        Dim filename As String = Application.StartupPath + "\WinExtract.exe"
-        System.IO.File.WriteAllBytes(filename, My.Resources.WinExtract)
-
-        Dim p As New ProcessStartInfo
-        Dim tmpPath As String = GetTempFolder(True)
-        p.FileName = filename
-        p.Arguments = """" & winPath & """ """ & tmpPath & """ -tt"
-        unpackImagesProc = Process.Start(p)
-        unpackImagesProc.WaitForExit()
-
-        Dim i As Integer
-        For i = 0 To 4
-            If Not unpackImagesProc.HasExited Then
-                unpackImagesProc.Refresh()
-            Else
-                Exit For
-            End If
-        Next i
-
-        For Each f In Directory.GetFiles(tmpPath & "\TXTR\", "*.png")
-            If File.Exists(f) Then
-                If File.Exists(Path.Combine(imgPath, Path.GetFileName(f))) Then
-                    File.Delete(Path.Combine(imgPath, Path.GetFileName(f)))
-                End If
-                File.Move(f, Path.Combine(imgPath, Path.GetFileName(f)))
-            End If
-        Next
-        System.IO.Directory.Delete(tmpPath, True)
-        MsgBox("Process finished", vbInformation)
+        If extractSpritesFromWIN(File.ReadAllBytes(winPath), imgPath) = ExtractionResult.OK Then
+            MsgBox("Process finished", vbInformation)
+        Else
+            MsgBox("Extraction failed!", vbCritical)
+        End If
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        showText(TextBox1.Text)
+        showText(stringTextEditor.Text)
         countTranslated()
         Timer1.Enabled = False
     End Sub
@@ -443,7 +411,7 @@ Public Class frmMain
         'Next
     End Sub
 
-    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton3.Click
+    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles searchToolStripBtn.Click
         frmSearch.Show()
     End Sub
 
@@ -704,7 +672,7 @@ Public Class frmMain
     End Enum
 
     Private Sub TranslatedStringsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TranslationPercentageBox1.ClickOnLeftValue
-        If viewMode = ViewModes.Editor And filtro <> Efiltro.Translated Then
+        If viewMode = ViewModes.EditorStrings And filtro <> Efiltro.Translated Then
             filtro = Efiltro.Translated
             filtroGruppo = -1
             Ricalcola()
@@ -713,8 +681,8 @@ Public Class frmMain
 
     Public Sub Ricalcola()
         Me.Enabled = False
-        TextBox1.Enabled = False
-        TextBox1.Text = ""
+        stringTextEditor.Enabled = False
+        stringTextEditor.Text = ""
         stringsPnl.BeginUpdate()
         stringsPnl.Items.Clear()
         stringsPnl.Items.AddRange(CurrentSession.getListViewLines(filtro, filtroGruppo))
@@ -744,7 +712,7 @@ Public Class frmMain
             filterByGroupBtn.Enabled = True
             btnEditGroup.Enabled = True
             btnDeleteGroup.Enabled = True
-            If viewMode = ViewModes.Editor Then
+            If viewMode = ViewModes.EditorStrings Then
                 btnSetGroup.Enabled = True
             Else
                 btnSetGroup.Enabled = False
@@ -767,7 +735,7 @@ Public Class frmMain
     End Sub
 
     Private Sub AllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TranslationPercentageBox1.ClickOnResetButton
-        If viewMode = ViewModes.Editor And filtro <> Efiltro.Default_mode Then
+        If viewMode = ViewModes.EditorStrings And filtro <> Efiltro.Default_mode Then
             filtro = Efiltro.Default_mode
             filtroGruppo = -1
             Ricalcola()
@@ -775,7 +743,7 @@ Public Class frmMain
     End Sub
 
     Private Sub NotTranslatedStringsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TranslationPercentageBox1.ClickOnRightValue
-        If viewMode = ViewModes.Editor And filtro <> Efiltro.NotTranslated Then
+        If viewMode = ViewModes.EditorStrings And filtro <> Efiltro.NotTranslated Then
             filtro = Efiltro.NotTranslated
             filtroGruppo = -1
             Ricalcola()
@@ -784,8 +752,8 @@ Public Class frmMain
 
     Private Sub stringsPnl_KeyPress(sender As Object, e As KeyPressEventArgs) Handles stringsPnl.KeyPress
         If Not Char.IsControl(e.KeyChar) Then
-            TextBox1.Focus()
-            TextBox1.AppendText(e.KeyChar)
+            stringTextEditor.Focus()
+            stringTextEditor.AppendText(e.KeyChar)
         End If
     End Sub
 
@@ -806,7 +774,7 @@ Public Class frmMain
         If stringsPnl.SelectedItems.Count > 0 Then
             Dim index As Integer = CurrentSession.getIndex(stringsPnl.SelectedItems(0))
             Dim linea As LineDouble = CurrentSession.getLine(index)
-            TextBox1.Text = FilterText(linea.originalText, True, False)
+            stringTextEditor.Text = FilterText(linea.originalText, True, False)
             Dim testooriginale As String = linea.originalText
             CurrentSession.listViewObjects(index).SubItems(2).Text = testooriginale
             CurrentSession.lines(index).translatedText = testooriginale
@@ -815,20 +783,20 @@ Public Class frmMain
                 CurrentSession.listViewObjects(index).BackColor = Color.LightGreen
                 stringsPnl.SelectedItems(0).BackColor = Color.LightGreen
                 saved = False
-                Me.Text = "TranslaTale - " + fileNameTitle + " *"
+                Me.Text = "TranslaTale - " + CurrentSession.projectName + " *"
                 SaveToolStripMenuItem.Enabled = True
             Else
                 ResetBtn.Visible = False
                 CurrentSession.listViewObjects(index).BackColor = Color.LightSalmon
                 stringsPnl.SelectedItems(0).BackColor = Color.LightSalmon
                 saved = False
-                Me.Text = "TranslaTale - " + fileNameTitle + " *"
+                Me.Text = "TranslaTale - " + CurrentSession.projectName + " *"
                 SaveToolStripMenuItem.Enabled = True
             End If
         Else
-            TextBox1.Enabled = False
-            TextBox1.Text = ""
-            showText(TextBox1.Text)
+            stringTextEditor.Enabled = False
+            stringTextEditor.Text = ""
+            showText(stringTextEditor.Text)
         End If
         Timer1.Enabled = True
     End Sub
@@ -912,7 +880,7 @@ Public Class frmMain
     End Sub
 
     Private Sub Panel2_Click(sender As Object, e As EventArgs)
-        TextBox1.Focus()
+        stringTextEditor.Focus()
     End Sub
 
     <Obsolete("Obsolete! ")>
@@ -1014,75 +982,32 @@ Public Class frmMain
     End Sub
 
     Private Sub DumpStringstxtToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles DumpStringstxtToolStripMenuItem.Click
-        Dim winPath As String
         Dim outputStringsPath As String
-        Dim tempTXTStringsPath As String
-        Dim sPath As String
-        Dim unpackStringsProc As Process
 
-        OpenFileDialog2.Filter = "data.win|*.win"
-        OpenFileDialog2.Title = "Select data.win"
-
-        If OpenFileDialog2.ShowDialog() = DialogResult.OK Then
-            winPath = OpenFileDialog2.FileName
-        Else
-            Exit Sub
-        End If
-
-        SaveFileDialog2.Filter = "TranslaTale file|*.ttx"
+        SaveFileDialog2.Filter = "TranslaTale file|*.txt"
         If SaveFileDialog2.ShowDialog() = DialogResult.OK Then
             outputStringsPath = SaveFileDialog2.FileName
         Else
             Exit Sub
         End If
 
-        Dim filename As String = Application.StartupPath + "\WinExtract.exe"
-        System.IO.File.WriteAllBytes(filename, My.Resources.WinExtract)
-
-        Dim tmpPath As String = GetTempFolder(True)
-        tempTXTStringsPath = tmpPath & "\tmp_strings.txt"
-        Dim p As New ProcessStartInfo
-        p.FileName = filename
-        p.Arguments = """" & winPath & """ """ & tmpPath & """"
-        unpackStringsProc = Process.Start(p)
-        unpackStringsProc.WaitForExit()
-        Dim i As Integer
-        For i = 0 To 4
-            If Not unpackStringsProc.HasExited Then
-                unpackStringsProc.Refresh()
-            Else
-                Exit For
-            End If
-        Next i
-
-        File.Copy(tmpPath & "\STRG.txt", tempTXTStringsPath, True)
-
-        Dim ttx2 As New TranslataleFile()
-        Dim sr2 As New System.IO.StreamReader(tempTXTStringsPath)
-        Dim translatedStrings As String() = File.ReadAllLines(tempTXTStringsPath)
-        ttx2.SetLines(translatedStrings, translatedStrings)
-        sr2.Close()
-
-        ttx2.Save(outputStringsPath)
-
-        ttx2 = Nothing
-
-        System.IO.Directory.Delete(tmpPath, True)
+        extractStringsFromWIN(CurrentSession.undertaleWIN, outputStringsPath)
 
         MsgBox("Process finished", vbInformation)
 
-        sPath = StrReverse(SaveFileDialog2.FileName)
+        'Open extraction folder
+        Dim sPath As String = StrReverse(SaveFileDialog2.FileName)
         sPath = Mid(sPath, InStr(sPath, "\"), Len(sPath))
         sPath = StrReverse(sPath)
         Process.Start(sPath)
     End Sub
 
     Private Sub RepackGamecustomFontsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RepackGamecustomFontsToolStripMenuItem.Click
-        frmFontImporter.ShowDialog(True)
+        frmGameCompiler.ShowDialog(True)
     End Sub
 
     Private Sub RepackGameASCIICharactersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RepackGameASCIICharactersToolStripMenuItem.Click
-        frmFontImporter.ShowDialog(False)
+        frmGameCompiler.ShowDialog(False)
     End Sub
 
     Private Sub MigrationToolToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles MigrationToolToolStripMenuItem.Click
@@ -1091,7 +1016,7 @@ Public Class frmMain
     End Sub
 
     Private Sub SpriteFontBox1_Click(sender As Object, e As EventArgs) Handles SpriteFontBox1.GotFocus
-        TextBox1.Focus()
+        stringTextEditor.Focus()
     End Sub
 
     Private Sub ToolStrip1_MouseEnter(sender As Object, e As EventArgs) Handles ToolStrip1.MouseEnter
@@ -1104,11 +1029,11 @@ Public Class frmMain
         ttipMenu.Visible = False
     End Sub
 
-    Private Sub ToolStrip1_ItemAdded(sender As Object, e As System.Windows.Forms.ToolStripItemEventArgs) Handles ToolStrip1.ItemAdded
+    Private Sub ToolStrip1_ItemAdded(sender As Object, e As ToolStripItemEventArgs) Handles ToolStrip1.ItemAdded
         AddHandler e.Item.MouseEnter, AddressOf ToolStrip1_MouseMove
     End Sub
 
-    Private Sub ToolStrip1_ControlAdded(sender As Object, e As System.Windows.Forms.ControlEventArgs) Handles ToolStrip1.ControlAdded
+    Private Sub ToolStrip1_ControlAdded(sender As Object, e As ControlEventArgs) Handles ToolStrip1.ControlAdded
         AddHandler e.Control.MouseEnter, AddressOf ToolStrip1_MouseMove
     End Sub
 
@@ -1131,7 +1056,7 @@ Public Class frmMain
     End Sub
 
     Private Sub ToolStripButton2_Click_1(sender As Object, e As EventArgs) Handles stringsEditorToolBtn.Click
-        viewMode = ViewModes.Editor
+        viewMode = ViewModes.EditorStrings
     End Sub
 
     Private Sub compareMainBtn_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles compareMainBtn.LinkClicked
@@ -1154,44 +1079,22 @@ Public Class frmMain
 
     Private Sub LinkLabel1_LinkClicked_1(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         Dim strings As String() = readStringsTXT("Open original Strings.txt file")
+        CurrentSession.ChangeStringsFile(strings, True)
         If Not IsNothing(strings) Then
-            Dim stringsN As Integer = 0
-            For x As Integer = 0 To strings.Length - 1 Step 1
-                If CurrentSession.lines.ContainsKey(x) Then
-                    CurrentSession.lines(x).originalText = strings(x)
-                Else
-                    CurrentSession.lines.Add(x, New LineDouble(strings(x), vbNullString))
-                End If
-                stringsN = x
-            Next
-            CurrentSession.ComputeListViewLines()
-            Ricalcola()
-            saved = False
-            MsgBox("Done! Imported " & stringsN & " strings!", MsgBoxStyle.Information)
+            MsgBox("Done! Imported the strings!", MsgBoxStyle.Information)
         End If
     End Sub
 
     Private Sub LinkLabel2_LinkClicked_1(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
         Dim strings As String() = readStringsTXT("Open translated Strings.txt file")
+        CurrentSession.ChangeStringsFile(strings, False)
         If Not IsNothing(strings) Then
-            Dim stringsN As Integer = 0
-            For x As Integer = 0 To strings.Length - 1 Step 1
-                If CurrentSession.lines.ContainsKey(x) Then
-                    CurrentSession.lines(x).translatedText = strings(x)
-                Else
-                    CurrentSession.lines.Add(x, New LineDouble(vbNullString, strings(x)))
-                End If
-                stringsN = x
-            Next
-            CurrentSession.ComputeListViewLines()
-            Ricalcola()
-            saved = False
-            MsgBox("Done! Imported " & stringsN & " strings!", MsgBoxStyle.Information)
+            MsgBox("Done! Imported the strings!", MsgBoxStyle.Information)
         End If
     End Sub
 
     Private Sub LinkLabel3_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel3.LinkClicked
-        viewMode = ViewModes.Editor
+        viewMode = ViewModes.EditorStrings
     End Sub
 
     Private Sub newProjectToolStripBtn_Click(sender As Object, e As EventArgs) Handles newProjectToolStripBtn.Click
@@ -1208,6 +1111,362 @@ Public Class frmMain
             End If
             LoadTTX(SaveFileDialog1.FileName)
         End If
+    End Sub
+
+    Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles componentsList.SelectedIndexChanged
+        componentsList.SelectedItems.Clear()
+    End Sub
+
+
+    Public Sub updateComponents()
+        Dim candebug As Boolean = True
+        For Each itm As ListViewItem In componentsList.Items
+            Select Case itm.Tag
+                Case "Original"
+                    If CurrentSession.areOriginalStringsEmpty() Then
+                        itm.ImageIndex = 0
+                    Else
+                        itm.ImageIndex = 1
+                    End If
+                Case "Translated"
+                    If CurrentSession.areTranslatedStringsEmpty() Then
+                        itm.ImageIndex = 0
+                    Else
+                        itm.ImageIndex = 1
+                    End If
+                Case "Sprites"
+                    If CurrentSession.sprites.Count <= 0 Then
+                        itm.ImageIndex = 0
+                    Else
+                        Try
+                            Dim maxnumb As Integer = 0
+                            For Each img In CurrentSession.sprites
+                                If Integer.Parse(Path.GetFileNameWithoutExtension(img.fileName)) > maxnumb Then
+                                    maxnumb = Integer.Parse(Path.GetFileNameWithoutExtension(img.fileName))
+                                End If
+                            Next
+                            If maxnumb = CurrentSession.sprites.Count - 1 Then
+                                itm.ImageIndex = 1
+                            Else
+                                itm.ImageIndex = 2
+                                candebug = False
+                            End If
+                        Catch ex As Exception
+                            itm.ImageIndex = 2
+                            candebug = False
+                        End Try
+                    End If
+                Case "Undertale"
+                    If CurrentSession.undertaleEXE.Count <= 10 Then
+                        itm.ImageIndex = 0
+                        useDefaultSpritesBtn.Enabled = False
+                        useDefaultStringsBtn.Enabled = False
+                        PictureBox13.Enabled = False
+                        PictureBox15.Enabled = False
+                        debugToolBtn.Enabled = False
+                        candebug = False
+                    Else
+                        itm.ImageIndex = 1
+                        useDefaultSpritesBtn.Enabled = True
+                        useDefaultStringsBtn.Enabled = True
+                        PictureBox13.Enabled = True
+                        PictureBox15.Enabled = True
+                    End If
+                Case "data.win"
+                    If CurrentSession.undertaleWIN.Count <= 10 Then
+                        itm.ImageIndex = 0
+                        useDefaultSpritesBtn.Enabled = False
+                        useDefaultStringsBtn.Enabled = False
+                        PictureBox13.Enabled = False
+                        PictureBox15.Enabled = False
+                    Else
+                        itm.ImageIndex = 1
+                        useDefaultSpritesBtn.Enabled = True
+                        useDefaultStringsBtn.Enabled = True
+                        PictureBox13.Enabled = True
+                        PictureBox15.Enabled = True
+                    End If
+            End Select
+        Next
+
+        If candebug Then
+            debugToolBtn.Enabled = True
+        Else
+            debugToolBtn.Enabled = False
+        End If
+    End Sub
+
+    Private Sub LinkLabel7_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel7.LinkClicked
+        Dim datawinpath As String
+        Dim datawin As Byte()
+        Dim exemode As Boolean = False
+        Dim tf As String = GetTempFolder()
+        OpenFileDialog1.Filter = "data.win or Undertale.exe (Not translated)|*.exe;*.win|Undertale.exe (Not translated)|*.exe|data.win (Not translated)|*.win"
+        OpenFileDialog1.Title = "Import Undertale"
+
+        If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
+
+            If Path.GetExtension(OpenFileDialog1.FileName) = ".exe" Then
+                exemode = True
+                Dim ut As Byte() = File.ReadAllBytes(OpenFileDialog1.FileName)
+                CurrentSession.undertaleEXE = ut
+                Select Case ExtractUndertaleEXE(ut, tf, "TempUT.exe")
+                    Case ExtractionResult.OK
+                        datawinpath = Path.Combine(tf, "data.win")
+                    Case ExtractionResult.CantExtract
+                        MsgBox("This is not an Undertale.exe copy!", vbCritical)
+                        Exit Sub
+                    Case ExtractionResult.Problematic
+                        MsgBox("This file doesn't contains data.win! It can't be Undertale.exe", vbCritical)
+                        Exit Sub
+                    Case ExtractionResult.EmptyFile
+                        MsgBox("This file is empty! It can't be Undertale.exe", vbCritical)
+                        Exit Sub
+                    Case Else
+                        MsgBox("Unexpected problem during the extraction!", vbCritical)
+                        Exit Sub
+                End Select
+            Else
+                datawinpath = OpenFileDialog1.FileName
+            End If
+
+            datawin = File.ReadAllBytes(datawinpath)
+
+            If exemode Then
+                Directory.Delete(tf, True)
+            End If
+
+            CurrentSession.undertaleWIN = datawin
+            updateComponents()
+            MsgBox("Done!", vbInformation)
+        End If
+
+    End Sub
+
+    Private Sub LinkLabel4_LinkClicked(sender As Object, e As EventArgs) Handles LinkLabel4.LinkClicked, ChooseSpritesToolStripMenuItem.Click
+        OpenFileDialogMulti.Title = "Import Undertale sprites"
+        OpenFileDialogMulti.Filter = "Sprites|*.png"
+        If OpenFileDialogMulti.ShowDialog = DialogResult.OK Then
+            importSprites(OpenFileDialogMulti.FileNames, False, True)
+        End If
+        updateSpritesPanel()
+    End Sub
+
+    Private Sub LinkLabel5_LinkClicked(sender As Object, e As EventArgs) Handles LinkLabel5.LinkClicked, FromFolderToolStripMenuItem.Click
+        Dim opendir As New FolderSelect.FolderSelectDialog
+        opendir.Title = "Import Undertale sprites"
+        If opendir.ShowDialog = True Then
+            importSprites(Directory.GetFiles(opendir.FileName, "*.png", SearchOption.TopDirectoryOnly), False, True)
+        End If
+        updateSpritesPanel()
+    End Sub
+
+    Private Sub useDefaultStringsBtn_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles useDefaultStringsBtn.LinkClicked
+        If MsgBox("Would you want to overwrite ALL the original strings side?", MsgBoxStyle.YesNo + MsgBoxStyle.Exclamation, "TranslaTale > WARNING!") = MsgBoxResult.Yes Then
+            Dim outputStringsPath As String = GetTempFolder(True)
+            extractStringsFromWIN(CurrentSession.undertaleWIN, Path.Combine(outputStringsPath, "DefaultStrings.txt"))
+
+            Dim strings As String() = File.ReadAllLines(Path.Combine(outputStringsPath, "DefaultStrings.txt"))
+
+            Directory.Delete(outputStringsPath, True)
+
+            CurrentSession.ChangeStringsFile(strings, True)
+            If Not IsNothing(strings) Then
+                MsgBox("Done! Imported the strings!", MsgBoxStyle.Information)
+            End If
+        End If
+    End Sub
+
+    Private Sub openProjectBtn2_DropDownOpening(sender As Object, e As EventArgs) Handles openProjectBtn2.DropDownOpening
+        'This variables have random names and strange syntax because i recovered them using a decompiler.
+        sender.DropDown.Items.Clear()
+        Dim toolStripMenuItem As ToolStripMenuItem = New ToolStripMenuItem() With
+            {
+                .Enabled = False,
+                .Text = "History"
+            }
+        sender.DropDown.Items.Add(toolStripMenuItem)
+        sender.DropDown.Items.Add(New ToolStripSeparator())
+
+        For Each current As String In My.Settings.filesHistory
+            Dim toolStripMenuItem1 As ToolStripMenuItem = New ToolStripMenuItem() With
+         {
+             .Text = current.Split("|").LastOrDefault & " (" & current.Split("|").FirstOrDefault & ")",
+             .ImageScaling = ToolStripItemImageScaling.None,
+             .Image = My.Resources.time,
+             .Tag = current.Split("|").FirstOrDefault
+         }
+            AddHandler toolStripMenuItem1.Click, AddressOf Me.historyOpen
+            sender.DropDown.Items.Add(toolStripMenuItem1)
+        Next
+
+    End Sub
+
+    Private Sub historyOpen(sender As ToolStripMenuItem, e As EventArgs)
+        LoadTTX(sender.Tag)
+    End Sub
+
+    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
+        TextBox2.Location = Label9.Location
+        If Label9.Width > Label9.Parent.Width / 2 Then
+            TextBox2.Width = Label9.Width
+        Else
+            TextBox2.Width = Label9.Parent.Width / 2
+        End If
+        TextBox2.Height = Label9.Height
+        TextBox2.Font = Label9.Font
+        TextBox2.Text = ""
+        TextBox2.Text = Label9.Text
+        TextBox2.SelectionStart = TextBox2.Text.Length
+        TextBox2.SelectionLength = 0
+        TextBox2.Visible = True
+        TextBox2.Focus()
+    End Sub
+
+    Private Sub label9save()
+        If TextBox2.Text.Length > 1 And TextBox2.Text <> " " Then
+            CurrentSession.projectName = TextBox2.Text
+            Label9.Text = CurrentSession.projectName
+            TextBox2.Visible = False
+        End If
+    End Sub
+    Private Sub label9close() Handles TextBox2.LostFocus
+        TextBox2.Visible = False
+    End Sub
+
+    Private Sub label9leave2(sender As Object, e As KeyEventArgs) Handles TextBox2.KeyUp
+        If e.KeyCode = Keys.Enter Or e.KeyCode = Keys.Return Or e.KeyCode = Keys.End Then
+            label9save()
+        ElseIf e.KeyCode = Keys.Escape Then
+            label9close()
+        End If
+    End Sub
+
+    Private Sub useDefaultSpritesBtn_LinkClicked(sender As Object, e As EventArgs) Handles useDefaultSpritesBtn.LinkClicked, FromUndertaleToolStripMenuItem.Click
+        Dim tf As String
+        Dim result = MsgBox("Would you want to overwrite existing project sprites?", MsgBoxStyle.YesNoCancel + MsgBoxStyle.Question)
+        If result = MsgBoxResult.Yes Then
+            tf = GetTempFolder(True)
+            If extractSpritesFromWIN(CurrentSession.undertaleWIN, tf) = ExtractionResult.OK Then
+                importSprites(Directory.GetFiles(tf, "*.png"), False, True)
+                updateSpritesPanel()
+            Else
+                MsgBox("Error!", vbExclamation)
+            End If
+            Directory.Delete(tf, True)
+        ElseIf result = MsgBoxResult.No Then
+            tf = GetTempFolder(True)
+            If extractSpritesFromWIN(CurrentSession.undertaleWIN, tf) = ExtractionResult.OK Then
+                importSprites(Directory.GetFiles(tf, "*.png"), False, False)
+                updateSpritesPanel()
+            Else
+                MsgBox("Error!", vbExclamation)
+            End If
+            Directory.Delete(tf, True)
+        End If
+    End Sub
+
+    Private Sub spritesEditorToolBtn_Click(sender As Object, e As EventArgs) Handles spritesEditorToolBtn.Click
+        viewMode = ViewModes.EditorSprites
+    End Sub
+
+    Private Sub spriteContextMenuStrip_Opening(sender As ContextMenuStrip, e As System.ComponentModel.CancelEventArgs) Handles spriteContextMenuStrip.Opening
+        If spritesListView.SelectedItems.Count > 0 Then
+            sender.Enabled = True
+            If spritesListView.SelectedItems.Count = 1 Then
+                ChangeToolStripMenuItem.Enabled = True
+            Else
+                ChangeToolStripMenuItem.Enabled = False
+            End If
+        Else
+            sender.Enabled = False
+        End If
+    End Sub
+
+    Private Sub ChangeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangeToolStripMenuItem.Click
+        If spritesListView.SelectedItems.Count = 1 Then
+            OpenFileDialog1.Title = "Change sprite..."
+            OpenFileDialog1.Filter = "Sprite|*.png"
+            If OpenFileDialog1.ShowDialog = DialogResult.OK Then
+                Dim originalImage As String = spritesListView.SelectedItems(0).Tag
+                Dim substituteImage As String = OpenFileDialog1.FileName
+                Try
+                    Dim streamReader As New StreamReader(substituteImage)
+                    Dim fileImage As TranslaTale.FileImage = New TranslaTale.FileImage(File.ReadAllBytes(substituteImage), originalImage)
+                    streamReader.Close()
+                    Dim foundSameImageIndex As Integer = -1
+                    Dim count As Integer = CurrentSession.sprites.Count - 1
+                    Dim existingImageIndex As Integer = 0
+                    For Each existingImage In CurrentSession.sprites
+                        If existingImage.fileName <> fileImage.fileName Then
+                            existingImageIndex = existingImageIndex + 1
+                        Else
+                            foundSameImageIndex = existingImageIndex
+                            Exit For
+                        End If
+                    Next
+                    If (foundSameImageIndex = -1) Then
+                        CurrentSession.sprites.Add(fileImage)
+                    Else
+                        CurrentSession.sprites(foundSameImageIndex) = fileImage
+                    End If
+                    updateSpritesPanel()
+                    MsgBox("Done!", vbInformation)
+                Catch
+                    Interaction.MsgBox(String.Concat("Can't import ", Path.GetFileName(substituteImage)), MsgBoxStyle.Exclamation, Nothing)
+                End Try
+            End If
+        End If
+    End Sub
+
+    Private Sub ExportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportToolStripMenuItem.Click
+        If spritesListView.SelectedItems.Count > 0 Then
+            Dim fld As New FolderSelect.FolderSelectDialog
+            fld.Title = "Select output folder"
+            If fld.ShowDialog() Then
+                For Each imageItem As ListViewItem In spritesListView.SelectedItems
+                    Dim imageName As String = imageItem.Tag
+                    For Each image In CurrentSession.sprites
+                        If image.fileName = imageName Then
+                            File.WriteAllBytes(Path.Combine(fld.FileName, image.fileName), image.content)
+                        End If
+                    Next
+                Next
+                Process.Start(fld.FileName)
+            End If
+        End If
+    End Sub
+
+    Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
+        If spritesListView.SelectedItems.Count > 0 Then
+            If MsgBox("Are you sure you want to delete selected sprites?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                For Each imageItem As ListViewItem In spritesListView.SelectedItems
+                    Dim imageName As String = imageItem.Tag
+                    Dim tmplist As New List(Of FileImage)
+                    For Each image In CurrentSession.sprites
+                        tmplist.Add(image)
+                    Next
+                    For Each image In tmplist
+                        If image.fileName = imageName Then
+                            CurrentSession.sprites.Remove(image)
+                        End If
+                    Next
+                Next
+                updateSpritesPanel()
+            End If
+        End If
+    End Sub
+
+    Private Sub ToolStripButton2_Click_2(sender As Object, e As EventArgs)
+        viewMode = ViewModes.ProjectManager
+    End Sub
+
+    Private Sub LinkLabel6_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel6.LinkClicked
+        viewMode = ViewModes.EditorSprites
+    End Sub
+
+    Private Sub ToolStripButton1_Click_2(sender As Object, e As EventArgs) Handles debugToolBtn.Click
+        frmGameCompiler.ShowDialog(False, True)
     End Sub
 End Class
 

@@ -3,11 +3,21 @@ Imports NBT.IO
 Imports NBT.Tags
 
 Friend Class TranslataleFile
-    Public lines As New Dictionary(Of Integer, LineDouble)
-    Public groups As New Dictionary(Of Short, Group)
+    Public lines As Dictionary(Of Integer, LineDouble)
+    Public groups As Dictionary(Of Short, Group)
+    Public undertaleWIN As Byte()
+    Public undertaleEXE As Byte()
+    Public images As List(Of FileImage)
+    Public projectName As String
 
     Public Sub New()
+        lines = New Dictionary(Of Integer, LineDouble)
+        groups = New Dictionary(Of Short, Group)
         groups(-1) = New Group(-1, "Default", Color.Silver)
+        undertaleWIN = New Byte() {}
+        undertaleEXE = New Byte() {}
+        images = New List(Of FileImage)
+        projectName = "New project"
     End Sub
 
     Public Function NumeroRighe() As Integer
@@ -47,6 +57,30 @@ Friend Class TranslataleFile
             nbt.Load(path1)
             Dim lineslst As TagList = nbt.RootTag("Lines")
             Dim grouplst As TagList = nbt.RootTag("Groups")
+            Dim imageslst As TagCompound
+            Dim undertaleEXE As TagByteArray
+            Dim undertaleWIN As TagByteArray
+            Dim projname As Tag
+            If Not nbt.RootTag().Contains("Images") Then
+                imageslst = New TagCompound(New Dictionary(Of String, Tag))
+            Else
+                imageslst = nbt.RootTag("Images")
+            End If
+            If Not nbt.RootTag().Contains("Undertale") Then
+                undertaleEXE = New TagByteArray(New Byte() {})
+            Else
+                undertaleEXE = nbt.RootTag("Undertale")
+            End If
+            If Not nbt.RootTag().Contains("data.win") Then
+                undertaleWIN = New TagByteArray(New Byte() {})
+            Else
+                undertaleWIN = nbt.RootTag("data.win")
+            End If
+            If Not nbt.RootTag().Contains("Project name") Then
+                projname = New TagString("Unnamed project")
+            Else
+                projname = nbt.RootTag("Project name")
+            End If
             Dim index As Integer = 0
             For Each item As TagCompound In lineslst
                 Dim txteng As String
@@ -69,6 +103,13 @@ Friend Class TranslataleFile
                 Dim gr As New Group(num, nome, Color.FromArgb(col))
                 ttx1.groups.Add(num, gr)
             Next
+            For Each image As KeyValuePair(Of String, Tag) In imageslst
+                Dim bytes As TagByteArray = DirectCast(image.Value, TagByteArray).bytesValue
+                ttx1.images.Add(New FileImage(bytes, image.Key))
+            Next
+            ttx1.undertaleWIN = undertaleWIN
+            ttx1.undertaleEXE = undertaleEXE
+            ttx1.projectName = projname.Value
         End If
         Return ttx1
     End Function
@@ -98,27 +139,39 @@ Friend Class TranslataleFile
         Else
             Dim nbt2 As New NBTFile
 
-        Dim linestag2 As New TagList(10)
-        Dim groupstag2 As New TagList(10)
-        For Each linea In lines
-            Dim linetag2 As New TagCompound()
-            linetag2.Add("testoOriginale", New TagString(linea.Value.originalText))
-            linetag2.Add("testo", New TagString(linea.Value.translatedText))
-            linetag2.Add("numero", New TagInt(linea.Key))
-            linetag2.Add("gruppo", New TagShort(linea.Value.group))
-            linestag2.Add(linetag2)
-        Next
-        For Each gruppo In groups
-            Dim grouptag2 As New TagCompound()
-            grouptag2.Add("nome", New TagString(gruppo.Value.name))
-            grouptag2.Add("numero", New TagShort(gruppo.Value.numero))
-            grouptag2.Add("colore", New TagInt(gruppo.Value.colore.ToArgb))
-            groupstag2.Add(grouptag2)
-        Next
-        nbt2.RootTag.Add("Lines", linestag2)
-        nbt2.RootTag.Add("Groups", groupstag2)
+            Dim linestag2 As New TagList(10)
+            Dim groupstag2 As New TagList(10)
+            Dim imageslst As New TagCompound
+            Dim undertaleEXE As New TagByteArray
+            Dim undertaleWIN As New TagByteArray
+            For Each linea In lines
+                Dim linetag2 As New TagCompound()
+                linetag2.Add("testoOriginale", New TagString(linea.Value.originalText))
+                linetag2.Add("testo", New TagString(linea.Value.translatedText))
+                linetag2.Add("numero", New TagInt(linea.Key))
+                linetag2.Add("gruppo", New TagShort(linea.Value.group))
+                linestag2.Add(linetag2)
+            Next
+            For Each gruppo In groups
+                Dim grouptag2 As New TagCompound()
+                grouptag2.Add("nome", New TagString(gruppo.Value.name))
+                grouptag2.Add("numero", New TagShort(gruppo.Value.numero))
+                grouptag2.Add("colore", New TagInt(gruppo.Value.colore.ToArgb))
+                groupstag2.Add(grouptag2)
+            Next
+            For Each image In Me.images
+                imageslst.Add(image.fileName, New TagByteArray(image.content))
+            Next
+            undertaleEXE = Me.undertaleEXE
+            undertaleWIN = Me.undertaleWIN
+            nbt2.RootTag.Add("Lines", linestag2)
+            nbt2.RootTag.Add("Groups", groupstag2)
+            nbt2.RootTag.Add("Images", imageslst)
+            nbt2.RootTag.Add("Undertale", undertaleEXE)
+            nbt2.RootTag.Add("data.win", undertaleWIN)
+            nbt2.RootTag.Add("Project name", New TagString(projectName))
 
-        nbt2.Save(path1)
+            nbt2.Save(path1)
         End If
     End Sub
 

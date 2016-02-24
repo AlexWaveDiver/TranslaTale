@@ -121,7 +121,7 @@
                 If frmMain.stringsPnl.SelectedItems(0) IsNot Nothing Then
                     Dim val As String = frmMain.stringsPnl.Items(line - 1).SubItems(2).Text
                     frmMain.showText(val)
-                    frmMain.TextBox1.Text = val
+                    frmMain.stringTextEditor.Text = val
                 End If
                 Exit Sub
             End If
