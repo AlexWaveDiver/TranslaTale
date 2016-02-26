@@ -167,11 +167,13 @@ Namespace UTSpriteFontBox
                             End If
                             frameParts(x) = frameParts(x + 1).First & frameParts(x)
                         Next
-                    End If
-                    If frameParts(frameParts.Length - 1).Length > 0 Then
-                        frameParts(frameParts.Length - 1) = "1" & frameParts(frameParts.Length - 1).Remove(0, 1)
+                        If frameParts(frameParts.Length - 1).Length > 0 Then
+                            frameParts(frameParts.Length - 1) = "1" & frameParts(frameParts.Length - 1).Remove(0, 1)
+                        Else
+                            frameParts(frameParts.Length - 1) = "1" & frameParts(frameParts.Length - 1)
+                        End If
                     Else
-                        frameParts(frameParts.Length - 1) = "1" & frameParts(frameParts.Length - 1)
+                        frameParts(0) = "1" & frameParts(0)
                     End If
 
                     Dim frames As New List(Of String)

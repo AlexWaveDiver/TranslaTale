@@ -306,6 +306,15 @@ Public Class frmMain
         If val <= frameTrackBar.Maximum Then
             frameTrackBar.Value = val
         End If
+        If frameTrackBar.Maximum = frameTrackBar.Minimum Then
+            frameTrackBar.Visible = False
+            Label5.Visible = False
+            startAnimationBtn.Visible = False
+        Else
+            frameTrackBar.Visible = True
+            Label5.Visible = True
+            startAnimationBtn.Visible = True
+        End If
         SpriteFontBox1.Text = txt
         SpriteFontBox1.Frame = frameTrackBar.Value
         manualframechange = True
@@ -1541,6 +1550,7 @@ Public Class frmMain
             frameTrackBar.Value += 1
         Else
             aniTime.Stop()
+            frameTrackBar.Enabled = True
             startAnimationBtn.ImageIndex = 0
         End If
     End Sub
@@ -1548,10 +1558,12 @@ Public Class frmMain
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles startAnimationBtn.Click
         If aniTime.Enabled = False Then
             startAnimationBtn.ImageIndex = 1
+            frameTrackBar.Enabled = False
             frameTrackBar.Value = 0
             aniTime.Start()
         Else
             aniTime.Stop()
+            frameTrackBar.Enabled = True
             startAnimationBtn.ImageIndex = 0
         End If
     End Sub
