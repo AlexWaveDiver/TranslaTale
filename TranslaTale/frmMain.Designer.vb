@@ -25,9 +25,9 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup2 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup3 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup4 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup5 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup6 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.TableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.ListView1 = New System.Windows.Forms.ListView()
@@ -47,6 +47,7 @@ Partial Class frmMain
         Me.ttipTranslated = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ttipUntranslated = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ttipTotal = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ttipPercent = New System.Windows.Forms.ToolStripStatusLabel()
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog2 = New System.Windows.Forms.SaveFileDialog()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
@@ -81,7 +82,6 @@ Partial Class frmMain
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GoToWebsiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ttipPercent = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TableLayoutPanel.SuspendLayout()
         Me.pnlPreview.SuspendLayout()
         CType(Me.SpriteFontBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -117,13 +117,13 @@ Partial Class frmMain
         Me.ListView1.Enabled = False
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
-        ListViewGroup1.Header = "ListViewGroup"
-        ListViewGroup1.Name = "ListViewGroup1"
-        ListViewGroup2.Header = "ListViewGroup"
-        ListViewGroup2.Name = "ListViewGroup2"
-        ListViewGroup3.Header = "ListViewGroup"
-        ListViewGroup3.Name = "ListViewGroup3"
-        Me.ListView1.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1, ListViewGroup2, ListViewGroup3})
+        ListViewGroup4.Header = "ListViewGroup"
+        ListViewGroup4.Name = "ListViewGroup1"
+        ListViewGroup5.Header = "ListViewGroup"
+        ListViewGroup5.Name = "ListViewGroup2"
+        ListViewGroup6.Header = "ListViewGroup"
+        ListViewGroup6.Name = "ListViewGroup3"
+        Me.ListView1.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup4, ListViewGroup5, ListViewGroup6})
         Me.ListView1.Location = New System.Drawing.Point(3, 58)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
@@ -290,6 +290,17 @@ Partial Class frmMain
         Me.ttipTotal.Name = "ttipTotal"
         Me.ttipTotal.Size = New System.Drawing.Size(50, 17)
         Me.ttipTotal.Text = "0"
+        '
+        'ttipPercent
+        '
+        Me.ttipPercent.AutoSize = False
+        Me.ttipPercent.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.ttipPercent.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter
+        Me.ttipPercent.Name = "ttipPercent"
+        Me.ttipPercent.Size = New System.Drawing.Size(50, 17)
+        Me.ttipPercent.Text = "0"
         '
         'Timer1
         '
@@ -517,17 +528,6 @@ Partial Class frmMain
         Me.GoToWebsiteToolStripMenuItem.Name = "GoToWebsiteToolStripMenuItem"
         Me.GoToWebsiteToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.GoToWebsiteToolStripMenuItem.Text = "Go to website"
-        '
-        'ttipPercent
-        '
-        Me.ttipPercent.AutoSize = False
-        Me.ttipPercent.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
-            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
-            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
-        Me.ttipPercent.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter
-        Me.ttipPercent.Name = "ttipPercent"
-        Me.ttipPercent.Size = New System.Drawing.Size(50, 17)
-        Me.ttipPercent.Text = "0"
         '
         'frmMain
         '

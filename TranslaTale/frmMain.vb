@@ -101,8 +101,8 @@ Public NotInheritable Class frmMain
         Dim outDataFile As String
 
         ProjectManager.Read(stringsFile, imagesPath, fontsFile, inDataFile, outDataFile)
-        inDataFile &= "\data.win"
-        outDataFile &= "\data.win"
+        ''        inDataFile &= "\data.win"
+        ''        outDataFile &= "\data.win"
 
         Dim tempFolder As String = GetTempFolder()
         Dim unpackProcess As Process
@@ -756,7 +756,7 @@ Public NotInheritable Class frmMain
 
     Private Sub CompileAndRunToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompileAndRunToolStripMenuItem.Click
         repackProject()
-        Process.Start(ProjectManager.GetOutputDirectory & "\UNDERTALE.exe")
+        Process.Start(ProjectManager.GetOutputDirectory.Replace("\data.win", "") & "\UNDERTALE.exe")
     End Sub
 
     Private Sub ToolStripButton7_Click(sender As Object, e As EventArgs) Handles ToolStripButton7.Click
