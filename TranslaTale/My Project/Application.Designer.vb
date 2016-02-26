@@ -34,8 +34,9 @@ Namespace My
         Protected Overrides Sub OnCreateMainForm()
             Me.MainForm = Global.TranslaTale.frmStartUp
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
+
+
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>
         Protected Overrides Sub OnCreateSplashScreen()
             Me.SplashScreen = Global.TranslaTale.frmSplash
         End Sub

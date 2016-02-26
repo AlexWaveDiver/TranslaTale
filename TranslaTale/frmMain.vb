@@ -760,4 +760,8 @@ Public NotInheritable Class frmMain
     Private Sub ToolStripButton7_Click(sender As Object, e As EventArgs) Handles ToolStripButton7.Click
         CompileAndRunToolStripMenuItem_Click(sender, e)
     End Sub
+
+    Private Sub GoToWebsiteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GoToWebsiteToolStripMenuItem.Click
+        Process.Start("http://github.com/AlexWaveDiver/TranslaTale/")
+    End Sub
 End Class
