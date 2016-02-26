@@ -324,7 +324,7 @@ Partial Class frmNewProject
         Me.btnDone.Name = "btnDone"
         Me.btnDone.Size = New System.Drawing.Size(82, 23)
         Me.btnDone.TabIndex = 1
-        Me.btnDone.Text = "Create Project"
+        Me.btnDone.Text = "&Create Project"
         Me.btnDone.UseVisualStyleBackColor = True
         '
         'btnExit
@@ -333,7 +333,7 @@ Partial Class frmNewProject
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)
         Me.btnExit.TabIndex = 2
-        Me.btnExit.Text = "Exit"
+        Me.btnExit.Text = "&Back"
         Me.btnExit.UseVisualStyleBackColor = True
         '
         'imgAbout

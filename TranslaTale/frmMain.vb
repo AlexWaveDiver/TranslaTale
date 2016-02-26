@@ -308,6 +308,7 @@ Public NotInheritable Class frmMain
         ttipUntranslated.Text = untransLines
         ttipTranslated.Text = transLines
         ttipTotal.Text = numLines
+        ttipPercent.Text = Math.Round(transLines / numLines, 2) * 100 & "%"
         AddToolStripMenuItem.Enabled = True
         ToolStripButton2.Enabled = True
         ToolStripButton3.Enabled = True
@@ -530,6 +531,7 @@ Public NotInheritable Class frmMain
         Next
         ttipUntranslated.Text = stringsUntranslated
         ttipTranslated.Text = stringsTranslated
+        ttipPercent.Text = Math.Round(stringsTranslated / (stringsTranslated + stringsUntranslated), 2) * 100 & "%"
         Return True
     End Function
 

@@ -9,7 +9,7 @@
         End If
         Me.Text = String.Format("About {0}", ApplicationTitle)
         Me.LabelProductName.Text = My.Application.Info.ProductName
-        Me.LabelVersion.Text = String.Format("Versión {0}", My.Application.Info.Version.ToString)
+        Me.LabelVersion.Text = String.Format("Version {0}", My.Application.Info.Version.ToString)
         LogoPictureBox.Image = CType(My.Resources.ResourceManager.GetObject("about"), Image)
         PictureMigosp.Visible = False
     End Sub
@@ -38,4 +38,5 @@
     Private Sub LinkLabel3_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel3.LinkClicked
         Process.Start("https://twitter.com/_Chrisblue")
     End Sub
+
 End Class

@@ -28,6 +28,9 @@ Partial Class frmProjOptions
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grpPaths = New System.Windows.Forms.GroupBox()
+        Me.btnFile3 = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtFolder3 = New System.Windows.Forms.TextBox()
         Me.btnFolder3 = New System.Windows.Forms.Button()
         Me.btnFolder2 = New System.Windows.Forms.Button()
         Me.btnFolder1 = New System.Windows.Forms.Button()
@@ -38,19 +41,16 @@ Partial Class frmProjOptions
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtFolder3 = New System.Windows.Forms.TextBox()
         Me.txtFolder2 = New System.Windows.Forms.TextBox()
         Me.txtFolder1 = New System.Windows.Forms.TextBox()
         Me.txtFile2 = New System.Windows.Forms.TextBox()
         Me.txtFile1 = New System.Windows.Forms.TextBox()
+        Me.txtFile3 = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.txtFile3 = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.btnFile3 = New System.Windows.Forms.Button()
         Me.grpPaths.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -103,6 +103,31 @@ Partial Class frmProjOptions
         Me.grpPaths.TabIndex = 8
         Me.grpPaths.TabStop = False
         Me.grpPaths.Text = "File Directories"
+        '
+        'btnFile3
+        '
+        Me.btnFile3.Location = New System.Drawing.Point(294, 71)
+        Me.btnFile3.Name = "btnFile3"
+        Me.btnFile3.Size = New System.Drawing.Size(24, 20)
+        Me.btnFile3.TabIndex = 22
+        Me.btnFile3.Text = "..."
+        Me.btnFile3.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(28, 74)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(70, 13)
+        Me.Label7.TabIndex = 21
+        Me.Label7.Text = "UTFonts File:"
+        '
+        'txtFolder3
+        '
+        Me.txtFolder3.Location = New System.Drawing.Point(104, 149)
+        Me.txtFolder3.Name = "txtFolder3"
+        Me.txtFolder3.Size = New System.Drawing.Size(184, 20)
+        Me.txtFolder3.TabIndex = 11
         '
         'btnFolder3
         '
@@ -194,13 +219,6 @@ Partial Class frmProjOptions
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "Clean Script:"
         '
-        'txtFolder3
-        '
-        Me.txtFolder3.Location = New System.Drawing.Point(104, 149)
-        Me.txtFolder3.Name = "txtFolder3"
-        Me.txtFolder3.Size = New System.Drawing.Size(184, 20)
-        Me.txtFolder3.TabIndex = 11
-        '
         'txtFolder2
         '
         Me.txtFolder2.Location = New System.Drawing.Point(104, 123)
@@ -229,6 +247,13 @@ Partial Class frmProjOptions
         Me.txtFile1.Size = New System.Drawing.Size(184, 20)
         Me.txtFile1.TabIndex = 7
         '
+        'txtFile3
+        '
+        Me.txtFile3.Location = New System.Drawing.Point(104, 71)
+        Me.txtFile3.Name = "txtFile3"
+        Me.txtFile3.Size = New System.Drawing.Size(184, 20)
+        Me.txtFile3.TabIndex = 20
+        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ControlLightLight
@@ -252,37 +277,12 @@ Partial Class frmProjOptions
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 11
-        Me.btnCancel.Text = "Exit"
+        Me.btnCancel.Text = "Close"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'txtFile3
-        '
-        Me.txtFile3.Location = New System.Drawing.Point(104, 71)
-        Me.txtFile3.Name = "txtFile3"
-        Me.txtFile3.Size = New System.Drawing.Size(184, 20)
-        Me.txtFile3.TabIndex = 20
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(28, 74)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(70, 13)
-        Me.Label7.TabIndex = 21
-        Me.Label7.Text = "UTFonts File:"
-        '
-        'btnFile3
-        '
-        Me.btnFile3.Location = New System.Drawing.Point(294, 71)
-        Me.btnFile3.Name = "btnFile3"
-        Me.btnFile3.Size = New System.Drawing.Size(24, 20)
-        Me.btnFile3.TabIndex = 22
-        Me.btnFile3.Text = "..."
-        Me.btnFile3.UseVisualStyleBackColor = True
         '
         'frmProjOptions
         '

@@ -81,6 +81,7 @@ Partial Class frmMain
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GoToWebsiteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ttipPercent = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TableLayoutPanel.SuspendLayout()
         Me.pnlPreview.SuspendLayout()
         CType(Me.SpriteFontBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -247,7 +248,7 @@ Partial Class frmMain
         'StatusStrip1
         '
         Me.StatusStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ttipTranslated, Me.ttipUntranslated, Me.ttipTotal})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ttipTranslated, Me.ttipUntranslated, Me.ttipTotal, Me.ttipPercent})
         Me.StatusStrip1.Location = New System.Drawing.Point(9, 630)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(666, 22)
@@ -407,25 +408,25 @@ Partial Class frmMain
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.OpenToolStripMenuItem.Text = "&Open Project"
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Enabled = False
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.SaveToolStripMenuItem.Text = "&Save Project"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(140, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.ExitToolStripMenuItem.Text = "&Exit"
         '
         'ProjectToolStripMenuItem
@@ -508,14 +509,25 @@ Partial Class frmMain
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.AboutToolStripMenuItem.Text = "&About"
         '
         'GoToWebsiteToolStripMenuItem
         '
         Me.GoToWebsiteToolStripMenuItem.Name = "GoToWebsiteToolStripMenuItem"
-        Me.GoToWebsiteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GoToWebsiteToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.GoToWebsiteToolStripMenuItem.Text = "Go to website"
+        '
+        'ttipPercent
+        '
+        Me.ttipPercent.AutoSize = False
+        Me.ttipPercent.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.ttipPercent.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter
+        Me.ttipPercent.Name = "ttipPercent"
+        Me.ttipPercent.Size = New System.Drawing.Size(50, 17)
+        Me.ttipPercent.Text = "0"
         '
         'frmMain
         '
@@ -601,4 +613,5 @@ Partial Class frmMain
     Friend WithEvents ToolStripButton7 As ToolStripButton
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents GoToWebsiteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ttipPercent As ToolStripStatusLabel
 End Class
