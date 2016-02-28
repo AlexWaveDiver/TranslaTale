@@ -35,9 +35,10 @@ Public Class frmNewProject
             End If
         Else
             If Not txtFile1.Text = "" AndAlso Not txtFile2.Text = "" AndAlso Not txtFile3.Text = "" AndAlso Not txtFile4.Text = "" AndAlso Not txtName2.Text = "" Then
-                If My.Computer.FileSystem.FileExists(txtFile1.Text) AndAlso My.Computer.FileSystem.FileExists(txtFile2.Text) AndAlso My.Computer.FileSystem.FileExists(txtFile3.Text) AndAlso My.Computer.FileSystem.DirectoryExists(txtFile4.Text) Then
+                If My.Computer.FileSystem.FileExists(txtFile1.Text & "\Data.win") AndAlso My.Computer.FileSystem.FileExists(txtFile2.Text) AndAlso My.Computer.FileSystem.FileExists(txtFile3.Text) AndAlso My.Computer.FileSystem.DirectoryExists(txtFile4.Text) Then
                     SaveFileDialog1.Title = "Save Project file as..."
                     SaveFileDialog1.Filter = "TranslaTale Project files (*.ttp)|*.ttp"
+                    SaveFileDialog1.FileName = txtName2.Text
                     If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
                         ProjectManager.Write(SaveFileDialog1.FileName, txtName2.Text, txtFile2.Text,
                                              txtFile3.Text, txtFile4.Text, "", txtFile1.Text & "\data.win", "")

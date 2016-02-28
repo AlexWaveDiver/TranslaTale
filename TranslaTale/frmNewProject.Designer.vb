@@ -95,7 +95,7 @@ Partial Class frmNewProject
         Me.GroupBox1.Controls.Add(Me.txtFolder2)
         Me.GroupBox1.Controls.Add(Me.lblFolder1)
         Me.GroupBox1.Controls.Add(Me.txtFolder1)
-        Me.GroupBox1.Location = New System.Drawing.Point(17, 78)
+        Me.GroupBox1.Location = New System.Drawing.Point(17, 61)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(293, 95)
         Me.GroupBox1.TabIndex = 2
@@ -104,7 +104,7 @@ Partial Class frmNewProject
         '
         'btnFolder2
         '
-        Me.btnFolder2.Location = New System.Drawing.Point(258, 54)
+        Me.btnFolder2.Location = New System.Drawing.Point(255, 49)
         Me.btnFolder2.Name = "btnFolder2"
         Me.btnFolder2.Size = New System.Drawing.Size(24, 20)
         Me.btnFolder2.TabIndex = 9
@@ -113,7 +113,7 @@ Partial Class frmNewProject
         '
         'btnFolder1
         '
-        Me.btnFolder1.Location = New System.Drawing.Point(258, 28)
+        Me.btnFolder1.Location = New System.Drawing.Point(255, 22)
         Me.btnFolder1.Name = "btnFolder1"
         Me.btnFolder1.Size = New System.Drawing.Size(24, 20)
         Me.btnFolder1.TabIndex = 8
@@ -123,7 +123,7 @@ Partial Class frmNewProject
         'lblFolder2
         '
         Me.lblFolder2.AutoSize = True
-        Me.lblFolder2.Location = New System.Drawing.Point(27, 57)
+        Me.lblFolder2.Location = New System.Drawing.Point(24, 52)
         Me.lblFolder2.Name = "lblFolder2"
         Me.lblFolder2.Size = New System.Drawing.Size(75, 13)
         Me.lblFolder2.TabIndex = 6
@@ -131,7 +131,7 @@ Partial Class frmNewProject
         '
         'txtFolder2
         '
-        Me.txtFolder2.Location = New System.Drawing.Point(108, 54)
+        Me.txtFolder2.Location = New System.Drawing.Point(105, 49)
         Me.txtFolder2.Name = "txtFolder2"
         Me.txtFolder2.Size = New System.Drawing.Size(144, 20)
         Me.txtFolder2.TabIndex = 5
@@ -139,7 +139,7 @@ Partial Class frmNewProject
         'lblFolder1
         '
         Me.lblFolder1.AutoSize = True
-        Me.lblFolder1.Location = New System.Drawing.Point(13, 32)
+        Me.lblFolder1.Location = New System.Drawing.Point(11, 26)
         Me.lblFolder1.Name = "lblFolder1"
         Me.lblFolder1.Size = New System.Drawing.Size(88, 13)
         Me.lblFolder1.TabIndex = 4
@@ -147,7 +147,7 @@ Partial Class frmNewProject
         '
         'txtFolder1
         '
-        Me.txtFolder1.Location = New System.Drawing.Point(108, 28)
+        Me.txtFolder1.Location = New System.Drawing.Point(105, 22)
         Me.txtFolder1.Name = "txtFolder1"
         Me.txtFolder1.Size = New System.Drawing.Size(144, 20)
         Me.txtFolder1.TabIndex = 3
@@ -155,7 +155,7 @@ Partial Class frmNewProject
         'lblName
         '
         Me.lblName.AutoSize = True
-        Me.lblName.Location = New System.Drawing.Point(15, 19)
+        Me.lblName.Location = New System.Drawing.Point(14, 12)
         Me.lblName.Name = "lblName"
         Me.lblName.Size = New System.Drawing.Size(72, 13)
         Me.lblName.TabIndex = 1
@@ -163,7 +163,7 @@ Partial Class frmNewProject
         '
         'txtName
         '
-        Me.txtName.Location = New System.Drawing.Point(18, 35)
+        Me.txtName.Location = New System.Drawing.Point(17, 28)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(292, 20)
         Me.txtName.TabIndex = 0
@@ -305,7 +305,7 @@ Partial Class frmNewProject
         'lblName2
         '
         Me.lblName2.AutoSize = True
-        Me.lblName2.Location = New System.Drawing.Point(14, 13)
+        Me.lblName2.Location = New System.Drawing.Point(14, 12)
         Me.lblName2.Name = "lblName2"
         Me.lblName2.Size = New System.Drawing.Size(72, 13)
         Me.lblName2.TabIndex = 3
@@ -313,7 +313,7 @@ Partial Class frmNewProject
         '
         'txtName2
         '
-        Me.txtName2.Location = New System.Drawing.Point(18, 29)
+        Me.txtName2.Location = New System.Drawing.Point(17, 28)
         Me.txtName2.Name = "txtName2"
         Me.txtName2.Size = New System.Drawing.Size(292, 20)
         Me.txtName2.TabIndex = 2
@@ -324,7 +324,7 @@ Partial Class frmNewProject
         Me.btnDone.Name = "btnDone"
         Me.btnDone.Size = New System.Drawing.Size(82, 23)
         Me.btnDone.TabIndex = 1
-        Me.btnDone.Text = "Create Project"
+        Me.btnDone.Text = "&Create Project"
         Me.btnDone.UseVisualStyleBackColor = True
         '
         'btnExit
@@ -333,7 +333,7 @@ Partial Class frmNewProject
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)
         Me.btnExit.TabIndex = 2
-        Me.btnExit.Text = "Exit"
+        Me.btnExit.Text = "&Back"
         Me.btnExit.UseVisualStyleBackColor = True
         '
         'imgAbout

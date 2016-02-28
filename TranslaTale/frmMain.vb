@@ -101,8 +101,8 @@ Public NotInheritable Class frmMain
         Dim outDataFile As String
 
         ProjectManager.Read(stringsFile, imagesPath, fontsFile, inDataFile, outDataFile)
-        inDataFile &= "\data.win"
-        outDataFile &= "\data.win"
+        ''        inDataFile &= "\data.win"
+        ''        outDataFile &= "\data.win"
 
         Dim tempFolder As String = GetTempFolder()
         Dim unpackProcess As Process
@@ -308,6 +308,7 @@ Public NotInheritable Class frmMain
         ttipUntranslated.Text = untransLines
         ttipTranslated.Text = transLines
         ttipTotal.Text = numLines
+        ttipPercent.Text = Math.Round(transLines / numLines, 2) * 100 & "%"
         AddToolStripMenuItem.Enabled = True
         ToolStripButton2.Enabled = True
         ToolStripButton3.Enabled = True
@@ -530,6 +531,7 @@ Public NotInheritable Class frmMain
         Next
         ttipUntranslated.Text = stringsUntranslated
         ttipTranslated.Text = stringsTranslated
+        ttipPercent.Text = Math.Round(stringsTranslated / (stringsTranslated + stringsUntranslated), 2) * 100 & "%"
         Return True
     End Function
 
@@ -754,10 +756,14 @@ Public NotInheritable Class frmMain
 
     Private Sub CompileAndRunToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompileAndRunToolStripMenuItem.Click
         repackProject()
-        Process.Start(ProjectManager.GetOutputDirectory & "\UNDERTALE.exe")
+        Process.Start(ProjectManager.GetOutputDirectory.Replace("\data.win", "") & "\UNDERTALE.exe")
     End Sub
 
     Private Sub ToolStripButton7_Click(sender As Object, e As EventArgs) Handles ToolStripButton7.Click
         CompileAndRunToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    Private Sub GoToWebsiteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GoToWebsiteToolStripMenuItem.Click
+        Process.Start("http://github.com/AlexWaveDiver/TranslaTale/")
     End Sub
 End Class
