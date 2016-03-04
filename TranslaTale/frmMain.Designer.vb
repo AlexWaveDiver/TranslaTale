@@ -110,7 +110,7 @@ Partial Class frmMain
         Me.TableLayoutPanel.Size = New System.Drawing.Size(666, 643)
         Me.TableLayoutPanel.TabIndex = 0
         '
-        'ListView1
+        'lstStrings
         '
         Me.lstStrings.Enabled = False
         Me.lstStrings.FullRowSelect = True
@@ -124,7 +124,7 @@ Partial Class frmMain
         Me.lstStrings.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1, ListViewGroup2, ListViewGroup3})
         Me.lstStrings.Location = New System.Drawing.Point(3, 58)
         Me.lstStrings.MultiSelect = False
-        Me.lstStrings.Name = "ListView1"
+        Me.lstStrings.Name = "lstStrings"
         Me.lstStrings.Size = New System.Drawing.Size(660, 347)
         Me.lstStrings.TabIndex = 12
         Me.lstStrings.UseCompatibleStateImageBehavior = False

@@ -420,25 +420,21 @@ Public NotInheritable Class frmMain
             If stat = 2 Then
                 e.Cancel = True
             ElseIf stat = 6 Then
-                SaveFileDialog1.Filter = "Text file|*.txt"
-                SaveFileDialog1.Title = "Save translation file"
-                If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
-                    Dim W As IO.StreamWriter
-                    Dim i As Integer
-                    W = New IO.StreamWriter(SaveFileDialog1.FileName)
-                    For i = 0 To lstStrings.Items.Count
-                        If lstStrings.Items.Count - 1 < ttipTotal.Text Or lstStrings.Items.Count - 1 = ttipTotal.Text Then
-                            On Error Resume Next
-                            W.WriteLine(lstStrings.Items.Item(i).SubItems(2).Text)
-                        End If
-                    Next
-                    W.Close()
-                    saved = True
-                    End
-                Else
-                    saved = False
-                    e.Cancel = True
-                End If
+                Dim W As IO.StreamWriter
+                Dim i As Integer
+                W = New IO.StreamWriter(TransScript)
+                For i = 0 To lstStrings.Items.Count
+                    If lstStrings.Items.Count - 1 < ttipTotal.Text Or lstStrings.Items.Count - 1 = ttipTotal.Text Then
+                        On Error Resume Next
+                        W.WriteLine(lstStrings.Items.Item(i).SubItems(2).Text)
+                    End If
+                Next
+                W.Close()
+                saved = True
+                End
+            Else
+                saved = False
+                e.Cancel = True
             End If
         End If
     End Sub
@@ -452,28 +448,22 @@ Public NotInheritable Class frmMain
             ElseIf stat = 7 Then
                 End
             ElseIf stat = 6 Then
-                SaveFileDialog1.Filter = "Text file|*.txt"
-                SaveFileDialog1.Title = "Save translation file"
-                If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
-                    Dim W As IO.StreamWriter
-                    Dim i As Integer
-                    W = New IO.StreamWriter(SaveFileDialog1.FileName)
-                    For i = 0 To lstStrings.Items.Count
-                        If lstStrings.Items.Count - 1 < ttipTotal.Text Or lstStrings.Items.Count - 1 = ttipTotal.Text Then
-                            On Error Resume Next
-                            W.WriteLine(lstStrings.Items.Item(i).SubItems(2).Text)
-                        End If
-                    Next
-                    W.Close()
-                    saved = True
-                    End
-                Else
-                    Exit Sub
-                End If
+                Dim W As IO.StreamWriter
+                W = New IO.StreamWriter(TransScript)
+                For i = 0 To lstStrings.Items.Count
+                    If lstStrings.Items.Count - 1 < ttipTotal.Text Or lstStrings.Items.Count - 1 = ttipTotal.Text Then
+                        On Error Resume Next
+                        W.WriteLine(lstStrings.Items.Item(i).SubItems(2).Text)
+                    End If
+                Next
+                W.Close()
+                saved = True
+                End
+            Else
+                Exit Sub
             End If
-        Else
-            End
         End If
+        End
     End Sub
 
     Private Sub DumpStringstxtToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
