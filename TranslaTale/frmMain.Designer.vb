@@ -25,9 +25,9 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ListViewGroup4 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup5 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup6 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup2 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup3 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.TableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.lstStrings = New System.Windows.Forms.ListView()
@@ -65,6 +65,7 @@ Partial Class frmMain
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.LoadTranslationFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReloadProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -82,7 +83,6 @@ Partial Class frmMain
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LoadTranslationFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel.SuspendLayout()
         Me.pnlPreview.SuspendLayout()
         CType(Me.SpriteFontBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -118,13 +118,13 @@ Partial Class frmMain
         Me.lstStrings.Enabled = False
         Me.lstStrings.FullRowSelect = True
         Me.lstStrings.GridLines = True
-        ListViewGroup4.Header = "ListViewGroup"
-        ListViewGroup4.Name = "ListViewGroup1"
-        ListViewGroup5.Header = "ListViewGroup"
-        ListViewGroup5.Name = "ListViewGroup2"
-        ListViewGroup6.Header = "ListViewGroup"
-        ListViewGroup6.Name = "ListViewGroup3"
-        Me.lstStrings.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup4, ListViewGroup5, ListViewGroup6})
+        ListViewGroup1.Header = "ListViewGroup"
+        ListViewGroup1.Name = "ListViewGroup1"
+        ListViewGroup2.Header = "ListViewGroup"
+        ListViewGroup2.Name = "ListViewGroup2"
+        ListViewGroup3.Header = "ListViewGroup"
+        ListViewGroup3.Name = "ListViewGroup3"
+        Me.lstStrings.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1, ListViewGroup2, ListViewGroup3})
         Me.lstStrings.Location = New System.Drawing.Point(3, 58)
         Me.lstStrings.MultiSelect = False
         Me.lstStrings.Name = "lstStrings"
@@ -397,36 +397,42 @@ Partial Class frmMain
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.OpenToolStripMenuItem.Text = "&Open Project"
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Enabled = False
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.SaveToolStripMenuItem.Text = "&Save Project"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(147, 6)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(179, 6)
+        '
+        'LoadTranslationFileToolStripMenuItem
+        '
+        Me.LoadTranslationFileToolStripMenuItem.Name = "LoadTranslationFileToolStripMenuItem"
+        Me.LoadTranslationFileToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.LoadTranslationFileToolStripMenuItem.Text = "Load Translation File"
         '
         'ReloadProjectToolStripMenuItem
         '
         Me.ReloadProjectToolStripMenuItem.Name = "ReloadProjectToolStripMenuItem"
-        Me.ReloadProjectToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.ReloadProjectToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.ReloadProjectToolStripMenuItem.Text = "Reload Project"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(147, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(179, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.ExitToolStripMenuItem.Text = "&Exit"
         '
         'ProjectToolStripMenuItem
@@ -517,12 +523,6 @@ Partial Class frmMain
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
         Me.AboutToolStripMenuItem.Text = "&About"
-        '
-        'LoadTranslationFileToolStripMenuItem
-        '
-        Me.LoadTranslationFileToolStripMenuItem.Name = "LoadTranslationFileToolStripMenuItem"
-        Me.LoadTranslationFileToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
-        Me.LoadTranslationFileToolStripMenuItem.Text = "Load Translation File"
         '
         'frmMain
         '

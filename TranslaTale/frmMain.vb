@@ -87,6 +87,9 @@ Public NotInheritable Class frmMain
     End Sub
 
     Private Sub RepackProject()
+
+        SaveFile()
+
         Dim tempFolder As String = GetTempFolder()
         Dim unpackProcess As Process
         Dim repackProcess As Process
@@ -376,7 +379,7 @@ Public NotInheritable Class frmMain
         SpriteFontBox1.Text = TextBox1.Text
     End Sub
 
-    Private Sub SaveToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
+    Public Sub SaveFile()
         Dim W As IO.StreamWriter = New IO.StreamWriter(TransScript)
         For i As Integer = 0 To lstStrings.Items.Count - 1
             If lstStrings.Items.Count - 1 < ttipTotal.Text Or lstStrings.Items.Count - 1 = ttipTotal.Text Then
@@ -387,6 +390,10 @@ Public NotInheritable Class frmMain
         W.Close()
         saved = True
         Me.Text = "TranslaTale - " + ProjectName
+    End Sub
+
+    Private Sub SaveToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
+        SaveFile()
     End Sub
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
@@ -761,7 +768,7 @@ Public NotInheritable Class frmMain
     End Sub
 
     Private Sub ToolStripButton7_Click(sender As Object, e As EventArgs) Handles ToolStripButton7.Click
-        CompileAndRunToolStripMenuItem_Click(sender, e)
+        CompileAndRunToolStripMenuItem.PerformClick()
     End Sub
 
     Private Sub MergeFilesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MergeFilesToolStripMenuItem.Click
@@ -769,7 +776,7 @@ Public NotInheritable Class frmMain
     End Sub
 
     Private Sub ToolStripButton5_Click(sender As Object, e As EventArgs) Handles ToolStripButton5.Click
-        ReloadProjectToolStripMenuItem_Click(sender, e)
+        ReloadProjectToolStripMenuItem.PerformClick()
     End Sub
 
     Private Sub ReloadProjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReloadProjectToolStripMenuItem.Click
