@@ -37,6 +37,14 @@ Module SettingsManager
     End Function
 
     Function SaveRecentProject(ByVal name As String, ByVal path As String)
+        Dim oldProjects As XmlNodeList = GetRecentProjects()
+
+        For Each proj As XmlNode In oldProjects
+            If proj.SelectSingleNode("Name").InnerText = name Then
+                Return False
+            End If
+        Next
+
         Dim xmlProjects As String = My.Settings.RecentProjects
         Dim xml As XmlDocument = New XmlDocument()
         xml.LoadXml(xmlProjects)

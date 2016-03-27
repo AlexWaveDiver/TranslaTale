@@ -21,6 +21,9 @@ Public Class frmStartUp
         OpenFileDialog1.Filter = "TranslaTale Project files (*.ttp) |*.ttp"
         OpenFileDialog1.Title = "Open a Project file"
         If OpenFileDialog1.ShowDialog = DialogResult.OK Then
+            Dim doc As New XmlDocument()
+            doc.Load(OpenFileDialog1.FileName)
+            SaveRecentProject(doc.GetElementsByTagName("Name")(0).InnerXml, OpenFileDialog1.FileName)
 
             Me.Hide()
             frmMain.Show()

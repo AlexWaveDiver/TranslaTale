@@ -221,9 +221,14 @@ Public NotInheritable Class frmMain
             My.Computer.FileSystem.DeleteFile(outData)
         End If
 
-
         System.IO.File.Copy(tempFolder & "\packed.win", outData)
         System.IO.Directory.Delete(tempFolder, True)
+
+        For Each f In Directory.GetFiles(ProjectManager.GetInputDirectory)
+            If Not File.Exists(Path.Combine(GetOutputDirectory, Path.GetFileName(f))) Then
+                File.Copy(f, Path.Combine(GetOutputDirectory, Path.GetFileName(f)))
+            End If
+        Next
     End Sub
 
     Public Sub OpenFile(ByVal projectFilePath As String)
@@ -748,10 +753,36 @@ Public NotInheritable Class frmMain
 
     Private Sub CompileAndRunToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompileAndRunToolStripMenuItem.Click
         RepackProject()
-        Process.Start(ProjectManager.GetOutputDirectory & "\UNDERTALE.exe")
+        If File.Exists(Path.Combine(ProjectManager.GetOutputDirectory, "UNDERTALE.exe")) Then
+            Process.Start(Path.Combine(ProjectManager.GetOutputDirectory, "UNDERTALE.exe"))
+        ElseIf File.Exists(Path.Combine(ProjectManager.GetOutputDirectory, "Undertale.exe")) Then
+            Process.Start(Path.Combine(ProjectManager.GetOutputDirectory, "Undertale.exe"))
+        End If
     End Sub
 
     Private Sub ToolStripButton7_Click(sender As Object, e As EventArgs) Handles ToolStripButton7.Click
         CompileAndRunToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    Private Sub MergeFilesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MergeFilesToolStripMenuItem.Click
+        frmFileMerge.ShowDialog()
+    End Sub
+
+    Private Sub ToolStripButton5_Click(sender As Object, e As EventArgs) Handles ToolStripButton5.Click
+        ReloadProjectToolStripMenuItem_Click(sender, e)
+    End Sub
+
+    Private Sub ReloadProjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReloadProjectToolStripMenuItem.Click
+        OpenFile(CurrentProject)
+    End Sub
+
+    Private Sub LoadTranslationFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadTranslationFileToolStripMenuItem.Click
+        OpenFileDialog1.Title = "Select your translated script file"
+        OpenFileDialog1.Filter = "Text files (*.txt)|*.txt"
+        If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
+            Write(CurrentProject, GetName, GetCleanScript, OpenFileDialog1.FileName, GetImagesDirectory,
+                                 GetInputDirectory, GetOutputDirectory)
+            OpenFile(CurrentProject)
+        End If
     End Sub
 End Class

@@ -17,7 +17,7 @@
     End Sub
 
     Private Sub btnFile2_Click(sender As Object, e As EventArgs) Handles btnFile2.Click
-        OpenFileDialog1.Title = "Select your clean script file"
+        OpenFileDialog1.Title = "Select your translated script file"
         OpenFileDialog1.Filter = "Text files (*.txt)|*.txt"
         If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
             txtFile2.Text = OpenFileDialog1.FileName
@@ -49,5 +49,6 @@
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         ProjectManager.Write(ProjectManager.CurrentProject, txtName.Text, txtFile1.Text, txtFile2.Text, txtFolder1.Text, txtFolder2.Text, txtFolder3.Text)
         Me.Close()
+        frmMain.OpenFile(ProjectManager.CurrentProject)
     End Sub
 End Class

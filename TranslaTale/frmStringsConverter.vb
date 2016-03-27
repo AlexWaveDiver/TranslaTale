@@ -23,6 +23,7 @@ Public Class frmStringsConverter
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        koLines = 0
         Me.Close()
     End Sub
 
@@ -292,5 +293,9 @@ Public Class frmStringsConverter
         End If
         closeForm()
         e.Cancel = False
+    End Sub
+
+    Private Sub frmStringsConverter_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

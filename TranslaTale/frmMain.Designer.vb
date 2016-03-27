@@ -25,9 +25,9 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ListViewGroup1 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup2 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
-        Dim ListViewGroup3 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup4 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup5 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
+        Dim ListViewGroup6 As System.Windows.Forms.ListViewGroup = New System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left)
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.TableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.lstStrings = New System.Windows.Forms.ListView()
@@ -54,17 +54,18 @@ Partial Class frmMain
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ReloadProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -77,9 +78,11 @@ Partial Class frmMain
         Me.ListBookmarksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StringsMigrationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MergeFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LoadTranslationFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel.SuspendLayout()
         Me.pnlPreview.SuspendLayout()
         CType(Me.SpriteFontBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,13 +118,13 @@ Partial Class frmMain
         Me.lstStrings.Enabled = False
         Me.lstStrings.FullRowSelect = True
         Me.lstStrings.GridLines = True
-        ListViewGroup1.Header = "ListViewGroup"
-        ListViewGroup1.Name = "ListViewGroup1"
-        ListViewGroup2.Header = "ListViewGroup"
-        ListViewGroup2.Name = "ListViewGroup2"
-        ListViewGroup3.Header = "ListViewGroup"
-        ListViewGroup3.Name = "ListViewGroup3"
-        Me.lstStrings.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup1, ListViewGroup2, ListViewGroup3})
+        ListViewGroup4.Header = "ListViewGroup"
+        ListViewGroup4.Name = "ListViewGroup1"
+        ListViewGroup5.Header = "ListViewGroup"
+        ListViewGroup5.Name = "ListViewGroup2"
+        ListViewGroup6.Header = "ListViewGroup"
+        ListViewGroup6.Name = "ListViewGroup3"
+        Me.lstStrings.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {ListViewGroup4, ListViewGroup5, ListViewGroup6})
         Me.lstStrings.Location = New System.Drawing.Point(3, 58)
         Me.lstStrings.MultiSelect = False
         Me.lstStrings.Name = "lstStrings"
@@ -298,7 +301,7 @@ Partial Class frmMain
         Me.ToolStrip1.AllowMerge = False
         Me.ToolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripSeparator3, Me.ToolStripButton7, Me.ToolStripSeparator2, Me.ToolStripButton4, Me.ToolStripButton3, Me.ToolStripButton6, Me.ToolStripButton5})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripButton5, Me.ToolStripSeparator3, Me.ToolStripButton7, Me.ToolStripSeparator2, Me.ToolStripButton4, Me.ToolStripButton3})
         Me.ToolStrip1.Location = New System.Drawing.Point(9, 33)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Padding = New System.Windows.Forms.Padding(10, 0, 10, 0)
@@ -325,6 +328,15 @@ Partial Class frmMain
         Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton2.Text = "Save"
         '
+        'ToolStripButton5
+        '
+        Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton5.Image = Global.TranslaTale.My.Resources.Resources.ico_up
+        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton5.Name = "ToolStripButton5"
+        Me.ToolStripButton5.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton5.Text = "Reload Project"
+        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
@@ -333,11 +345,12 @@ Partial Class frmMain
         'ToolStripButton7
         '
         Me.ToolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton7.ForeColor = System.Drawing.SystemColors.ControlText
         Me.ToolStripButton7.Image = Global.TranslaTale.My.Resources.Resources.ico_play
         Me.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton7.Name = "ToolStripButton7"
         Me.ToolStripButton7.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton7.Text = "Compile and Play"
+        Me.ToolStripButton7.Text = "Compile and Run"
         '
         'ToolStripSeparator2
         '
@@ -364,28 +377,6 @@ Partial Class frmMain
         Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton3.Text = "Search"
         '
-        'ToolStripButton6
-        '
-        Me.ToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton6.Image = Global.TranslaTale.My.Resources.Resources.ico_filter_green
-        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton6.Name = "ToolStripButton6"
-        Me.ToolStripButton6.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton6.Text = "ToolStripButton5"
-        Me.ToolStripButton6.ToolTipText = "Filter by translated"
-        Me.ToolStripButton6.Visible = False
-        '
-        'ToolStripButton5
-        '
-        Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton5.Image = Global.TranslaTale.My.Resources.Resources.ico_filter_red
-        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton5.Name = "ToolStripButton5"
-        Me.ToolStripButton5.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton5.Text = "ToolStripButton5"
-        Me.ToolStripButton5.ToolTipText = "Filter by untranslated"
-        Me.ToolStripButton5.Visible = False
-        '
         'MenuStrip1
         '
         Me.MenuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
@@ -398,7 +389,7 @@ Partial Class frmMain
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.SaveToolStripMenuItem, Me.ToolStripSeparator4, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.SaveToolStripMenuItem, Me.ToolStripSeparator5, Me.LoadTranslationFileToolStripMenuItem, Me.ReloadProjectToolStripMenuItem, Me.ToolStripSeparator4, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "&File"
@@ -406,25 +397,36 @@ Partial Class frmMain
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.OpenToolStripMenuItem.Text = "&Open Project"
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Enabled = False
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.SaveToolStripMenuItem.Text = "&Save Project"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(147, 6)
+        '
+        'ReloadProjectToolStripMenuItem
+        '
+        Me.ReloadProjectToolStripMenuItem.Name = "ReloadProjectToolStripMenuItem"
+        Me.ReloadProjectToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.ReloadProjectToolStripMenuItem.Text = "Reload Project"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(140, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(147, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.ExitToolStripMenuItem.Text = "&Exit"
         '
         'ProjectToolStripMenuItem
@@ -479,7 +481,7 @@ Partial Class frmMain
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StringsMigrationToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StringsMigrationToolStripMenuItem, Me.MergeFilesToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.ToolsToolStripMenuItem.Text = "&Tools"
@@ -489,6 +491,12 @@ Partial Class frmMain
         Me.StringsMigrationToolStripMenuItem.Name = "StringsMigrationToolStripMenuItem"
         Me.StringsMigrationToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
         Me.StringsMigrationToolStripMenuItem.Text = "&Strings migration"
+        '
+        'MergeFilesToolStripMenuItem
+        '
+        Me.MergeFilesToolStripMenuItem.Name = "MergeFilesToolStripMenuItem"
+        Me.MergeFilesToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.MergeFilesToolStripMenuItem.Text = "Merge files"
         '
         'OptionsToolStripMenuItem
         '
@@ -509,6 +517,12 @@ Partial Class frmMain
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
         Me.AboutToolStripMenuItem.Text = "&About"
+        '
+        'LoadTranslationFileToolStripMenuItem
+        '
+        Me.LoadTranslationFileToolStripMenuItem.Name = "LoadTranslationFileToolStripMenuItem"
+        Me.LoadTranslationFileToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.LoadTranslationFileToolStripMenuItem.Text = "Load Translation File"
         '
         'frmMain
         '
@@ -579,9 +593,7 @@ Partial Class frmMain
     Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
-    Friend WithEvents ToolStripButton5 As System.Windows.Forms.ToolStripButton
     Friend WithEvents SpriteFontBox1 As UTSpriteFontBox.SpriteFontBox
-    Friend WithEvents ToolStripButton6 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents StringsMigrationToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -593,4 +605,9 @@ Partial Class frmMain
     Friend WithEvents ProjectSettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripButton7 As ToolStripButton
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents MergeFilesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripButton5 As ToolStripButton
+    Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
+    Friend WithEvents ReloadProjectToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LoadTranslationFileToolStripMenuItem As ToolStripMenuItem
 End Class

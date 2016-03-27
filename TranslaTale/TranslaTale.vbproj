@@ -16,6 +16,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -28,7 +29,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -68,7 +68,16 @@
     <ApplicationIcon>icon_8SA_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>34A7042011DAC568DD99B3FC418960B5933F4F71</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>TranslaTale_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -111,6 +120,12 @@
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmFileMerge.Designer.vb">
+      <DependentUpon>frmFileMerge.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFileMerge.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmNewProject.Designer.vb">
       <DependentUpon>frmNewProject.vb</DependentUpon>
     </Compile>
@@ -133,6 +148,12 @@
       <DependentUpon>frmOptions.vb</DependentUpon>
     </Compile>
     <Compile Include="frmOptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSolveConflicts.Designer.vb">
+      <DependentUpon>frmSolveConflicts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSolveConflicts.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSplash.Designer.vb">
@@ -188,6 +209,9 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmFileMerge.resx">
+      <DependentUpon>frmFileMerge.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNewProject.resx">
       <DependentUpon>frmNewProject.vb</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmOptions.resx">
       <DependentUpon>frmOptions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSolveConflicts.resx">
+      <DependentUpon>frmSolveConflicts.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSplash.resx">
       <DependentUpon>frmSplash.vb</DependentUpon>
@@ -232,7 +259,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1.jpg" />
@@ -270,7 +296,7 @@
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 y x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
