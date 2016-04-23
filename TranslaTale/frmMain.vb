@@ -12,6 +12,9 @@ Public NotInheritable Class frmMain
     Dim CleanScript As String
     Dim TransScript As String
 
+    Dim CleanScriptLines As String()
+    Dim TransScriptLines As String()
+
     Private Sub frmMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         End
     End Sub
@@ -97,8 +100,8 @@ Public NotInheritable Class frmMain
         Dim winExtract As String = Application.StartupPath & "\Resources\WinExtract.exe"
         Dim winPack As String = Application.StartupPath & "\Resources\WinPack.exe"
         Dim fontsPath As String = Application.StartupPath & "\Resources\UTFonts.win"
-        Dim inData As String = ProjectManager.GetInputDirectory & "\data.win"
-        Dim outData As String = ProjectManager.GetOutputDirectory & "\data.win"
+        Dim inData As String = GetInputDirectory() & "\data.win"
+        Dim outData As String = GetOutputDirectory() & "\data.win"
 
         If Not My.Computer.FileSystem.FileExists(winExtract) Then
             MsgBox("Error: couldn't find WinExtract.exe!", MsgBoxStyle.Exclamation, "File Not found!")
@@ -281,32 +284,27 @@ Public NotInheritable Class frmMain
             End With
         End If
 
-        Dim sr As New System.IO.StreamReader(CleanScript)
-        Dim lines() As String = IO.File.ReadAllLines(CleanScript)
-        numLines = lines.Count()
-        sr.Close()
+        CleanScriptLines = IO.File.ReadAllLines(CleanScript)
+        numLines = CleanScriptLines.Count()
 
-        Dim sr2 As New System.IO.StreamReader(TransScript)
-        Dim lines2() As String = IO.File.ReadAllLines(TransScript)
-        numLines2 = lines2.Count()
-        sr2.Close()
+        TransScriptLines = IO.File.ReadAllLines(TransScript)
+        numLines2 = TransScriptLines.Count()
 
         If numLines <> numLines2 Then
-            MsgBox("Both files must have the same number of lines", vbExclamation)
+            MsgBox("Both files must have the same number of lines!", vbExclamation)
             Exit Sub
         End If
 
         If numLines < 1 Or numLines2 < 1 Then
-            MsgBox("The files must not be empty", vbExclamation)
+            MsgBox("The files must not be empty!", vbExclamation)
             Exit Sub
         End If
 
-        Dim i As Integer
         Dim transLines As Integer = 0
         Dim untransLines As Integer = 0
-        For i = 0 To numLines - 1
-            Dim itemToAdd As New ListViewItem({i + 1, lines(i), lines2(i)})
-            If lines(i) <> lines2(i) Then
+        For i As Integer = 0 To numLines - 1
+            Dim itemToAdd As New ListViewItem({i + 1, CleanScriptLines(i), TransScriptLines(i)})
+            If CleanScriptLines(i) <> TransScriptLines(i) Then
                 itemToAdd.BackColor = Color.LightGreen
                 transLines = transLines + 1
             Else
@@ -315,6 +313,7 @@ Public NotInheritable Class frmMain
             End If
             lstStrings.Items.Add(itemToAdd)
         Next i
+
         lstStrings.Enabled = True
         TextBox1.Enabled = True
         SaveToolStripMenuItem.Enabled = True
@@ -337,6 +336,41 @@ Public NotInheritable Class frmMain
         Me.Text = "TranslaTale - " + ProjectName
 
         ProjectManager.CurrentProject = projectFilePath
+    End Sub
+
+    Private Sub ttipTranslated_Click(sender As Object, e As EventArgs) Handles ttipTranslated.Click
+        lstStrings.Items.Clear()
+        For i As Integer = 0 To CleanScriptLines.Count - 1
+            If CleanScriptLines(i) <> TransScriptLines(i) Then
+                Dim nextLine As New ListViewItem({i + 1, CleanScriptLines(i), TransScriptLines(i)})
+                nextLine.BackColor = Color.LightGreen
+                lstStrings.Items.Add(nextLine)
+            End If
+        Next i
+    End Sub
+
+    Private Sub ttipUntranslated_Click(sender As Object, e As EventArgs) Handles ttipUntranslated.Click
+        lstStrings.Items.Clear()
+        For i As Integer = 0 To CleanScriptLines.Count - 1
+            If CleanScriptLines(i) = TransScriptLines(i) Then
+                Dim nextLine As New ListViewItem({i + 1, CleanScriptLines(i), TransScriptLines(i)})
+                nextLine.BackColor = Color.LightSalmon
+                lstStrings.Items.Add(nextLine)
+            End If
+        Next i
+    End Sub
+
+    Private Sub ttipTotal_Click(sender As Object, e As EventArgs) Handles ttipTotal.Click
+        lstStrings.Items.Clear()
+        For i As Integer = 0 To CleanScriptLines.Count - 1
+            Dim nextLine As New ListViewItem({i + 1, CleanScriptLines(i), TransScriptLines(i)})
+            If CleanScriptLines(i) <> TransScriptLines(i) Then
+                nextLine.BackColor = Color.LightGreen
+            Else
+                nextLine.BackColor = Color.LightSalmon
+            End If
+            lstStrings.Items.Add(nextLine)
+        Next i
     End Sub
 
     Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbTextbox.CheckedChanged
